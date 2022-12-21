@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('department')
+    active
+@endsection
+
 @section('title')
     Department
 @endsection
@@ -17,6 +21,12 @@
                     <div class="news-header">
                         <h2>Department</h2>
                     </div>
+
+                    @if (session('success'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
 
                     <div class="table">
                         <table class="table table-nowrap">
@@ -65,6 +75,8 @@
                                             <a href="{{ route('department.edit', $department->id) }}" class="btn btn-success btn-icon waves-effect waves-light"><i class="ri-edit-2-fill"></i></a>
                                             <a href="{{ route('department.show', $department->id) }}" class="btn btn-info btn-icon waves-effect waves-light"><i class="ri-check-double-line"></i></a>
                                             <form action="{{ route('department.destroy', $department->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
                                             </form>
                                         </div>

@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
-
-<!-- Mirrored from themesbrand.com/velzon/html/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Dec 2022 04:58:43 GMT -->
 <head>
 
     <meta charset="utf-8" />
@@ -223,7 +221,7 @@
                                                         </a>
                                                         <div class="fs-13 text-muted">
                                                             <p class="mb-1">Answered to your comment on the cash flow forecast's
-                                                                graph 🔔.</p>
+                                                                graph.</p>
                                                         </div>
                                                         <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
                                                             <span><i class="mdi mdi-clock-outline"></i> 48 min ago</span>
@@ -489,6 +487,21 @@
                             <a class="nav-link menu-link" href="{{ route('dashboard') }}">
                                 <i class="ri-dashboard-2-line"></i> <span>Dashboards</span>
                             </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link @yield('department') @yield('create.department')" href="#sidebarApps" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                                <i class="ri-community-fill"></i> <span data-key="t-apps">Department</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarApps">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{ route('department.index') }}" class="nav-link @yield('department')"> All Department </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('department.create') }}" class="nav-link @yield('create.department')" data-key="t-chat"> Add Department </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
@@ -1193,7 +1206,7 @@
         <!-- Start right Content here -->
         <!-- ============================================================== -->
         <div class="main-content">
-            
+
             @yield('content')
             <!-- end main content-->
             <footer class="footer">

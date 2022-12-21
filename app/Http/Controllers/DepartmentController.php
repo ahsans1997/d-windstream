@@ -96,6 +96,7 @@ class DepartmentController extends Controller
      */
     public function destroy(Department $department)
     {
-        //
+        Department::findOrFail($department->id)->delete();
+        return back()->with('success', 'Your Department Delete Successfull.');
     }
 }

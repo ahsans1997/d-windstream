@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('create.department')
+    active
+@endsection
+
 @section('title')
     Department
 @endsection
