@@ -99,7 +99,37 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, Department $department)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'contact_info' => 'required|numeric',
+        ]);
+        $slug = Str::slug($request->name, '-');
+        Department::findOrFail($department->id)->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'contact_info' => $request->contact_info,
+            'social_link' => json_encode($request->only('facebook', 'twiter', 'linkdin')),
+            'slug' =>$slug,
+        ]);
+        if($request->hasFile('image') != "default.png"){
+            $image = Department::findOrFail($department->id)->imge;
+            $location = 'public/assets/uploads/department/'.$image;
+            unlink(base_path($location));
+            Department::findOrFail($department->id)->update([
+                'image' => "default.png",
+            ]);
+        }
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image_name = $slug.".".$image->getClientOriginalExtension();
+            $iamge_location = 'public/assets/uploads/department/'.$image_name;
+            Image::make($image)->save(base_path($iamge_location));
+            Department::findOrFail($department->id)->update([
+                'image' => $image_name,
+            ]);
+        }
+        return redirect()->route('department.index')->with('success', 'Department update successfull');
     }
 
     /**
@@ -116,6 +146,6 @@ class DepartmentController extends Controller
             unlink(base_path($iamge_location));
         }
         Department::findOrFail($department->id)->delete();
-        return back()->with('success', 'Your Department Delete Successfull.');
+        return back()->with('delete', 'Your Department Delete Successfull.');
     }
 }

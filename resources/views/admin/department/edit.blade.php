@@ -4,6 +4,10 @@
     active
 @endsection
 
+@section('department.show')
+    show
+@endsection
+
 @section('title')
     Department
 @endsection
