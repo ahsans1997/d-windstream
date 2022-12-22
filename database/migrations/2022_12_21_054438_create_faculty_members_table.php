@@ -19,7 +19,9 @@ class CreateFacultyMembersTable extends Migration
             $table->text('bio');
             $table->text('education');
             $table->text('experience');
-
+            $table->text('membership');
+            $table->text('award');
+            $table->integer('contact');
             $table->timestamps();
         });
     }

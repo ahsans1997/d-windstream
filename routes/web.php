@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\NewsController;
@@ -20,8 +21,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
-    Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('admin/news', NewsController::class);
-    Route::resource('admin/department', DepartmentController::class);
+
+Route::redirect('/admin', '/login');
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->prefix('admin')->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('department', DepartmentController::class);
+    Route::resource('category', CategoryController::class);
+    Route::resource('news', NewsController::class);
 });

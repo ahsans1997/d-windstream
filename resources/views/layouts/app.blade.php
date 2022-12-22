@@ -515,6 +515,9 @@
                                     <li class="nav-item">
                                         <a href="{{ route('news.create') }}" class="nav-link" data-key="t-chat"> Add News </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('category.index') }}" class="nav-link" data-key="t-chat"> News Category </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>

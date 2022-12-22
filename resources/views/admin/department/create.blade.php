@@ -56,7 +56,7 @@
                                 <input type="text" class="form-control" id="placeholderInput" placeholder="Department Name" name="linkdin">
                             </div>
 
-                            <button type="submit" class="btn btn-outline-success waves-effect waves-light mt-3 mb-5">Success</button>
+                            <button type="submit" class="btn btn-outline-success waves-effect waves-light mt-3 mb-5">Submit</button>
                         </form>
                     </div>
 

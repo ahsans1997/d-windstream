@@ -20,7 +20,6 @@ class CreateNewsTable extends Migration
             $table->integer('department_id');
             $table->integer('category_id');
             $table->string('slug');
-            $table->json('tags')->nullable();
             $table->string('image');
             $table->timestamps();
         });
