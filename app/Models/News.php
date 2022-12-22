@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title','description','department_id','category_id','slug','image'];
+
+    public function department(){
+        return $this->belongsTo(Department::class);
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

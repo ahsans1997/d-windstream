@@ -20,7 +20,7 @@ class CreateNewsTable extends Migration
             $table->integer('department_id');
             $table->integer('category_id');
             $table->string('slug');
-            $table->string('image');
+            $table->string('image')->default("default.png");
             $table->timestamps();
         });
     }

@@ -497,7 +497,7 @@
                             <a class="nav-link menu-link @yield('department') @yield('create.department') @yield('edit.department')" href="#department" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
                                 <i class="ri-community-fill"></i> <span data-key="t-apps">Department</span>
                             </a>
-                            <div class="collapse menu-dropdown" id="department">
+                            <div class="collapse menu-dropdown @yield('department.show')" id="department">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
                                         <a href="{{ route('department.index') }}" class="nav-link @yield('department')"> All Department </a>
@@ -509,16 +509,16 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#category" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                            <a class="nav-link menu-link @yield('news.create') @yield('news')" href="#category" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
                                 <i class="ri-apps-2-line"></i> <span data-key="t-apps">News</span>
                             </a>
-                            <div class="collapse menu-dropdown" id="category">
+                            <div class="collapse menu-dropdown @yield('news.show')" id="category">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('news.index') }}" class="nav-link"> All News </a>
+                                        <a href="{{ route('news.index') }}" class="nav-link @yield('news')"> All News </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('news.create') }}" class="nav-link" data-key="t-chat"> Add News </a>
+                                        <a href="{{ route('news.create') }}" class="nav-link @yield('news.create')" data-key="t-chat"> Add News </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('category.index') }}" class="nav-link" data-key="t-chat"> News Category </a>

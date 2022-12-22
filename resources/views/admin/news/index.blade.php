@@ -4,6 +4,14 @@
     News
 @endsection
 
+@section('news')
+    active
+@endsection
+
+@section('news.show')
+    show
+@endsection
+
 @section('content')
 
 
@@ -31,22 +39,32 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row"><a href="#" class="fw-semibold">01</a></th>
-                                    <td>Bobby Davis</td>
-                                    <td>October 15, 2021</td>
-                                    <td>October 15, 2021</td>
-                                    <td>October 15, 2021</td>
-                                    <td>$2,300</td>
-                                    <td>
-                                        {{-- <a href="{{ route('news.edit') }}" class="btn btn-success btn-sm waves-effect waves-light"><i class="ri-edit-2-fill"></i></a>
-                                        <a href="{{ route('news.show') }}" class="btn btn-info btn-sm btn-icon waves-effect waves-light"><i class="ri-check-double-line"></i></a>
-                                        <form action="{{ route('news.destroy') }}" method="post">
-                                            <button type="submit" class="btn btn-danger btn-sm btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
-                                        </form> --}}
-
-                                    </td>
-                                </tr>
+                                @forelse ($news as $n)
+                                    <tr>
+                                        <th>{{ $loop->index + 1 }}</th>
+                                        <td>{{ $n->title }}</td>
+                                        <td>{{ $n->description }}</td>
+                                        <td>{{ $n->department->name }}</td>
+                                        <td>{{ $n->category->name }}</td>
+                                        <td>
+                                            <img src="{{ asset('/') }}assets/uploads/news/{{ $n->image }}" class="img-fluid" alt="" style="width: 100px">
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <a href="{{ route('news.edit',$n->id) }}" class="btn btn-success btn-sm waves-effect waves-light"><i class="ri-edit-2-fill"></i></a>
+                                                <form action="{{ route('news.destroy',$n->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td class="text-danger text-center" colspan="50">No More Data</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
