@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('create.department')
+@section('edit.department')
     active
 @endsection
 
@@ -19,7 +19,7 @@
                 <div class="col">
 
                     <div class="news-header">
-                        <h2>Create Department</h2>
+                        <h2>Edit Department</h2>
                     </div>
                     @if (session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -28,15 +28,13 @@
                         </div>
                     @endif
 
-
-
                     <div class="news-form">
-                        <form action="{{ route('department.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('department.update',$department->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
-
+                            @method('PUT')
                             <div>
                                 <label for="placeholderInput" class="form-label">Department Name</label>
-                                <input type="text" class="form-control" id="placeholderInput" placeholder="Department Name" name="name">
+                                <input type="text" class="form-control" id="placeholderInput" placeholder="Department Name" name="name" value="{{ $department->name }}">
                             </div>
                             @error('name')
                                 <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">
@@ -46,7 +44,7 @@
                             @enderror
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Description</label>
-                                <textarea name="description" class="form-control" rows="6"></textarea>
+                                <textarea name="description" class="form-control" rows="6">{{ $department->description }}</textarea>
                             </div>
                             @error('description')
                                 <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">
@@ -56,7 +54,7 @@
                             @enderror
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Contact number</label>
-                                <input type="number" class="form-control" id="placeholderInput" placeholder="Contact Number" name="contact_info">
+                                <input type="number" class="form-control" id="placeholderInput" placeholder="Contact Number" name="contact_info" value="{{ $department->contact_info }}">
                             </div>
                             @error('contact_info')
                                 <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">
@@ -66,15 +64,27 @@
                             @enderror
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Facebook Link</label>
-                                <input type="text" class="form-control" id="placeholderInput" placeholder="Facebook" name="facebook">
+                                <input type="text" class="form-control" id="placeholderInput" placeholder="Facebook" name="facebook" value="@php
+                                    $social_link = $department->social_link;
+                                    $facebook = json_decode($social_link);
+                                    echo $facebook->facebook;
+                                @endphp">
                             </div>
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Twiter Link</label>
-                                <input type="text" class="form-control" id="placeholderInput" placeholder="Twiter" name="twiter">
+                                <input type="text" class="form-control" id="placeholderInput" placeholder="Twiter" name="twiter" value="@php
+                                    $social_link = $department->social_link;
+                                    $twiter = json_decode($social_link);
+                                    echo $twiter->twiter;
+                                @endphp">
                             </div>
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Linkdin Link</label>
-                                <input type="text" class="form-control" id="placeholderInput" placeholder="Linkdin" name="linkdin">
+                                <input type="text" class="form-control" id="placeholderInput" placeholder="Linkdin" name="linkdin" value="@php
+                                    $social_link = $department->social_link;
+                                    $linkdin = json_decode($social_link);
+                                    echo $linkdin->linkdin;
+                                @endphp">
                             </div>
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Department Image</label>

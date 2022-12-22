@@ -17,10 +17,10 @@ class CreateDepartmentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->longText('description');
-            $table->string('contact_info')->nullable();
+            $table->integer('contact_info');
             $table->string('social_link')->nullable();
             $table->string('slug');
-            $table->string('image');
+            $table->string('image')->default('default.png');
             $table->timestamps();
         });
     }

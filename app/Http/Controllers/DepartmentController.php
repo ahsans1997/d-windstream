@@ -6,6 +6,7 @@ use App\Models\Department;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class DepartmentController extends Controller
 {
@@ -39,18 +40,29 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        print_r($request->all());
-
+        $validated = $request->validate([
+            'name' => 'required|unique:departments',
+            'description' => 'required',
+            'contact_info' => 'required|numeric',
+        ]);
         $slug = Str::slug($request->name, '-');
-        Department::insert([
+        $department_id = Department::insertGetId([
             'name' => $request->name,
             'description' => $request->description,
             'contact_info' => $request->contact_info,
             'social_link' => json_encode($request->only('facebook', 'twiter', 'linkdin')),
             'slug' =>$slug,
-            'image' => 'default.png',
             'created_at' => Carbon::now(),
         ]);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image_name = $slug.".".$image->getClientOriginalExtension();
+            $iamge_location = 'public/assets/uploads/department/'.$image_name;
+            Image::make($image)->save(base_path($iamge_location));
+            Department::findOrFail($department_id)->update([
+                'image' => $image_name,
+            ]);
+        }
         return back()->with('success', 'Department Added SuccessFull.');
     }
 
@@ -73,7 +85,9 @@ class DepartmentController extends Controller
      */
     public function edit(Department $department)
     {
-        //
+        return view('admin.department.edit',[
+            'department' => Department::findOrFail($department->id),
+        ]);
     }
 
     /**
@@ -96,6 +110,11 @@ class DepartmentController extends Controller
      */
     public function destroy(Department $department)
     {
+        if(Department::findOrFail($department->id) != "default,png")
+        {
+            $iamge_location = 'public/assets/uploads/department/'.Department::findOrFail($department->id)->image;
+            unlink(base_path($iamge_location));
+        }
         Department::findOrFail($department->id)->delete();
         return back()->with('success', 'Your Department Delete Successfull.');
     }

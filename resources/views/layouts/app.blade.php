@@ -494,7 +494,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link @yield('department') @yield('create.department')" href="#department" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                            <a class="nav-link menu-link @yield('department') @yield('create.department') @yield('edit.department')" href="#department" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
                                 <i class="ri-community-fill"></i> <span data-key="t-apps">Department</span>
                             </a>
                             <div class="collapse menu-dropdown" id="department">

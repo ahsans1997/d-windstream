@@ -69,11 +69,12 @@
                                             echo $linkdin->linkdin;
                                         @endphp
                                     </td>
-                                    <td>$2,300</td>
+                                    <td>
+                                        <img src="{{ asset('/') }}assets/uploads/department/{{ $department->image }}" class="img-fluid" alt="" style="width: 100px">
+                                    </td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             <a href="{{ route('department.edit', $department->id) }}" class="btn btn-success btn-icon waves-effect waves-light"><i class="ri-edit-2-fill"></i></a>
-                                            <a href="{{ route('department.show', $department->id) }}" class="btn btn-info btn-icon waves-effect waves-light"><i class="ri-check-double-line"></i></a>
                                             <form action="{{ route('department.destroy', $department->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
