@@ -17,6 +17,7 @@ class CreateFacultyMembersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('designation');
+            $table->integer('department_id');
             $table->text('bio');
             $table->text('education');
             $table->text('experience');
