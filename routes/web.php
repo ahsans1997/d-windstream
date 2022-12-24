@@ -20,6 +20,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontendController::class, 'home'])->name('home');
+Route::get('/program', [FrontendController::class, 'program'])->name('program');
+Route::get('/news', [FrontendController::class, 'news'])->name('news');
+Route::get('/event', [FrontendController::class, 'event'])->name('event');
+Route::get('/department', [FrontendController::class, 'department'])->name('department');
+Route::get('/research', [FrontendController::class, 'research'])->name('research');
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::redirect('/admin', '/login');
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->prefix('admin')->group(function () {
