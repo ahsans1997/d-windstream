@@ -91,7 +91,11 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        //
+        return view('admin.news.edit',[
+            'news' => News::findOrFail($news->id),
+            'departments' => Department::all(),
+            'categories' => Category::all(),
+        ]);
     }
 
     /**
@@ -103,7 +107,38 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'department_id' => 'required',
+            'category_id' => 'required',
+        ]);
+        $slug = Str::slug($request->title, '-') ;
+         News::find($news->id)->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'department_id' => $request->department_id,
+            'category_id' => $request->category_id,
+            'slug' => $slug,
+         ]);
+        if($request->hasFile('image') != "default.png"){
+            $image = News::findOrFail($news->id)->image;
+            $location = 'public/assets/uploads/news/'.$image;
+            unlink(base_path($location));
+            News::findOrFail($news->id)->update([
+                'image' => "default.png",
+            ]);
+        }
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image_name = $slug.".".$image->getClientOriginalExtension();
+            $image_location = 'public/assets/uploads/news/'.$image_name;
+            Image::make($image)->save(base_path($image_location));
+            News::findOrFail($news->id)->update([
+                'image' => $image_name,
+            ]);
+        }
+        return back()->with('success', 'News update successfull.');
     }
 
     /**

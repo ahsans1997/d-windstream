@@ -113,7 +113,7 @@ class DepartmentController extends Controller
             'slug' =>$slug,
         ]);
         if($request->hasFile('image') != "default.png"){
-            $image = Department::findOrFail($department->id)->imge;
+            $image = Department::findOrFail($department->id)->image;
             $location = 'public/assets/uploads/department/'.$image;
             unlink(base_path($location));
             Department::findOrFail($department->id)->update([
@@ -123,8 +123,8 @@ class DepartmentController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
-            $iamge_location = 'public/assets/uploads/department/'.$image_name;
-            Image::make($image)->save(base_path($iamge_location));
+            $image_location = 'public/assets/uploads/department/'.$image_name;
+            Image::make($image)->save(base_path($image_location));
             Department::findOrFail($department->id)->update([
                 'image' => $image_name,
             ]);
