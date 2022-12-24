@@ -16,12 +16,15 @@ class CreateFacultyMembersTable extends Migration
         Schema::create('faculty_members', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('designation');
             $table->text('bio');
             $table->text('education');
             $table->text('experience');
+            $table->test('publication');
             $table->text('membership');
             $table->text('award');
             $table->integer('contact');
+            $table->string('image');
             $table->timestamps();
         });
     }
