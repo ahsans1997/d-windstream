@@ -113,8 +113,7 @@ class DepartmentController extends Controller
             'slug' =>$slug,
         ]);
         if($request->hasFile('image') != "default.png"){
-            $image = Department::findOrFail($department->id)->image;
-            $location = 'public/assets/uploads/department/'.$image;
+            $location = 'public/assets/uploads/department/'.Department::findOrFail($department->id)->image;
             unlink(base_path($location));
             Department::findOrFail($department->id)->update([
                 'image' => "default.png",
@@ -140,7 +139,7 @@ class DepartmentController extends Controller
      */
     public function destroy(Department $department)
     {
-        if(Department::findOrFail($department->id) != "default,png")
+        if(Department::findOrFail($department->id)->image != "default,png")
         {
             $iamge_location = 'public/assets/uploads/department/'.Department::findOrFail($department->id)->image;
             unlink(base_path($iamge_location));

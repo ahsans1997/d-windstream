@@ -509,10 +509,10 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link @yield('news.create') @yield('news')" href="#category" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                            <a class="nav-link menu-link @yield('news.create') @yield('news.edit') @yield('news')" href="#news" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
                                 <i class="ri-apps-2-line"></i> <span data-key="t-apps">News</span>
                             </a>
-                            <div class="collapse menu-dropdown @yield('news.show')" id="category">
+                            <div class="collapse menu-dropdown @yield('news.show')" id="news">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
                                         <a href="{{ route('news.index') }}" class="nav-link @yield('news')"> All News </a>
@@ -522,6 +522,21 @@
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('category.index') }}" class="nav-link" data-key="t-chat"> News Category </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link @yield('research.create') @yield('research.edit') @yield('research')" href="#research" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Research</span>
+                            </a>
+                            <div class="collapse menu-dropdown @yield('research.show')" id="research">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{ route('research.index') }}" class="nav-link @yield('research')"> All Resarch </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('research.create') }}" class="nav-link @yield('research.create')" data-key="t-chat"> Add Research </a>
                                     </li>
                                 </ul>
                             </div>

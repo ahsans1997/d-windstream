@@ -121,9 +121,8 @@ class NewsController extends Controller
             'category_id' => $request->category_id,
             'slug' => $slug,
          ]);
-        if($request->hasFile('image') != "default.png"){
-            $image = News::findOrFail($news->id)->image;
-            $location = 'public/assets/uploads/news/'.$image;
+        if(News::findOrFail($news->id)->image != "default.png"){
+            $location = 'public/assets/uploads/news/'.News::findOrFail($news->id)->image;
             unlink(base_path($location));
             News::findOrFail($news->id)->update([
                 'image' => "default.png",
@@ -149,7 +148,7 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        if(News::findOrFail($news->id) != "default,png")
+        if(News::findOrFail($news->id)->image != "default,png")
         {
             $image_location = 'public/assets/uploads/news/'.News::findOrFail($news->id)->image;
             unlink(base_path($image_location));

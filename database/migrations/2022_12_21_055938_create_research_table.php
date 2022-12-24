@@ -15,8 +15,9 @@ class CreateResearchTable extends Migration
     {
         Schema::create('research', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
             $table->longText('description');
+            $table->string('slug');
             $table->integer('department_id');
             $table->string('image')->default('default.png');
             $table->string('file')->nullable();

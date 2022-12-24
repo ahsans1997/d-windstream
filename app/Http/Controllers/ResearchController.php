@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\Research;
+use Carbon\Carbon;
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class ResearchController extends Controller
 {
@@ -14,7 +20,9 @@ class ResearchController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.research.index',[
+            'researches' => Research::all(),
+        ]);
     }
 
     /**
@@ -24,7 +32,9 @@ class ResearchController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.research.create',[
+            'departments' => Department::all(),
+        ]);
     }
 
     /**
@@ -35,7 +45,38 @@ class ResearchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|unique:research',
+            'description' => 'required',
+            'department_id' => 'required',
+        ]);
+        $slug = Str::slug($request->title, '-');
+        $research_id = Research::insertGetId([
+            'title' => $request->title,
+            'description' => $request->description,
+            'department_id' => $request->department_id,
+            'slug' => $slug,
+            'approve' => 1,
+            'created_at' => Carbon::now(),
+        ]);
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $image_name = $slug.".".$image->getClientOriginalExtension();
+            $image_location = 'public/assets/uploads/research/'.$image_name;
+            Image::make($image)->save(base_path($image_location));
+            Research::findOrFail($research_id)->update([
+                'image' => $image_name,
+            ]);
+        }
+        if($request->hasFile('file')){
+            $path = $request->file('file')->storeAs(
+                'research', $slug.".".$request->file('file')->getClientOriginalExtension()
+            );
+            Research::findOrFail($research_id)->update([
+                'file' => $path,
+            ]);
+        }
+        return back()->with('success', 'Research add successfull');
     }
 
     /**
@@ -57,7 +98,10 @@ class ResearchController extends Controller
      */
     public function edit(Research $research)
     {
-        //
+        return view('admin.research.edit',[
+            'departments' => Department::all(),
+            'research' => Research::findOrFail($research->id),
+        ]);
     }
 
     /**
@@ -69,7 +113,47 @@ class ResearchController extends Controller
      */
     public function update(Request $request, Research $research)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'department_id' => 'required',
+        ]);
+        $slug = Str::slug($request->title, '-');
+        Research::findOrFail($research->id)->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'department_id' => $request->department_id,
+            'slug' => $slug,
+            'approve' => 1,
+        ]);
+        if (Research::findOrFail($research->id)->image != "default.png") {
+            $location = 'public/assets/uploads/research/'.Research::findOrFail($research->id)->image;
+            unlink(base_path($location));
+            Research::findOrFail($research->id)->update([
+                'image' => "default.png",
+            ]);
+        }
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $image_name = $slug.".".$image->getClientOriginalExtension();
+            $image_location = 'public/assets/uploads/research/'.$image_name;
+            Image::make($image)->save(base_path($image_location));
+            Research::findOrFail($research->id)->update([
+                'image' => $image_name,
+            ]);
+        }
+        if (Research::findOrFail($research->id)->file != ""){
+            Storage::delete(Research::findOrFail($research->id)->file);
+        }
+        if($request->hasFile('file')){
+            $path = $request->file('file')->storeAs(
+                'research', $slug.".".$request->file('file')->getClientOriginalExtension()
+            );
+            Research::findOrFail($research->id)->update([
+                'file' => $path,
+            ]);
+        }
+        return back()->with('success', 'Research edit successfull');
     }
 
     /**
@@ -80,6 +164,14 @@ class ResearchController extends Controller
      */
     public function destroy(Research $research)
     {
-        //
+        if (Research::findOrFail($research->id)->image != "default.png"){
+            $image_location = 'public/assets/uploads/research/'.Research::findOrFail($research->id)->image;
+            unlink(base_path($image_location));
+        }
+        if (Research::findOrFail($research->id)->file != ""){
+            Storage::delete(Research::findOrFail($research->id)->file);
+        }
+        Research::findOrFail($research->id)->delete();
+        return back()->with('delete', 'delete complete');
     }
 }
