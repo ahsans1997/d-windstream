@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="logo">
-                                <a href="index.html"><img src="asset/img/niterlogo.png" alt=""></a>
+                                <a href="index.html"><img src="{{ asset('/') }}frontend_asset/img/niterlogo.png" alt=""></a>
                             </div>
                             <div class="search">
                                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -126,7 +126,7 @@
                 <div class="row">
                     <div class="col-md-12" style="height:100px;">
                         <div class="footer-left">
-                            <img src="asset/img/niterlogo.png" alt="">
+                            <img src="{{ asset('/') }}frontend_asset/img/niterlogo.png" alt="">
                         </div>
                         <div class="footer-right">
                             <nav>

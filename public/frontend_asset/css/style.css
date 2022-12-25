@@ -672,3 +672,37 @@ ul,li{
 .event-p-body a{
     width: 100%;
 }
+
+
+/* Contact CSS */
+
+.contact-header h2{
+    text-align: center;
+    font-weight: 900;
+    font-size: 60px;
+}
+
+.contact-info{
+    margin-top: 40px;
+}
+
+.contact-body{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 15px;
+}
+
+.contact-body i{
+    font-size: 45px;
+    float: left;
+}
+
+.contact-body-info{
+    margin-left: 65px;
+}
+
+.contact-map h3{
+    margin-top: 50px;
+}
+.contact-map iframe{
+    width: 100%;
+}
