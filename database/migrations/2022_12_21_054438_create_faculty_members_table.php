@@ -21,7 +21,7 @@ class CreateFacultyMembersTable extends Migration
             $table->text('bio');
             $table->text('education');
             $table->text('experience');
-            $table->test('publication');
+            $table->text('publication');
             $table->text('membership');
             $table->text('award');
             $table->integer('contact');
