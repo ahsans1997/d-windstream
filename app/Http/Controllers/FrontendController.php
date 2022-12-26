@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
     public function home()
     {
-        return view('index');
+        return view('index',[
+            'departments' => Department::all(),
+            'department-count' => Department::all()->count(),
+        ]);
     }
     public function program()
     {

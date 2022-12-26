@@ -89,15 +89,15 @@
                 </div>
                 <div class="col-md-12 seven-schools-in-which-to-pursue-your-passions">
                     <h3><b>Seven schools in which to pursue your passions</b></h3>
-                    <ul>
-                        <li><a href="">Medicine</a></li>
-                        <li><a href="">Law</a></li>
-                        <li><a href="">Humanities & Sciences</a></li>
-                        <li><a href="">Engineering</a></li>
-                        <li><a href="">Education</a></li>
-                        <li><a href="">Sustainability</a></li>
-                        <li><a href="">Business</a></li>
-                    </ul>
+                    <div class="home-departments">
+                        <nav>
+                            <ul>
+                                @foreach ($departments as $department)
+                                    <li><a href="{{ route('department.single',$department->slug) }}">{{ $department->department_short_form }}</a></li>
+                                @endforeach
+                            </ul>
+                        </nav>
+                    </div>
                     <h5><a href="">More About Academics</a></h5>
                 </div>
             </div>
@@ -423,6 +423,7 @@
                         <ul>
                             <li><a href="">Historical Overview</a></li>
                             <li><a href="">Vision & Mission</a></li>
+                            <li><a href="">Faculty Member</a></li>
                         </ul>
                     </div>
                 </div>

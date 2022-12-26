@@ -103,6 +103,7 @@
                         <ul>
                             <li><a href="">Historical Overview</a></li>
                             <li><a href="">Vision & Mission</a></li>
+                            <li><a href="">Faculty Member</a></li>
                         </ul>
                     </div>
                 </div>

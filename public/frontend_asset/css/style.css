@@ -60,13 +60,16 @@ ul,li{
     border-bottom: 3px solid #000;
 }
 
+.menu{
+    text-align: center;
+}
 
 .menu ul{
-    float: left;
-    padding: 0 102px;
+    margin: 0 auto;
+    display: inline;
 }
 .menu ul li{
-    float: left;
+    display: inline-block;
     padding: 10px 22px;
 }
 .menu ul li a{
@@ -126,11 +129,15 @@ ul,li{
     font-weight: 900;
 }
 
-.seven-schools-in-which-to-pursue-your-passions ul{
-    padding: 10px 123px;
+.home-departments{
+    text-align: center;
+}
+.home-departments ul{
+    margin: 0 auto;
+    display: inline-block;
 }
 .seven-schools-in-which-to-pursue-your-passions ul li{
-    float: left;
+    display: inline-block;
     padding: 0px 8px;
     border-right: 2px solid #000;
     line-height: 22px;
@@ -584,6 +591,19 @@ ul,li{
     width: 100%;
 }
 
+/* Department Single */
+
+.departmnet-news{
+    margin-top: 70px;
+}
+.department-event{
+    margin-top: 50px;
+}
+.department-facultymember{
+    margin-top: 50px;
+}
+
+
 /* News CSS */
 
 .news-header{
@@ -611,6 +631,24 @@ ul,li{
 }
 .news-body a{
     width: 100%;
+}
+
+/* News Single */
+
+.news-single-body{
+    margin-top: 40px;
+}
+.news-single-body button{
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.news-single-body h2{
+    font-size: 65px;
+}
+
+.news-description{
+    margin-top: 25px;
 }
 
 /* Events CSS */
@@ -703,4 +741,57 @@ ul,li{
 }
 .contact-map iframe{
     width: 100%;
+}
+
+
+/* Notice CSS */
+
+
+.notice-single-body button{
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.notice-single-body h2{
+    font-size: 65px;
+}
+
+.notice-description{
+    margin-top: 25px;
+}
+
+/* program single  */
+
+
+
+.tabbox button.active {
+    background: #3E2D79 !important;
+    color: #fff !important;
+}
+
+.tabbox button {
+    cursor: pointer !important;
+}
+
+.program-single .card-header {
+    background: #3E2D79;
+    padding: 0;
+}
+
+.program-single .card-header h5 button {
+    color: #fff;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.program-single .modal-title{
+    color: #fff;
+}
+
+.program-single .modal-dialog {
+    margin-top: 10%;
+}
+.right-bar{
+    border-right: 1px solid #ddd;
 }
