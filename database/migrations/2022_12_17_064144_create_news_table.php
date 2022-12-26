@@ -21,6 +21,8 @@ class CreateNewsTable extends Migration
             $table->integer('category_id');
             $table->string('slug');
             $table->string('image')->default("default.png");
+            $table->integer('featured')->default(1);
+            $table->integer('action')->default(1);
             $table->timestamps();
         });
     }

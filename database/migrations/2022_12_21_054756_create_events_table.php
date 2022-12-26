@@ -18,18 +18,16 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->longText('description');
             $table->integer('department_id');
-            $table->string('location');
-            $table->string('venue');
-            $table->string('organisation');
-            $table->integer('organisation_contact');
-            $table->string('map');
+            $table->string('venue')->nullable();
+            $table->string('organisation')->nullable();
             $table->integer('price')->nullable();
-            $table->dateTime('registration_start');
-            $table->dateTime('registration_end');
-            $table->integer('maximum_sit');
+            $table->dateTime('registration_start')->nullable();
+            $table->dateTime('registration_end')->nullable();
+            $table->integer('maximum_sit')->nullable();
             $table->dateTime('datetime');
             $table->string('slug');
             $table->string('image')->default('default.png');
+            $table->integer('featured')->default(1);
             $table->timestamps();
         });
     }
