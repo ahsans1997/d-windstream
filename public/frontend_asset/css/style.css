@@ -215,7 +215,7 @@ li {
 
 .news-header h2 {
     text-align: center;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     font-size: 45px;
     font-weight: 900;
 }
@@ -332,7 +332,7 @@ li {
 
 .research-top h3 {
     text-align: center;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     font-size: 45px;
     font-weight: 900;
 }
@@ -410,7 +410,7 @@ li {
 
 .event-header h3 {
     text-align: center;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     margin-bottom: 25px;
     font-size: 45px;
     font-weight: 900;
@@ -500,7 +500,7 @@ li {
 
 .h-about-header h3 {
     text-align: center;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     font-size: 45px;
     font-weight: 900;
 }
