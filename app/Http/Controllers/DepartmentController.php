@@ -112,14 +112,15 @@ class DepartmentController extends Controller
             'social_link' => json_encode($request->only('facebook', 'twiter', 'linkdin')),
             'slug' =>$slug,
         ]);
-        if($request->hasFile('image') != "default.png"){
-            $location = 'public/assets/uploads/department/'.Department::findOrFail($department->id)->image;
-            unlink(base_path($location));
-            Department::findOrFail($department->id)->update([
-                'image' => "default.png",
-            ]);
-        }
+
         if ($request->hasFile('image')) {
+            if(Department::findOrFail($department->id)->image != "default.png"){
+                $location = 'public/assets/uploads/department/'.Department::findOrFail($department->id)->image;
+                unlink(base_path($location));
+                Department::findOrFail($department->id)->update([
+                    'image' => "default.png",
+                ]);
+            }
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
             $image_location = 'public/assets/uploads/department/'.$image_name;

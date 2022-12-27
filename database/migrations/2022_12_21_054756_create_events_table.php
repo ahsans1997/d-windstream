@@ -19,7 +19,7 @@ class CreateEventsTable extends Migration
             $table->longText('description');
             $table->integer('department_id');
             $table->string('venue')->nullable();
-            $table->string('organisation')->nullable();
+            $table->string('organization')->nullable();
             $table->integer('price')->nullable();
             $table->dateTime('registration_start')->nullable();
             $table->dateTime('registration_end')->nullable();
