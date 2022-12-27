@@ -113,7 +113,7 @@
         <div class="footer-end" style="background-color: #bbffd4;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12" style="height:100px;">
+                    <div class="col-md-12">
                         <div class="footer-left">
                             <img src="{{ asset('/') }}frontend_asset/img/niterlogo.png" alt="">
                         </div>

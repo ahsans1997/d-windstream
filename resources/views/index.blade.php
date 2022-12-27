@@ -26,8 +26,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="logo">
-                                <a href="index.html"><img src="{{ asset('/') }}frontend_asset/img/niterlogo.png"
-                                        alt=""></a>
+                                <a href="{{ url('/') }}"><img
+                                        src="{{ asset('/') }}frontend_asset/img/niterlogo.png" alt=""></a>
                             </div>
                             <div class="search">
                                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -98,7 +98,7 @@
                     <a href="">Sustainability Accelerator <i class="fa-solid fa-angle-right"></i></a>
                 </div>
                 <div class="col-md-12 seven-schools-in-which-to-pursue-your-passions">
-                    <h3>{{ ucwords(numberToWord($departments->count())) }}  schools in which to pursue your passions</h3>
+                    <h3>{{ ucwords(numberToWord($departments->count())) }} schools in which to pursue your passions</h3>
                     <div class="home-departments">
                         <nav>
                             <ul>
@@ -211,7 +211,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <h3><b>19 Institutes</b></h3>
+                                    <h3 class="counter"><span id="counter">0</span> Institutes</h3>
                                     <p>cross disciplinary boundaries</p>
                                 </div>
                                 <div class="col-md-4">
@@ -506,7 +506,7 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
+    </script>    
     <script>
         $(window).scroll(function() {
             if ($(window).scrollTop()) {
@@ -521,6 +521,7 @@
             }
         });
     </script>
+
 </body>
 
 </html>
