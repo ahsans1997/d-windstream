@@ -26,7 +26,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="logo">
-                                <a href="index.html"><img src="{{ asset('/') }}frontend_asset/img/niterlogo.png" alt=""></a>
+                                <a href="index.html"><img src="{{ asset('/') }}frontend_asset/img/niterlogo.png"
+                                        alt=""></a>
                             </div>
                             <div class="search">
                                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -40,20 +41,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="menu">
-                                <nav>
-                                    <ul>
-                                        <li><a href="{{ route('home') }}">Home</a></li>
-                                        <li><a href="{{ route('program') }}">Programs</a></li>
-                                        <li><a href="{{ route('news') }}">News</a></li>
-                                        <li><a href="{{ route('event') }}">Events</a></li>
-                                        <li><a href="{{ route('department') }}">Department</a></li>
-                                        <li><a href="{{ route('about') }}">About</a></li>
-                                        <li><a href="{{ route('research') }}">Research</a></li>
-                                        <li><a href="{{ route('contact') }}">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
+                            @include('nav')
                         </div>
                     </div>
                 </div>
@@ -64,8 +52,8 @@
 
     @yield('content')
 
-       <!-- Footer Start -->
-       <footer>
+    <!-- Footer Start -->
+    <footer>
         <div class="social-link">
             <div class="container">
                 <div class="row">
