@@ -126,14 +126,15 @@ class ResearchController extends Controller
             'slug' => $slug,
             'approve' => 1,
         ]);
-        if (Research::findOrFail($research->id)->image != "default.png") {
-            $location = 'public/assets/uploads/research/'.Research::findOrFail($research->id)->image;
-            unlink(base_path($location));
-            Research::findOrFail($research->id)->update([
-                'image' => "default.png",
-            ]);
-        }
+
         if($request->hasFile('image')){
+            if (Research::findOrFail($research->id)->image != "default.png") {
+                $location = 'public/assets/uploads/research/'.Research::findOrFail($research->id)->image;
+                unlink(base_path($location));
+                Research::findOrFail($research->id)->update([
+                    'image' => "default.png",
+                ]);
+            }
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
             $image_location = 'public/assets/uploads/research/'.$image_name;

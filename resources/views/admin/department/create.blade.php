@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col">
 
-                    <div class="news-header">
+                    <div class="header">
                         <h2>Create Department</h2>
                     </div>
                     @if (session('success'))
@@ -34,7 +34,7 @@
 
 
 
-                    <div class="news-form">
+                    <div class="form">
                         <form action="{{ route('department.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
 

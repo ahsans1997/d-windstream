@@ -230,7 +230,7 @@
                             <a class="nav-link menu-link @yield('research.create') @yield('research.edit') @yield('research')"
                                 href="#research" data-bs-toggle="collapse" role="button" aria-expanded="false"
                                 aria-controls="sidebarApps">
-                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Research</span>
+                                <i class="lab la-researchgate"></i> <span data-key="t-apps">Research</span>
                             </a>
                             <div class="collapse menu-dropdown @yield('research.show')" id="research">
                                 <ul class="nav nav-sm flex-column">
@@ -241,6 +241,46 @@
                                     <li class="nav-item">
                                         <a href="{{ route('research.create') }}"
                                             class="nav-link @yield('research.create')" data-key="t-chat"> Add Research
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link @yield('event.create') @yield('event.edit') @yield('event')"
+                                href="#event" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                                aria-controls="sidebarApps">
+                                <i class="ri-calendar-event-line"></i> <span data-key="t-apps">Event</span>
+                            </a>
+                            <div class="collapse menu-dropdown @yield('event.show')" id="event">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{ route('event.index') }}" class="nav-link @yield('event')"> All
+                                            Event </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('event.create') }}"
+                                            class="nav-link @yield('event.create')" data-key="t-chat"> Add Event
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link @yield('notice.create') @yield('notice.edit') @yield('notice')"
+                                href="#notice" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                                aria-controls="sidebarApps">
+                                <i class="ri-calendar-event-line"></i> <span data-key="t-apps">Notice</span>
+                            </a>
+                            <div class="collapse menu-dropdown @yield('notice.show')" id="notice">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{ route('notice.index') }}" class="nav-link @yield('notice')"> All
+                                            Notice </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('notice.create') }}"
+                                            class="nav-link @yield('notice.create')" data-key="t-chat"> Add Notice
                                         </a>
                                     </li>
                                 </ul>

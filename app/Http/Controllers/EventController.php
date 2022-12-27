@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use App\Models\Event;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class EventController extends Controller
 {
@@ -15,7 +18,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.event.index',[
+            'events' => Event::all(),
+        ]);
     }
 
     /**
@@ -38,7 +43,37 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|unique:events',
+            'description' => 'required',
+            'department_id' => 'required',
+            'datetime' => 'required',
+        ]);
+        $slug = Str::slug($request->title, '-');
+        $event_id = Event::insertGetId([
+            'title' => $request->title,
+            'description' => $request->description,
+            'department_id' => $request->department_id,
+            'venue' => $request->venue,
+            'datetime' => $request->datetime,
+            'organization' => $request->organization,
+            'price' => $request->price,
+            'registration_start' => $request->registration_start,
+            'registration_end' => $request->registration_end,
+            'maximum_sit' => $request->maximum_sit,
+            'slug' => $slug,
+            'created_at' => Carbon::now(),
+        ]);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image_name = $slug.".".$image->getClientOriginalExtension();
+            $iamge_location = 'public/assets/uploads/events/'.$image_name;
+            Image::make($image)->save(base_path($iamge_location));
+            Event::findOrFail($event_id)->update([
+                'image' => $image_name,
+            ]);
+        }
+        return back()->with('success', 'Event Added SuccessFull.');
     }
 
     /**
@@ -60,7 +95,10 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view('admin.event.edit',[
+            'event' => Event::findOrFail($event->id),
+            'departments' => Department::all(),
+        ]);
     }
 
     /**
@@ -72,7 +110,45 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|unique:events',
+            'description' => 'required',
+            'department_id' => 'required',
+            'datetime' => 'required',
+        ]);
+        $slug = Str::slug($request->title, '-');
+        Event::findOrFail($event->id)->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'department_id' => $request->department_id,
+            'venue' => $request->venue,
+            'datetime' => $request->datetime,
+            'organization' => $request->organization,
+            'price' => $request->price,
+            'registration_start' => $request->registration_start,
+            'registration_end' => $request->registration_end,
+            'maximum_sit' => $request->maximum_sit,
+            'slug' => $slug,
+            'created_at' => Carbon::now(),
+        ]);
+
+        if ($request->hasFile('image')) {
+            if(Event::findOrFail($$event->id)->image != "default.png"){
+                $location = 'public/assets/uploads/events/'.Event::findOrFail($$event->id)->image;
+                unlink(base_path($location));
+                Event::findOrFail($event->id)->update([
+                    'image' => "default.png",
+                ]);
+            }
+            $image = $request->file('image');
+            $image_name = $slug.".".$image->getClientOriginalExtension();
+            $iamge_location = 'public/assets/uploads/events/'.$image_name;
+            Image::make($image)->save(base_path($iamge_location));
+            Event::findOrFail($$event->id)->update([
+                'image' => $image_name,
+            ]);
+        }
+        return redirect()->route('event.index')->with('success', 'Event Added SuccessFull.');
     }
 
     /**
@@ -83,6 +159,12 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        if(Event::findOrFail($event->id)->image != "default.png")
+        {
+            $image_location = 'public/assets/uploads/events/'.Event::findOrFail($event->id)->image;
+            unlink(base_path($image_location));
+        }
+        Event::findOrFail($event->id)->delete();
+        return back()->with('delete', 'Event Delete Successfull.');
     }
 }
