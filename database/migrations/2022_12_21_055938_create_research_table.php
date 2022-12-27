@@ -22,6 +22,7 @@ class CreateResearchTable extends Migration
             $table->string('image')->default('default.png');
             $table->string('file')->nullable();
             $table->integer('approve')->nullable();
+            $table->integer('featured')->default(1);
             $table->timestamps();
         });
     }

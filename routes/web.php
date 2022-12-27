@@ -5,9 +5,12 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\FacultyMemberController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\ResearchController;
+use Barryvdh\Debugbar\DataCollector\EventCollector;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +29,7 @@ Route::get('/program', [FrontendController::class, 'program'])->name('program');
 Route::get('/news', [FrontendController::class, 'news'])->name('news');
 Route::get('/event', [FrontendController::class, 'event'])->name('event');
 Route::get('/department', [FrontendController::class, 'department'])->name('department');
-Route::get('/department/single', [FrontendController::class, 'department'])->name('department.single');
+Route::get('/department/{slug}', [FrontendController::class, 'department'])->name('department.single');
 Route::get('/research', [FrontendController::class, 'research'])->name('research');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
@@ -39,4 +42,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('news', NewsController::class);
     Route::resource('research', ResearchController::class);
     Route::resource('faculty', FacultyController::class);
+    Route::resource('notice', NoticeController::class);
+    Route::resource('event', EventController::class);
 });
