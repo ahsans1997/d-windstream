@@ -28,6 +28,8 @@
     <link href="{{ asset('/') }}assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="{{ asset('/') }}assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('/') }}assets/libs/toastr/toastr.min.css">
+
 
 </head>
 
@@ -285,6 +287,22 @@
                             </div>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#faculty" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Faculty</span>
+                            </a>
+                            <div class="collapse menu-dropdown " id="faculty">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{ route('faculty.index') }}" class="nav-link">Faculty</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('faculty.create') }}" class="nav-link" data-key="t-chat">Add Faculty</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
 
                     </ul>
                 </div>
@@ -361,6 +379,20 @@
 
     <!-- App js -->
     <script src="{{ asset('/') }}assets/js/app.js"></script>
+    <script src="{{ asset('/') }}assets/libs/jquery/jquery.min.js"></script>
+    <script src="{{ asset('/') }}assets/libs/toastr/toastr.min.js"></script>
+    {!! Toastr::message() !!}
+    <script type="text/javascript">
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                toastr.error('{{ $error }}', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                });
+            @endforeach
+        @endif
+
+    </script>
 </body>
 
 

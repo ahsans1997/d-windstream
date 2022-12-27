@@ -98,7 +98,7 @@
                     <a href="">Sustainability Accelerator <i class="fa-solid fa-angle-right"></i></a>
                 </div>
                 <div class="col-md-12 seven-schools-in-which-to-pursue-your-passions">
-                    <h3><b>Seven schools in which to pursue your passions</b></h3>
+                    <h3>{{ ucwords(numberToWord($departments->count())) }}  schools in which to pursue your passions</h3>
                     <div class="home-departments">
                         <nav>
                             <ul>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFacultyMembersTable extends Migration
+class CreateFacultiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateFacultyMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('faculty_members', function (Blueprint $table) {
+        Schema::create('faculties', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('designation');
-            $table->foreignId('department_id');
-            $table->foreignId('faculty_id');
-            $table->text('bio');
-            $table->integer('contact');
-            $table->string('image')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ class CreateFacultyMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faculty_members');
+        Schema::dropIfExists('faculties');
     }
 }

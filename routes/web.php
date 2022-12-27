@@ -3,6 +3,8 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\FacultyMemberController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewsController;
@@ -39,6 +41,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('category', CategoryController::class);
     Route::resource('news', NewsController::class);
     Route::resource('research', ResearchController::class);
+    Route::resource('faculty', FacultyController::class);
     Route::resource('notice', NoticeController::class);
     Route::resource('event', EventController::class);
 });
