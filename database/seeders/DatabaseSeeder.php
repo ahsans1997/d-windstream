@@ -20,5 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(NewsSeeder::class);
         $this->call(ResearchSeeder::class);
         $this->call(EventSeeder::class);
+        $this->call(CountrySeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(YearSeeder::class);
     }
 }

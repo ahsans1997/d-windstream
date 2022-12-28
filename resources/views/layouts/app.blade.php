@@ -29,8 +29,11 @@
     <!-- custom Css-->
     <link href="{{ asset('/') }}assets/css/custom.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('/') }}assets/libs/toastr/toastr.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.css">
 
+    <style>
 
+    </style>
 </head>
 
 <body>
@@ -63,9 +66,7 @@
                             </a>
                         </div>
 
-                        <button type="button"
-                            class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
-                            id="topnav-hamburger-icon">
+                        <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger" id="topnav-hamburger-icon">
                             <span class="hamburger-icon">
                                 <span></span>
                                 <span></span>
@@ -259,6 +260,12 @@
                                     <li class="nav-item">
                                         <a href="{{ route('faculty.create') }}" class="nav-link" data-key="t-chat">Add Faculty</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('faculty-member.index') }}" class="nav-link">Faculty Member</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('faculty-member.create') }}" class="nav-link" data-key="t-chat">Add Faculty Member</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -341,8 +348,15 @@
     <script src="{{ asset('/') }}assets/js/app.js"></script>
     <script src="{{ asset('/') }}assets/libs/jquery/jquery.min.js"></script>
     <script src="{{ asset('/') }}assets/libs/toastr/toastr.min.js"></script>
+    <script src="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.js"></script>
     {!! Toastr::message() !!}
     <script type="text/javascript">
+
+
+        // $( ".datepicker" ).datepicker();
+        $(document).on('click', '.datepicker', function(){
+            $(this).datepicker().focus();
+        });
         @if ($errors->any())
             @foreach ($errors->all() as $error)
                 toastr.error('{{ $error }}', 'Error', {
@@ -353,6 +367,9 @@
         @endif
 
     </script>
+
+@stack('script')
+
 </body>
 
 
