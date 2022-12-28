@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col">
 
-                    <div class="news-header">
+                    <div class="header">
                         <h2>Edit Department</h2>
                     </div>
                     @if (session('success'))
@@ -32,7 +32,7 @@
                         </div>
                     @endif
 
-                    <div class="news-form">
+                    <div class="form">
                         <form action="{{ route('department.update',$department->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')

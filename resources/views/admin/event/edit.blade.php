@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('event.create')
+@section('event.edit')
     active
 @endsection
 
@@ -28,12 +28,12 @@
                     </div>
                 @endif
                 <div class="form mt-3">
-                    <form action="{{ route('event.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('event.update',$event->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
-
+                        @method("PUT")
                         <div>
                             <label for="placeholderInput" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="placeholderInput" placeholder="Title" name="title">
+                            <input type="text" class="form-control" id="placeholderInput" value="{{ $event->title }}" name="title">
                         </div>
                         @error('title')
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -42,7 +42,7 @@
                         @enderror
                         <div class="mt-2">
                             <label for="placeholderInput" class="form-label">Description</label>
-                            <textarea name="description" class="form-control" rows="6"></textarea>
+                            <textarea name="description" class="form-control" rows="6">{{ $event->description }}</textarea>
                         </div>
                         @error('description')
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -65,7 +65,7 @@
                         @enderror
                         <div>
                             <label for="placeholderInput" class="form-label">Venue</label>
-                            <input type="text" class="form-control" id="placeholderInput" placeholder="Venue" name="venue">
+                            <input type="text" class="form-control" id="placeholderInput" value="{{ $event->venue }}" name="venue">
                         </div>
                         @error('venue')
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -74,7 +74,7 @@
                         @enderror
                         <div class="mt-2">
                             <label for="placeholderInput" class="form-label">Date & time</label>
-                            <input type="datetime-local" class="form-control" id="placeholderInput" name="datetime">
+                            <input type="datetime-local" class="form-control" id="placeholderInput" value="{{ $event->datetime }}" name="datetime">
                         </div>
                         @error('datetime')
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -83,7 +83,7 @@
                         @enderror
                         <div>
                             <label for="placeholderInput" class="form-label">Organization</label>
-                            <input type="text" class="form-control" id="placeholderInput" placeholder="Organization" name="organization">
+                            <input type="text" class="form-control" id="placeholderInput" value="{{ $event->organization }}" name="organization">
                         </div>
                         @error('organization')
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -92,7 +92,7 @@
                         @enderror
                         <div>
                             <label for="placeholderInput" class="form-label">Price</label>
-                            <input type="number" class="form-control" id="placeholderInput" placeholder="Price" name="price">
+                            <input type="number" class="form-control" id="placeholderInput" value="{{ $event->price }}" name="price">
                         </div>
                         @error('price')
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -101,7 +101,7 @@
                         @enderror
                         <div>
                             <label for="placeholderInput" class="form-label">Registation Start</label>
-                            <input type="date" class="form-control" id="placeholderInput" name="registration_start">
+                            <input type="date" class="form-control" id="placeholderInput" value="{{ $event->registration_start }}" name="registration_start">
                         </div>
                         @error('registration_start')
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -110,7 +110,7 @@
                         @enderror
                         <div>
                             <label for="placeholderInput" class="form-label">Registration End</label>
-                            <input type="date" class="form-control" id="placeholderInput" name="registration_end">
+                            <input type="date" class="form-control" id="placeholderInput" value="{{ $event->registration_end }}" name="registration_end">
                         </div>
                         @error('registration_end')
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -119,7 +119,7 @@
                         @enderror
                         <div>
                             <label for="placeholderInput" class="form-label">Maximum Sit</label>
-                            <input type="number" class="form-control" id="placeholderInput" placeholder="Maximum Sit" name="maximum_sit">
+                            <input type="number" class="form-control" id="placeholderInput" value="{{ $event->maximum_sit }}" name="maximum_sit">
                         </div>
                         @error('registration_end')
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">

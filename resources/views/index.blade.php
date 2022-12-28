@@ -26,8 +26,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="logo">
-                                <a href="index.html"><img src="{{ asset('/') }}frontend_asset/img/niterlogo.png"
-                                        alt=""></a>
+                                <a href="{{ url('/') }}"><img
+                                        src="{{ asset('/') }}frontend_asset/img/niterlogo.png" alt=""></a>
                             </div>
                             <div class="search">
                                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -98,7 +98,7 @@
                     <a href="">Sustainability Accelerator <i class="fa-solid fa-angle-right"></i></a>
                 </div>
                 <div class="col-md-12 seven-schools-in-which-to-pursue-your-passions">
-                    <h3>{{ ucwords(numberToWord($departments->count())) }}  schools in which to pursue your passions</h3>
+                    <h3>{{ ucwords(numberToWord($departments->count())) }} schools in which to pursue your passions</h3>
                     <div class="home-departments">
                         <nav>
                             <ul>
@@ -211,15 +211,15 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <h3><b>19 Institutes</b></h3>
+                                    <h3 class="counter"><span data-max="5"></span> Institutes</h3>
                                     <p>cross disciplinary boundaries</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <h3><b>20 Libraries</b></h3>
+                                    <h3><b><span  data-max="20"></span> Libraries</b></h3>
                                     <p>hold over 9.5 million volumes</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <h3><b>$1.69 Billion</b></h3>
+                                    <h3><b>$<span data-max="1.93">0</span> Billion</b></h3>
                                     <p>sponsored research budget</p>
                                 </div>
                             </div>
@@ -381,19 +381,19 @@
                 <div class="col-md-4">
                     <div class="h-about-body">
                         <h5>Opening In</h5>
-                        <h3><b>1979</b></h3>
+                        <h3><span data-max="1979"></span></h3>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="h-about-body">
                         <h5>Student</h5>
-                        <h3><b>1,712</b></h3>
+                        <h3><span data-max="1712"></span></h3>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="h-about-body">
                         <h5>Faculty</h5>
-                        <h3><b>10+</b></h3>
+                        <h3><span data-max="10"></span></h3>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -498,9 +498,7 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
@@ -519,6 +517,57 @@
             } else {
                 $(".header-bottom").removeClass("header-white");
             }
+        });
+    </script>
+
+    <script>
+        function inVisible(element) {
+            //Checking if the element is
+            //visible in the viewport
+            var WindowTop = $(window).scrollTop();
+            var WindowBottom = WindowTop + $(window).height();
+            var ElementTop = element.offset().top;
+            var ElementBottom = ElementTop + element.height();
+            //animating the element if it is
+            //visible in the viewport
+            if ((ElementBottom <= WindowBottom) && ElementTop >= WindowTop)
+                animate(element);
+        }
+
+        function animate(element) {
+            //Animating the element if not animated before
+            if (!element.hasClass('ms-animated')) {
+                var maxval = element.data('max');
+                var html = element.html();
+                element.addClass("ms-animated");
+                $({
+                    countNum: element.html()
+                }).animate({
+                    countNum: maxval
+                }, {
+                    //duration 5 seconds
+                    duration: 2000,
+                    easing: 'linear',
+                    step: function() {
+                        element.html(Math.floor(this.countNum) + html);
+                    },
+                    complete: function() {
+                        element.html(this.countNum + html);
+                    }
+                });
+            }
+        }
+        //When the document is ready
+        $(function() {
+            //This is triggered when the
+            //user scrolls the page
+            $(window).scroll(function() {
+                //Checking if each items to animate are
+                //visible in the viewport
+                $("span[data-max]").each(function() {
+                    inVisible($(this));
+                });
+            })
         });
     </script>
 </body>

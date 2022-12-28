@@ -926,9 +926,116 @@ li {
     border-right: 1px solid #ddd;
 }
 
+.mnav {
+    display: none;
+}
+
+
+@media only screen and (min-width:992px) and (max-width:1000px) {
+
+    .menu ul li {
+        display: inline-block;
+        padding: 10px 18px;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:991px) {
+
+    /* menu */
+
+    .mnav {
+        display: block;
+    }
+
+    .header-top {
+        display: none;
+    }
+
+    .header-bottom .container {
+        padding: 0;
+        margin: 0;
+    }
+
+    .header-bottom .row {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+    }
+
+    .header-bottom .col-md-12 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .header-bottom .navbar {
+        margin: 0;
+        padding: 0;
+    }
+
+    div#carouselExampleControls {
+        margin-top: 130px;
+    }
+
+    .news-image-body {
+        overflow: hidden !important;
+    }
+
+    div.navbar-collapse {
+        background: rgba(0, 0, 0, .8);
+        height: 100vh;
+    }
+
+    div.navbar-collapse ul li {
+        display: block;
+    }
+
+    button.navbar-toggler.collapsed .menu-close {
+        display: none;
+    }
+
+    button.navbar-toggler .collapsed .navbar-toggler-icon {
+        display: block;
+    }
+
+    button.navbar-toggler .navbar-toggler-icon {
+        display: none;
+    }
+
+    button.navbar-toggler.collapsed .navbar-toggler-icon {
+        display: block;
+    }
+
+    button.navbar-toggler {
+        width: 100px !important;
+        flex-basis: 100px;
+    }
+
+    button.navbar-toggler:focus {
+        outline: 0;
+    }
+
+    .header-white .menu ul li a {
+        color: #fff;
+    }
+
+    span.menu-close {
+        width: 30px;
+        display: inline-block;
+    }
+
+    button.navbar-toggler:focus {
+        outline: 0;
+    }
+
+    button.navbar-toggler {
+        border: 0 !important;
+    }
+
+}
+
 
 @media (max-width:767px) {
-    .logo img{
+    .logo img {
         max-width: 80%;
     }
 
@@ -943,9 +1050,143 @@ li {
         padding-bottom: 25px;
     }
 
-    .section-header{
-        font-size:30px!important;
+    .section-header {
+        font-size: 30px !important;
     }
 
+    .header {
+        max-width: 100vw;
+    }
 
+    .news-banner-6 {
+        overflow: hidden;
+    }
+
+    .news-image-body p {
+        margin: 0;
+        text-align: center;
+    }
+
+    .news-image-body h4 {
+        margin: 0;
+        text-align: center;
+    }
+
+    /* menu */
+
+    .mnav {
+        display: block;
+    }
+
+    .header-top {
+        display: none;
+    }
+
+    .header-bottom .container {
+        padding: 0;
+        margin: 0;
+    }
+
+    .header-bottom .row {
+        margin: 0;
+        padding: 0;
+    }
+
+    .header-bottom .col-md-12 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .header-bottom .navbar {
+        margin: 0;
+        padding: 0;
+    }
+
+    div#carouselExampleControls {
+        margin-top: 65px;
+    }
+
+    .news-image-body {
+        overflow: hidden !important;
+    }
+
+    div.navbar-collapse {
+        background: rgba(0, 0, 0, .8);
+        height: 100vh;
+    }
+
+    div.navbar-collapse ul li {
+        display: block;
+    }
+
+    button.navbar-toggler.collapsed .menu-close {
+        display: none;
+    }
+
+    button.navbar-toggler .collapsed .navbar-toggler-icon {
+        display: block;
+    }
+
+    button.navbar-toggler .navbar-toggler-icon {
+        display: none;
+    }
+
+    button.navbar-toggler.collapsed .navbar-toggler-icon {
+        display: block;
+    }
+
+    button.navbar-toggler {
+        width: 100px !important;
+        flex-basis: 100px;
+    }
+
+    button.navbar-toggler:focus {
+        outline: 0;
+    }
+
+    .header-white .menu ul li a {
+        color: #fff;
+    }
+
+    span.menu-close {
+        width: 30px;
+        display: inline-block;
+    }
+
+    button.navbar-toggler:focus {
+        outline: 0;
+    }
+
+    button.navbar-toggler {
+        border: 0 !important;
+    }
+
+    /* footer */
+
+    .footer-left img {
+        max-width: 90%;
+    }
 }
+
+
+/* animation */
+
+.counter {
+    /* Other styling for the counter element */
+  
+    /* Set the animation to run indefinitely */
+    animation: count-up infinite;
+    /* Set the animation duration to 5 seconds */
+    animation-duration: 5s;
+  }
+  
+  @keyframes count-up {
+    /* Set the start value to 0 */
+    0% {
+      content: "0";
+    }
+    /* Set the end value to the desired number */
+    100% {
+      content: "100";
+    }
+  }

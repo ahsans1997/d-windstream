@@ -121,14 +121,15 @@ class NewsController extends Controller
             'category_id' => $request->category_id,
             'slug' => $slug,
          ]);
-        if(News::findOrFail($news->id)->image != "default.png"){
-            $location = 'public/assets/uploads/news/'.News::findOrFail($news->id)->image;
-            unlink(base_path($location));
-            News::findOrFail($news->id)->update([
-                'image' => "default.png",
-            ]);
-        }
+
         if ($request->hasFile('image')) {
+            if(News::findOrFail($news->id)->image != "default.png"){
+                $location = 'public/assets/uploads/news/'.News::findOrFail($news->id)->image;
+                unlink(base_path($location));
+                News::findOrFail($news->id)->update([
+                    'image' => "default.png",
+                ]);
+            }
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
             $image_location = 'public/assets/uploads/news/'.$image_name;

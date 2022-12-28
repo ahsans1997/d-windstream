@@ -23,7 +23,7 @@
                 <div class="col">
 
                     <div class="header">
-                        <h2>Create Notice</h2>
+                        <h2>Edit Notice</h2>
                     </div>
                     @if (session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -31,12 +31,12 @@
                         </div>
                     @endif
                     <div class="form mt-3">
-                        <form action="{{ route('notice.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('notice.update',$notice->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
-
+                            @method('PUT')
                             <div>
                                 <label for="placeholderInput" class="form-label">Title</label>
-                                <input type="text" class="form-control" id="placeholderInput" placeholder="Title" name="title">
+                                <input type="text" class="form-control" id="placeholderInput" value="{{ $notice->title }}" name="title">
                             </div>
                             @error('title')
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -45,7 +45,7 @@
                             @enderror
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Description</label>
-                                <textarea name="description" class="form-control" rows="6"></textarea>
+                                <textarea name="description" class="form-control" rows="6">{{ $notice->description }}</textarea>
                             </div>
                             @error('description')
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -68,11 +68,11 @@
                             @enderror
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Meta Keyword Comma Separated</label>
-                                <input type="text" class="form-control" id="placeholderInput" placeholder="KeyWord" name="meta_keywords">
+                                <input type="text" class="form-control" id="placeholderInput" value="{{ $notice->meta_keywords }}" name="meta_keywords">
                             </div>
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Meta Description</label>
-                                <textarea name="meta_description" class="form-control" rows="3"></textarea>
+                                <textarea name="meta_description" class="form-control" rows="3">{{ $notice->meta_description }}</textarea>
                             </div>
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Notice Image</label>

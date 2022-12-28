@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col">
 
-                    <div class="news-header">
+                    <div class="header">
                         <h2>Department</h2>
                     </div>
 

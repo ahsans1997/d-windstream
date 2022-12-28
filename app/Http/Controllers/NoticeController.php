@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\Notice;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class NoticeController extends Controller
 {
@@ -14,7 +18,9 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.notice.index',[
+            'notices' => Notice::all(),
+        ]);
     }
 
     /**
@@ -24,7 +30,9 @@ class NoticeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.notice.create',[
+            'departments' => Department::all(),
+        ]);
     }
 
     /**
@@ -35,7 +43,31 @@ class NoticeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'department_id' => 'required',
+        ]);
+        $slug = Str::slug($request->title, '-');
+        $notice_id = Notice::insertGetId([
+            'title' => $request->title,
+            'description' => $request->description,
+            'department_id' => $request->department_id,
+            'slug' => $slug,
+            'meta_keywords' => $request->meta_keywords,
+            'meta_description' => $request->meta_description,
+            'created_at' => Carbon::now(),
+        ]);
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $image_name = $slug.".".$image->getClientOriginalExtension();
+            $location = 'public/assets/uploads/notices/'.$image_name;
+            Image::make($image)->save(base_path($location));
+            Notice::findOrFail($notice_id)->update([
+                'image' => $image_name,
+            ]);
+        }
+        return back()->with('success', 'Notice created successfull.');
     }
 
     /**
@@ -57,7 +89,10 @@ class NoticeController extends Controller
      */
     public function edit(Notice $notice)
     {
-        //
+        return view('admin.notice.edit',[
+            'notice' => Notice::findOrFail($notice->id),
+            'departments' => Department::all(),
+        ]);
     }
 
     /**
@@ -69,7 +104,38 @@ class NoticeController extends Controller
      */
     public function update(Request $request, Notice $notice)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'department_id' => 'required',
+        ]);
+        $slug = Str::slug($request->title, '-');
+        Notice::findOrFail($notice->id)->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'department_id' => $request->department_id,
+            'slug' => $slug,
+            'meta_keywords' => $request->meta_keywords,
+            'meta_description' => $request->meta_description,
+            'created_at' => Carbon::now(),
+        ]);
+        if($request->hasFile('image')){
+            if(Notice::findOrFail($notice->id)->image != "default.png"){
+                $location = 'public/assets/uploads/notices/'.Notice::findOrFail($notice->id)->image;
+                unlink(base_path($location));
+                Notice::findOrFail($notice->id)->update([
+                    'image' => "default.png",
+                ]);
+            }
+            $image = $request->file('image');
+            $image_name = $slug.".".$image->getClientOriginalExtension();
+            $location = 'public/assets/uploads/notices/'.$image_name;
+            Image::make($image)->save(base_path($location));
+            Notice::findOrFail($notice->id)->update([
+                'image' => $image_name,
+            ]);
+        }
+        return redirect()->route('notice.index')->with('success', 'Notice update successfull.');
     }
 
     /**
@@ -80,6 +146,12 @@ class NoticeController extends Controller
      */
     public function destroy(Notice $notice)
     {
-        //
+        if(Notice::findOrFail($notice->id)->image != "default,png")
+        {
+            $image_location = 'public/assets/uploads/notices/'.Notice::findOrFail($notice->id)->image;
+            unlink(base_path($image_location));
+        }
+        Notice::findOrFail($notice->id)->delete();
+        return back()->with('delete', 'Your Department Delete Successfull.');
     }
 }
