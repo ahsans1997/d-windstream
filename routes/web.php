@@ -36,6 +36,8 @@ Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::redirect('/admin', '/login');
 
+Route::get('faculty-member',[FacultyMemberController::class, 'facultyMember'])->name('faculty-member');
+
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->prefix('admin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('department', DepartmentController::class);
