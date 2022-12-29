@@ -23,7 +23,7 @@ class CreateFacultyMembersTable extends Migration
             $table->text('contact');
             $table->string('image')->nullable();
             $table->string('file')->nullable();
-            $table->enum('on_leave',[true,false]);
+            $table->enum('on_leave',["true","false"]);
             $table->softDeletes();
             $table->timestamps();
         });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Year;
 use App\Models\Country;
 use App\Models\Department;
+use App\Models\Designation;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\FacultyMember;
@@ -42,6 +43,7 @@ class FacultyMemberController extends Controller
             'departments' => Department::get(),
             'years' => Year::get(),
             'countries' => Country::get(),
+            'desigantions' => Designation::get(),
         ];
         return view('admin.facultyMember.create', $data);
     }
@@ -67,22 +69,30 @@ class FacultyMemberController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         DB::beginTransaction();
         try {
 
             $facultyMember = new FacultyMember();
             $facultyMember->name = $request->name;
-            $facultyMember->designation = $request->designation;
+            $facultyMember->designation_id = $request->designation;
             $facultyMember->contact = $request->contact;
             $facultyMember->department_id = $request->department_id;
             $facultyMember->bio = $request->bio;
             $facultyMember->slug = $this->slug($request->name);
             $facultyMember->faculty_id = 1;
+            $facultyMember->on_leave = isset($request->on_leave) ? $request->on_leave : "false";
 
             if ($request->image) {
                 $fileName = time() . '.' . $request->image->extension();
                 $request->image->move(storage_path('app/public/facultyMember'), $fileName);
                 $facultyMember->image = $fileName;
+            }
+
+            if ($request->file) {
+                $fileNamecv = time() . '.' . $request->file->extension();
+                $request->file->move(storage_path('app/public/file'), $fileNamecv);
+                $facultyMember->file = $fileNamecv;
             }
 
             $facultyMember->save();
@@ -106,7 +116,7 @@ class FacultyMemberController extends Controller
                 for ($i = 0; $i < $len_experience; $i++) {
                     $facultyMemberExperience = new FacultyMemberExperience();
                     $facultyMemberExperience->faculty_member_id = $facultyMember->id;
-                    $facultyMemberExperience->titel = $request->expirence_title[$i];
+                    $facultyMemberExperience->title = $request->expirence_title[$i];
                     $facultyMemberExperience->organization = $request->expirence_organization[$i];
                     $facultyMemberExperience->location = $request->expirence_location[$i];
                     $facultyMemberExperience->from_date = $request->expirence_from_date[$i];
@@ -176,6 +186,8 @@ class FacultyMemberController extends Controller
             'departments' => Department::get(),
             'years' => Year::get(),
             'countries' => Country::get(),
+            'desigantions' => Designation::get(),
+
         ];
 
         return view('admin.facultyMember.edit', $data);
@@ -190,6 +202,7 @@ class FacultyMemberController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request->all());
 
         $request->validate([
             'slug' => 'required|unique:faculty_members,slug,'.$id
@@ -207,17 +220,24 @@ class FacultyMemberController extends Controller
 
 
             $facultyMember->name = $request->name;
-            $facultyMember->designation = $request->designation;
+            $facultyMember->designation_id = $request->designation;
             $facultyMember->contact = $request->contact;
             $facultyMember->department_id = $request->department_id;
             $facultyMember->bio = $request->bio;
             $facultyMember->slug = $request->slug;
             $facultyMember->faculty_id = 1;
+            $facultyMember->on_leave = isset($request->on_leave) ? $request->on_leave : "false";
 
             if ($request->image) {
                 $fileName = time() . '.' . $request->image->extension();
                 $request->image->move(storage_path('app/public/facultyMember'), $fileName);
                 $facultyMember->image = $fileName;
+            }
+
+            if ($request->file) {
+                $fileNamecv = time() . '.' . $request->file->extension();
+                $request->file->move(storage_path('app/public/file'), $fileNamecv);
+                $facultyMember->file = $fileNamecv;
             }
 
             $facultyMember->save();

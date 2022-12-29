@@ -43,10 +43,8 @@
                                 <tr>
                                     <td>{{ $item->id}}</td>
                                     <td>{{ $item->name }}</td>
-
                                     <td>
                                          <a href="{{ route('designation.edit', $item->id) }}" class="btn btn-info btn-sm">Edit</a>
-                                        
                                     </td>
                                 </tr>
                                 @endforeach

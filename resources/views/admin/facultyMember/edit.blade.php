@@ -38,7 +38,12 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label for="designation" class="form-label"> Designation*</label>
-                                    <input type="text" class="form-control" placeholder="Designation" name="designation" value="{{$faculty_member->designation}}" required>
+                                    <select class="form-control" name="designation" required>
+                                        @foreach ($desigantions as $designation)
+                                            <option value="{{$designation->id}}" @if ($designation->id == $faculty_member->designation_id) selected @endif>{{$designation->name}}</option>
+                                        @endforeach
+                                    </select>
+
                                 </div>
                                 <div class="col-md-3">
                                     <label for="contact" class="form-label">Contact*</label>
@@ -60,11 +65,49 @@
                                     <label for="bio" class="form-label">Bio*</label>
                                     <textarea type="text" class="summernote form-control" placeholder="bio" name="bio" rows="2" required>{{$faculty_member->bio}}</textarea>
                                 </div>
+                                <div class="col-md-3">
+                                    <label for="image" class="form-label">On Leave</label>
+                                    <input type="checkbox" id="on_leave" name="on_leave" value="{{$faculty_member->on_leave}}" @if ($faculty_member->on_leave == "true") checked @endif>
+                                </div>
 
                                 <div class="col-md-3">
                                     <label for="image" class="form-label">Image</label>
                                     <input type="file" class="form-control" placeholder="image" name="image">
-                                    <img alt="No File Uploaded" src="{{ asset('storage/facultyMember/' . $faculty_member->image) }}" style="width: 100px; height:100px;">
+                                    @if (!empty($faculty_member->image))
+                                        @php
+                                            $ext = pathinfo($faculty_member->image, PATHINFO_EXTENSION);
+                                        @endphp
+                                        @if ($ext == 'pdf')
+                                            <a target="_blank"  href="{{ asset('storage/facultyMember/' . $faculty_member->image) }}">
+                                                <img src="{{ asset('app-assets/images/icons/pdfs-icon.png') }}"  alt=" {{ $faculty_member->image}}" class="img-fluid" style="height: 100px; ">
+                                            </a>
+                                        @else
+                                            <a target="_blank"  href="{{ asset('storage/facultyMember/' . $faculty_member->image) }}">
+                                                <img src="{{ asset('storage/file/' . $faculty_member->image) }}"  alt=" {{ $faculty_member->image }}" class="img-fluid" style="height: 100px; "></a>
+                                        @endif
+                                    @else
+                                        <img src="{{ asset('app-assets/images/icons/no-file.png') }}"  alt=" No File" class="img-fluid">
+                                    @endif
+
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="image" class="form-label">File</label>
+                                    <input type="file" class="form-control" placeholder="file" name="file">
+                                    @if (!empty($faculty_member->file))
+                                        @php
+                                            $ext = pathinfo($faculty_member->file, PATHINFO_EXTENSION);
+                                        @endphp
+                                        @if ($ext == 'pdf')
+                                            <a target="_blank"  href="{{ asset('storage/file/' . $faculty_member->file) }}">
+                                                <img src="{{ asset('app-assets/images/icons/pdfs-icon.png') }}"  alt=" {{ $faculty_member->file}}" class="img-fluid" style="height: 100px; ">
+                                            </a>
+                                        @else
+                                            <a target="_blank"  href="{{ asset('storage/file/' . $faculty_member->file) }}">
+                                                <img src="{{ asset('storage/file/' . $faculty_member->file) }}"  alt=" {{ $faculty_member->file }}" class="img-fluid" style="height: 100px; "></a>
+                                        @endif
+                                    @else
+                                        <img src="{{ asset('app-assets/images/icons/no-file.png') }}"  alt=" No File" class="img-fluid">
+                                    @endif
 
                                 </div>
                             </div>
@@ -130,7 +173,7 @@
                                             @foreach ($faculty_member->experience as $experience)
 
                                                 <tr>
-                                                    <td><input type="text" class="form-control" name="expirence_title[]" value="{{$experience->titel}}" required></td>
+                                                    <td><input type="text" class="form-control" name="expirence_title[]" value="{{$experience->title}}" required></td>
                                                     <td><input type="text" class="form-control" name="expirence_organization[]" value="{{$experience->organization}}" required></td>
                                                     <td><input type="text" class="form-control" name="expirence_location[]" value="{{$experience->location}}" required></td>
                                                     <td><input type="text" name="expirence_from_date[]" value="{{$experience->from_date}}" class="datepicker form-control" required></td>
@@ -163,7 +206,7 @@
                                             @foreach ($faculty_member->membership as $membership)
 
                                                 <tr>
-                                                    <td><input type="text" name="membership_naem[]" class="form-control" value="{{$membership->titel}}" required></td>
+                                                    <td><input type="text" name="membership_naem[]" class="form-control" value="{{$membership->title}}" required></td>
                                                     <td><input type="text" name="membership_type[]" class="form-control" value="{{$membership->type}}" required></td>
                                                     <td><input type="text" name="membership_year[]" value="{{$membership->membership_year}}" class="datepicker form-control" required></td>
                                                     <td><input type="text" name="membership_expire_year[]" value="{{$membership->expire_year}}" class="datepicker expire_year_to_life_time form-control" required><br><input type="checkbox" class="cbox_membership_expire" @if ($membership->expire_year == "Life Time") checked @endif value="0">Life time</td>
@@ -201,7 +244,7 @@
                                                     </select>
                                                     </td>
 
-                                                    <td><input type="text" name="award_title[]" class="form-control" value="{{$award->titel}}" required></td>
+                                                    <td><input type="text" name="award_title[]" class="form-control" value="{{$award->title}}" required></td>
                                                     <td><select name="award_year[]" class="form-control" required>
                                                         @foreach ($years as $year)
                                                             <option value="{{ $year->year }}"
@@ -402,6 +445,16 @@
                 $(this).parents("tr").find( "input.expire_year_to_life_time").val("Life Time");
 
 
+            });
+
+            $('#on_leave').on('click',function(e){
+
+                if ($('[name="on_leave"]').is(":checked"))
+                {
+                    $(this).val("true");
+                } else {
+                    $(this).val("false");
+                }
             });
 
 
