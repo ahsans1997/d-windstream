@@ -16,8 +16,11 @@ class SettingController extends Controller
     }
     public function update(Request $request, $id)
     {
+
+
         if($request->hasFile('web_logo'))
         {
+
             if (Setting::findOrFail($id)->web_logo != "default.png") {
                 $location = 'public/assets/images/'.Setting::findOrFail($id)->web_logo;
                 unlink(base_path($location));
@@ -25,6 +28,7 @@ class SettingController extends Controller
                     'web_logo' => "default.png",
                 ]);
             }
+
             $image = $request->file('web_logo');
             $image_name = "logo".".".$image->getClientOriginalExtension();
             $image_location = 'public/assets/images/'.$image_name;
@@ -32,7 +36,9 @@ class SettingController extends Controller
             Setting::findOrFail($id)->update([
                 'web_logo' => $image_name,
             ]);
+            dd($request->all());
         }
+
         if($request->hasFile('mobile_logo'))
         {
             if (Setting::findOrFail($id)->mobile_logo != "default.png") {
@@ -279,7 +285,7 @@ class SettingController extends Controller
         {
             $research_section = [
                 'title'=> $request->title,
-                'about_description'=> $request->research_description,
+                'research_description'=> $request->research_description,
                 'section_1' => [
                     'section_1_count' => $request->section_1_count,
                     'section_1_title' => $request->section_1_title,
@@ -301,7 +307,34 @@ class SettingController extends Controller
             Setting::findOrFail($id)->update([
                 'home_research' => $research
             ]);
+        }
+        if($request->about_description)
+        {
+            $about_section = [
+                'about_title'=> $request->about_title,
+                'about_description'=> $request->about_description,
+                'about_section_1' => [
+                    'about_section_1_title' => $request->about_section_1_title,
+                    'about_section_1_count' => $request->about_section_1_count,
+                ],
+                'about_section_2' => [
+                    'about_section_2_title' => $request->about_section_2_title,
+                    'about_section_2_count' => $request->about_section_2_count,
+                ],
+                'about_section_3' => [
+                    'about_section_3_title' => $request->about_section_3_title,
+                    'about_section_3_count' => $request->about_section_3_count,
+                ],
+                'about_section_4' => [
+                    'about_section_4_title' => $request->about_section_4_title,
+                    'about_section_4_count' => $request->about_section_4_count,
+                ],
+            ] ;
+            $about = json_encode($about_section);
 
+            Setting::findOrFail($id)->update([
+                'home_about' => $about
+            ]);
         }
 
 
