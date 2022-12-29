@@ -12,6 +12,7 @@ Research
 
 @php
     $research = json_decode($setting->home_research);
+    $about = json_decode($setting->home_about);
 @endphp
 
 <div class="page-content">
@@ -351,7 +352,70 @@ Research
 
                 <div id="home_about" class="tab-pane fade">
                     <div class="info title">
+                        <div class="col-md-10 m-auto">
+                            <div class="card border-primary">
+                                <div class="card-header">Research Update</div>
+                                <div class="card-body">
+                                    <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        @method('PUT')
+                                        <label for="">About Title</label>
+                                        <input type="text" name="title" class="form-control" value="{{ $about->title }}">
+                                        <label for="">About Description</label>
+                                        <input type="text" name="research_description" class="form-control" value="{{ $about->about_description }}">
 
+                                        <div class="card border-dark mt-3" style="max-width: 600px;">
+                                            <div class="card-header">{{ $about->section_1->section_1_title }}</div>
+                                            <div class="card-body">
+                                                <div class="section_1">
+                                                    <label for="">Title</label>
+                                                    <input type="text" class="form-control" name="section_1_title" value="{{ $about->section_1->section_1_title }}">
+                                                    <label for="">{{ $about->section_1->section_1_title }} Number</label>
+                                                    <input type="text" class="form-control" name="section_1_count" value="{{ $about->section_1->section_1_count }}">
+                                                </div>
+                                            </div>
+                                          </div>
+                                        <div class="card border-dark mt-3" style="max-width: 600px;">
+                                            <div class="card-header">{{ $about->section_2->section_2_title }}</div>
+                                            <div class="card-body">
+                                                <div class="section_2">
+                                                    <label for="">Title</label>
+                                                    <input type="text" class="form-control" name="section_2_title" value="{{ $about->section_2->section_2_title }}">
+                                                    <label for="">{{ $about->section_2->section_2_title }} Number</label>
+                                                    <input type="text" class="form-control" name="section_2_count" value="{{ $about->section_2->section_2_count }}">
+
+                                                </div>
+                                            </div>
+                                          </div>
+                                        <div class="card border-dark mt-3" style="max-width: 600px;">
+                                            <div class="card-header">{{ $about->section_3->section_3_title }}</div>
+                                            <div class="card-body">
+                                                <div class="section_3">
+                                                    <label for="">Title</label>
+                                                    <input type="text" class="form-control" name="section_3_title" value="{{ $about->section_3->section_3_title }}">
+                                                    <label for="">{{ $about->section_3->section_3_title }} Number</label>
+                                                    <input type="text" class="form-control" name="section_3_count" value="{{ $about->section_3->section_3_count }}">
+                                                   </div>
+                                            </div>
+                                        </div>
+                                        <div class="card border-dark mt-3" style="max-width: 600px;">
+                                            <div class="card-header">{{ $about->section_4->section_4_title }}</div>
+                                            <div class="card-body">
+                                                <div class="section_4">
+                                                    <label for="">Title</label>
+                                                    <input type="text" class="form-control" name="section_4_title" value="{{ $about->section_4->section_4_title }}">
+                                                    <label for="">{{ $about->section_4->section_4_title }} Number</label>
+                                                    <input type="text" class="form-control" name="section_4_count" value="{{ $about->section_4->section_4_count }}">
+                                                   </div>
+                                            </div>
+                                        </div>
+
+
+                                        <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

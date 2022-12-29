@@ -37,21 +37,23 @@ class SettingSeeder extends Seeder
         $research = json_encode($research_data);
 
         $about_data =[
+            'title' => 'About NITER',
+            'about_description' => 'A place for learning, discovery, innovation, expression and discourse',
             'section_1' => [
-                'title' => 'Opening In',
-                'count' => '1991',
+                'section_1_title' => 'Opening In',
+                'section_1_count' => '1991',
             ],
             'section_2' => [
-                'title' => 'Students',
-                'count' => '1775',
+                'section_2_title' => 'Students',
+                'section_2_count' => '1775',
             ],
             'section_3' => [
-                'title' => 'department',
-                'count' => '5',
+                'section_3_title' => 'department',
+                'section_3_count' => '5',
             ],
             'section_4' => [
-                'title' => 'alumni',
-                'count' => '16',
+                'section_4_title' => 'alumni',
+                'section_4_count' => '16',
             ],
         ];
 

@@ -279,7 +279,7 @@ class SettingController extends Controller
         {
             $research_section = [
                 'title'=> $request->title,
-                'research_description'=> $request->research_description,
+                'about_description'=> $request->research_description,
                 'section_1' => [
                     'section_1_count' => $request->section_1_count,
                     'section_1_title' => $request->section_1_title,
