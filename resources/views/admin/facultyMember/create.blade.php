@@ -34,8 +34,13 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label for="designation" class="form-label"> Designation*</label>
-                                    <input type="text" class="form-control" placeholder="Designation" name="designation"
-                                        required>
+                                    <select class="form-control" name="designation" required>
+                                        <option value="">Select designation</option>
+                                        @foreach ($desigantions as $designation)
+                                            <option value="{{$designation->id}}">{{$designation->name}}</option>
+                                        @endforeach
+                                    </select>
+
                                 </div>
                                 <div class="col-md-3">
                                     <label for="contact" class="form-label">Contact*</label>
@@ -53,12 +58,20 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label for="bio" class="form-label">Bio*</label>
-                                    <textarea type="text" class="form-control" placeholder="bio" name="bio" rows="2" required></textarea>
+                                    <textarea type="text" class="summernote form-control" placeholder="bio" name="bio" rows="2" required></textarea>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="image" class="form-label">On Leave</label>
+                                    <input type="checkbox" id="on_leave" name="on_leave" value="false">
                                 </div>
 
                                 <div class="col-md-3">
                                     <label for="image" class="form-label">Image</label>
                                     <input type="file" class="form-control" placeholder="image" name="image">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="image" class="form-label">File/Cv</label>
+                                    <input type="file" class="form-control" placeholder="file or cv " name="file">
                                 </div>
                             </div>
                             <h1>Education</h1> <button id="addeducation" style="float: right">Add</button>
@@ -209,7 +222,7 @@
 
 
                             <button type="submit"
-                                class="btn btn-outline-success waves-effect waves-light mt-3 mb-5 " style="float: right">Submit</button>
+                                class="btn btn-outline-success  mt-3 mb-5 pr-10" >Submit</button>
                         </form>
                     </div>
 
@@ -380,6 +393,16 @@
                 $(this).parents("tr").find( "input.expire_year_to_life_time").val("Life Time");
 
 
+            });
+
+            $('#on_leave').on('click',function(e){
+
+                if ($('[name="on_leave"]').is(":checked"))
+                {
+                    $(this).val("true");
+                } else {
+                    $(this).val("false");
+                }
             });
 
 
