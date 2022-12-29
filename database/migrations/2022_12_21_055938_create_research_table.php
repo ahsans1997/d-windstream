@@ -23,6 +23,8 @@ class CreateResearchTable extends Migration
             $table->string('file')->nullable();
             $table->integer('approve')->nullable();
             $table->integer('featured')->default(1);
+            $table->string('meta_keywords')->nullable();
+            $table->string('meta_description')->nullable();
             $table->timestamps();
         });
     }

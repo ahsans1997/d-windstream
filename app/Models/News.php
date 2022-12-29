@@ -9,7 +9,7 @@ class News extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','description','department_id','category_id','slug','image'];
+    protected $guarded = [];
 
     public function department(){
         return $this->belongsTo(Department::class);

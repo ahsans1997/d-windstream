@@ -26,12 +26,18 @@
     <link href="{{ asset('/') }}assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="{{ asset('/') }}assets/css/app.min.css" rel="stylesheet" type="text/css" />
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <!-- custom Css-->
+
+
     <link href="{{ asset('/') }}assets/css/custom.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('/') }}assets/libs/toastr/toastr.min.css">
     <link rel="stylesheet" href="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.css">
 
-    
 
 </head>
 
@@ -323,6 +329,11 @@
                                 </ul>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link @yield('settings')" href="{{ route('setting.index') }}">
+                                <i class="ri-dashboard-2-line"></i> <span>Settings</span>
+                            </a>
+                        </li>
 
 
                     </ul>
@@ -375,7 +386,13 @@
     <!--end back-to-top-->
 
 
+    <script src="{{ asset('/') }}assets/libs/jquery/jquery.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+
+    
     <!-- JAVASCRIPT -->
     <script src="{{ asset('/') }}assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('/') }}assets/libs/simplebar/simplebar.min.js"></script>
@@ -399,14 +416,22 @@
 
     <!-- App js -->
     <script src="{{ asset('/') }}assets/js/app.js"></script>
-    <script src="{{ asset('/') }}assets/libs/jquery/jquery.min.js"></script>
     <script src="{{ asset('/') }}assets/libs/toastr/toastr.min.js"></script>
     <script src="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
 
     <!-- include summernote css/js -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-    
+
     {!! Toastr::message() !!}
     <script type="text/javascript">
         $(document).ready(function() {

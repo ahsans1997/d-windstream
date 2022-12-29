@@ -62,12 +62,14 @@ class EventController extends Controller
             'registration_end' => $request->registration_end,
             'maximum_sit' => $request->maximum_sit,
             'slug' => $slug,
+            'meta_keywords' => $request->meta_keywords,
+            'meta_description' => $request->meta_description,
             'created_at' => Carbon::now(),
         ]);
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
-            $iamge_location = 'public/assets/uploads/events/'.$image_name;
+            $iamge_location = 'public/assets/images/events/'.$image_name;
             Image::make($image)->save(base_path($iamge_location));
             Event::findOrFail($event_id)->update([
                 'image' => $image_name,
@@ -111,7 +113,7 @@ class EventController extends Controller
     public function update(Request $request, Event $event)
     {
         $validated = $request->validate([
-            'title' => 'required|unique:events',
+            'title' => 'required',
             'description' => 'required',
             'department_id' => 'required',
             'datetime' => 'required',
@@ -129,12 +131,14 @@ class EventController extends Controller
             'registration_end' => $request->registration_end,
             'maximum_sit' => $request->maximum_sit,
             'slug' => $slug,
+            'meta_keywords' => $request->meta_keywords,
+            'meta_description' => $request->meta_description,
             'created_at' => Carbon::now(),
         ]);
 
         if ($request->hasFile('image')) {
-            if(Event::findOrFail($$event->id)->image != "default.png"){
-                $location = 'public/assets/uploads/events/'.Event::findOrFail($$event->id)->image;
+            if(Event::findOrFail($event->id)->image != "default.png"){
+                $location = 'public/assets/images/events/'.Event::findOrFail($event->id)->image;
                 unlink(base_path($location));
                 Event::findOrFail($event->id)->update([
                     'image' => "default.png",
@@ -142,9 +146,9 @@ class EventController extends Controller
             }
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
-            $iamge_location = 'public/assets/uploads/events/'.$image_name;
+            $iamge_location = 'public/assets/images/events/'.$image_name;
             Image::make($image)->save(base_path($iamge_location));
-            Event::findOrFail($$event->id)->update([
+            Event::findOrFail($event->id)->update([
                 'image' => $image_name,
             ]);
         }
@@ -161,7 +165,7 @@ class EventController extends Controller
     {
         if(Event::findOrFail($event->id)->image != "default.png")
         {
-            $image_location = 'public/assets/uploads/events/'.Event::findOrFail($event->id)->image;
+            $image_location = 'public/assets/images/events/'.Event::findOrFail($event->id)->image;
             unlink(base_path($image_location));
         }
         Event::findOrFail($event->id)->delete();

@@ -728,9 +728,8 @@ li {
 /* News CSS */
 
 .news-header {
-    text-align: center;
     font-weight: 900;
-    font-size: 60px;
+    font-size: 40px;
 }
 
 .news {
@@ -1255,10 +1254,16 @@ h1.page-title {
     animation: count-up infinite;
     /* Set the animation duration to 5 seconds */
     animation-duration: 5s;
+<<<<<<< HEAD
+  }
+
+  @keyframes count-up {
+=======
 }
 
 @keyframes count-up {
 
+>>>>>>> 09cefb5b0613cfa3922e084aa8b2c21a5c083b0d
     /* Set the start value to 0 */
     0% {
         content: "0";
@@ -1268,4 +1273,8 @@ h1.page-title {
     100% {
         content: "100";
     }
+<<<<<<< HEAD
+  }
+=======
 }
+>>>>>>> 09cefb5b0613cfa3922e084aa8b2c21a5c083b0d

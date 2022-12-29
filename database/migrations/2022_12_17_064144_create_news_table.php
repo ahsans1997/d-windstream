@@ -23,6 +23,8 @@ class CreateNewsTable extends Migration
             $table->string('image')->default("default.png");
             $table->integer('featured')->default(1);
             $table->integer('action')->default(1);
+            $table->string('meta_keywords')->nullable();
+            $table->string('meta_description')->nullable();
             $table->timestamps();
         });
     }

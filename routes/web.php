@@ -10,7 +10,11 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\ResearchController;
+<<<<<<< HEAD
+use App\Http\Controllers\SettingController;
+=======
 use App\Models\FacultyMember;
+>>>>>>> 09cefb5b0613cfa3922e084aa8b2c21a5c083b0d
 use Barryvdh\Debugbar\DataCollector\EventCollector;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +38,9 @@ Route::get('/department/{slug}', [FrontendController::class, 'department'])->nam
 Route::get('/research', [FrontendController::class, 'research'])->name('research');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+
+
+
 Route::redirect('/admin', '/login');
 
 Route::get('faculty-member',[FacultyMemberController::class, 'facultyMember'])->name('faculty-member');
@@ -48,6 +55,11 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('faculty', FacultyController::class);
     Route::resource('notice', NoticeController::class);
     Route::resource('event', EventController::class);
+<<<<<<< HEAD
+    Route::get('settings', [SettingController::class, 'index'])->name('setting.index');
+    Route::put('settings/update/{id}', [SettingController::class, 'update'])->name('setting.update');
+=======
     Route::resource('faculty-member', FacultyMemberController::class);
     Route::get('get-country-year',[FacultyMemberController::class,'getCountryYear'])->name('get-country-year');
+>>>>>>> 09cefb5b0613cfa3922e084aa8b2c21a5c083b0d
 });

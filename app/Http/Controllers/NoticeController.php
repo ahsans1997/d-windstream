@@ -61,7 +61,7 @@ class NoticeController extends Controller
         if($request->hasFile('image')){
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
-            $location = 'public/assets/uploads/notices/'.$image_name;
+            $location = 'public/assets/images/notices/'.$image_name;
             Image::make($image)->save(base_path($location));
             Notice::findOrFail($notice_id)->update([
                 'image' => $image_name,
@@ -121,7 +121,7 @@ class NoticeController extends Controller
         ]);
         if($request->hasFile('image')){
             if(Notice::findOrFail($notice->id)->image != "default.png"){
-                $location = 'public/assets/uploads/notices/'.Notice::findOrFail($notice->id)->image;
+                $location = 'public/assets/images/notices/'.Notice::findOrFail($notice->id)->image;
                 unlink(base_path($location));
                 Notice::findOrFail($notice->id)->update([
                     'image' => "default.png",
@@ -129,7 +129,7 @@ class NoticeController extends Controller
             }
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
-            $location = 'public/assets/uploads/notices/'.$image_name;
+            $location = 'public/assets/images/notices/'.$image_name;
             Image::make($image)->save(base_path($location));
             Notice::findOrFail($notice->id)->update([
                 'image' => $image_name,
@@ -148,7 +148,7 @@ class NoticeController extends Controller
     {
         if(Notice::findOrFail($notice->id)->image != "default,png")
         {
-            $image_location = 'public/assets/uploads/notices/'.Notice::findOrFail($notice->id)->image;
+            $image_location = 'public/assets/images/notices/'.Notice::findOrFail($notice->id)->image;
             unlink(base_path($image_location));
         }
         Notice::findOrFail($notice->id)->delete();
