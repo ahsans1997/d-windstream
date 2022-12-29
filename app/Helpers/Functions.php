@@ -1,6 +1,12 @@
 <?php
 
 
+function default_header_banner($page_name=''){
+    
+    return asset('/') .'frontend_asset/img/banner.jpg';
+}
+
+
 function numberToWord($num = false)
 {
     $num = str_replace(array(',', ' '), '' , trim($num));

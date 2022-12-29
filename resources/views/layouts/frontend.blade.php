@@ -18,125 +18,47 @@
 </head>
 
 <body>
-    <!-- Header Start -->
-    <header>
-        <div class="header">
-            <div class="header-top black">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="logo">
-                                <a href="index.html"><img src="{{ asset('/') }}frontend_asset/img/niterlogo.png"
-                                        alt=""></a>
-                            </div>
-                            <div class="search">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                                <span>Search</span>
-                            </div>
-                        </div>
+    <div class="header-top black">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="logo">
+                        <a href="{{ url('/') }}"><img src="{{ asset('/') }}frontend_asset/img/niterlogo.png"
+                                alt=""></a>
                     </div>
-                </div>
-            </div>
-            <div class="header-bottom header-white">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            @include('nav')
-                        </div>
+                    <div class="search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>Search</span>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-    <!-- Header End -->
+    </div>
+    <div class="header-bottom header-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    @include('nav')
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="breadcrumb-area shadow dark  text-center text-light"
+        style="height:100px; background-image: url({{ default_header_banner('faculty-member') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h1 class="page-title">{{ $title ?? '' }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 
     @yield('content')
 
     <!-- Footer Start -->
-    <footer>
-        <div class="social-link">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <ul>
-                            <li><a href=""><i class="fa-brands fa-square-facebook"></i></a></li>
-                            <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
-                            <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
-                            <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
-                            <li><a style="color: red;" href=""><i class="fa-brands fa-youtube"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="footer">
-                        <h4>Academic</h4>
-                        <ul>
-                            <li><a href="">Programs A-Z</a></li>
-                            <li><a href="">Departments A-Z</a></li>
-                        </ul>
-                        <h4>Admission</h4>
-                        <ul>
-                            <li><a href="">Undergraduate Admission</a></li>
-                            <li><a href="">Graduate Admission</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="footer">
-                        <h4>About</h4>
-                        <ul>
-                            <li><a href="">Historical Overview</a></li>
-                            <li><a href="">Vision & Mission</a></li>
-                            <li><a href="">Faculty Member</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="footer">
-                        <h4>Link</h4>
-                        <ul>
-                            <li><a href="">FAQ</a></li>
-                            <li><a href="">NITER Forms</a></li>
-                            <li><a href="">Approved NOC</a></li>
-                            <li><a href="">Career at NITER</a></li>
-                            <li><a href="">Notice A-Z</a></li>
-                            <li><a href="">Clubs & Society</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-end" style="background-color: #bbffd4;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="footer-left">
-                            <img src="{{ asset('/') }}frontend_asset/img/niterlogo.png" alt="">
-                        </div>
-                        <div class="footer-right">
-                            <nav>
-                                <ul>
-                                    <li><a href="">NITER Home</a></li>
-                                    <li><a href="">Terms of Use</a></li>
-                                    <li><a href="">Privacy</a></li>
-                                    <li><a href=""> Accessibility</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="copyright">
-                            <h5>&#169; NITER - All Rights Reserved. 2022</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @include('footer')
     <!-- Footer End -->
 
 

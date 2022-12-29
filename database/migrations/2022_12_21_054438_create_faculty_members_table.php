@@ -20,8 +20,9 @@ class CreateFacultyMembersTable extends Migration
             $table->foreignId('department_id');
             $table->foreignId('faculty_id');
             $table->text('bio');
-            $table->integer('contact');
+            $table->text('contact');
             $table->string('image')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

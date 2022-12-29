@@ -36,10 +36,16 @@
 
     <link href="{{ asset('/') }}assets/css/custom.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('/') }}assets/libs/toastr/toastr.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.css">
+
+    <style>
+
+<<<<<<< HEAD
 
 
-
-
+=======
+    </style>
+>>>>>>> 09cefb5b0613cfa3922e084aa8b2c21a5c083b0d
 </head>
 
 <body>
@@ -72,9 +78,7 @@
                             </a>
                         </div>
 
-                        <button type="button"
-                            class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
-                            id="topnav-hamburger-icon">
+                        <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger" id="topnav-hamburger-icon">
                             <span class="hamburger-icon">
                                 <span></span>
                                 <span></span>
@@ -308,6 +312,12 @@
                                     <li class="nav-item">
                                         <a href="{{ route('faculty.create') }}" class="nav-link" data-key="t-chat">Add Faculty</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('faculty-member.index') }}" class="nav-link">Faculty Member</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('faculty-member.create') }}" class="nav-link" data-key="t-chat">Add Faculty Member</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -395,8 +405,15 @@
     <script src="{{ asset('/') }}assets/js/app.js"></script>
     <script src="{{ asset('/') }}assets/libs/jquery/jquery.min.js"></script>
     <script src="{{ asset('/') }}assets/libs/toastr/toastr.min.js"></script>
+    <script src="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.js"></script>
     {!! Toastr::message() !!}
     <script type="text/javascript">
+
+
+        // $( ".datepicker" ).datepicker();
+        $(document).on('click', '.datepicker', function(){
+            $(this).datepicker().focus();
+        });
         @if ($errors->any())
             @foreach ($errors->all() as $error)
                 toastr.error('{{ $error }}', 'Error', {
@@ -407,6 +424,7 @@
         @endif
 
     </script>
+<<<<<<< HEAD
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -416,6 +434,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+=======
+
+@stack('script')
+
+>>>>>>> 09cefb5b0613cfa3922e084aa8b2c21a5c083b0d
 </body>
 
 
