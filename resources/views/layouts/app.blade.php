@@ -303,6 +303,26 @@
                                 </ul>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link"
+                                href="#designation" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                                aria-controls="sidebarApps">
+                                <i class="ri-calendar-event-line"></i> <span data-key="t-apps">Designation</span>
+                            </a>
+                            <div class="collapse menu-dropdown @yield('notice.show')" id="designation">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{ route('designation.index') }}" class="nav-link ">
+                                            Designation </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('designation.create') }}" class="nav-link "
+                                            data-key="t-chat"> Add Designation
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#faculty" data-bs-toggle="collapse" role="button"
@@ -405,11 +425,9 @@
 
     <script src="{{ asset('/') }}assets/libs/jquery/jquery.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-
     
+
+
     <!-- JAVASCRIPT -->
     <script src="{{ asset('/') }}assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('/') }}assets/libs/simplebar/simplebar.min.js"></script>
@@ -433,16 +451,11 @@
 
     <!-- App js -->
     <script src="{{ asset('/') }}assets/js/app.js"></script>
-    <script src="{{ asset('/') }}assets/libs/toastr/toastr.min.js"></script>
     <script src="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.js"></script>
+    <script src="{{ asset('/') }}assets/libs/toastr/toastr.min.js"></script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
+
 
 
     <!-- include summernote css/js -->
@@ -453,12 +466,13 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('.summernote').summernote();
+            $(document).on('click', '.datepicker', function() {
+            $(this).datepicker().focus();
+        });
         });
 
         // $( ".datepicker" ).datepicker();
-        $(document).on('click', '.datepicker', function() {
-            $(this).datepicker().focus();
-        });
+
         @if ($errors->any())
             @foreach ($errors->all() as $error)
                 toastr.error('{{ $error }}', 'Error', {
