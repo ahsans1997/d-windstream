@@ -17,7 +17,7 @@ class CreateFacultyMemberAwardsTable extends Migration
             $table->id();
             $table->foreignId('faculty_member_id');
             $table->enum('type',['National','International']);
-            $table->text('titel');
+            $table->text('title');
             $table->text('year');
             $table->foreignId('country_id');
             $table->text('description')->nullable();

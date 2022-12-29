@@ -16,12 +16,14 @@ class CreateFacultyMembersTable extends Migration
         Schema::create('faculty_members', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('designation');
+            $table->string('designation_id');
             $table->foreignId('department_id');
             $table->foreignId('faculty_id');
             $table->text('bio');
             $table->text('contact');
             $table->string('image')->nullable();
+            $table->string('file')->nullable();
+            $table->enum('on_leave',[true,false]);
             $table->softDeletes();
             $table->timestamps();
         });

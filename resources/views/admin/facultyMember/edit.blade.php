@@ -37,7 +37,7 @@
                                         name="name" value="{{$faculty_member->name}}" required>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="designation" class="form-label"> Name*</label>
+                                    <label for="designation" class="form-label"> Designation*</label>
                                     <input type="text" class="form-control" placeholder="Designation" name="designation" value="{{$faculty_member->designation}}" required>
                                 </div>
                                 <div class="col-md-3">
@@ -202,7 +202,7 @@
                                                     </td>
 
                                                     <td><input type="text" name="award_title[]" class="form-control" value="{{$award->titel}}" required></td>
-                                                    <td><select name="award_year[]" required>
+                                                    <td><select name="award_year[]" class="form-control" required>
                                                         @foreach ($years as $year)
                                                             <option value="{{ $year->year }}"
                                                                 @if ($year->year == $award->year) selected @endif>

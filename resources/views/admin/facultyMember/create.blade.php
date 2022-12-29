@@ -33,7 +33,7 @@
                                         name="name" required>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="designation" class="form-label"> Name*</label>
+                                    <label for="designation" class="form-label"> Designation*</label>
                                     <input type="text" class="form-control" placeholder="Designation" name="designation"
                                         required>
                                 </div>
