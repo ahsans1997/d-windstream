@@ -283,20 +283,21 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link @yield('notice.create') @yield('notice.edit') @yield('notice')"
+                            <a class="nav-link menu-link "
                                 href="#notice" data-bs-toggle="collapse" role="button" aria-expanded="false"
                                 aria-controls="sidebarApps">
                                 <i class="ri-calendar-event-line"></i> <span data-key="t-apps">Notice</span>
                             </a>
-                            <div class="collapse menu-dropdown @yield('notice.show')" id="notice">
+
+                            
+                            <div class="collapse menu-dropdown {{ request()->routeIs('notice.*') ? 'show' : '' }}" id="notice">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('notice.index') }}" class="nav-link @yield('notice')">
-                                            All
-                                            Notice </a>
+                                        <a href="{{ route('notice.index') }}" class="nav-link {{ request()->routeIs('notice.index') ? 'active' : '' }}">
+                                            All Notice </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('notice.create') }}" class="nav-link @yield('notice.create')"
+                                        <a href="{{ route('notice.create') }}" class="nav-link {{ request()->routeIs('notice.create') ? 'active' : '' }}"
                                             data-key="t-chat"> Add Notice
                                         </a>
                                     </li>
