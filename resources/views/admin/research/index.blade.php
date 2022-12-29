@@ -37,12 +37,12 @@
                     <table class="table table-nowrap">
                         <thead>
                             <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Department</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Action</th>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Department</th>
+                                <th>Image</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,7 +50,8 @@
                                 <tr>
                                     <th>{{ $loop->index + 1 }}</th>
                                     <td>{{ $research->title }}</td>
-                                    <td>{{ $research->description }}</td>
+                                    <td style="white-space: break-spaces;
+                                    word-break: break-all;">{{ $research->description }}</td>
                                     <td>{{ $research->department->name }}</td>
                                     <td>
                                         <img src="{{ asset('/') }}assets/uploads/research/{{ $research->image }}" class="img-fluid" alt="" style="width: 100px">

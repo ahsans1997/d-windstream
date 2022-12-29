@@ -58,12 +58,14 @@ class NewsController extends Controller
             'department_id' => $request->department_id,
             'category_id' => $request->category_id,
             'slug' => $slug,
+            'meta_keywords' => $request->meta_keywords,
+            'meta_description' => $request->meta_description,
             'created_at' => Carbon::now(),
         ]);
         if($request->hasFile('image')){
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
-            $location = 'public/assets/uploads/news/'.$image_name;
+            $location = 'public/assets/images/news/'.$image_name;
             Image::make($image)->save(base_path($location));
             News::findOrFail($news_id)->update([
                 'image' => $image_name,
@@ -120,11 +122,13 @@ class NewsController extends Controller
             'department_id' => $request->department_id,
             'category_id' => $request->category_id,
             'slug' => $slug,
+            'meta_keywords' => $request->meta_keywords,
+            'meta_description' => $request->meta_description,
          ]);
 
         if ($request->hasFile('image')) {
             if(News::findOrFail($news->id)->image != "default.png"){
-                $location = 'public/assets/uploads/news/'.News::findOrFail($news->id)->image;
+                $location = 'public/assets/images/news/'.News::findOrFail($news->id)->image;
                 unlink(base_path($location));
                 News::findOrFail($news->id)->update([
                     'image' => "default.png",
@@ -132,7 +136,7 @@ class NewsController extends Controller
             }
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/uploads/news/'.$image_name;
+            $image_location = 'public/assets/images/news/'.$image_name;
             Image::make($image)->save(base_path($image_location));
             News::findOrFail($news->id)->update([
                 'image' => $image_name,
@@ -151,7 +155,7 @@ class NewsController extends Controller
     {
         if(News::findOrFail($news->id)->image != "default,png")
         {
-            $image_location = 'public/assets/uploads/news/'.News::findOrFail($news->id)->image;
+            $image_location = 'public/assets/images/news/'.News::findOrFail($news->id)->image;
             unlink(base_path($image_location));
         }
         News::findOrFail($news->id)->delete();

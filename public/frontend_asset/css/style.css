@@ -728,9 +728,8 @@ li {
 /* News CSS */
 
 .news-header {
-    text-align: center;
     font-weight: 900;
-    font-size: 60px;
+    font-size: 40px;
 }
 
 .news {
@@ -1173,13 +1172,13 @@ li {
 
 .counter {
     /* Other styling for the counter element */
-  
+
     /* Set the animation to run indefinitely */
     animation: count-up infinite;
     /* Set the animation duration to 5 seconds */
     animation-duration: 5s;
   }
-  
+
   @keyframes count-up {
     /* Set the start value to 0 */
     0% {

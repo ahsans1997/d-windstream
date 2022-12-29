@@ -64,7 +64,7 @@
                                     <td>{{ $event->registration_end }}</td>
                                     <td>{{ $event->datetime }}</td>
                                     <td>
-                                        <img src="{{ asset('/') }}assets/uploads/research/{{ $event->image }}" class="img-fluid" alt="" style="width: 100px">
+                                        <img src="{{ asset('/') }}assets/uploads/events/{{ $event->image }}" class="img-fluid" alt="" style="width: 100px">
                                     </td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
