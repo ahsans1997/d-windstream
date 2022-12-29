@@ -16,7 +16,7 @@ class CreateFacultyMemberExperiencesTable extends Migration
         Schema::create('faculty_member_experiences', function (Blueprint $table) {
             $table->id();
             $table->foreignId('faculty_member_id');
-            $table->text('titel');
+            $table->text('title');
             $table->text('organization');
             $table->text('location');
             $table->text('from_date');

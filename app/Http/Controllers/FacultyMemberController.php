@@ -56,7 +56,7 @@ class FacultyMemberController extends Controller
     public function slug($name)
     {
 
-        $slug = Str::slug($name, "-");       
+        $slug = Str::slug($name, "-");
 
         if (FacultyMember::where('slug', $slug)->count() > 0) {
             return $this->slug($slug . '-1');
@@ -120,7 +120,7 @@ class FacultyMemberController extends Controller
                 for ($i = 0; $i < $len_membership; $i++) {
                     $facultyMemberMembership = new FacultyMemberMembership();
                     $facultyMemberMembership->faculty_member_id = $facultyMember->id;
-                    $facultyMemberMembership->titel = $request->membership_naem[$i];
+                    $facultyMemberMembership->title = $request->membership_naem[$i];
                     $facultyMemberMembership->type = $request->membership_type[$i];
                     $facultyMemberMembership->membership_year = $request->membership_year[$i];
                     $facultyMemberMembership->expire_year = $request->membership_expire_year[$i];
@@ -134,7 +134,7 @@ class FacultyMemberController extends Controller
                     $facultyMemberAward = new FacultyMemberAward();
                     $facultyMemberAward->faculty_member_id = $facultyMember->id;
                     $facultyMemberAward->type = $request->award_type[$i];
-                    $facultyMemberAward->titel = $request->award_title[$i];
+                    $facultyMemberAward->title = $request->award_title[$i];
                     $facultyMemberAward->year = $request->award_year[$i];
                     $facultyMemberAward->country_id = $request->award_country[$i];
                     $facultyMemberAward->description = $request->award_desciption[$i];
@@ -241,7 +241,7 @@ class FacultyMemberController extends Controller
                 for ($i = 0; $i < $len_experience; $i++) {
                     $facultyMemberExperience = new FacultyMemberExperience();
                     $facultyMemberExperience->faculty_member_id = $facultyMember->id;
-                    $facultyMemberExperience->titel = $request->expirence_title[$i];
+                    $facultyMemberExperience->title = $request->expirence_title[$i];
                     $facultyMemberExperience->organization = $request->expirence_organization[$i];
                     $facultyMemberExperience->location = $request->expirence_location[$i];
                     $facultyMemberExperience->from_date = $request->expirence_from_date[$i];
@@ -255,7 +255,7 @@ class FacultyMemberController extends Controller
                 for ($i = 0; $i < $len_membership; $i++) {
                     $facultyMemberMembership = new FacultyMemberMembership();
                     $facultyMemberMembership->faculty_member_id = $facultyMember->id;
-                    $facultyMemberMembership->titel = $request->membership_naem[$i];
+                    $facultyMemberMembership->title = $request->membership_naem[$i];
                     $facultyMemberMembership->type = $request->membership_type[$i];
                     $facultyMemberMembership->membership_year = $request->membership_year[$i];
                     $facultyMemberMembership->expire_year = $request->membership_expire_year[$i];
@@ -269,7 +269,7 @@ class FacultyMemberController extends Controller
                     $facultyMemberAward = new FacultyMemberAward();
                     $facultyMemberAward->faculty_member_id = $facultyMember->id;
                     $facultyMemberAward->type = $request->award_type[$i];
-                    $facultyMemberAward->titel = $request->award_title[$i];
+                    $facultyMemberAward->title = $request->award_title[$i];
                     $facultyMemberAward->year = $request->award_year[$i];
                     $facultyMemberAward->country_id = $request->award_country[$i];
                     $facultyMemberAward->description = $request->award_desciption[$i];
