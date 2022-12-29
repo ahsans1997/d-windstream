@@ -57,12 +57,14 @@ class ResearchController extends Controller
             'department_id' => $request->department_id,
             'slug' => $slug,
             'approve' => 1,
+            'meta_keywords' => $request->meta_keywords,
+            'meta_description' => $request->meta_description,
             'created_at' => Carbon::now(),
         ]);
         if($request->hasFile('image')){
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/uploads/research/'.$image_name;
+            $image_location = 'public/assets/images/research/'.$image_name;
             Image::make($image)->save(base_path($image_location));
             Research::findOrFail($research_id)->update([
                 'image' => $image_name,
@@ -125,11 +127,13 @@ class ResearchController extends Controller
             'department_id' => $request->department_id,
             'slug' => $slug,
             'approve' => 1,
+            'meta_keywords' => $request->meta_keywords,
+            'meta_description' => $request->meta_description,
         ]);
 
         if($request->hasFile('image')){
             if (Research::findOrFail($research->id)->image != "default.png") {
-                $location = 'public/assets/uploads/research/'.Research::findOrFail($research->id)->image;
+                $location = 'public/assets/images/research/'.Research::findOrFail($research->id)->image;
                 unlink(base_path($location));
                 Research::findOrFail($research->id)->update([
                     'image' => "default.png",
@@ -137,16 +141,17 @@ class ResearchController extends Controller
             }
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/uploads/research/'.$image_name;
+            $image_location = 'public/assets/images/research/'.$image_name;
             Image::make($image)->save(base_path($image_location));
             Research::findOrFail($research->id)->update([
                 'image' => $image_name,
             ]);
         }
-        if (Research::findOrFail($research->id)->file != ""){
-            Storage::delete(Research::findOrFail($research->id)->file);
-        }
+
         if($request->hasFile('file')){
+            if (Research::findOrFail($research->id)->file != ""){
+                Storage::delete(Research::findOrFail($research->id)->file);
+            }
             $path = $request->file('file')->storeAs(
                 'research', $slug.".".$request->file('file')->getClientOriginalExtension()
             );
@@ -166,7 +171,7 @@ class ResearchController extends Controller
     public function destroy(Research $research)
     {
         if (Research::findOrFail($research->id)->image != "default.png"){
-            $image_location = 'public/assets/uploads/research/'.Research::findOrFail($research->id)->image;
+            $image_location = 'public/assets/images/research/'.Research::findOrFail($research->id)->image;
             unlink(base_path($image_location));
         }
         if (Research::findOrFail($research->id)->file != ""){

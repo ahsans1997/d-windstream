@@ -38,20 +38,12 @@
                                 <label for="placeholderInput" class="form-label">Title</label>
                                 <input type="text" class="form-control" id="placeholderInput" placeholder="Title" name="title">
                             </div>
-                            @error('title')
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Description</label>
                                 <textarea name="description" class="form-control" rows="6"></textarea>
                             </div>
-                            @error('description')
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Department</label>
                                 <select class="form-select mb-3" aria-label=".form-select-lg example" name="department_id">
@@ -61,11 +53,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            @error('department_id')
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Category</label>
                                 <select class="form-select mb-3" aria-label=".form-select-lg example" name="category_id">
@@ -75,11 +63,16 @@
                                     @endforeach
                                 </select>
                             </div>
-                            @error('category_id')
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+
+                            <div class="mt-2">
+                                <label for="placeholderInput" class="form-label">Meta Keyword Comma(,) Separated</label>
+                                <input type="text" class="form-control" id="placeholderInput" placeholder="KeyWord" name="meta_keywords">
+                            </div>
+                            <div class="mt-2">
+                                <label for="placeholderInput" class="form-label">Meta Description</label>
+                                <textarea name="meta_description" class="form-control" rows="3"></textarea>
+                            </div>
+
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">News Image</label>
                                 <input type="file" class="form-control" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">

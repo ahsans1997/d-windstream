@@ -35,20 +35,12 @@
                             <label for="placeholderInput" class="form-label">Title</label>
                             <input type="text" class="form-control" id="placeholderInput" value="{{ $event->title }}" name="title">
                         </div>
-                        @error('title')
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $message }}
-                            </div>
-                        @enderror
+
                         <div class="mt-2">
                             <label for="placeholderInput" class="form-label">Description</label>
                             <textarea name="description" class="form-control" rows="6">{{ $event->description }}</textarea>
                         </div>
-                        @error('description')
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $message }}
-                            </div>
-                        @enderror
+
                         <div class="mt-2">
                             <label for="placeholderInput" class="form-label">Department</label>
                             <select class="form-select mb-3" aria-label=".form-select-lg example" name="department_id">
@@ -58,74 +50,52 @@
                                 @endforeach
                             </select>
                         </div>
-                        @error('department_id')
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $message }}
-                            </div>
-                        @enderror
+
                         <div>
                             <label for="placeholderInput" class="form-label">Venue</label>
                             <input type="text" class="form-control" id="placeholderInput" value="{{ $event->venue }}" name="venue">
                         </div>
-                        @error('venue')
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $message }}
-                            </div>
-                        @enderror
+
                         <div class="mt-2">
                             <label for="placeholderInput" class="form-label">Date & time</label>
                             <input type="datetime-local" class="form-control" id="placeholderInput" value="{{ $event->datetime }}" name="datetime">
                         </div>
-                        @error('datetime')
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $message }}
-                            </div>
-                        @enderror
+
                         <div>
                             <label for="placeholderInput" class="form-label">Organization</label>
                             <input type="text" class="form-control" id="placeholderInput" value="{{ $event->organization }}" name="organization">
                         </div>
-                        @error('organization')
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $message }}
-                            </div>
-                        @enderror
+
                         <div>
                             <label for="placeholderInput" class="form-label">Price</label>
                             <input type="number" class="form-control" id="placeholderInput" value="{{ $event->price }}" name="price">
                         </div>
-                        @error('price')
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $message }}
-                            </div>
-                        @enderror
+
                         <div>
                             <label for="placeholderInput" class="form-label">Registation Start</label>
                             <input type="date" class="form-control" id="placeholderInput" value="{{ $event->registration_start }}" name="registration_start">
                         </div>
-                        @error('registration_start')
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $message }}
-                            </div>
-                        @enderror
+
                         <div>
                             <label for="placeholderInput" class="form-label">Registration End</label>
                             <input type="date" class="form-control" id="placeholderInput" value="{{ $event->registration_end }}" name="registration_end">
                         </div>
-                        @error('registration_end')
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $message }}
-                            </div>
-                        @enderror
+
                         <div>
                             <label for="placeholderInput" class="form-label">Maximum Sit</label>
                             <input type="number" class="form-control" id="placeholderInput" value="{{ $event->maximum_sit }}" name="maximum_sit">
                         </div>
-                        @error('registration_end')
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $message }}
-                            </div>
-                        @enderror
+
+                        <div class="mt-2">
+                            <label for="placeholderInput" class="form-label">Meta Keyword Comma(,) Separated</label>
+                            <input type="text" class="form-control" id="placeholderInput" value="{{ $event->meta_keywords }}" name="meta_keywords">
+                        </div>
+
+                        <div class="mt-2">
+                            <label for="placeholderInput" class="form-label">Meta Description</label>
+                            <textarea name="meta_description" class="form-control" rows="3">{{ $event->meta_description }}</textarea>
+                        </div>
+
                         <div class="mt-2">
                             <label for="placeholderInput" class="form-label">Event Image</label>
                             <input type="file" class="form-control" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">

@@ -43,7 +43,7 @@
                                     <tr>
                                         <th>{{ $loop->index + 1 }}</th>
                                         <td>{{ $n->title }}</td>
-                                        <td>{{ $n->description }}</td>
+                                        <td class="text-wrap">{{ $n->description }}</td>
                                         <td>{{ $n->department->name }}</td>
                                         <td>{{ $n->category->name }}</td>
                                         <td>

@@ -728,9 +728,8 @@ li {
 /* News CSS */
 
 .news-header {
-    text-align: center;
     font-weight: 900;
-    font-size: 60px;
+    font-size: 40px;
 }
 
 .news {
@@ -928,6 +927,83 @@ li {
 
 .mnav {
     display: none;
+}
+
+.breadcrumb-area {
+    min-height: 300px;
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+}
+
+.breadcrumb-area .container {
+    background: rgba(0, 0, 0, .5);
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    height: 100%;
+}
+
+h1.page-title {
+    margin-top: 100px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    display: inline-block;
+    
+}
+
+.profile-card {
+    margin-bottom: 30px;
+}
+
+.profile-card .profile-image-rounded{
+    overflow: hidden;
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 15px auto;
+    border:5px solid #ddd;
+}
+
+.profile-card .profile-image-rounded:hover img{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: all 0.5;
+}
+
+.profile-card .title {
+    background: #002147;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+}
+.profile-card .card-body {
+    margin: 0;
+    padding: 0;
+}
+
+.profile-card .link {
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #002147;
+    border-radius: 35px;
+    padding: 5px 15px;
+    max-width: 200px;
+    cursor:pointer;
+}
+
+.profile-card .link:hover {
+    background:#002147;    
+}
+.profile-card .link:hover a{
+    color:#fff;    
+    text-decoration: none;
+}
+
+.profile-card.link a  {
+    color:#002147;
+    text-decoration: none;
 }
 
 
@@ -1173,20 +1249,32 @@ li {
 
 .counter {
     /* Other styling for the counter element */
-  
+
     /* Set the animation to run indefinitely */
     animation: count-up infinite;
     /* Set the animation duration to 5 seconds */
     animation-duration: 5s;
+<<<<<<< HEAD
   }
-  
+
   @keyframes count-up {
+=======
+}
+
+@keyframes count-up {
+
+>>>>>>> 09cefb5b0613cfa3922e084aa8b2c21a5c083b0d
     /* Set the start value to 0 */
     0% {
-      content: "0";
+        content: "0";
     }
+
     /* Set the end value to the desired number */
     100% {
-      content: "100";
+        content: "100";
     }
+<<<<<<< HEAD
   }
+=======
+}
+>>>>>>> 09cefb5b0613cfa3922e084aa8b2c21a5c083b0d

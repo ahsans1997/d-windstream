@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -11,7 +12,6 @@ class FrontendController extends Controller
     {
         return view('index',[
             'departments' => Department::all(),
-            'department-count' => Department::all()->count(),
         ]);
     }
     public function program()
@@ -20,7 +20,9 @@ class FrontendController extends Controller
     }
     public function news()
     {
-        return view('news');
+        return view('news',[
+            'news' => News::simplePaginate(5),
+        ]);
     }
     public function event()
     {

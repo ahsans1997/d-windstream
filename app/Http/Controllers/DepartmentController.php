@@ -57,7 +57,7 @@ class DepartmentController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
-            $iamge_location = 'public/assets/uploads/department/'.$image_name;
+            $iamge_location = 'public/assets/images/department/'.$image_name;
             Image::make($image)->save(base_path($iamge_location));
             Department::findOrFail($department_id)->update([
                 'image' => $image_name,
@@ -115,7 +115,7 @@ class DepartmentController extends Controller
 
         if ($request->hasFile('image')) {
             if(Department::findOrFail($department->id)->image != "default.png"){
-                $location = 'public/assets/uploads/department/'.Department::findOrFail($department->id)->image;
+                $location = 'public/assets/images/department/'.Department::findOrFail($department->id)->image;
                 unlink(base_path($location));
                 Department::findOrFail($department->id)->update([
                     'image' => "default.png",
@@ -123,7 +123,7 @@ class DepartmentController extends Controller
             }
             $image = $request->file('image');
             $image_name = $slug.".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/uploads/department/'.$image_name;
+            $image_location = 'public/assets/images/department/'.$image_name;
             Image::make($image)->save(base_path($image_location));
             Department::findOrFail($department->id)->update([
                 'image' => $image_name,
@@ -142,8 +142,8 @@ class DepartmentController extends Controller
     {
         if(Department::findOrFail($department->id)->image != "default,png")
         {
-            $iamge_location = 'public/assets/uploads/department/'.Department::findOrFail($department->id)->image;
-            unlink(base_path($iamge_location));
+            $image_location = 'public/assets/images/department/'.Department::findOrFail($department->id)->image;
+            unlink(base_path($image_location));
         }
         Department::findOrFail($department->id)->delete();
         return back()->with('delete', 'Your Department Delete Successfull.');
