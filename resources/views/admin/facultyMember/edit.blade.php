@@ -53,8 +53,12 @@
                                     </select>
                                 </div>
                                 <div class="col-md-12">
+                                    <label for="bio" class="form-label">Slug</label>
+                                    <input type="text" name="slug" value="{{$faculty_member->slug}}" class="form-control">
+                                </div>
+                                <div class="col-md-12">
                                     <label for="bio" class="form-label">Bio*</label>
-                                    <textarea type="text" class="form-control" placeholder="bio" name="bio" rows="2" required>{{$faculty_member->bio}}</textarea>
+                                    <textarea type="text" class="summernote form-control" placeholder="bio" name="bio" rows="2" required>{{$faculty_member->bio}}</textarea>
                                 </div>
 
                                 <div class="col-md-3">

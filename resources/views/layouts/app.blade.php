@@ -29,8 +29,8 @@
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <!-- custom Css-->
 
 
@@ -38,14 +38,7 @@
     <link rel="stylesheet" href="{{ asset('/') }}assets/libs/toastr/toastr.min.css">
     <link rel="stylesheet" href="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.css">
 
-    <style>
 
-<<<<<<< HEAD
-
-
-=======
-    </style>
->>>>>>> 09cefb5b0613cfa3922e084aa8b2c21a5c083b0d
 </head>
 
 <body>
@@ -61,24 +54,30 @@
                         <div class="navbar-brand-box horizontal-logo">
                             <a href="index.html" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="" height="22">
+                                    <img src="{{ asset('/') }}assets/images/logo-sm.png" alt=""
+                                        height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('/') }}assets/images/logo-dark.png" alt="" height="17">
+                                    <img src="{{ asset('/') }}assets/images/logo-dark.png" alt=""
+                                        height="17">
                                 </span>
                             </a>
 
                             <a href="index.html" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="" height="22">
+                                    <img src="{{ asset('/') }}assets/images/logo-sm.png" alt=""
+                                        height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('/') }}assets/images/logo-light.png" alt="" height="17">
+                                    <img src="{{ asset('/') }}assets/images/logo-light.png" alt=""
+                                        height="17">
                                 </span>
                             </a>
                         </div>
 
-                        <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger" id="topnav-hamburger-icon">
+                        <button type="button"
+                            class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
+                            id="topnav-hamburger-icon">
                             <span class="hamburger-icon">
                                 <span></span>
                                 <span></span>
@@ -101,8 +100,8 @@
 
 
                         <div class="dropdown ms-sm-3 header-item topbar-user">
-                            <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="btn" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="d-flex align-items-center">
                                     <img class="rounded-circle header-profile-user"
                                         src="{{ asset('/') }}assets/images/users/avatar-1.jpg" alt="Header Avatar">
@@ -149,7 +148,8 @@
                     <div class="modal-body">
                         <div class="mt-2 text-center">
                             <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
-                                colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                                colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px">
+                            </lord-icon>
                             <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
                                 <h4>Are you sure ?</h4>
                                 <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
@@ -209,8 +209,8 @@
                                             All Department </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('department.create') }}"
-                                            class="nav-link @yield('create.department')" data-key="t-chat"> Add
+                                        <a href="{{ route('department.create') }}" class="nav-link @yield('create.department')"
+                                            data-key="t-chat"> Add
                                             Department </a>
                                     </li>
                                 </ul>
@@ -225,7 +225,8 @@
                             <div class="collapse menu-dropdown @yield('news.show')" id="news">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('news.index') }}" class="nav-link @yield('news')"> All News
+                                        <a href="{{ route('news.index') }}" class="nav-link @yield('news')"> All
+                                            News
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -233,7 +234,8 @@
                                             data-key="t-chat"> Add News </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('category.index') }}" class="nav-link" data-key="t-chat"> News
+                                        <a href="{{ route('category.index') }}" class="nav-link" data-key="t-chat">
+                                            News
                                             Category </a>
                                     </li>
                                 </ul>
@@ -248,12 +250,13 @@
                             <div class="collapse menu-dropdown @yield('research.show')" id="research">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('research.index') }}" class="nav-link @yield('research')"> All
+                                        <a href="{{ route('research.index') }}" class="nav-link @yield('research')">
+                                            All
                                             Resarch </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('research.create') }}"
-                                            class="nav-link @yield('research.create')" data-key="t-chat"> Add Research
+                                        <a href="{{ route('research.create') }}" class="nav-link @yield('research.create')"
+                                            data-key="t-chat"> Add Research
                                         </a>
                                     </li>
                                 </ul>
@@ -272,8 +275,8 @@
                                             Event </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('event.create') }}"
-                                            class="nav-link @yield('event.create')" data-key="t-chat"> Add Event
+                                        <a href="{{ route('event.create') }}" class="nav-link @yield('event.create')"
+                                            data-key="t-chat"> Add Event
                                         </a>
                                     </li>
                                 </ul>
@@ -288,12 +291,13 @@
                             <div class="collapse menu-dropdown @yield('notice.show')" id="notice">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('notice.index') }}" class="nav-link @yield('notice')"> All
+                                        <a href="{{ route('notice.index') }}" class="nav-link @yield('notice')">
+                                            All
                                             Notice </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('notice.create') }}"
-                                            class="nav-link @yield('notice.create')" data-key="t-chat"> Add Notice
+                                        <a href="{{ route('notice.create') }}" class="nav-link @yield('notice.create')"
+                                            data-key="t-chat"> Add Notice
                                         </a>
                                     </li>
                                 </ul>
@@ -301,7 +305,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#faculty" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                            <a class="nav-link menu-link" href="#faculty" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarApps">
                                 <i class="ri-apps-2-line"></i> <span data-key="t-apps">Faculty</span>
                             </a>
                             <div class="collapse menu-dropdown " id="faculty">
@@ -310,13 +315,16 @@
                                         <a href="{{ route('faculty.index') }}" class="nav-link">Faculty</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('faculty.create') }}" class="nav-link" data-key="t-chat">Add Faculty</a>
+                                        <a href="{{ route('faculty.create') }}" class="nav-link"
+                                            data-key="t-chat">Add Faculty</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('faculty-member.index') }}" class="nav-link">Faculty Member</a>
+                                        <a href="{{ route('faculty-member.index') }}" class="nav-link">Faculty
+                                            Member</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('faculty-member.create') }}" class="nav-link" data-key="t-chat">Add Faculty Member</a>
+                                        <a href="{{ route('faculty-member.create') }}" class="nav-link"
+                                            data-key="t-chat">Add Faculty Member</a>
                                     </li>
                                 </ul>
                             </div>
@@ -352,7 +360,6 @@
                         <div class="col-sm-6">
                             <script>
                                 document.write(new Date().getFullYear())
-
                             </script> © Velzon.
                         </div>
                         <div class="col-sm-6">
@@ -379,7 +386,13 @@
     <!--end back-to-top-->
 
 
+    <script src="{{ asset('/') }}assets/libs/jquery/jquery.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+
+    
     <!-- JAVASCRIPT -->
     <script src="{{ asset('/') }}assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('/') }}assets/libs/simplebar/simplebar.min.js"></script>
@@ -403,42 +416,44 @@
 
     <!-- App js -->
     <script src="{{ asset('/') }}assets/js/app.js"></script>
-    <script src="{{ asset('/') }}assets/libs/jquery/jquery.min.js"></script>
     <script src="{{ asset('/') }}assets/libs/toastr/toastr.min.js"></script>
     <script src="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
     {!! Toastr::message() !!}
     <script type="text/javascript">
-
+        $(document).ready(function() {
+            $('.summernote').summernote();
+        });
 
         // $( ".datepicker" ).datepicker();
-        $(document).on('click', '.datepicker', function(){
+        $(document).on('click', '.datepicker', function() {
             $(this).datepicker().focus();
         });
         @if ($errors->any())
             @foreach ($errors->all() as $error)
                 toastr.error('{{ $error }}', 'Error', {
-                closeButton: true,
-                progressBar: true,
+                    closeButton: true,
+                    progressBar: true,
                 });
             @endforeach
         @endif
+    </script>
 
-    </script>
-<<<<<<< HEAD
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
-=======
+    @stack('script')
 
-@stack('script')
-
->>>>>>> 09cefb5b0613cfa3922e084aa8b2c21a5c083b0d
 </body>
 
 
