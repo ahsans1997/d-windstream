@@ -42,6 +42,7 @@ Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::redirect('/admin', '/login');
 
 Route::get('faculty-member',[FacultyMemberController::class, 'facultyMember'])->name('faculty-member');
+Route::get('member-profile/{slug}',[FacultyMemberController::class, 'memberProfile'])->name('member-profile');
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->prefix('admin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -55,10 +56,10 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
 
     Route::get('settings', [SettingController::class, 'index'])->name('setting.index');
     Route::put('settings/update/{id}', [SettingController::class, 'update'])->name('setting.update');
-
     Route::resource('faculty-member', FacultyMemberController::class);
     Route::get('get-country-year',[FacultyMemberController::class,'getCountryYear'])->name('get-country-year');
 
     Route::resource('programs', ProgramController::class);
+
 
 });

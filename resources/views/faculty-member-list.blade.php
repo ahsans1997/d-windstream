@@ -8,7 +8,7 @@
                 <div class="col-sm-4">
                     <x-faculty-profile name="{{ $member->name }}" designation="{{ $member->designation }}"
                         image="{{ !empty($member->image) ? 'storage/facultyMember/' . $member->image : '' }}"
-                        url="{{ $member->slug }}">
+                        url="{{ route('member-profile',$member->slug) }}">
                     </x-faculty-profile>
                 </div>
             @endforeach

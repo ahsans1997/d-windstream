@@ -190,6 +190,11 @@ class FacultyMemberController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'slug' => 'required|unique:faculty_members,slug,'.$id
+        ]);
+
         DB::beginTransaction();
         try {
 
@@ -206,7 +211,7 @@ class FacultyMemberController extends Controller
             $facultyMember->contact = $request->contact;
             $facultyMember->department_id = $request->department_id;
             $facultyMember->bio = $request->bio;
-            $facultyMember->slug = $this->slug($request->name);
+            $facultyMember->slug = $request->slug;
             $facultyMember->faculty_id = 1;
 
             if ($request->image) {
@@ -310,6 +315,20 @@ class FacultyMemberController extends Controller
             'faculty_members' => FacultyMember::with('department')->get(),
             'title' => 'Faculty Members',
         ];
-        return view('faculty-member', $data);
+        return view('faculty-member-list', $data);
+    }
+
+    public function memberProfile($slug)
+    {
+        $member = FacultyMember::with('department','education','experience','membership','award')->where('slug', $slug)->first();
+
+        // dd($member);
+
+        $data = [
+            'member' => $member,
+            'title' => 'Member Details for '.$member->name,
+        ];
+        return view('member-profile', $data);
+
     }
 }
