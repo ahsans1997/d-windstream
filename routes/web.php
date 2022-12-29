@@ -9,6 +9,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ResearchController;
 use App\Http\Controllers\SettingController;
 use App\Models\FacultyMember;
@@ -52,8 +53,13 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('faculty', FacultyController::class);
     Route::resource('notice', NoticeController::class);
     Route::resource('event', EventController::class);
+
     Route::get('settings', [SettingController::class, 'index'])->name('setting.index');
     Route::put('settings/update/{id}', [SettingController::class, 'update'])->name('setting.update');
     Route::resource('faculty-member', FacultyMemberController::class);
     Route::get('get-country-year',[FacultyMemberController::class,'getCountryYear'])->name('get-country-year');
+
+    Route::resource('programs', ProgramController::class);
+
+
 });
