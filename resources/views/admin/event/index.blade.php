@@ -1,17 +1,5 @@
 @extends('layouts.app')
 
-@section('event')
-    active
-@endsection
-
-@section('event.show')
-    show
-@endsection
-
-@section('title')
-    Event
-@endsection
-
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
@@ -20,7 +8,7 @@
             <div class="col">
 
                 <div class="header">
-                    <h2>Research</h2>
+                    <h2>Event</h2>
                 </div>
                 @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">

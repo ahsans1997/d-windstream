@@ -1,17 +1,5 @@
 @extends('layouts.app')
 
-@section('research.edit')
-    active
-@endsection
-
-@section('research.show')
-    show
-@endsection
-
-@section('title')
-    Research
-@endsection
-
 @section('content')
 
 

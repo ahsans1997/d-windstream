@@ -1,17 +1,5 @@
 @extends('layouts.app')
 
-@section('edit.department')
-    active
-@endsection
-
-@section('department.show')
-    show
-@endsection
-
-@section('title')
-    Department
-@endsection
-
 @section('content')
 
 

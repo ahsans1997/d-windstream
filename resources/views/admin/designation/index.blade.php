@@ -1,17 +1,5 @@
 @extends('layouts.app')
 
-@section('department')
-    active
-@endsection
-
-@section('department.show')
-    show
-@endsection
-
-@section('title')
-    Designation
-@endsection
-
 @section('content')
 
 

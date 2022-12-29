@@ -1,17 +1,5 @@
 @extends('layouts.app')
 
-@section('notice.create')
-    active
-@endsection
-
-@section('notice.show')
-    show
-@endsection
-
-@section('title')
-    Notice
-@endsection
-
 @section('content')
 
 

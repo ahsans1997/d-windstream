@@ -197,19 +197,19 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link @yield('department') @yield('create.department') @yield('edit.department')"
+                            <a class="nav-link menu-link"
                                 href="#department" data-bs-toggle="collapse" role="button" aria-expanded="false"
                                 aria-controls="sidebarApps">
                                 <i class="ri-community-fill"></i> <span data-key="t-apps">Department</span>
                             </a>
-                            <div class="collapse menu-dropdown @yield('department.show')" id="department">
+                            <div class="collapse menu-dropdown {{ request()->routeIs('department.*') ? 'show' : '' }}" id="department">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('department.index') }}" class="nav-link @yield('department')">
+                                        <a href="{{ route('department.index') }}" class="nav-link {{ request()->routeIs('department.index') ? 'active' : '' }}">
                                             All Department </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('department.create') }}" class="nav-link @yield('create.department')"
+                                        <a href="{{ route('department.create') }}" class="nav-link {{ request()->routeIs('department.create') ? 'active' : '' }}"
                                             data-key="t-chat"> Add
                                             Department </a>
                                     </li>
@@ -217,24 +217,24 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link @yield('news.create') @yield('news.edit') @yield('news')"
+                            <a class="nav-link menu-link"
                                 href="#news" data-bs-toggle="collapse" role="button" aria-expanded="false"
                                 aria-controls="sidebarApps">
                                 <i class="ri-apps-2-line"></i> <span data-key="t-apps">News</span>
                             </a>
-                            <div class="collapse menu-dropdown @yield('news.show')" id="news">
+                            <div class="collapse menu-dropdown {{ request()->routeIs('news.*') ? 'show' : '' }}" id="news">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('news.index') }}" class="nav-link @yield('news')"> All
+                                        <a href="{{ route('news.index') }}" class="nav-link {{ request()->routeIs('news.index') ? 'active' : '' }}"> All
                                             News
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('news.create') }}" class="nav-link @yield('news.create')"
+                                        <a href="{{ route('news.create') }}" class="nav-link {{ request()->routeIs('news.create') ? 'active' : '' }}"
                                             data-key="t-chat"> Add News </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('category.index') }}" class="nav-link" data-key="t-chat">
+                                        <a href="{{ route('category.index') }}" class="nav-link {{ request()->routeIs('category.*') ? 'active' : '' }}" data-key="t-chat">
                                             News
                                             Category </a>
                                     </li>
@@ -242,20 +242,20 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link @yield('research.create') @yield('research.edit') @yield('research')"
+                            <a class="nav-link menu-link"
                                 href="#research" data-bs-toggle="collapse" role="button" aria-expanded="false"
                                 aria-controls="sidebarApps">
                                 <i class="lab la-researchgate"></i> <span data-key="t-apps">Research</span>
                             </a>
-                            <div class="collapse menu-dropdown @yield('research.show')" id="research">
+                            <div class="collapse menu-dropdown {{ request()->routeIs('research.*') ? 'show' : '' }}" id="research">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('research.index') }}" class="nav-link @yield('research')">
+                                        <a href="{{ route('research.index') }}" class="nav-link {{ request()->routeIs('research.index') ? 'active' : '' }}">
                                             All
                                             Resarch </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('research.create') }}" class="nav-link @yield('research.create')"
+                                        <a href="{{ route('research.create') }}" class="nav-link {{ request()->routeIs('research.create') ? 'active' : '' }}"
                                             data-key="t-chat"> Add Research
                                         </a>
                                     </li>
@@ -263,19 +263,19 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link @yield('event.create') @yield('event.edit') @yield('event')"
+                            <a class="nav-link menu-link"
                                 href="#event" data-bs-toggle="collapse" role="button" aria-expanded="false"
                                 aria-controls="sidebarApps">
                                 <i class="ri-calendar-event-line"></i> <span data-key="t-apps">Event</span>
                             </a>
-                            <div class="collapse menu-dropdown @yield('event.show')" id="event">
+                            <div class="collapse menu-dropdown {{ request()->routeIs('event.*') ? 'show' : '' }}" id="event">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('event.index') }}" class="nav-link @yield('event')"> All
+                                        <a href="{{ route('event.index') }}" class="nav-link {{ request()->routeIs('event.index') ? 'active' : '' }}"> All
                                             Event </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('event.create') }}" class="nav-link @yield('event.create')"
+                                        <a href="{{ route('event.create') }}" class="nav-link {{ request()->routeIs('event.create') ? 'active' : '' }}"
                                             data-key="t-chat"> Add Event
                                         </a>
                                     </li>
@@ -289,7 +289,7 @@
                                 <i class="ri-calendar-event-line"></i> <span data-key="t-apps">Notice</span>
                             </a>
 
-                            
+
                             <div class="collapse menu-dropdown {{ request()->routeIs('notice.*') ? 'show' : '' }}" id="notice">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
@@ -310,14 +310,14 @@
                                 aria-controls="sidebarApps">
                                 <i class="ri-calendar-event-line"></i> <span data-key="t-apps">Designation</span>
                             </a>
-                            <div class="collapse menu-dropdown @yield('notice.show')" id="designation">
+                        <div class="collapse menu-dropdown {{ request()->routeIs('designation.*') ? 'show' : '' }}" id="designation">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('designation.index') }}" class="nav-link ">
+                                        <a href="{{ route('designation.index') }}" class="nav-link {{ request()->routeIs('designation.index') ? 'active' : '' }}">
                                             Designation </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('designation.create') }}" class="nav-link "
+                                        <a href="{{ route('designation.create') }}" class="nav-link {{ request()->routeIs('designation.create') ? 'active' : '' }}"
                                             data-key="t-chat"> Add Designation
                                         </a>
                                     </li>
@@ -330,28 +330,28 @@
                                 aria-expanded="false" aria-controls="sidebarApps">
                                 <i class="ri-apps-2-line"></i> <span data-key="t-apps">Faculty</span>
                             </a>
-                            <div class="collapse menu-dropdown " id="faculty">
+                            <div class="collapse menu-dropdown {{ request()->routeIs('faculty.*') ? 'show' : '' }}" id="faculty">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('faculty.index') }}" class="nav-link">Faculty</a>
+                                        <a href="{{ route('faculty.index') }}" class="nav-link {{ request()->routeIs('faculty.index') ? 'active' : '' }}">Faculty</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('faculty.create') }}" class="nav-link"
+                                        <a href="{{ route('faculty.create') }}" class="nav-link {{ request()->routeIs('faculty.create') ? 'active' : '' }}"
                                             data-key="t-chat">Add Faculty</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('faculty-member.index') }}" class="nav-link">Faculty
+                                        <a href="{{ route('faculty-member.index') }}" class="nav-link {{ request()->routeIs('faculty-member.index') ? 'active' : '' }}">Faculty
                                             Member</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('faculty-member.create') }}" class="nav-link"
+                                        <a href="{{ route('faculty-member.create') }}" class="nav-link {{ request()->routeIs('faculty-member.create') ? 'active' : '' }}"
                                             data-key="t-chat">Add Faculty Member</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link @yield('settings')" href="{{ route('setting.index') }}">
+                            <a class="nav-link menu-link {{ request()->routeIs('setting.index') ? 'active' : '' }}" href="{{ route('setting.index') }}">
                                 <i class="ri-dashboard-2-line"></i> <span>Settings</span>
                             </a>
                         </li>
@@ -360,13 +360,13 @@
                             <a class="nav-link menu-link" href="#programs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
                                 <i class="ri-apps-2-line"></i> <span data-key="t-apps">Programs</span>
                             </a>
-                            <div class="collapse menu-dropdown " id="programs">
+                            <div class="collapse menu-dropdown {{ request()->routeIs('programs.*') ? 'show' : '' }}" id="programs">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('programs.index') }}" class="nav-link">Programs</a>
+                                        <a href="{{ route('programs.index') }}" class="nav-link {{ request()->routeIs('programs.index') ? 'active' : '' }}">Programs</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('programs.create') }}" class="nav-link" data-key="t-chat">Add Programs</a>
+                                        <a href="{{ route('programs.create') }}" class="nav-link {{ request()->routeIs('programs.create') ? 'active' : '' }}" data-key="t-chat">Add Programs</a>
                                     </li>
 
                                 </ul>
@@ -426,7 +426,7 @@
 
     <script src="{{ asset('/') }}assets/libs/jquery/jquery.min.js"></script>
 
-    
+
 
 
     <!-- JAVASCRIPT -->

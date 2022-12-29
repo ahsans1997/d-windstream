@@ -1,13 +1,5 @@
 @extends('layouts.app')
 
-@section('settings')
-active
-@endsection
-
-@section('title')
-Research
-@endsection
-
 @section('content')
 
 @php
