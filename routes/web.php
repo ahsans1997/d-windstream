@@ -9,6 +9,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ResearchController;
 use App\Models\FacultyMember;
 use Barryvdh\Debugbar\DataCollector\EventCollector;
@@ -47,4 +48,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('event', EventController::class);
     Route::resource('faculty-member', FacultyMemberController::class);
     Route::get('get-country-year',[FacultyMemberController::class,'getCountryYear'])->name('get-country-year');
+    Route::resource('programs', ProgramController::class);
+
 });

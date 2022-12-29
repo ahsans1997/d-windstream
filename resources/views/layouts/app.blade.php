@@ -310,6 +310,23 @@
                             </div>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#programs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Programs</span>
+                            </a>
+                            <div class="collapse menu-dropdown " id="programs">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{ route('programs.index') }}" class="nav-link">Programs</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('programs.create') }}" class="nav-link" data-key="t-chat">Add Programs</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
 
                     </ul>
                 </div>
