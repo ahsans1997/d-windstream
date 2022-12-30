@@ -15,4 +15,14 @@ class Program extends Model
     {
         return $this->belongsTo(Department::class,'deaprtment_id','id');
     }
+
+    public function semister()
+    {
+        return $this->hasMany(ProgramCurriculamCours::class,'program_id','id');
+    }
+
+    public function syllabus()
+    {
+        return $this->hasMany(SyllabusAll::class,'programs_id','id');
+    }
 }

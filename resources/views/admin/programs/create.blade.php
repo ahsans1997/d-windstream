@@ -63,11 +63,11 @@ Programs Create
                                 </div>
                                 <div class="col-md-12">
                                     <label for="bio" class="form-label">Description*</label>
-                                    <textarea type="text" class="form-control" placeholder="description" name="description" rows="2" required></textarea>
+                                    <textarea type="text" class="form-control summernote" placeholder="description" name="description" rows="2" required></textarea>
                                 </div>
                                 <div class="col-md-12">
                                     <label for="bio" class="form-label">Description List*</label>
-                                    <textarea type="text" class="form-control" placeholder="description list" name="description_list" rows="2" required></textarea>
+                                    <textarea type="text" class="form-control summernote" placeholder="description list" name="description_list" rows="2" required></textarea>
                                 </div>
 
 
@@ -93,11 +93,33 @@ Programs Create
 
                             </div>
 
-                            
+                            <h4>All Syllabus</h4> <button id="addsyllabus" style="float: right">Add</button>
+
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <table id="syllabus_table" class="table">
+                                        <thead>
+                                            <th>Name</th>
+                                            <th>Link</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 200px"><input type="text" name="syllabus_name[]" class="form-control " required></td>
+                                                <td style="width: 200px"><input type="text" name="syllabus_link[]" class="form-control " required></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+
 
 
                             <button type="submit"
-                                class="btn btn-outline-success waves-effect waves-light mt-3 mb-5" style="float: right">Submit</button>
+                                class="btn btn-outline-success waves-effect waves-light mt-3 mb-5" >Submit</button>
                         </form>
                     </div>
 
@@ -114,7 +136,6 @@ Programs Create
         $(document).ready(function() {
             $('#addsemister').on('click', function(e) {
                 e.preventDefault();
-                console.log('coems');
                 $('#semister_table tbody').append(
                     '<tr>'+
                         '<td style="width: 200px"><input type="text" name="semister_course_name[]" class="form-control" required></td>'+
@@ -123,8 +144,24 @@ Programs Create
                     '</tr>'
                 );
             });
+            $('#addsyllabus').on('click', function(e) {
+                e.preventDefault();
+                $('#syllabus_table tbody').append(
+                   '<tr>'+
+                        '<td style="width: 200px"><input type="text" name="syllabus_name[]" class="form-control " required></td>'+
+                        '<td style="width: 200px"><input type="text" name="syllabus_link[]" class="form-control " required></td>'+
+                        '<td style="width: 40px"><lable  id="btnCancleSyllabus" class="btn btn-danger float-right">-</lable></td>' +
+                    '</tr>'
+                );
+            });
 
             $(document).on("click", "#btnCancleSemister", function(event) {
+                event.preventDefault();
+                $(this).closest("tr").remove();
+
+            });
+
+            $(document).on("click", "#btnCancleSyllabus", function(event) {
                 event.preventDefault();
                 $(this).closest("tr").remove();
 

@@ -23,6 +23,7 @@ class CreateProgramsTable extends Migration
             $table->foreignId('faculty_id');
             $table->foreignId('deaprtment_id');
             $table->enum('dgree_type',['UnderGraduate','Graduate','MPhil','PhD']);
+            $table->text('slug')->unique();
             $table->softDeletes();
             $table->timestamps();
         });
