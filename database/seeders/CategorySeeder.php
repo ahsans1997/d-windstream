@@ -20,6 +20,7 @@ class CategorySeeder extends Seeder
             ['name'=>'Political','created_at'=>Carbon::now()],
             ['name'=>'Business','created_at'=>Carbon::now()],
             ['name'=>'Sports','created_at'=>Carbon::now()],
+            ['name'=>'Sports','created_at'=>Carbon::now()],
         ];
         Category::insert($category);
     }

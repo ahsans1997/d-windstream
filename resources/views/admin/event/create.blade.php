@@ -1,17 +1,5 @@
 @extends('layouts.app')
 
-@section('event.create')
-    active
-@endsection
-
-@section('event.show')
-    show
-@endsection
-
-@section('title')
-    Event
-@endsection
-
 @section('content')
 <div class="page-content">
     <div class="container-fluid">

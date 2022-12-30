@@ -81,20 +81,12 @@
 
 
                         </ul>
-                        <div class="tab-content tab-content-info">
+                        <div class="tab-content tab-content-info pl-2 pr-2">
 
                             <!-- Single Tab -->
                             <div id="bio" class="tab-pane fade active in show">
                                 <div class="info title">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas assumenda laboriosam,
-                                    hic, consequuntur voluptatum laudantium sit alias temporibus aliquid ad reprehenderit
-                                    minus. Est cum asperiores fugiat iste delectus, commodi ea.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit deserunt tempora
-                                    consequuntur error inventore doloribus praesentium. Labore enim totam ipsa adipisci
-                                    aliquid itaque, tempora quos deleniti omnis, sapiente quod sed.
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias quis, veniam
-                                    excepturi distinctio nemo odio in? Esse, at. Enim provident excepturi inventore sint eos
-                                    beatae ducimus odit ut deserunt ab!
+                                    {!! $member->bio !!}
                                 </div>
                             </div>
 
@@ -113,48 +105,22 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Ph.D.
-                                                    </td>
-                                                    <td>Computer Science and Engineering</td>
-                                                    <td>Australian National University</td>
-                                                    <td>Australia
-                                                    </td>
-                                                    <td>2014</td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td>Masters
-                                                    </td>
-                                                    <td>Computer Science and Engineering</td>
-                                                    <td>University of Tokyo</td>
-                                                    <td>Japan
-                                                    </td>
-                                                    <td>2010</td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td>Bachelor
-                                                    </td>
-                                                    <td>Computer Science and Engineering</td>
-                                                    <td>University of Dhaka</td>
-                                                    <td>Bangladesh
-                                                    </td>
-                                                    <td>2007</td>
-
-                                                </tr>
+                                                @foreach ($member->education as $education)
+                                                    <tr>
+                                                        <td>{{ $education->degree_name }}</td>
+                                                        <td>{{ $education->subject }}</td>
+                                                        <td>{{ $education->board_or_institute }}</td>
+                                                        <td>{{ country($education->country_id)->name }}</td>
+                                                        <td>{{ $education->passing_year }}</td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
 
                                         </table>
                                     </div>
                                 </div>
                             </div>
-
-
                             <!-- End Single Tab -->
-
-
-
 
                             <div id="experience" class="tab-pane fade">
                                 <div class="info title">
@@ -169,91 +135,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Assistant Professor</td>
-                                                <td>Dept. of Robotics and Mechatronics Engineering, University of Dhaka</td>
-                                                <td>Bangladesh</td>
-                                                <td nowrap="">
-                                                    28, Nov 2018
-                                                </td>
-                                                <td nowrap="">
+                                            @foreach ($member->experience as $experience)
+                                                <tr>
+                                                    <td>{{ $experience->title }}</td>
+                                                    <td>{{ $experience->organization }}</td>
+                                                    <td>{{ $experience->location }}</td>
+                                                    <td>{{ $experience->from_date }}</td>
+                                                    <td>{{ $experience->to_date }}</td>
+                                                </tr>
+                                            @endforeach
 
-                                                    Currently Working
-                                                </td>
-
-
-                                            </tr>
-                                            <tr>
-                                                <td>Postdoctoral Researcher</td>
-                                                <td>Center for Autonomous Systems, University of Technology Sydney</td>
-                                                <td>Australia</td>
-                                                <td nowrap="">
-                                                    01, Sep 2016
-                                                </td>
-                                                <td nowrap="">
-                                                    30-09-2017
-
-                                                </td>
-
-
-                                            </tr>
-                                            <tr>
-                                                <td>Lecturer</td>
-                                                <td>Dept. of Robotics and Mechatronics Engineering, University of Dhaka</td>
-                                                <td>Bangladesh</td>
-                                                <td nowrap="">
-                                                    03, Jan 2016
-                                                </td>
-                                                <td nowrap="">
-                                                    27-11-2018
-
-                                                </td>
-
-
-                                            </tr>
-                                            <tr>
-                                                <td>Assistant Professor</td>
-                                                <td>Dept. of Electrical and Computer Engineering, North South University
-                                                </td>
-                                                <td>Bangladesh</td>
-                                                <td nowrap="">
-                                                    01, May 2015
-                                                </td>
-                                                <td nowrap="">
-                                                    31-12-2015
-
-                                                </td>
-
-
-                                            </tr>
-                                            <tr>
-                                                <td>Postdoctoral Researcher</td>
-                                                <td>Robotics Institute, Carnegie Mellon University</td>
-                                                <td>USA</td>
-                                                <td nowrap="">
-                                                    01, Apr 2014
-                                                </td>
-                                                <td nowrap="">
-                                                    31-03-2015
-
-                                                </td>
-
-
-                                            </tr>
-                                            <tr>
-                                                <td>Visiting Researcher</td>
-                                                <td>National Institute of Informatics</td>
-                                                <td>Tokyo, Japan</td>
-                                                <td nowrap="">
-                                                    01, Jan 2013
-                                                </td>
-                                                <td nowrap="">
-                                                    31-12-2014
-
-                                                </td>
-
-
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -441,11 +332,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td colspan="5" class="text-center"> No Collaboration &amp;
-                                                    Membership is found
-                                                </td>
-                                            </tr>
+
+                                            @forelse ($member->membership as $membership)
+                                                <tr>
+                                                    <td></td>
+                                                    <td>{{ $membership->title }}</td>
+                                                    <td>{{ $membership->type }}</td>
+                                                    <td>{{ $membership->membership_year }}</td>
+                                                    <td>{{ $membership->expire_year }}</td>
+                                                </tr>
+                                            @empty
+
+                                                <tr>
+                                                    <td colspan="5" class="text-center">No Data Found</td>
+                                                </tr>
+                                            @endforelse
                                         </tbody>
 
                                     </table>
@@ -774,130 +675,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>National </td>
-                                                <td>“Dean’s Award- 2017” from the Faculty of Engineering and Technology of
-                                                    the University of
-                                                    Dhaka in recognition of the outstanding achievement in research</td>
-                                                <td>2020</td>
-                                                <td>Bangladesh
-                                                </td>
-                                                <td></td>
+                                          @forelse ($member->membership as $membership)
+                                          <tr>
+                                              <td></td>
+                                              <td>{{ $membership->type }}</td>
+                                              <td>{{ $membership->title }}</td>
+                                              <td>{{ $membership->year }}</td>
+                                              <td>{{ country($membership->country_id)->name }}</td>
+                                              <td>{{ $membership->description }}</td>
+                                          </tr>
+                                      @empty
 
-                                            </tr>
-                                            <tr>
-                                                <td>International </td>
-                                                <td>International Internship Scholarship at the National Institute of
-                                                    Informatics (NII)</td>
-                                                <td>2013</td>
-                                                <td>Japan
-                                                </td>
-                                                <td></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>International </td>
-                                                <td>FB Rice Prize for the Best Patent Activity</td>
-                                                <td>2012</td>
-                                                <td>Australia
-                                                </td>
-                                                <td></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>International </td>
-                                                <td>Australian National University and National ICT Australia PhD
-                                                    Scholarship</td>
-                                                <td>2010</td>
-                                                <td>Australia
-                                                </td>
-                                                <td></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>International </td>
-                                                <td>Nitori Foundation Scholarship for Academic Achievement in Masters</td>
-                                                <td>2009</td>
-                                                <td>Japan
-                                                </td>
-                                                <td></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>International </td>
-                                                <td>University of Tokyo Scholarship</td>
-                                                <td>2008</td>
-                                                <td>Japan
-                                                </td>
-                                                <td></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>International </td>
-                                                <td>Watanuki International Foundation Scholarship for Academic Achievement
-                                                    in Masters</td>
-                                                <td>2008</td>
-                                                <td>Japan
-                                                </td>
-                                                <td></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>National </td>
-                                                <td>Champion and Best Speaker in the 17th National Television Debate
-                                                    Competition</td>
-                                                <td>2006</td>
-                                                <td>Bangladesh
-                                                </td>
-                                                <td></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>National </td>
-                                                <td>Champion in Rokeya Hall Annual Cultural Competition</td>
-                                                <td>2004</td>
-                                                <td>Belarus
-                                                </td>
-                                                <td></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>National </td>
-                                                <td>Champion in Rokeya Hall Annual Cultural Competition</td>
-                                                <td>2003</td>
-                                                <td>Bangladesh
-                                                </td>
-                                                <td></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>National </td>
-                                                <td>Runner-up in 16th National Television Debate Competition</td>
-                                                <td>2003</td>
-                                                <td>Bangladesh
-                                                </td>
-                                                <td></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>National </td>
-                                                <td>Bangladesh Government's Ministry of Education Talent-pool Scholarship
-                                                </td>
-                                                <td>2000</td>
-                                                <td>Bangladesh
-                                                </td>
-                                                <td></td>
-
-                                            </tr>
+                                          <tr>
+                                              <td colspan="5" class="text-center">No Data Found</td>
+                                          </tr>
+                                      @endforelse
                                         </tbody>
 
                                     </table>
                                 </div>
                             </div>
-
-
-
-
 
                             <div id="contactInfo" class="tab-pane fade">
                                 <div class="info title">
@@ -919,8 +716,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
 
                         </div>
                     </div>

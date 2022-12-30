@@ -1,17 +1,5 @@
 @extends('layouts.app')
 
-@section('create.department')
-    active
-@endsection
-
-@section('department.show')
-    show
-@endsection
-
-@section('title')
-Programs Create
-@endsection
-
 @section('content')
     <div class="page-content">
         <div class="container-fluid">

@@ -1,17 +1,5 @@
 @extends('layouts.app')
 
-@section('department')
-    active
-@endsection
-
-@section('department.show')
-    show
-@endsection
-
-@section('title')
-    Department
-@endsection
-
 @section('content')
 
 
@@ -56,7 +44,7 @@
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $department->name }}</td>
-                                    <td>{{ $department->description }}</td>
+                                    <td class="text-wrap">{{ $department->description }}</td>
                                     <td>
                                         @php
                                             $social_link = $department->social_link;

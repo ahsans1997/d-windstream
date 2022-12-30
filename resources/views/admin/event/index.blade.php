@@ -1,17 +1,5 @@
 @extends('layouts.app')
 
-@section('event')
-    active
-@endsection
-
-@section('event.show')
-    show
-@endsection
-
-@section('title')
-    Event
-@endsection
-
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
@@ -20,7 +8,7 @@
             <div class="col">
 
                 <div class="header">
-                    <h2>Research</h2>
+                    <h2>Event</h2>
                 </div>
                 @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -54,15 +42,15 @@
                             @forelse ($events as $event)
                                 <tr>
                                     <th>{{ $loop->index + 1 }}</th>
-                                    <td>{{ $event->title }}</td>
-                                    <td>{{ $event->description }}</td>
-                                    <td>{{ $event->department->name }}</td>
-                                    <td>{{ $event->venue }}</td>
-                                    <td>{{ $event->organization }}</td>
-                                    <td>{{ $event->price }}</td>
-                                    <td>{{ $event->registration_start }}</td>
-                                    <td>{{ $event->registration_end }}</td>
-                                    <td>{{ $event->datetime }}</td>
+                                    <td class="text-wrap">{{ $event->title }}</td>
+                                    <td class="text-wrap">{{ $event->description }}</td>
+                                    <td class="text-wrap">{{ $event->department->name }}</td>
+                                    <td class="text-wrap">{{ $event->venue }}</td>
+                                    <td class="text-wrap">{{ $event->price }}</td>
+                                    <td class="text-wrap">{{ $event->organization }}</td>
+                                    <td class="text-wrap">{{ $event->registration_start }}</td>
+                                    <td class="text-wrap">{{ $event->registration_end }}</td>
+                                    <td class="text-wrap">{{ $event->datetime }}</td>
                                     <td>
                                         <img src="{{ asset('/') }}assets/uploads/events/{{ $event->image }}" class="img-fluid" alt="" style="width: 100px">
                                     </td>

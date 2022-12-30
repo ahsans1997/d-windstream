@@ -1,13 +1,5 @@
 @extends('layouts.app')
 
-@section('create.news.category')
-active
-@endsection
-
-@section('title')
-News Category
-@endsection
-
 @section('content')
 
 

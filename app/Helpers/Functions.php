@@ -1,11 +1,21 @@
 <?php
 
+use App\Models\Country;
+
 
 function default_header_banner($page_name=''){
     
     return asset('/') .'frontend_asset/img/banner.jpg';
 }
 
+
+function country($id=null){
+    if($id){
+       return Country::find($id);
+    }else{
+        return Country::orderBy('name','asc')->get();
+    }
+}
 
 function numberToWord($num = false)
 {
