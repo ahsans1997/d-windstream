@@ -200,7 +200,7 @@ class ProgramController extends Controller
             // dd($len_semister);
             for($i=0; $i<$len_semister; $i++){
                 CurriculamSubject::where('program_curriculam_id',$request->semister_course_id[$i])->delete();
-                if(isset($request->subjects_name)){
+                if(isset($request->subjects_name[$request->semister_course_id[$i]])){
 
                     $len_subjects = sizeof($request->subjects_name[$request->semister_course_id[$i]]);
                     for($j=0; $j<$len_subjects; $j++){
