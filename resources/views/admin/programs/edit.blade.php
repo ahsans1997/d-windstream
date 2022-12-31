@@ -68,7 +68,7 @@ Programs Create
                                     <label for="description" class="form-label">Description*</label>
                                     <textarea type="text" class="summernote form-control" placeholder="description" name="description" rows="3" required>{{$program->description}}</textarea>
                                 </div>
-                                <div class="col-md-12" style="height: 300px">
+                                <div class="col-md-12">
                                     <label for="description_list" class="form-label">Description List*</label>
                                     <textarea type="text" aria-multiline="true"  class="summernote form-control" name="description_list" required>{{$program->description_list}}</textarea>
                                 </div>
