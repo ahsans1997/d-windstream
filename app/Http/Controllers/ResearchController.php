@@ -70,14 +70,6 @@ class ResearchController extends Controller
                 'image' => $image_name,
             ]);
         }
-        if($request->hasFile('file')){
-            $path = $request->file('file')->storeAs(
-                'research', $slug.".".$request->file('file')->getClientOriginalExtension()
-            );
-            Research::findOrFail($research_id)->update([
-                'file' => $path,
-            ]);
-        }
         return back()->with('success', 'Research add successfull');
     }
 
@@ -145,18 +137,6 @@ class ResearchController extends Controller
             Image::make($image)->save(base_path($image_location));
             Research::findOrFail($research->id)->update([
                 'image' => $image_name,
-            ]);
-        }
-
-        if($request->hasFile('file')){
-            if (Research::findOrFail($research->id)->file != ""){
-                Storage::delete(Research::findOrFail($research->id)->file);
-            }
-            $path = $request->file('file')->storeAs(
-                'research', $slug.".".$request->file('file')->getClientOriginalExtension()
-            );
-            Research::findOrFail($research->id)->update([
-                'file' => $path,
             ]);
         }
         return back()->with('success', 'Research edit successfull');

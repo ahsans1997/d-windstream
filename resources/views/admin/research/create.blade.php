@@ -55,10 +55,6 @@
                                 <label for="placeholderInput" class="form-label">Research Image</label>
                                 <input type="file" class="form-control" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             </div>
-                            <div class="mt-2">
-                                <label for="placeholderInput" class="form-label">Research File</label>
-                                <input type="file" class="form-control" name="file" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                            </div>
 
                             <button type="submit" class="btn btn-outline-success waves-effect waves-light mt-3 mb-5">Submit</button>
                         </form>

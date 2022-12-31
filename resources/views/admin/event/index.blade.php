@@ -21,7 +21,7 @@
                     </div>
                 @endif
                 <div class="table mt-5">
-                    <table id="eventtable" class="table table-nowrap">
+                    <table class="table table-nowrap">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
@@ -75,7 +75,9 @@
                         </tbody>
                     </table>
                 </div>
-
+                <div class="row">
+                    {{ $events->links() }}
+                </div>
             </div> <!-- end col -->
         </div>
 
@@ -85,10 +87,3 @@
 <!-- End Page-content -->
 @endsection
 
-@push('script')
-<script type="text/javascript">
-    $(document).ready( function () {
-        $('#eventtable').DataTable();
-    } );
-</script>
-@endpush
