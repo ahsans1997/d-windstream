@@ -14,7 +14,7 @@
                         <h2>NEWS</h2>
                     </div>
                     <div class="table">
-                        <table id="newstable" class="table table-nowrap">
+                        <table class="table table-nowrap">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
@@ -58,7 +58,9 @@
                             </tbody>
                         </table>
                     </div>
-
+                    <div class="mt-5 text-right">
+                        {{ $news->links() }}
+                    </div>
                 </div> <!-- end col -->
             </div>
 
@@ -72,12 +74,6 @@
 
 @endsection
 
-@push('script')
-<script type="text/javascript">
-    $(document).ready( function () {
-        $('#newstable').DataTable();
-    } );
-</script>
-@endpush
+
 
 

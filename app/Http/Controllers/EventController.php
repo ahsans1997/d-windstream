@@ -117,7 +117,7 @@ class EventController extends Controller
             'description' => 'required',
             'department_id' => 'required',
             'datetime' => 'required',
-            'slug' => 'required|unique:events',
+            'slug' => 'required|unique:events,slug,'.$event->id,
         ]);
         $slug = Str::slug($request->title, '-');
         Event::findOrFail($event->id)->update([
@@ -131,7 +131,7 @@ class EventController extends Controller
             'registration_start' => $request->registration_start,
             'registration_end' => $request->registration_end,
             'maximum_sit' => $request->maximum_sit,
-            'slug' => $request->slug,
+            'slug' =>Str::slug($request->slug, '-'),
             'meta_keywords' => $request->meta_keywords,
             'meta_description' => $request->meta_description,
             'created_at' => Carbon::now(),
