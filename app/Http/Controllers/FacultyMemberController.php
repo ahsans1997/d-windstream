@@ -15,6 +15,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use App\Models\FacultyMemberEducation;
 use App\Models\FacultyMemberExperience;
 use App\Models\FacultyMemberMembership;
+use App\Models\FacultyMemberPublication;
 
 class FacultyMemberController extends Controller
 {
@@ -151,6 +152,18 @@ class FacultyMemberController extends Controller
                     $facultyMemberAward->save();
                 }
             }
+
+            if(isset($request->publication_type)){
+                $len_publication = sizeof($request->publication_type);
+                for($i=0; $i<$len_publication; $i++){
+                    $facultyMemberPublication = new FacultyMemberPublication();
+                    $facultyMemberPublication->faculty_member_id = $facultyMember->id;
+                    $facultyMemberPublication->type = $request->publication_type[$i];
+                    $facultyMemberPublication->description = $request->publication_desciption[$i];
+                    $facultyMemberPublication->link = $request->publication_link[$i];
+                    $facultyMemberPublication->save();
+                }
+            }
             DB::commit();
             Toastr::success("Faculty Member Created Successfuly");
             return redirect()->back();
@@ -182,7 +195,7 @@ class FacultyMemberController extends Controller
     {
 
         $data = [
-            'faculty_member' => FacultyMember::with('department', 'education', 'experience', 'membership', 'award')->find($id),
+            'faculty_member' => FacultyMember::with('department', 'education', 'experience', 'membership', 'award','publications')->find($id),
             'departments' => Department::get(),
             'years' => Year::get(),
             'countries' => Country::get(),
@@ -217,6 +230,7 @@ class FacultyMemberController extends Controller
             FacultyMemberExperience::where('faculty_member_id', $facultyMember->id)->delete();
             FacultyMemberMembership::where('faculty_member_id', $facultyMember->id)->delete();
             FacultyMemberAward::where('faculty_member_id', $facultyMember->id)->delete();
+            FacultyMemberPublication::where('faculty_member_id', $facultyMember->id)->delete();
 
 
             $facultyMember->name = $request->name;
@@ -294,6 +308,18 @@ class FacultyMemberController extends Controller
                     $facultyMemberAward->country_id = $request->award_country[$i];
                     $facultyMemberAward->description = $request->award_desciption[$i];
                     $facultyMemberAward->save();
+                }
+            }
+
+            if(isset($request->publication_type)){
+                $len_publication = sizeof($request->publication_type);
+                for($i=0; $i<$len_publication; $i++){
+                    $facultyMemberPublication = new FacultyMemberPublication();
+                    $facultyMemberPublication->faculty_member_id = $facultyMember->id;
+                    $facultyMemberPublication->type = $request->publication_type[$i];
+                    $facultyMemberPublication->description = $request->publication_desciption[$i];
+                    $facultyMemberPublication->link = $request->publication_link[$i];
+                    $facultyMemberPublication->save();
                 }
             }
             DB::commit();

@@ -260,9 +260,44 @@
 
                             </div>
 
+                            <h4>Publication</h4> <button id="addPublication" style="float: right">Add</button>
+
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <table id="publication_table" class="table">
+                                        <thead>
+                                            <th>Publication Type</th>
+                                            <th>Description</th>
+                                            <th>Link</th>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($faculty_member->publications as $publication)
+
+                                                <tr>
+                                                    <td>
+                                                        <select name="publication_type[]" class="form-control" required>
+                                                            <option value="Journal Article" @if ($publication->type == "Journal Article") selected @endif>Journal Article</option>
+                                                            <option value="Conference Proceedings" @if ($publication->type == "Conference Proceedings") selected @endif>Conference Proceedings</option>
+                                                    </select>
+                                                    </td>
+                                                    <td ><textarea type="text" name="publication_desciption[]" class="summernote form-control" required>{{$publication->description}}</textarea></td>
+                                                    <td><input type="text" class="form-control" name="publication_link[]" value="{{$publication->link}}"></td>
+                                                    <td style="width: 40px"><lable  id="btnCanclePublication" class="btn btn-danger float-right">-</lable></td>
+
+                                                </tr>
+                                            @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+
 
                             <button type="submit"
-                                class="btn btn-outline-success waves-effect waves-light mt-3 mb-5 " style="float: right">Submit</button>
+                                class="btn btn-outline-success waves-effect waves-light mt-3 mb-5 ">Submit</button>
                         </form>
                     </div>
 
@@ -443,6 +478,32 @@
                 } else {
                     $(this).val("false");
                 }
+            });
+
+            $('#addPublication').on('click',function(e){
+                e.preventDefault();
+                $('#publication_table tbody').append(
+                    '<tr>'+
+                        '<td>'+
+                            '<select name="publication_type[]" class="form-control" required>'+
+                                '<option value="">Select One</option>'+
+                                '<option value="Journal Article">Journal Article</option>'+
+                                '<option value="Conference Proceedings">Conference Proceedings</option>'+
+                            '</select>'+
+                        '</td>'+
+                        '<td ><textarea type="text" name="publication_desciption[]" class="summernote form-control" required></textarea></td>'+
+                        '<td><input type="text" class="form-control" name="publication_link[]"></td>'+
+                        '<td style="width: 40px"><lable  id="btnCanclePublication" class="btn btn-danger float-right">-</lable></td>' +
+                    '</tr>'
+                );
+                $('.summernote').summernote();
+
+            });
+
+            $(document).on("click", "#btnCanclePublication", function(event) {
+                event.preventDefault();
+                $(this).closest("tr").remove();
+
             });
 
 
