@@ -207,6 +207,7 @@ li {
 
 /* News Start */
 
+
 .news-section {
     background-color: #F9F6EF;
     padding-top: 100px;
@@ -304,6 +305,7 @@ li {
 .news-banner-body {
     padding: 24px;
     background-color: #fff;
+    height: 165px;
 }
 
 .news-footer h5 {
@@ -630,7 +632,7 @@ li {
 /* Main div */
 
 .main-div {
-    margin-top: 180px;
+    margin-top: 50px;
 }
 
 
@@ -757,17 +759,15 @@ li {
 
 /* News Single */
 
-.news-single-body {
-    margin-top: 40px;
-}
-
 .news-single-body button {
     margin-top: 20px;
     font-size: 24px;
 }
 
 .news-single-body h2 {
-    font-size: 65px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: 700;
 }
 
 .news-description {
@@ -785,6 +785,7 @@ li {
 .event-p {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-top: 30px;
+    height: 460px;
 }
 
 .event-p-img img {
@@ -950,7 +951,7 @@ h1.page-title {
     border-bottom: 1px solid #ddd;
     padding-bottom: 15px;
     display: inline-block;
-    
+
 }
 
 .profile-card {
@@ -994,10 +995,10 @@ h1.page-title {
 }
 
 .profile-card .link:hover {
-    background:#002147;    
+    background:#002147;
 }
 .profile-card .link:hover a{
-    color:#fff;    
+    color:#fff;
     text-decoration: none;
 }
 
@@ -1254,16 +1255,13 @@ h1.page-title {
     animation: count-up infinite;
     /* Set the animation duration to 5 seconds */
     animation-duration: 5s;
-<<<<<<< HEAD
   }
 
   @keyframes count-up {
-=======
 }
 
 @keyframes count-up {
 
->>>>>>> 09cefb5b0613cfa3922e084aa8b2c21a5c083b0d
     /* Set the start value to 0 */
     0% {
         content: "0";
@@ -1273,8 +1271,5 @@ h1.page-title {
     100% {
         content: "100";
     }
-<<<<<<< HEAD
   }
-=======
-}
->>>>>>> 09cefb5b0613cfa3922e084aa8b2c21a5c083b0d
+

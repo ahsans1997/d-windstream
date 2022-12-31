@@ -12,6 +12,7 @@ class SettingController extends Controller
     {
         return view('admin.globalsettings',[
             'setting' => Setting::latest()->first(),
+            'logo' => Setting::latest()->first(),
         ]);
     }
     public function update(Request $request, $id)

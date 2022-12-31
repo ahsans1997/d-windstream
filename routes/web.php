@@ -30,9 +30,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontendController::class, 'home'])->name('home');
+
 Route::get('/program', [FrontendController::class, 'program'])->name('program');
-Route::get('/news', [FrontendController::class, 'news'])->name('news');
-Route::get('/event', [FrontendController::class, 'event'])->name('event');
+
+Route::get('news',[NewsController::class, 'news'])->name('news');
+Route::get('news/{slug}',[NewsController::class, 'newssingle'])->name('news.single');
+
+Route::get('event', [EventController::class, 'event'])->name('event');
+Route::get('event/{slug}', [EventController::class, 'eventsingle'])->name('event.single');
+
 Route::get('/department', [FrontendController::class, 'department'])->name('department');
 Route::get('/department/{slug}', [FrontendController::class, 'department'])->name('department.single');
 Route::get('/research', [FrontendController::class, 'research'])->name('research');
@@ -50,11 +56,15 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('department', DepartmentController::class);
     Route::resource('category', CategoryController::class);
+
     Route::resource('news', NewsController::class);
+    Route::get('news/featured/{id}', [NewsController::class, 'featured'])->name('news.featured');
+
     Route::resource('research', ResearchController::class);
     Route::resource('faculty', FacultyController::class);
     Route::resource('notice', NoticeController::class);
     Route::resource('event', EventController::class);
+    Route::get('event/featured/{id}', [EventController::class, 'featured'])->name('event.featured');
 
     Route::get('settings', [SettingController::class, 'index'])->name('setting.index');
     Route::put('settings/update/{id}', [SettingController::class, 'update'])->name('setting.update');

@@ -12,22 +12,15 @@ class FrontendController extends Controller
     {
         return view('index',[
             'departments' => Department::all(),
+            'news' => News::where('featured', 2)->limit(4)->get(),
         ]);
     }
     public function program()
     {
         return view('program');
     }
-    public function news()
-    {
-        return view('news',[
-            'news' => News::simplePaginate(5),
-        ]);
-    }
-    public function event()
-    {
-        return view('event');
-    }
+
+
     public function department()
     {
         return view('department');

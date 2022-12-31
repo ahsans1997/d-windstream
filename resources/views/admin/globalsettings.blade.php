@@ -172,7 +172,7 @@
                                                         <div class="card-body">
                                                             <div class="header_color">
                                                                 <label>Color picker:</label>
-                                                                <input type="text" class="form-control my-colorpicker1">
+                                                                <input type="text" class="form-control colorpicker">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -587,4 +587,14 @@
 </div>
 <!-- End Page-content -->
 
+
+
 @endsection
+
+@push('script')
+<script>
+    $(document).ready (function () {
+        $('.colorpicker').colorpicker()
+    });
+</script>
+@endpush

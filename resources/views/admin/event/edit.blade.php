@@ -75,6 +75,10 @@
                         </div>
 
                         <div class="mt-2">
+                            <label for="placeholderInput" class="form-label">Slug</label>
+                            <input type="text" class="form-control" id="placeholderInput" value="{{ $event->slug }}" name="slug">
+                        </div>
+                        <div class="mt-2">
                             <label for="placeholderInput" class="form-label">Meta Keyword Comma(,) Separated</label>
                             <input type="text" class="form-control" id="placeholderInput" value="{{ $event->meta_keywords }}" name="meta_keywords">
                         </div>
