@@ -76,7 +76,7 @@ Programs Create
 
                             </div>
 
-                            <h4>Courses(Year/Semester)</h4> 
+                            <h4>Courses(Year/Semester)</h4>
 
                             <div class="row">
                                 <div class="col-md-12">
