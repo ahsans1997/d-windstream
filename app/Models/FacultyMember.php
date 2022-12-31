@@ -39,5 +39,10 @@ class FacultyMember extends Model
         return $this->hasMany(FacultyMemberPublication::class,'faculty_member_id','id');
     }
 
+    public function designation()
+    {
+        return $this->belongsTo(Designation::class,'designation_id','id');
+    }
+
 
 }

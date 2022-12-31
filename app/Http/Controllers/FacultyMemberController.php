@@ -366,7 +366,7 @@ class FacultyMemberController extends Controller
 
     public function memberProfile($slug)
     {
-        $member = FacultyMember::with('department','education','experience','membership','award')->where('slug', $slug)->first();
+        $member = FacultyMember::with('department','designation','education','experience','membership','award')->where('slug', $slug)->first();
 
         // dd($member);
 
