@@ -19,7 +19,7 @@ class CreateNoticesTable extends Migration
             $table->longText('description');
             $table->longText('department_id');
             $table->string('image')->default('default.png');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('meta_keywords')->nullable();
             $table->string('meta_description')->nullable();
             $table->timestamps();

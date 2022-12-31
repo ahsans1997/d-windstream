@@ -45,6 +45,8 @@ Route::get('/research', [FrontendController::class, 'research'])->name('research
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 
+Route::get('/program',[ProgramController::class, 'program'])->name('program');
+
 
 
 Route::redirect('/admin', '/login');

@@ -20,7 +20,7 @@ class NewsController extends Controller
     public function index()
     {
         return view('admin.news.index',[
-            'news' => News::orderBy('id', 'desc')->paginate(10),
+            'news' => News::with('category','department')->orderBy('id','desc')->paginate(10),
         ]);
     }
 
@@ -180,7 +180,7 @@ class NewsController extends Controller
 
     public function news(){
         return view('news',[
-            'news' => News::orderBy('id', 'DESC')->simplePaginate(5),
+            'news' => News::orderBy('id', 'DESC')->simplePaginate(9),
         ]);
     }
     public function newssingle($slug){
@@ -189,4 +189,6 @@ class NewsController extends Controller
             'news' => News::orderBy('id', 'desc')->limit(3)->get(),
         ]);
     }
+
+
 }

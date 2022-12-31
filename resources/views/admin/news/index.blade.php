@@ -28,12 +28,11 @@
                             <tbody>
                                 @forelse ($news as $n)
                                     <tr>
-                                        <th>{{ $loop->index + 1 }}</th>
+                                        <th>{{ $n->id }}</th>
                                         <td class="text-wrap">{{ $n->title }}</td>
                                         <td class="text-wrap">{{ $n->description }}</td>
                                         <td>{{ $n->department->name }}</td>
                                         <td>{{ $n->category->name }}</td>
-
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 @if ($n->featured == 1)
@@ -55,12 +54,15 @@
                                         <td class="text-danger text-center" colspan="50">No More Data</td>
                                     </tr>
                                 @endforelse
+
                             </tbody>
                         </table>
                     </div>
-                    <div class="mt-5 text-right">
+
+                    <div class="row">
                         {{ $news->links() }}
                     </div>
+
                 </div> <!-- end col -->
             </div>
 

@@ -1,8 +1,8 @@
 @extends('layouts.frontend')
 
 @section('content')
-     <!-- Program Section -->
-     <div class="main-div">
+    <!-- Program Section -->
+    <div class="main-div">
 
         <div class="container">
             <div class="row">
@@ -24,49 +24,26 @@
                                     </ul>
                                 </nav>
                             </div>
-                          </div>
+                        </div>
 
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="program-list">
-                        <h2>B.Sc. in Robotics and Mechatronics Engineering (48 Months)</h2>
-                        <button type="button" class="btn btn-light">Department Of CSE</button>
-                        <button type="button" class="btn btn-light">Undergraduate</button>
-                        <p>B.Sc. in Robotics and Mechatronics Engineering Session: 2017-18 and 2018-19 1. Duration of the Program: 4 years. 2. Total Semester: 8 (2 semester per year). 3. Total Credits: 160 4. Class: 15 active weeks. 5. Preparatory Leave: 2 weeks 6. Teaching ...</p>
-                        <button class="btn btn-success">Read more</button>
-                    </div>
-                    <div class="program-list">
-                        <h2>B.Sc. in Robotics and Mechatronics Engineering (48 Months)</h2>
-                        <button type="button" class="btn btn-light">Department Of CSE</button>
-                        <button type="button" class="btn btn-light">Undergraduate</button>
-                        <p>B.Sc. in Robotics and Mechatronics Engineering Session: 2017-18 and 2018-19 1. Duration of the Program: 4 years. 2. Total Semester: 8 (2 semester per year). 3. Total Credits: 160 4. Class: 15 active weeks. 5. Preparatory Leave: 2 weeks 6. Teaching ...</p>
-                        <button class="btn btn-success">Read more</button>
-                    </div>
-                    <div class="program-list">
-                        <h2>B.Sc. in Robotics and Mechatronics Engineering (48 Months)</h2>
-                        <button type="button" class="btn btn-light">Department Of CSE</button>
-                        <button type="button" class="btn btn-light">Undergraduate</button>
-                        <p>B.Sc. in Robotics and Mechatronics Engineering Session: 2017-18 and 2018-19 1. Duration of the Program: 4 years. 2. Total Semester: 8 (2 semester per year). 3. Total Credits: 160 4. Class: 15 active weeks. 5. Preparatory Leave: 2 weeks 6. Teaching ...</p>
-                        <button class="btn btn-success">Read more</button>
-                    </div>
-                    <div class="program-list">
-                        <h2>B.Sc. in Robotics and Mechatronics Engineering (48 Months)</h2>
-                        <button type="button" class="btn btn-light">Department Of CSE</button>
-                        <button type="button" class="btn btn-light">Undergraduate</button>
-                        <p>B.Sc. in Robotics and Mechatronics Engineering Session: 2017-18 and 2018-19 1. Duration of the Program: 4 years. 2. Total Semester: 8 (2 semester per year). 3. Total Credits: 160 4. Class: 15 active weeks. 5. Preparatory Leave: 2 weeks 6. Teaching ...</p>
-                        <button class="btn btn-success">Read more</button>
-                    </div>
+                    @forelse($programs as $program)
+                        <div class="program-list">
+                            <h2>{{$program->title}}</h2>
+                            <button type="button" class="btn btn-light">Department Of CSE</button>
+                            <button type="button" class="btn btn-light">Undergraduate</button>
+                            <p>{{$program->description}}</p>
+                            <button class="btn btn-success">Read more</button>
+                        </div>
+                    @else
+                        <div class="program-list">No Data Found</div>
+
+                    @endif
+
                 </div>
             </div>
         </div>
     </div>
 @endsection
-
-
-
-
-
-
-
-

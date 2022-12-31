@@ -19,7 +19,7 @@ class CreateNewsTable extends Migration
             $table->longText('description');
             $table->integer('department_id');
             $table->integer('category_id');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('image')->default("default.png");
             $table->integer('featured')->default(1);
             $table->integer('action')->default(1);
