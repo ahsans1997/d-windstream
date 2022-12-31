@@ -13,7 +13,7 @@
                     <div class="news-header">
                         <h2>NEWS</h2>
                     </div>
-                    <div class="table">
+                    <div class="table-responsive">
                         <table class="table table-nowrap">
                             <thead>
                                 <tr>
@@ -29,7 +29,7 @@
                             <tbody>
                                 @forelse ($news as $n)
                                     <tr>
-                                        <th>{{ $loop->index + 1 }}</th>
+                                        <th>{{ $n->id }}</th>
                                         <td>{{ $n->title }}</td>
                                         <td class="text-wrap">{{ $n->description }}</td>
                                         <td>{{ $n->department->name }}</td>
@@ -53,8 +53,13 @@
                                         <td class="text-danger text-center" colspan="50">No More Data</td>
                                     </tr>
                                 @endforelse
+                                
                             </tbody>
                         </table>
+                    </div>
+
+                    <div class="row">
+                        {{ $news->links() }}
                     </div>
 
                 </div> <!-- end col -->

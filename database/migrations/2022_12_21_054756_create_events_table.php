@@ -25,7 +25,7 @@ class CreateEventsTable extends Migration
             $table->dateTime('registration_end')->nullable();
             $table->integer('maximum_sit')->nullable();
             $table->dateTime('datetime');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('image')->default('default.png');
             $table->integer('featured')->default(1);
             $table->string('meta_keywords')->nullable();

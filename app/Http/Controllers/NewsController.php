@@ -20,7 +20,7 @@ class NewsController extends Controller
     public function index()
     {
         return view('admin.news.index',[
-            'news' => News::with('category','department')->get(),
+            'news' => News::with('category','department')->orderBy('id','desc')->paginate(10),
         ]);
     }
 
