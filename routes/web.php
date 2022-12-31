@@ -10,6 +10,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ResearchController;
 use App\Http\Controllers\SettingController;
@@ -75,6 +76,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
 
     Route::resource('programs', ProgramController::class);
     Route::resource('designation', DesignationController::class);
-
+    Route::resource('page',PageController::class);
 
 });

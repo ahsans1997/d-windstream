@@ -288,11 +288,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link menu-link {{ request()->routeIs('setting.index') ? 'active' : '' }}" href="{{ route('setting.index') }}">
-                                <i class="ri-dashboard-2-line"></i> <span>Settings</span>
-                            </a>
-                        </li>
+
 
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#programs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
@@ -305,6 +301,25 @@
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('programs.create') }}" class="nav-link {{ request()->routeIs('programs.create') ? 'active' : '' }}" data-key="t-chat">Add Programs</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#settings" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Settings</span>
+                            </a>
+                            <div class="collapse menu-dropdown {{ request()->routeIs('setting.*','page.*') ? 'show' : '' }}" id="settings">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link menu-link {{ request()->routeIs('setting.index') ? 'active' : '' }}" href="{{ route('setting.index') }}">
+                                            <i class="ri-dashboard-2-line"></i> <span>Settings</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('page.index') }}" class="nav-link {{ request()->routeIs('page.index') ? 'active' : '' }}" data-key="t-chat">Page</a>
                                     </li>
 
                                 </ul>
