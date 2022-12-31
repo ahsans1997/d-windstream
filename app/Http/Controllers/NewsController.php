@@ -114,7 +114,7 @@ class NewsController extends Controller
             'description' => 'required',
             'department_id' => 'required',
             'category_id' => 'required',
-            'slug' => 'required|unique:news'
+            'slug' => 'required|unique:news,slug,'.$news->id,
         ]);
 
          News::find($news->id)->update([
@@ -122,7 +122,7 @@ class NewsController extends Controller
             'description' => $request->description,
             'department_id' => $request->department_id,
             'category_id' => $request->category_id,
-            'slug' => $request->slug,
+            'slug' => Str::slug($request->slug, '-'),
             'meta_keywords' => $request->meta_keywords,
             'meta_description' => $request->meta_description,
          ]);

@@ -207,6 +207,7 @@ Programs Create
                 $(this).closest("tr").remove();
 
             });
+            
             $(document).on("click", "#btnCancleSubjects", function(event) {
                 event.preventDefault();
                 $(this).closest("tr").remove();
@@ -241,6 +242,8 @@ Programs Create
                         '</td>'+
                     '</tr>'
                 );
+                $('.summernote').summernote();
+
 
             });
 

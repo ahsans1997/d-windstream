@@ -14,7 +14,7 @@
                         <h2>NEWS</h2>
                     </div>
                     <div class="table">
-                        <table id="newstable" class="table table-nowrap">
+                        <table class="table table-nowrap">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
@@ -54,7 +54,7 @@
                                         <td class="text-danger text-center" colspan="50">No More Data</td>
                                     </tr>
                                 @endforelse
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -76,12 +76,6 @@
 
 @endsection
 
-@push('script')
-<script type="text/javascript">
-    $(document).ready( function () {
-        $('#newstable').DataTable();
-    } );
-</script>
-@endpush
+
 
 
