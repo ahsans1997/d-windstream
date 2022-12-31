@@ -139,44 +139,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 news-banner-3">
-                    <div class="news">
-                        <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/news/2.jpg" alt="">
-                        <div class="news-banner-body">
-                            <p>SCIENCE & TECHNOLOGY</p>
-                            <h5><a href=""><b>Striking inequalities in maternal and infant health</b></a></h4>
+                @foreach ($news as $n)
+                    <div class="col-md-3 news-banner-3">
+                        <div class="news">
+                            <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/news/2.jpg" alt="">
+                            <div class="news-banner-body">
+                                <p>{{ $n->department->name }}</p>
+                                <h5><a href="{{ route('news.single',$n->slug) }}">{{ Str::words($n->title, 6) }}</a></h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 news-banner-3">
-                    <div class="news">
-                        <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/news/3.webp" alt="">
-                        <div class="news-banner-body">
-                            <p>SCIENCE & TECHNOLOGY</p>
-                            <h5><a href=""><b>Striking inequalities in maternal and infant health</b></a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 news-banner-3">
-                    <div class="news">
-                        <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/news/4.webp"
-                            alt="">
-                        <div class="news-banner-body">
-                            <p>SCIENCE & TECHNOLOGY</p>
-                            <h5><a href=""><b>Striking inequalities in maternal and infant health</b></a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 news-banner-3">
-                    <div class="news">
-                        <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/news/5.jpg"
-                            alt="">
-                        <div class="news-banner-body">
-                            <p>SCIENCE & TECHNOLOGY</p>
-                            <h5><a href=""><b>Striking inequalities in maternal and infant health</b></a></h4>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
+
                 <div class="col-md-6 news-banner-6">
                     <div class="news">
                         <img class="img-fluid photo" src="{{ asset('/') }}frontend_asset/img/news/6.jpg"

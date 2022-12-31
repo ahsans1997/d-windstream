@@ -12,7 +12,14 @@
                 </div>
                 <div class="col-md-12">
                     <div class="card border-secondary mb-3">
-                        <div class="card-header" style="background-color: #bbffd4;"><b>Department</b></div>
+                        <div class="card-header" style="background-color: #bbffd4;">
+                            <form action="" class="text-right d-block form-inline">
+                                <div class="input-group text-right d-block">
+                                    <input style="width:200px;" class="form-control" type="text" placeholder="Department" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <button class="btn btn-outline-secondary" type="button">Search</button>
+                                </div>
+                            </form>
+                        </div>
                         <div class="card-body text-secondary">
                             <div class="container">
                                 <div class="row">

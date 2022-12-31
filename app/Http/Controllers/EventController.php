@@ -117,6 +117,7 @@ class EventController extends Controller
             'description' => 'required',
             'department_id' => 'required',
             'datetime' => 'required',
+            'slug' => 'required|unique:events',
         ]);
         $slug = Str::slug($request->title, '-');
         Event::findOrFail($event->id)->update([
@@ -130,7 +131,7 @@ class EventController extends Controller
             'registration_start' => $request->registration_start,
             'registration_end' => $request->registration_end,
             'maximum_sit' => $request->maximum_sit,
-            'slug' => $slug,
+            'slug' => $request->slug,
             'meta_keywords' => $request->meta_keywords,
             'meta_description' => $request->meta_description,
             'created_at' => Carbon::now(),
@@ -170,5 +171,33 @@ class EventController extends Controller
         }
         Event::findOrFail($event->id)->delete();
         return back()->with('delete', 'Event Delete Successfull.');
+    }
+
+    public function featured($id)
+    {
+        if(Event::findOrFail($id)->featured == 1){
+            Event::findOrFail($id)->update([
+                'featured' => 2,
+            ]);
+        }
+        else{
+            Event::findOrFail($id)->update([
+                'featured' => 1,
+            ]);
+        }
+        return back();
+    }
+
+    public function event()
+    {
+        return view('event',[
+            'events' => Event::orderBy('id', 'desc')->simplePaginate(5),
+        ]);
+    }
+    public function eventsingle($slug){
+        return view('event-single',[
+            'event_info' => Event::where('slug', $slug)->first(),
+            'events' => Event::orderBy('id', 'desc')->limit(3)->get(),
+        ]);
     }
 }

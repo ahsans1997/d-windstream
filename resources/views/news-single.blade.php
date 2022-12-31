@@ -4,22 +4,40 @@
 <div class="main-div">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="news-single-image">
-                    <img class="img-fluid" src="asset/img/news/2.JPG" alt="">
-                </div>
+            <div class="col-md-8">
+
                 <div class="news-single-body">
-                    <h2><b>NEWS Tilte</b></h2>
-                    <button type="button" class="btn btn-light">Department Name</button>
-                    <button type="button" class="btn btn-light">Category Name</button>
+                    <div class="card border-info">
+                        <div class="card-header"><h2>{{ $news_info->title }}</h2></div>
+                        <div class="card-body">
+                            <div class="news-single-image">
+                                <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/news/2.JPG" alt="">
+                            </div>
+                            <button type="button" class="btn btn-light">{{ $news_info->department->name }}</button>
+                            <button type="button" class="btn btn-light">{{ $news_info->category->name }}</button>
 
-                    <div class="news-description">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam distinctio porro hic voluptatibus optio, vitae quidem officia itaque error ipsam perferendis illum provident iure, minus, dignissimos ratione molestiae libero excepturi.
-                           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus repellendus alias impedit saepe molestiae praesentium officia, possimus, soluta assumenda libero ex nulla? Reiciendis magni laboriosam fugit asperiores placeat expedita deleniti.
-
-                        </p>
+                            <div class="news-description">
+                                <p>
+                                    {{ $news_info->description }}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-info">
+                    <div class="card-header">Letest News</div>
+                    <div class="card-body">
+                        <nav>
+                            <ul>
+                                @foreach ($news as $n)
+                                    <li style="line-height: 40px;"><a href="{{ route('news.single',$n->slug) }}"><i class="fa-solid fa-arrow-right-long"></i> {{ Str::limit($n->title, 35) }}</a></li>
+                                @endforeach
+                            </ul>
+                        </nav>
+                    </div>
+                  </div>
             </div>
         </div>
     </div>

@@ -253,4 +253,18 @@ class ProgramController extends Controller
     {
         //
     }
+
+    public function program()
+    {
+        $data = [
+            'programs' =>Program::with('department')->paginate(5),
+            'title' => 'Program'
+        ];
+        return view('program',$data);
+    }
+
+    public function programSingle($slug)
+    {
+        # code...
+    }
 }
