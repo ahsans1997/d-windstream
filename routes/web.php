@@ -7,6 +7,7 @@ use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\FacultyMemberController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\FacultyMemberResearchController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NoticeController;
@@ -63,6 +64,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('news/featured/{id}', [NewsController::class, 'featured'])->name('news.featured');
 
     Route::resource('research', ResearchController::class);
+    Route::resource('faculty-member-research', FacultyMemberResearchController::class);
+
     Route::resource('faculty', FacultyController::class);
     Route::resource('notice', NoticeController::class);
     Route::resource('event', EventController::class);

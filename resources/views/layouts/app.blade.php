@@ -197,6 +197,11 @@
                                             data-key="t-chat"> Add Research
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('faculty-member-research.create') }}" class="nav-link {{ request()->routeIs('faculty-member-research.create') ? 'active' : '' }}"
+                                            data-key="t-chat"> Add faculty Research
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
