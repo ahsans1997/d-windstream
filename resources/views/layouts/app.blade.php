@@ -27,6 +27,10 @@
     <!-- App Css-->
     <link href="{{ asset('/') }}assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
+    {{-- Color Piker --}}
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/colorpicker.css">
+    <!-- Data Table -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -51,30 +55,6 @@
                 <div class="navbar-header">
                     <div class="d-flex">
                         <!-- LOGO -->
-                        <div class="navbar-brand-box horizontal-logo">
-                            <a href="index.html" class="logo logo-dark">
-                                <span class="logo-sm">
-                                    <img src="{{ asset('/') }}assets/images/logo-sm.png" alt=""
-                                        height="22">
-                                </span>
-                                <span class="logo-lg">
-                                    <img src="{{ asset('/') }}assets/images/logo-dark.png" alt=""
-                                        height="17">
-                                </span>
-                            </a>
-
-                            <a href="index.html" class="logo logo-light">
-                                <span class="logo-sm">
-                                    <img src="{{ asset('/') }}assets/images/logo-sm.png" alt=""
-                                        height="22">
-                                </span>
-                                <span class="logo-lg">
-                                    <img src="{{ asset('/') }}assets/images/logo-light.png" alt=""
-                                        height="17">
-                                </span>
-                            </a>
-                        </div>
-
                         <button type="button"
                             class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
                             id="topnav-hamburger-icon">
@@ -87,18 +67,6 @@
                     </div>
 
                     <div class="d-flex align-items-center">
-
-
-
-
-                        <div class="ms-1 header-item d-none d-sm-flex">
-                            <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
-                                data-toggle="fullscreen">
-                                <i class='bx bx-fullscreen fs-22'></i>
-                            </button>
-                        </div>
-
-
                         <div class="dropdown ms-sm-3 header-item topbar-user">
                             <button type="button" class="btn" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -136,46 +104,16 @@
                 </div>
             </div>
         </header>
-
-        <!-- removeNotificationModal -->
-        <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                            id="NotificationModalbtn-close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mt-2 text-center">
-                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
-                                colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px">
-                            </lord-icon>
-                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                <h4>Are you sure ?</h4>
-                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
-                            </div>
-                        </div>
-                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete
-                                It!</button>
-                        </div>
-                    </div>
-
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
         <!-- ========== App Menu ========== -->
         <div class="app-menu navbar-menu">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <!-- Light Logo-->
                 <a href="{{ route('dashboard') }}" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="" height="22">
+                        <img src="{{ asset('/') }}assets/images/profilelogo.png" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('/') }}assets/images/logo-light.png" alt="" height="17">
+                        <img src="{{ asset('/') }}assets/images/" alt="" height="17">
                     </span>
                 </a>
                 <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -452,11 +390,13 @@
 
     <!-- App js -->
     <script src="{{ asset('/') }}assets/js/app.js"></script>
+    <script src="{{ asset('/') }}assets/js/colorpicker.js"></script>
     <script src="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.js"></script>
     <script src="{{ asset('/') }}assets/libs/toastr/toastr.min.js"></script>
 
 
-
+    <!-- Data Table -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 
 
     <!-- include summernote css/js -->

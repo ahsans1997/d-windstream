@@ -21,7 +21,7 @@
                     </div>
                 @endif
                 <div class="table mt-5">
-                    <table class="table table-nowrap">
+                    <table id="eventtable" class="table table-nowrap">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
@@ -34,7 +34,6 @@
                                 <th scope="col">Registration Start</th>
                                 <th scope="col">Registration End</th>
                                 <th scope="col">Event Date TIme</th>
-                                <th scope="col">Image</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -45,22 +44,25 @@
                                     <td class="text-wrap">{{ $event->title }}</td>
                                     <td class="text-wrap">{{ $event->description }}</td>
                                     <td class="text-wrap">{{ $event->department->name }}</td>
-                                    <td class="text-wrap">{{ $event->venue }}</td>
-                                    <td class="text-wrap">{{ $event->price }}</td>
-                                    <td class="text-wrap">{{ $event->organization }}</td>
-                                    <td class="text-wrap">{{ $event->registration_start }}</td>
-                                    <td class="text-wrap">{{ $event->registration_end }}</td>
-                                    <td class="text-wrap">{{ $event->datetime }}</td>
-                                    <td>
-                                        <img src="{{ asset('/') }}assets/uploads/events/{{ $event->image }}" class="img-fluid" alt="" style="width: 100px">
-                                    </td>
+                                    <td class="text-wrap {{ (!$event->venue) ? 'text-danger' : '' }}">{{ ($event->venue) ? $event->venue : 'Null' }}</td>
+                                    <td class="text-wrap {{ (!$event->organization) ? 'text-danger' : '' }}">{{ ($event->organization) ? $event->organization : 'Null' }}</td>
+                                    <td class="text-wrap {{ (!$event->price) ? 'text-danger' : '' }}">{{ ($event->price) ? $event->price : 'Null' }}</td>
+                                    <td class="text-wrap {{ (!$event->registration_start) ? 'text-danger' : '' }}">{{ ($event->registration_start) ? $event->registration_start : 'Null' }}</td>
+                                    <td class="text-wrap {{ (!$event->registration_end) ? 'text-danger' : '' }}">{{ ($event->registration_end) ? $event->registration_end : 'Null' }}</td>
+                                    <td class="text-wrap">{{  date('d,M Y', strtotime($event->datetime)) }}<br>{{ date('h:i A', strtotime($event->datetime)) }}</td>
+
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <a href="{{ route('event.edit',$event->id) }}" class="btn btn-success btn-sm waves-effect waves-light"><i class="ri-edit-2-fill"></i></a>
+                                            @if ($event->featured == 1)
+                                                    <a href="{{ route('event.featured',$event->id) }}" class="btn btn-outline-success btn-icon waves-effect waves-light btn-sm"><i class="ri-eye-fill"></i></a>
+                                                @else
+                                                    <a href="{{ route('event.featured',$event->id) }}" class="btn btn-outline-danger btn-icon waves-effect waves-light btn-sm"><i class="ri-eye-off-fill"></i></a>
+                                                @endif
+                                            <a href="{{ route('event.edit',$event->id) }}" class="btn btn-outline-primary btn-icon waves-effect waves-light btn-sm"><i class="ri-edit-2-fill"></i></a>
                                             <form action="{{ route('event.destroy',$event->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
+                                                <button type="submit" class="btn btn-outline-danger btn-icon waves-effect waves-light btn-sm"><i class="ri-delete-bin-5-line"></i></button>
                                             </form>
                                         </div>
                                     </td>
@@ -82,3 +84,11 @@
 </div>
 <!-- End Page-content -->
 @endsection
+
+@push('script')
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#eventtable').DataTable();
+    } );
+</script>
+@endpush

@@ -20,7 +20,7 @@ class NewsController extends Controller
     public function index()
     {
         return view('admin.news.index',[
-            'news' => News::with('category','department')->get(),
+            'news' => News::with('category','department')->orderBy('id','desc')->paginate(10),
         ]);
     }
 
@@ -114,14 +114,15 @@ class NewsController extends Controller
             'description' => 'required',
             'department_id' => 'required',
             'category_id' => 'required',
+            'slug' => 'required|unique:news,slug,'.$news->id,
         ]);
-        $slug = Str::slug($request->title, '-') ;
+
          News::find($news->id)->update([
             'title' => $request->title,
             'description' => $request->description,
             'department_id' => $request->department_id,
             'category_id' => $request->category_id,
-            'slug' => $slug,
+            'slug' => Str::slug($request->slug, '-'),
             'meta_keywords' => $request->meta_keywords,
             'meta_description' => $request->meta_description,
          ]);
@@ -135,7 +136,7 @@ class NewsController extends Controller
                 ]);
             }
             $image = $request->file('image');
-            $image_name = $slug.".".$image->getClientOriginalExtension();
+            $image_name = Str::slug($request->title, '-').".".$image->getClientOriginalExtension();
             $image_location = 'public/assets/images/news/'.$image_name;
             Image::make($image)->save(base_path($image_location));
             News::findOrFail($news->id)->update([
@@ -161,4 +162,33 @@ class NewsController extends Controller
         News::findOrFail($news->id)->delete();
         return back()->with('delete', 'Your Department Delete Successfull.');
     }
+
+    public function featured($id)
+    {
+        if(News::findOrFail($id)->featured == 1){
+            News::findOrFail($id)->update([
+                'featured' => 2,
+            ]);
+        }
+        else{
+            News::findOrFail($id)->update([
+                'featured' => 1,
+            ]);
+        }
+        return back();
+    }
+
+    public function news(){
+        return view('news',[
+            'news' => News::orderBy('id', 'DESC')->simplePaginate(9),
+        ]);
+    }
+    public function newssingle($slug){
+        return view('news-single',[
+            'news_info' => News::where('slug', $slug)->first(),
+            'news' => News::orderBy('id', 'desc')->limit(3)->get(),
+        ]);
+    }
+
+
 }
