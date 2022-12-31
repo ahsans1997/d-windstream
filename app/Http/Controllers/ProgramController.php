@@ -89,14 +89,16 @@ class ProgramController extends Controller
                     $program_curriculam_cours->save();
                 }
             }
+            if(isset($request->syllabus_name)){
 
-            $len_syllabus = sizeof($request->syllabus_name);
-            for ($i = 0; $i < $len_syllabus; $i++) {
-                $syllabus = new SyllabusAll();
-                $syllabus->programs_id = $program->id;
-                $syllabus->link = $request->syllabus_link[$i];
-                $syllabus->name = $request->syllabus_name[$i];
-                $syllabus->save();
+                $len_syllabus = sizeof($request->syllabus_name);
+                for($i=0; $i<$len_syllabus; $i++){
+                    $syllabus = new SyllabusAll();
+                    $syllabus->programs_id = $program->id;
+                    $syllabus->link = $request->syllabus_link[$i];
+                    $syllabus->name = $request->syllabus_name[$i];
+                    $syllabus->save();
+                }
             }
 
             DB::commit();
@@ -116,9 +118,14 @@ class ProgramController extends Controller
      * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function show(Program $program)
+    public function show($id)
     {
-        //
+        $data=[
+            'departments' => Department::get(),
+            'program' => Program::with('semister.subjects','syllabus')->find($id),
+        ];
+
+        return view('admin.programs.show',$data);
     }
 
     /**
@@ -172,8 +179,8 @@ class ProgramController extends Controller
 
 
 
-            $current_key = array_values($request->semister_course_name);
-            //    ProgramCurriculamCours::where('program_id',$id)->whereNotIn('id',$current_key)->get();
+            // $current_key = array_values($request->semister_course_name);
+        //    ProgramCurriculamCours::where('program_id',$id)->whereNotIn('id',$current_key)->get();
 
 
             // dd($test);
@@ -215,13 +222,16 @@ class ProgramController extends Controller
 
             SyllabusAll::where('programs_id', $id)->delete();
 
-            $len_syllabus = sizeof($request->syllabus_name);
-            for ($i = 0; $i < $len_syllabus; $i++) {
-                $syllabus = new SyllabusAll();
-                $syllabus->programs_id = $program->id;
-                $syllabus->link = $request->syllabus_link[$i];
-                $syllabus->name = $request->syllabus_name[$i];
-                $syllabus->save();
+            if(isset($request->syllabus_name)){
+
+                $len_syllabus = sizeof($request->syllabus_name);
+                for($i=0; $i<$len_syllabus; $i++){
+                    $syllabus = new SyllabusAll();
+                    $syllabus->programs_id = $program->id;
+                    $syllabus->link = $request->syllabus_link[$i];
+                    $syllabus->name = $request->syllabus_name[$i];
+                    $syllabus->save();
+                }
             }
 
             DB::commit();
@@ -267,4 +277,6 @@ class ProgramController extends Controller
             ]);
         }
     }
+
+
 }

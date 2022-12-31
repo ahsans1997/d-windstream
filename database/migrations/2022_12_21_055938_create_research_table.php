@@ -17,7 +17,7 @@ class CreateResearchTable extends Migration
             $table->id();
             $table->string('title');
             $table->longText('description');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->integer('department_id');
             $table->string('image')->default('default.png');
             $table->string('file')->nullable();

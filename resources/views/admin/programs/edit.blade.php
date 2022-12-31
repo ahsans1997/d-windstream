@@ -68,15 +68,15 @@ Programs Create
                                     <label for="description" class="form-label">Description*</label>
                                     <textarea type="text" class="summernote form-control" placeholder="description" name="description" rows="3" required>{{$program->description}}</textarea>
                                 </div>
-                                <div class="col-md-12">
-                                    <label for="description_list" class="form-label">Description List*</label>
+                                <div class="col-md-12" style="height: 300px">
+                                    <label for="description_list" class="form-label">Overview*</label>
                                     <textarea type="text" aria-multiline="true"  class="summernote form-control" name="description_list" required>{{$program->description_list}}</textarea>
                                 </div>
 
 
                             </div>
 
-                            <h4>Courses(Year/Semester)</h4> <button id="addsemister" style="float: right">Add</button>
+                            <h4>Courses(Year/Semester)</h4>
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -207,7 +207,7 @@ Programs Create
                 $(this).closest("tr").remove();
 
             });
-            
+
             $(document).on("click", "#btnCancleSubjects", function(event) {
                 event.preventDefault();
                 $(this).closest("tr").remove();

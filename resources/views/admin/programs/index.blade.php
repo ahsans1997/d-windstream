@@ -14,8 +14,6 @@
                         <h2>Programs</h2>
                     </div>
 
-
-
                     <div class="table">
                         <table class="table table-nowrap">
                             <thead>
@@ -39,6 +37,7 @@
 
                                     <td>
                                          <a href="{{ route('programs.edit', $program->id) }}" class="btn btn-info btn-sm">Edit</a>
+                                         <a href="{{ route('programs.show', $program->id) }}" class="btn btn-info btn-sm">Show</a>
                                          <form action="{{ route('programs.destroy', $program->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
