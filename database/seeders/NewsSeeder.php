@@ -17,14 +17,134 @@ class NewsSeeder extends Seeder
     {
 
         $news = [
-            ['title'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit.','description'=>'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.','department_id'=>rand(1,5),'category_id'=>'4','slug'=>'news-title','created_at'=>Carbon::now()],
-            ['title'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit.','description'=>'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.','department_id'=>rand(1,5),'category_id'=>'5','slug'=>'news-title','created_at'=>Carbon::now()],
-            ['title'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit.','description'=>'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.','department_id'=>rand(1,5),'category_id'=>'6','slug'=>'news-title','created_at'=>Carbon::now()],
-            ['title'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit.','description'=>'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.','department_id'=>rand(1,5),'category_id'=>'7','slug'=>'news-title','created_at'=>Carbon::now()],
-            ['title'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit.','description'=>'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.','department_id'=>rand(1,5),'category_id'=>'4','slug'=>'news-title','created_at'=>Carbon::now()],
-            ['title'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit.','description'=>'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.','department_id'=>rand(1,5),'category_id'=>'5','slug'=>'news-title','created_at'=>Carbon::now()],
-            ['title'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit.','description'=>'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.','department_id'=>rand(1,5),'category_id'=>'6','slug'=>'news-title','created_at'=>Carbon::now()],
-            ['title'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit.','description'=>'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.','department_id'=>rand(1,5),'category_id'=>'7','slug'=>'news-title','created_at'=>Carbon::now()],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-1',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-2',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-3',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-4',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-5',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-6',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-7',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-8',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-1',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-2',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-3',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-4',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-5',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-6',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-7',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate debitis atque nisi quidem harum. Beatae accusamus architecto commodi maiores animi vero culpa alias ipsum quibusdam numquam tenetur, unde magni.',
+                'department_id' => rand(1, 5),
+                'category_id' => rand(1, 5),
+                'slug' => 'news-title-8',
+                'created_at' => Carbon::now()
+            ],
         ];
         News::insert($news);
     }

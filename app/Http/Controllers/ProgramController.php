@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CurriculamSubject;
 use App\Models\Department;
 use App\Models\Program;
 use App\Models\ProgramCurriculamCours;
+use App\Models\SyllabusAll;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
 
 class ProgramController extends Controller
 {
@@ -16,6 +20,18 @@ class ProgramController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+     public function slug($name){
+
+        $slug = Str::slug($name, "-");
+
+        if (Program::where('slug', $slug)->count() > 0) {
+            return $this->slug($slug . '-1');
+        } else {
+            return $slug;
+        }
+    }
     public function index()
     {
         $data = [
@@ -38,6 +54,8 @@ class ProgramController extends Controller
         return view('admin.programs.create',$data);
     }
 
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -58,6 +76,7 @@ class ProgramController extends Controller
             $program->faculty_id = 1;
             $program->deaprtment_id = $request->department_id;
             $program->dgree_type = $request->dgree_type;
+            $program->slug = $this->slug($request->name);
             $program->save();
 
             if(isset($request->semister_course_name)){
@@ -70,11 +89,21 @@ class ProgramController extends Controller
                 }
             }
 
+            $len_syllabus = sizeof($request->syllabus_name);
+            for($i=0; $i<$len_syllabus; $i++){
+                $syllabus = new SyllabusAll();
+                $syllabus->programs_id = $program->id;
+                $syllabus->link = $request->syllabus_link[$i];
+                $syllabus->name = $request->syllabus_name[$i];
+                $syllabus->save();
+            }
+
             DB::commit();
             Toastr::success("Program Add Succssfully");
-            return redirect()->back();
+            return redirect()->route('programs.edit',$program->id);
         }catch(\Exception $e){
             DB::rollback();
+            dd($e);
             Toastr::error("Some Problem Happen");
             return redirect()->back();
 
@@ -100,9 +129,14 @@ class ProgramController extends Controller
      * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function edit(Program $program)
+    public function edit($id)
     {
-        //
+        $data=[
+            'departments' => Department::get(),
+            'program' => Program::with('semister.subjects','syllabus')->find($id),
+        ];
+
+        return view('admin.programs.edit',$data);
     }
 
     /**
@@ -112,9 +146,101 @@ class ProgramController extends Controller
      * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Program $program)
+    public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            'slug' => 'required|unique:programs,slug,'.$id
+        ]);
+
+
+        DB::beginTransaction();
+        try{
+
+            $program = Program::find($id);
+            $program->name = $request->name;
+            $program->session_name = $request->session_name;
+            $program->description = $request->description;
+            $program->description_list = $request->description_list;
+            $program->duration_in_month = $request->course_duration;
+            $program->faculty_id = 1;
+            $program->deaprtment_id = $request->department_id;
+            $program->dgree_type = $request->dgree_type;
+            $program->slug = $request->slug;
+            $program->save();
+
+
+
+
+
+
+            $current_key = array_values($request->semister_course_name);
+        //    ProgramCurriculamCours::where('program_id',$id)->whereNotIn('id',$current_key)->get();
+
+
+            // dd($test);
+
+            // foreach($request->semister_course_name as $key=>$semister){
+            //     $program_curriculam_cours = ProgramCurriculamCours::find($key);
+            //     $program_curriculam_cours->name = $semister[0];
+            //     // dd($semister[0]);
+            //     $program_curriculam_cours->save();
+            // }
+
+            $len_semister = sizeof($request->semister_course_id);
+
+            for($i=0; $i<$len_semister; $i++){
+                // dd($request->semister_course_id[$i]);
+                $program_curriculam_cours = ProgramCurriculamCours::find($request->semister_course_id[$i]);
+                // dd($program_curriculam_cours);
+                // dd($request->semister_course_name[$request->semister_course_id[$i]][0]);
+                $program_curriculam_cours->name = $request->semister_course_name[$request->semister_course_id[$i]][0];
+                $program_curriculam_cours->save();
+            }
+            // dd($len_semister);
+            for($i=0; $i<$len_semister; $i++){
+                CurriculamSubject::where('program_curriculam_id',$request->semister_course_id[$i])->delete();
+                if(isset($request->subjects_name[$request->semister_course_id[$i]])){
+
+                    $len_subjects = sizeof($request->subjects_name[$request->semister_course_id[$i]]);
+                    for($j=0; $j<$len_subjects; $j++){
+                        $subjects = new CurriculamSubject();
+                        $subjects->program_curriculam_id = $request->semister_course_id[$i];
+                        $subjects->code = $request->subjects_code[$request->semister_course_id[$i]][$j];
+                        $subjects->name = $request->subjects_name[$request->semister_course_id[$i]][$j];
+                        $subjects->description = $request->subjects_description[$request->semister_course_id[$i]][$j];
+                        $subjects->credit = $request->subjects_credit[$request->semister_course_id[$i]][$j];
+                        $subjects->save();
+                    }
+                }
+
+
+            }
+
+            SyllabusAll::where('programs_id',$id)->delete();
+
+            $len_syllabus = sizeof($request->syllabus_name);
+            for($i=0; $i<$len_syllabus; $i++){
+                $syllabus = new SyllabusAll();
+                $syllabus->programs_id = $program->id;
+                $syllabus->link = $request->syllabus_link[$i];
+                $syllabus->name = $request->syllabus_name[$i];
+                $syllabus->save();
+            }
+
+            DB::commit();
+            Toastr::success("Program Updated Successfuly");
+            return back();
+        }catch(\Exception $e){
+            DB::rollBack();
+            dd($e);
+            Toastr::error("Some Problem is happen");
+            return back();
+        }
+
+
+
+
     }
 
     /**
