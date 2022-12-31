@@ -73,7 +73,9 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('event', EventController::class);
     Route::get('event/featured/{id}', [EventController::class, 'featured'])->name('event.featured');
 
-    Route::get('settings', [SettingController::class, 'index'])->name('setting.index');
+    Route::get('settings/global', [SettingController::class, 'index'])->name('setting.index');
+    Route::get('settings/home', [SettingController::class, 'homesettings'])->name('setting.home');
+
     Route::put('settings/update/{id}', [SettingController::class, 'update'])->name('setting.update');
     Route::resource('faculty-member', FacultyMemberController::class);
     Route::get('get-country-year',[FacultyMemberController::class,'getCountryYear'])->name('get-country-year');

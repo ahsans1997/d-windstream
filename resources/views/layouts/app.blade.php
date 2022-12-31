@@ -319,9 +319,10 @@
                             <div class="collapse menu-dropdown {{ request()->routeIs('setting.*','page.*') ? 'show' : '' }}" id="settings">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link menu-link {{ request()->routeIs('setting.index') ? 'active' : '' }}" href="{{ route('setting.index') }}">
-                                            <i class="ri-dashboard-2-line"></i> <span>Settings</span>
-                                        </a>
+                                        <a class="nav-link menu-link {{ request()->routeIs('setting.index') ? 'active' : '' }}" href="{{ route('setting.index') }}">Global Settings</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link menu-link {{ request()->routeIs('setting.home') ? 'active' : '' }}" href="{{ route('setting.home') }}"> Home Settings</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('page.index') }}" class="nav-link {{ request()->routeIs('page.index') ? 'active' : '' }}" data-key="t-chat">Page</a>
