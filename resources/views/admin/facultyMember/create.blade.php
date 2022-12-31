@@ -62,7 +62,7 @@
                                     <input type="file" class="form-control" placeholder="file or cv " name="file">
                                 </div>
                             </div>
-                            <h1>Education</h1> <button id="addeducation" style="float: right">Add</button>
+                            <h4>Education</h4> <button id="addeducation" style="float: right">Add</button>
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -104,7 +104,7 @@
                             </div>
 
 
-                            <h1>Experience</h1> <button id="addexperience" style="float: right">Add</button>
+                            <h4>Experience</h4> <button id="addexperience" style="float: right">Add</button>
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -133,7 +133,7 @@
 
                             </div>
 
-                            <h1>Membership</h1> <button id="addmembership" style="float: right">Add</button>
+                            <h4>Membership</h4> <button id="addmembership" style="float: right">Add</button>
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -159,7 +159,7 @@
                                 </div>
 
                             </div>
-                            <h1>Award</h1> <button id="addaward" style="float: right">Add</button>
+                            <h4>Award</h4> <button id="addaward" style="float: right">Add</button>
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -200,6 +200,36 @@
                                                 <td><input type="text" name="award_desciption[]" class="form-control" required></td>
 
 
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                            <h4>Publication</h4> <button id="addPublication" style="float: right">Add</button>
+
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <table id="publication_table" class="table">
+                                        <thead>
+                                            <th>Publication Type</th>
+                                            <th>Description</th>
+                                            <th>Link</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <select name="publication_type[]" class="form-control" required>
+                                                        <option value="">Select One</option>
+                                                        <option value="Journal Article" >Journal Article</option>
+                                                        <option value="Conference Proceedings">Conference Proceedings</option>
+                                                 </select>
+                                                </td>
+                                                <td ><textarea type="text" name="publication_desciption[]" class="summernote form-control" required></textarea></td>
+                                                <td><input type="text" class="form-control" name="publication_link[]"></td>
                                             </tr>
 
                                         </tbody>
@@ -331,6 +361,7 @@
                 $(this).closest("tr").remove();
 
             });
+
             $('#addmembership').on('click',function(e){
                 e.preventDefault();
                 $('#membership_table tbody').append(
@@ -391,6 +422,32 @@
                 } else {
                     $(this).val("false");
                 }
+            });
+
+            $('#addPublication').on('click',function(e){
+                e.preventDefault();
+                $('#publication_table tbody').append(
+                    '<tr>'+
+                        '<td>'+
+                            '<select name="publication_type[]" class="form-control" required>'+
+                                '<option value="">Select One</option>'+
+                                '<option value="Journal Article">Journal Article</option>'+
+                                '<option value="Conference Proceedings">Conference Proceedings</option>'+
+                            '</select>'+
+                        '</td>'+
+                        '<td ><textarea type="text" name="publication_desciption[]" class="summernote form-control" required></textarea></td>'+
+                        '<td><input type="text" class="form-control" name="publication_link[]"></td>'+
+                        '<td style="width: 40px"><lable  id="btnCanclePublication" class="btn btn-danger float-right">-</lable></td>' +
+                    '</tr>'
+                );
+                $('.summernote').summernote();
+
+            });
+
+            $(document).on("click", "#btnCanclePublication", function(event) {
+                event.preventDefault();
+                $(this).closest("tr").remove();
+
             });
 
 

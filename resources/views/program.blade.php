@@ -29,15 +29,16 @@
                     </div>
                 </div>
                 <div class="col-md-8">
+                    {{-- {{ dd($programs) }} --}}
                     @forelse($programs as $program)
                         <div class="program-list">
-                            <h2>{{$program->title}}</h2>
-                            <button type="button" class="btn btn-light">Department Of CSE</button>
-                            <button type="button" class="btn btn-light">Undergraduate</button>
-                            <p>{{$program->description}}</p>
-                            <button class="btn btn-success">Read more</button>
+                            <h2>{{$program->name}}</h2>
+                            <button type="button" class="btn btn-light">Department Of {{$program->department_short_form}}</button>
+                            <button type="button" class="btn btn-light">{{ $program->dgree_type }}</button>
+                            <p>{!! $program->description !!}</p>
+                            <a href="{{ url('/program/'.$program->slug)}}" class="btn btn-success">Read More</a>
                         </div>
-                    @else
+                    @empty
                         <div class="program-list">No Data Found</div>
 
                     @endif

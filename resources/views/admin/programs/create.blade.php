@@ -54,7 +54,7 @@
                                     <textarea type="text" class="form-control summernote" placeholder="description" name="description" rows="2" required></textarea>
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="bio" class="form-label">Description List*</label>
+                                    <label for="bio" class="form-label">Overview*</label>
                                     <textarea type="text" class="form-control summernote" placeholder="description list" name="description_list" rows="2" required></textarea>
                                 </div>
 

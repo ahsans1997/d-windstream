@@ -16,6 +16,11 @@ class Program extends Model
         return $this->belongsTo(Department::class,'deaprtment_id','id');
     }
 
+    public function faculty()
+    {
+        return $this->belongsTo(Program::class,'faculty_id','id');
+    }
+
     public function semister()
     {
         return $this->hasMany(ProgramCurriculamCours::class,'program_id','id');

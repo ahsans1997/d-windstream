@@ -11,6 +11,7 @@ use App\Http\Controllers\FacultyMemberResearchController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ResearchController;
 use App\Http\Controllers\SettingController;
@@ -32,7 +33,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'home'])->name('home');
 
-Route::get('/program', [FrontendController::class, 'program'])->name('program');
+
 
 Route::get('news',[NewsController::class, 'news'])->name('news');
 Route::get('news/{slug}',[NewsController::class, 'newssingle'])->name('news.single');
@@ -46,7 +47,8 @@ Route::get('/research', [FrontendController::class, 'research'])->name('research
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 
-Route::get('/program',[ProgramController::class, 'program'])->name('program');
+
+Route::get('/program/{slug?}', [ProgramController::class, 'program'])->name('program');
 
 
 
@@ -78,6 +80,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
 
     Route::resource('programs', ProgramController::class);
     Route::resource('designation', DesignationController::class);
-
+    Route::resource('page',PageController::class);
 
 });

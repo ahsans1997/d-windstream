@@ -22,7 +22,8 @@ class ProgramController extends Controller
      */
 
 
-     public function slug($name){
+    public function slug($name)
+    {
 
         $slug = Str::slug($name, "-");
 
@@ -35,9 +36,9 @@ class ProgramController extends Controller
     public function index()
     {
         $data = [
-            'programs' =>Program::with('department')->get(),
+            'programs' => Program::with('department')->get(),
         ];
-        return view('admin.programs.index',$data);
+        return view('admin.programs.index', $data);
     }
 
     /**
@@ -47,11 +48,11 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        $data=[
+        $data = [
             'departments' => Department::get(),
         ];
 
-        return view('admin.programs.create',$data);
+        return view('admin.programs.create', $data);
     }
 
 
@@ -66,7 +67,7 @@ class ProgramController extends Controller
     {
 
         DB::beginTransaction();
-        try{
+        try {
             $program = new Program();
             $program->name = $request->name;
             $program->session_name = $request->session_name;
@@ -79,37 +80,36 @@ class ProgramController extends Controller
             $program->slug = $this->slug($request->name);
             $program->save();
 
-            if(isset($request->semister_course_name)){
+            if (isset($request->semister_course_name)) {
                 $len_semister = sizeof($request->semister_course_name);
-                for($i=0; $i<$len_semister; $i++){
+                for ($i = 0; $i < $len_semister; $i++) {
                     $program_curriculam_cours = new ProgramCurriculamCours();
                     $program_curriculam_cours->program_id = $program->id;
                     $program_curriculam_cours->name = $request->semister_course_name[$i];
                     $program_curriculam_cours->save();
                 }
             }
+            if(isset($request->syllabus_name)){
 
-            $len_syllabus = sizeof($request->syllabus_name);
-            for($i=0; $i<$len_syllabus; $i++){
-                $syllabus = new SyllabusAll();
-                $syllabus->programs_id = $program->id;
-                $syllabus->link = $request->syllabus_link[$i];
-                $syllabus->name = $request->syllabus_name[$i];
-                $syllabus->save();
+                $len_syllabus = sizeof($request->syllabus_name);
+                for($i=0; $i<$len_syllabus; $i++){
+                    $syllabus = new SyllabusAll();
+                    $syllabus->programs_id = $program->id;
+                    $syllabus->link = $request->syllabus_link[$i];
+                    $syllabus->name = $request->syllabus_name[$i];
+                    $syllabus->save();
+                }
             }
 
             DB::commit();
             Toastr::success("Program Add Succssfully");
-            return redirect()->route('programs.edit',$program->id);
-        }catch(\Exception $e){
+            return redirect()->route('programs.edit', $program->id);
+        } catch (\Exception $e) {
             DB::rollback();
             dd($e);
             Toastr::error("Some Problem Happen");
             return redirect()->back();
-
         }
-
-
     }
 
     /**
@@ -118,9 +118,14 @@ class ProgramController extends Controller
      * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function show(Program $program)
+    public function show($id)
     {
-        //
+        $data=[
+            'departments' => Department::get(),
+            'program' => Program::with('semister.subjects','syllabus')->find($id),
+        ];
+
+        return view('admin.programs.show',$data);
     }
 
     /**
@@ -131,12 +136,12 @@ class ProgramController extends Controller
      */
     public function edit($id)
     {
-        $data=[
+        $data = [
             'departments' => Department::get(),
-            'program' => Program::with('semister.subjects','syllabus')->find($id),
+            'program' => Program::with('semister.subjects', 'syllabus')->find($id),
         ];
 
-        return view('admin.programs.edit',$data);
+        return view('admin.programs.edit', $data);
     }
 
     /**
@@ -150,12 +155,12 @@ class ProgramController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'slug' => 'required|unique:programs,slug,'.$id
+            'slug' => 'required|unique:programs,slug,' . $id
         ]);
 
 
         DB::beginTransaction();
-        try{
+        try {
 
             $program = Program::find($id);
             $program->name = $request->name;
@@ -174,7 +179,7 @@ class ProgramController extends Controller
 
 
 
-            $current_key = array_values($request->semister_course_name);
+            // $current_key = array_values($request->semister_course_name);
         //    ProgramCurriculamCours::where('program_id',$id)->whereNotIn('id',$current_key)->get();
 
 
@@ -189,7 +194,7 @@ class ProgramController extends Controller
 
             $len_semister = sizeof($request->semister_course_id);
 
-            for($i=0; $i<$len_semister; $i++){
+            for ($i = 0; $i < $len_semister; $i++) {
                 // dd($request->semister_course_id[$i]);
                 $program_curriculam_cours = ProgramCurriculamCours::find($request->semister_course_id[$i]);
                 // dd($program_curriculam_cours);
@@ -198,12 +203,12 @@ class ProgramController extends Controller
                 $program_curriculam_cours->save();
             }
             // dd($len_semister);
-            for($i=0; $i<$len_semister; $i++){
-                CurriculamSubject::where('program_curriculam_id',$request->semister_course_id[$i])->delete();
-                if(isset($request->subjects_name[$request->semister_course_id[$i]])){
+            for ($i = 0; $i < $len_semister; $i++) {
+                CurriculamSubject::where('program_curriculam_id', $request->semister_course_id[$i])->delete();
+                if (isset($request->subjects_name[$request->semister_course_id[$i]])) {
 
                     $len_subjects = sizeof($request->subjects_name[$request->semister_course_id[$i]]);
-                    for($j=0; $j<$len_subjects; $j++){
+                    for ($j = 0; $j < $len_subjects; $j++) {
                         $subjects = new CurriculamSubject();
                         $subjects->program_curriculam_id = $request->semister_course_id[$i];
                         $subjects->code = $request->subjects_code[$request->semister_course_id[$i]][$j];
@@ -213,34 +218,31 @@ class ProgramController extends Controller
                         $subjects->save();
                     }
                 }
-
-
             }
 
-            SyllabusAll::where('programs_id',$id)->delete();
+            SyllabusAll::where('programs_id', $id)->delete();
 
-            $len_syllabus = sizeof($request->syllabus_name);
-            for($i=0; $i<$len_syllabus; $i++){
-                $syllabus = new SyllabusAll();
-                $syllabus->programs_id = $program->id;
-                $syllabus->link = $request->syllabus_link[$i];
-                $syllabus->name = $request->syllabus_name[$i];
-                $syllabus->save();
+            if(isset($request->syllabus_name)){
+
+                $len_syllabus = sizeof($request->syllabus_name);
+                for($i=0; $i<$len_syllabus; $i++){
+                    $syllabus = new SyllabusAll();
+                    $syllabus->programs_id = $program->id;
+                    $syllabus->link = $request->syllabus_link[$i];
+                    $syllabus->name = $request->syllabus_name[$i];
+                    $syllabus->save();
+                }
             }
 
             DB::commit();
             Toastr::success("Program Updated Successfuly");
             return back();
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             DB::rollBack();
             dd($e);
             Toastr::error("Some Problem is happen");
             return back();
         }
-
-
-
-
     }
 
     /**
@@ -254,17 +256,27 @@ class ProgramController extends Controller
         //
     }
 
-    public function program()
+    public function program($slug = null)
     {
-        $data = [
-            'programs' =>Program::with('department')->paginate(5),
-            'title' => 'Program'
-        ];
-        return view('program',$data);
+
+        if ($slug == null) {
+            $data = [
+                'programs' => Program::with('department')->paginate(5),
+                'title' => 'Program'
+            ];
+            return view('program', $data);
+        } else {
+
+            $program = Program::with('department','faculty','semister','semister.subjects','syllabus')->where('slug', $slug)->first();
+
+            // dd($program->toArray());
+            $title = 'Program of ' . $program->name;
+            return view('program-single', [
+                'program' => $program,
+                'title' => $title
+            ]);
+        }
     }
 
-    public function programSingle($slug)
-    {
-        # code...
-    }
+
 }

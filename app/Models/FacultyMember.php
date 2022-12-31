@@ -34,5 +34,10 @@ class FacultyMember extends Model
         return $this->hasMany(FacultyMemberAward::class,'faculty_member_id','id');
     }
 
+    public function publications()
+    {
+        return $this->hasMany(FacultyMemberPublication::class,'faculty_member_id','id');
+    }
+
 
 }
