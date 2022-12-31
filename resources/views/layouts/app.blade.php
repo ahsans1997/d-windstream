@@ -154,6 +154,24 @@
                                 </ul>
                             </div>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#programs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Programs</span>
+                            </a>
+                            <div class="collapse menu-dropdown {{ request()->routeIs('programs.*') ? 'show' : '' }}" id="programs">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{ route('programs.index') }}" class="nav-link {{ request()->routeIs('programs.index') ? 'active' : '' }}">Programs</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('programs.create') }}" class="nav-link {{ request()->routeIs('programs.create') ? 'active' : '' }}" data-key="t-chat">Add Programs</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link menu-link"
                                 href="#news" data-bs-toggle="collapse" role="button" aria-expanded="false"
@@ -290,22 +308,7 @@
                         </li>
 
 
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#programs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
-                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Programs</span>
-                            </a>
-                            <div class="collapse menu-dropdown {{ request()->routeIs('programs.*') ? 'show' : '' }}" id="programs">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="{{ route('programs.index') }}" class="nav-link {{ request()->routeIs('programs.index') ? 'active' : '' }}">Programs</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('programs.create') }}" class="nav-link {{ request()->routeIs('programs.create') ? 'active' : '' }}" data-key="t-chat">Add Programs</a>
-                                    </li>
 
-                                </ul>
-                            </div>
-                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#settings" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
@@ -320,6 +323,9 @@
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('page.index') }}" class="nav-link {{ request()->routeIs('page.index') ? 'active' : '' }}" data-key="t-chat">Page</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('page.create') }}" class="nav-link {{ request()->routeIs('page.create') ? 'active' : '' }}" data-key="t-chat">Add Page</a>
                                     </li>
 
                                 </ul>

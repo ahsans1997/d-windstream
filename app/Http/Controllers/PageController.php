@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -14,7 +15,10 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'pages' => Page::get(),
+        ];
+        return view('admin.page.index',$data);
     }
 
     /**
@@ -24,7 +28,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.page.create');
     }
 
     /**
@@ -35,7 +39,34 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required|unique:pages,slug',
+            'image' => 'mimes:jpg,jpeg,png,bmp,gif,svg,webp,pdf| max:2024',
+            'file' => 'max:2024',
+
+        ]);
+
+        $page = new Page();
+        $page->title = $request->title;
+        $page->slug = $request->slug;
+        $page->description = $request->description;
+
+        if ($request->image) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(storage_path('app/public/page'), $imageName);
+            $page->image = $imageName;
+        }
+
+        if ($request->file) {
+            $fileName = time() . '.' . $request->file->extension();
+            $request->file->move(storage_path('app/public/page'), $fileName);
+            $page->file = $fileName;
+        }
+
+        $page->save();
+        Toastr::success("Page creted successfuly");
+        return back();
     }
 
     /**

@@ -20,6 +20,7 @@ class CreatePagesTable extends Migration
             $table->text('description')->nullable();
             $table->text('file')->nullable();
             $table->text('image')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
