@@ -24,7 +24,12 @@ class SettingController extends Controller
 
     public function update(Request $request, $id)
     {
-
+        if($request->organization_name)
+        {
+            Setting::findOrFail($id)->update([
+                'organization_name' => $request->organization_name,
+            ]);
+        }
 
         if($request->hasFile('web_logo'))
         {
@@ -285,6 +290,33 @@ class SettingController extends Controller
         {
             Setting::findOrFail($id)->update([
                 'google_analytics' => $request->google_analytics
+            ]);
+        }
+
+        if($request->home_section_1_title)
+        {
+            $home_section_1_data = [
+                'home_section_1_title' => $request->home_section_1_title,
+                'home_section_1_description' => $request->home_section_1_description,
+                'home_section_1_part_1' => [
+                    'home_section_1_part_1_title' => $request->home_section_1_part_1_title,
+                    'home_section_1_part_1_description' => $request->home_section_1_part_1_description,
+                    'home_section_1_part_1_link' => $request->home_section_1_part_1_link,
+                ],
+                'home_section_1_part_2' => [
+                    'home_section_1_part_2_title' => $request->home_section_1_part_2_title,
+                    'home_section_1_part_2_description' => $request->home_section_1_part_2_description,
+                    'home_section_1_part_2_link' => $request->home_section_1_part_2_link,
+                ],
+                'home_section_1_part_3' => [
+                    'home_section_1_part_3_title' => $request->home_section_1_part_3_title,
+                    'home_section_1_part_3_description' => $request->home_section_1_part_3_description,
+                    'home_section_1_part_3_link' => $request->home_section_1_part_3_link,
+                ],
+            ];
+            $section_1 = json_encode($home_section_1_data);
+            Setting::findOrFail($id)->update([
+                'home_section_1' => $section_1,
             ]);
         }
 

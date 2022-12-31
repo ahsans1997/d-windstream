@@ -4,7 +4,7 @@
 @php
 $research = json_decode($setting->home_research);
 $about = json_decode($setting->home_about);
-$section = $about;
+$section_1 = json_decode($setting->home_section_1);
 @endphp
 
 
@@ -26,6 +26,10 @@ $section = $about;
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="banner-tab" data-bs-toggle="tab" data-bs-target="#banner"
                                 type="button" role="tab" aria-controls="banner" aria-selected="false">Banner</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="section_1-tab" data-bs-toggle="tab" data-bs-target="#section_1"
+                                type="button" role="tab" aria-controls="section_1" aria-selected="false">Section 1</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="home_research-tab" data-bs-toggle="tab"
@@ -89,6 +93,89 @@ $section = $about;
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End Single Tab -->
+
+                        <div id="section_1" class="tab-pane fade mt-4" role="tabpanel">
+                            <div class="info title">
+                                <div class="col-md-10 m-auto">
+                                    <div class="card border-primary">
+                                        <div class="card-header">Section 1 Update</div>
+                                        <div class="card-body">
+                                            <form action="{{ route('setting.update',1) }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PUT')
+                                                <label for="">Section 1 Title</label>
+                                                <input type="text" name="home_section_1_title" class="form-control"
+                                                    value="{{ $section_1->home_section_1_title }}">
+                                                <label for="">section 1 Description</label>
+                                                <input type="text" name="home_section_1_description" class="form-control"
+                                                    value="{{ $section_1->home_section_1_description }}">
+
+                                                <div class="card border-dark mt-3" style="max-width: 600px;">
+                                                    <div class="card-header">{{ $section_1->home_section_1_part_1->home_section_1_part_1_title }}
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="section_1">
+                                                            <label for="">Title</label>
+                                                            <input type="text" class="form-control"
+                                                                name="home_section_1_part_1_title"
+                                                                value="{{ $section_1->home_section_1_part_1->home_section_1_part_1_title }}">
+                                                            <label for="">Description</label>
+                                                            <input type="text" class="form-control"
+                                                                name="home_section_1_part_1_description"
+                                                                value="{{ $section_1->home_section_1_part_1->home_section_1_part_1_description }}">
+                                                            <label for="">Link</label>
+                                                            <input type="text" class="form-control" name="home_section_1_part_1_link" value="{{ $section_1->home_section_1_part_1->home_section_1_part_1_link }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card border-dark mt-3" style="max-width: 600px;">
+                                                    <div class="card-header">{{ $section_1->home_section_1_part_2->home_section_1_part_2_title }}
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="section_1">
+                                                            <label for="">Title</label>
+                                                            <input type="text" class="form-control"
+                                                                name="home_section_1_part_2_title"
+                                                                value="{{ $section_1->home_section_1_part_2->home_section_1_part_2_title }}">
+                                                            <label for="">Description</label>
+                                                            <input type="text" class="form-control"
+                                                                name="home_section_1_part_2_description"
+                                                                value="{{ $section_1->home_section_1_part_2->home_section_1_part_2_description }}">
+                                                            <label for="">Link</label>
+                                                            <input type="text" class="form-control" name="home_section_1_part_2_link" value="{{ $section_1->home_section_1_part_2->home_section_1_part_2_link }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card border-dark mt-3" style="max-width: 600px;">
+                                                    <div class="card-header">{{ $section_1->home_section_1_part_3->home_section_1_part_3_title }}
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="section_1">
+                                                            <label for="">Title</label>
+                                                            <input type="text" class="form-control"
+                                                                name="home_section_1_part_3_title"
+                                                                value="{{ $section_1->home_section_1_part_3->home_section_1_part_3_title }}">
+                                                            <label for="">Description</label>
+                                                            <input type="text" class="form-control"
+                                                                name="home_section_1_part_3_description"
+                                                                value="{{ $section_1->home_section_1_part_3->home_section_1_part_3_description }}">
+                                                            <label for="">Link</label>
+                                                            <input type="text" class="form-control" name="home_section_1_part_3_link" value="{{ $section_1->home_section_1_part_3->home_section_1_part_3_link }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
                                                 <button class="btn btn-info mt-3" style="float: right">Submit</button>
                                             </form>
                                         </div>

@@ -14,6 +14,28 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
+        $home_section_1_data = [
+            'home_section_1_title' => 'Accelerating climate solutions',
+            'home_section_1_description' => 'The new Stanford Doerr School of Sustainability is designed to tackle urgent global challenges',
+            'home_section_1_part_1' => [
+                'home_section_1_part_1_title' => 'Generating knowledge',
+                'home_section_1_part_1_description' => 'Experts across seven departments will expand understanding of the natural world and its intersections with human society',
+                'home_section_1_part_1_link' => 'department',
+            ],
+            'home_section_1_part_2' => [
+                'home_section_1_part_2_title' => 'Generating knowledge',
+                'home_section_1_part_2_description' => 'Experts across seven departments will expand understanding of the natural world and its intersections with human society',
+                'home_section_1_part_2_link' => 'department',
+            ],
+            'home_section_1_part_3' => [
+                'home_section_1_part_3_title' => 'Generating knowledge',
+                'home_section_1_part_3_description' => 'Experts across seven departments will expand understanding of the natural world and its intersections with human society',
+                'home_section_1_part_3_link' => 'department',
+            ],
+         ];
+
+        $home_section_1 = json_encode($home_section_1_data);
+
         $research_data=[
             'title' => 'Research & Scholarship',
             'research_description' => 'Driving discoveries vital to our world, our health, and our intellectual life',
@@ -60,6 +82,7 @@ class SettingSeeder extends Seeder
         $about = json_encode($about_data);
 
         $setting = [
+            'organization_name' => 'Company Name',
             'web_logo'=> 'logo.png',
             'mobile_logo'=> 'mobilelogo.png',
             'homebanner' => 'homebanner.jpg',
@@ -70,6 +93,7 @@ class SettingSeeder extends Seeder
             'meta_keyword' => 'website',
             'google_analytics' => 'googleanalytics',
 
+            'home_section_1' => $home_section_1,
             'home_research' => $research,
             'home_about' => $about,
 
