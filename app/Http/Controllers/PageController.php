@@ -86,9 +86,12 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit($id)
     {
-        //
+        $data = [
+            'page' => Page::find($id),
+        ];
+        return view('admin.page.edit',$data);
     }
 
     /**
@@ -98,9 +101,36 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Page $page)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'image' => 'mimes:jpg,jpeg,png,bmp,gif,svg,webp,pdf| max:2024',
+            'file' => 'max:2024',
+
+        ]);
+
+        $page = Page::find($id);
+        $page->title = $request->title;
+        $page->description = $request->description;
+        $page->status = $request->status;
+
+
+        if ($request->image) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(storage_path('app/public/page'), $imageName);
+            $page->image = $imageName;
+        }
+
+        if ($request->file) {
+            $fileName = time() . '.' . $request->file->extension();
+            $request->file->move(storage_path('app/public/page'), $fileName);
+            $page->file = $fileName;
+        }
+
+        $page->save();
+        Toastr::success("Page updated successfuly");
+        return redirect()->back();
     }
 
     /**
@@ -109,8 +139,11 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Page $page)
+    public function destroy($id)
     {
-        //
+        $page = Page::find($id);
+        $page->delete();
+        Toastr::success("Page deleted successfuly");
+        return redirect()->back();
     }
 }

@@ -15,12 +15,12 @@
                         <form action="{{ route('faculty-member.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label for="name" class="form-label"> Name*</label>
                                     <input type="text" class="form-control" placeholder="Faculty Member Name"
                                         name="name" required>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label for="designation" class="form-label"> Designation*</label>
                                     <select class="form-control" name="designation" required>
                                         <option value="">Select designation</option>
@@ -30,12 +30,8 @@
                                     </select>
 
                                 </div>
-                                <div class="col-md-3">
-                                    <label for="contact" class="form-label">Contact*</label>
-                                    <input type="text" class="form-control" placeholder="contact" name="contact"
-                                        required>
-                                </div>
-                                <div class="col-md-3">
+
+                                <div class="col-md-4">
                                     <label for="department_id" class="form-label">Deaprtment*</label>
                                     <select name="department_id" class="form-control" id="department_id" required>
                                         <option value="">Select Department</option>
@@ -43,6 +39,11 @@
                                             <option value="{{ $department->id }}">{{ $department->name }}</option>
                                         @endforeach
                                     </select>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="contact" class="form-label">Contact*</label>
+                                    <textarea type="text" class="summernote form-control" placeholder="contact" name="contact" required></textarea>
                                 </div>
                                 <div class="col-md-12">
                                     <label for="bio" class="form-label">Bio*</label>
