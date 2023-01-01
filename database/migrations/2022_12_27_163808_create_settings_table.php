@@ -15,6 +15,7 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->string('organization_name')->nullable();
             $table->string('web_logo')->nullable();
             $table->string('mobile_logo')->nullable();
             $table->string('homebanner')->nullable();
@@ -25,6 +26,7 @@ class CreateSettingsTable extends Migration
             $table->string('meta_keyword')->nullable();
             $table->text('google_analytics')->nullable();
 
+            $table->longText('home_section_1')->nullable();
             $table->text('home_research')->nullable();
             $table->text('home_about')->nullable();
 

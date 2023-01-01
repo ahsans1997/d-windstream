@@ -102,7 +102,7 @@
 
                         <div id="organization" class="tab-pane fade mt-4" role="tabpanel" aria-labelledby="organization-tab">
                             <div class="info title">
-                                <div class="col-md-10 m-auto">
+                                <div class="col-md-8 m-auto">
                                     <div class="card border-primary">
                                         <div class="card-header">Organization</div>
                                         <div class="card-body">
@@ -111,9 +111,7 @@
                                                 @csrf
                                                 @method('PUT')
                                                     <label>Organization Name</label>
-                                                    <input type="text" class="form-control" name="organization_name">
-                                                    <label>Organization Description</label>
-                                                    <textarea class="form-control" name="organization_description" rows="5"></textarea>
+                                                    <input type="text" class="form-control" name="organization_name" value="{{ $setting->organization_name }}">
                                                 <button class="btn btn-info mt-3" style="float: right">Submit</button>
                                             </form>
                                         </div>
@@ -235,10 +233,7 @@
                                     <div class="card border-primary">
                                         <div class="card-header">Change Banner</div>
                                         <div class="card-body">
-                                            <form action="{{ route('setting.update',1) }}" method="POST"
-                                                enctype="multipart/form-data">
-                                                @csrf
-                                                @method('PUT')
+
                                                 <div class="container">
                                                     <div class="row">
                                                         <div class="col-md-6">
@@ -246,11 +241,13 @@
                                                                 <div class="card-header">Change Program Banner</div>
                                                                 <div class="card-body">
                                                                     <div class="programbanner">
-                                                                        <img class="img-fluid mt-3"
-                                                                            src="{{ asset('/') }}assets/images/banner/{{ $setting->programbanner }}" alt="">
-
-                                                                        <input class="form-control mt-3" name="programbanner"
-                                                                            type="file">
+                                                                        <img class="img-fluid mt-3" src="{{ asset('/') }}assets/images/banner/{{ $setting->programbanner }}" alt="">
+                                                                        <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
+                                                                            @csrf
+                                                                            @method('PUT')
+                                                                            <input class="form-control mt-3" name="programbanner" type="file">
+                                                                            <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                                                        </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -263,9 +260,14 @@
                                                                         <img class="img-fluid mt-3"
                                                                             src="{{ asset('/') }}assets/images/banner/{{ $setting->newsbanner }}"
                                                                             alt="">
-
-                                                                        <input class="form-control" name="newsbanner"
+                                                                            <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <input class="form-control mt-3" name="newsbanner"
                                                                             type="file">
+                                                                            <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                                                            </form>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -278,9 +280,13 @@
                                                                         <img class="img-fluid mt-3"
                                                                             src="{{ asset('/') }}assets/images/banner/{{ $setting->eventbanner }}"
                                                                             alt="">
-
-                                                                        <input class="form-control" name="eventbanner"
-                                                                            type="file">
+                                                                            <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <input class="form-control mt-3" name="eventbanner"
+                                                                                    type="file">
+                                                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                                                            </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -293,9 +299,13 @@
                                                                         <img class="img-fluid mt-3"
                                                                             src="{{ asset('/') }}assets/images/banner/{{ $setting->departmentbanner }}"
                                                                             alt="">
-
-                                                                        <input class="form-control"
-                                                                            name="departmentbanner" type="file">
+                                                                            <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <input class="form-control mt-3"
+                                                                                    name="departmentbanner" type="file">
+                                                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                                                            </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -308,9 +318,13 @@
                                                                         <img class="img-fluid mt-3"
                                                                             src="{{ asset('/') }}assets/images/banner/{{ $setting->researchbanner }}"
                                                                             alt="">
-
-                                                                        <input class="form-control"
-                                                                            name="researchbanner" type="file">
+                                                                            <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <input class="form-control mt-3"
+                                                                                    name="researchbanner" type="file">
+                                                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                                                            </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -323,9 +337,13 @@
                                                                         <img class="img-fluid mt-3"
                                                                             src="{{ asset('/') }}assets/images/banner/{{ $setting->aboutbanner }}"
                                                                             alt="">
-
-                                                                        <input class="form-control" name="aboutbanner"
-                                                                            type="file">
+                                                                            <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <input class="form-control mt-3" name="aboutbanner"
+                                                                                    type="file">
+                                                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                                                            </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -338,9 +356,13 @@
                                                                         <img class="img-fluid mt-3"
                                                                             src="{{ asset('/') }}assets/images/banner/{{ $setting->contactbanner }}"
                                                                             alt="">
-
-                                                                        <input class="form-control" name="contactbanner"
-                                                                            type="file">
+                                                                            <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <input class="form-control mt-3" name="contactbanner"
+                                                                                    type="file">
+                                                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                                                            </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -354,9 +376,13 @@
                                                                         <img class="img-fluid mt-3"
                                                                             src="{{ asset('/') }}assets/images/banner/{{ $setting->facultymemberbanner }}"
                                                                             alt="">
-
-                                                                        <input class="form-control"
-                                                                            name="facultymemberbanner" type="file">
+                                                                            <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <input class="form-control"
+                                                                                    name="facultymemberbanner mt-3" type="file">
+                                                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                                                            </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -369,9 +395,13 @@
                                                                         <img class="img-fluid mt-3"
                                                                             src="{{ asset('/') }}assets/images/banner/{{ $setting->noticebanner }}"
                                                                             alt="">
-
-                                                                        <input class="form-control" name="noticebanner"
-                                                                            type="file">
+                                                                            <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <input class="form-control mt-3" name="noticebanner"
+                                                                                    type="file">
+                                                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                                                            </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -384,17 +414,20 @@
                                                                         <img class="img-fluid mt-3"
                                                                             src="{{ asset('/') }}assets/images/banner/{{ $setting->defaultbanner }}"
                                                                             alt="">
-
-                                                                        <input class="form-control" name="defaultbanner"
-                                                                            type="file">
+                                                                            <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <input class="form-control mt-3" name="defaultbanner"
+                                                                                    type="file">
+                                                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                                                            </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
-                                            </form>
+
                                         </div>
                                     </div>
                                 </div>
