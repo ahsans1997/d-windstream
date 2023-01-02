@@ -71,6 +71,10 @@ class FacultyMemberController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        $request->validate([
+            'file' => 'mimes:pdf| max:10240',
+            'image' => 'mimes:jpg,jpeg,png,bmp,gif,svg,webp,pdf| max:2048',
+        ]);
         DB::beginTransaction();
         try {
 
@@ -92,7 +96,7 @@ class FacultyMemberController extends Controller
 
             if ($request->file) {
                 $fileNamecv = time() . '.' . $request->file->extension();
-                $request->file->move(storage_path('app/public/file'), $fileNamecv);
+                $request->file->move(storage_path('app/public/facultyMember'), $fileNamecv);
                 $facultyMember->file = $fileNamecv;
             }
 
@@ -218,7 +222,9 @@ class FacultyMemberController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'slug' => 'required|unique:faculty_members,slug,'.$id
+            'slug' => 'required|unique:faculty_members,slug,'.$id,
+            'file' => 'mimes:pdf| max:10240',
+            'image' => 'mimes:jpg,jpeg,png,bmp,gif,svg,webp,pdf| max:2048',
         ]);
 
         DB::beginTransaction();
@@ -250,7 +256,7 @@ class FacultyMemberController extends Controller
 
             if ($request->file) {
                 $fileNamecv = time() . '.' . $request->file->extension();
-                $request->file->move(storage_path('app/public/file'), $fileNamecv);
+                $request->file->move(storage_path('app/public/facultyMember'), $fileNamecv);
                 $facultyMember->file = $fileNamecv;
             }
 

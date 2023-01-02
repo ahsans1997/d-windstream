@@ -19,12 +19,12 @@
                             @method('put')
                             @csrf
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label for="name" class="form-label"> Name*</label>
                                     <input type="text" class="form-control" placeholder="Faculty Member Name"
                                         name="name" value="{{$faculty_member->name}}" required>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label for="designation" class="form-label"> Designation*</label>
                                     <select class="form-control" name="designation" required>
                                         @foreach ($desigantions as $designation)
@@ -33,17 +33,19 @@
                                     </select>
 
                                 </div>
-                                <div class="col-md-3">
-                                    <label for="contact" class="form-label">Contact*</label>
-                                    <input type="text" class="form-control" placeholder="contact" name="contact" value="{{$faculty_member->contact}}" required>
-                                </div>
-                                <div class="col-md-3">
+
+                                <div class="col-md-4">
                                     <label for="department_id" class="form-label">Deaprtment*</label>
                                     <select name="department_id" class="form-control" id="department_id" required>
                                         @foreach ($departments as $department)
                                             <option value="{{ $department->id }}" @if ($department->id==$faculty_member->department_id) @endif>{{ $department->name }}</option>
                                         @endforeach
                                     </select>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="contact" class="form-label">Contact*</label>
+                                    <textarea type="text" class="summernote form-control" placeholder="contact" name="contact" required>{{$faculty_member->contact}}</textarea>
                                 </div>
                                 <div class="col-md-12">
                                     <label for="bio" class="form-label">Slug</label>
@@ -61,40 +63,42 @@
                                 <div class="col-md-3">
                                     <label for="image" class="form-label">Image</label>
                                     <input type="file" class="form-control" placeholder="image" name="image">
+
+
                                     @if (!empty($faculty_member->image))
                                         @php
                                             $ext = pathinfo($faculty_member->image, PATHINFO_EXTENSION);
                                         @endphp
-                                        @if ($ext == 'pdf')
-                                            <a target="_blank"  href="{{ asset('storage/facultyMember/' . $faculty_member->image) }}">
-                                                <img src="{{ asset('app-assets/images/icons/pdfs-icon.png') }}"  alt=" {{ $faculty_member->image}}" class="img-fluid" style="height: 100px; ">
-                                            </a>
+                                        @if ($ext == 'apng' || $ext == 'avif' || $ext == 'gif' || $ext == 'jpg' || $ext == 'jpeg' || $ext == 'jfif' || $ext == 'pjpeg' || $ext == 'pjp' || $ext == 'png' || $ext == 'svg' || $ext == 'webp')
+                                            <img alt="No File Uploaded" src="{{ asset('storage/facultyMember/' . $faculty_member->image) }}" style="width: 100px; height:100px;">
                                         @else
                                             <a target="_blank"  href="{{ asset('storage/facultyMember/' . $faculty_member->image) }}">
-                                                <img src="{{ asset('storage/file/' . $faculty_member->image) }}"  alt=" {{ $faculty_member->image }}" class="img-fluid" style="height: 100px; "></a>
+                                                <i class="fa-regular fa-file-pdf"></i>{{$faculty_member->image}}
+                                            </a>
                                         @endif
                                     @else
-                                        <img src="{{ asset('app-assets/images/icons/no-file.png') }}"  alt=" No File" class="img-fluid">
+
                                     @endif
 
                                 </div>
                                 <div class="col-md-3">
                                     <label for="image" class="form-label">File</label>
                                     <input type="file" class="form-control" placeholder="file" name="file">
+
+
                                     @if (!empty($faculty_member->file))
                                         @php
                                             $ext = pathinfo($faculty_member->file, PATHINFO_EXTENSION);
                                         @endphp
-                                        @if ($ext == 'pdf')
-                                            <a target="_blank"  href="{{ asset('storage/file/' . $faculty_member->file) }}">
-                                                <img src="{{ asset('app-assets/images/icons/pdfs-icon.png') }}"  alt=" {{ $faculty_member->file}}" class="img-fluid" style="height: 100px; ">
-                                            </a>
+                                        @if ($ext == 'apng' || $ext == 'avif' || $ext == 'gif' || $ext == 'jpg' || $ext == 'jpeg' || $ext == 'jfif' || $ext == 'pjpeg' || $ext == 'pjp' || $ext == 'png' || $ext == 'svg' || $ext == 'webp')
+                                            <img alt="No File Uploaded" src="{{ asset('storage/facultyMember/' . $faculty_member->file) }}" style="width: 100px; height:100px;">
                                         @else
-                                            <a target="_blank"  href="{{ asset('storage/file/' . $faculty_member->file) }}">
-                                                <img src="{{ asset('storage/file/' . $faculty_member->file) }}"  alt=" {{ $faculty_member->file }}" class="img-fluid" style="height: 100px; "></a>
+                                            <a target="_blank"  href="{{ asset('storage/facultyMember/' . $faculty_member->file) }}">
+                                                <i class="fa-regular fa-file-pdf"></i>{{$faculty_member->file}}
+                                            </a>
                                         @endif
                                     @else
-                                        <img src="{{ asset('app-assets/images/icons/no-file.png') }}"  alt=" No File" class="img-fluid">
+
                                     @endif
 
                                 </div>

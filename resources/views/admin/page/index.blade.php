@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
     <div class="page-content">
         <div class="container-fluid">
 
@@ -11,7 +9,7 @@
                 <div class="col">
 
                     <div class="news-header">
-                        <h2>Programs</h2>
+                        <h2>Pages</h2>
                     </div>
 
                     <div class="table">
@@ -19,29 +17,28 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Session</th>
-                                    <th scope="col">Department</th>
-                                    <th scope="col">Duration(In month)</th>
-
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Slug</th>
+                                    <th scope="col">Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($programs as $program)
+                                @foreach ($pages as $item)
                                 <tr>
-                                    <td>{{ $program->id}}</td>
-                                    <td>{{ $program->name }}</td>
-                                    <td>{{ $program->session_name }}</td>
-                                    <td>{{ $program->department->name }}</td>
-                                    <td>{{ $program->duration_in_month }}</td>
+                                    <td>{{ $item->id}}</td>
+                                    <td>{{ $item->title }}</td>
+                                    <td>{{ $item->slug}}</td>
+                                    <td>{{ $item->status}}</td>
+
 
                                     <td>
-                                         <a href="{{ route('programs.edit', $program->id) }}" class="btn btn-info btn-sm">Edit</a>
-                                         <form action="{{ route('programs.destroy', $program->id) }}" method="post">
+                                         <a href="{{ route('page.edit', $item->id) }}" class="btn btn-info btn-sm">Edit</a>
+                                         {{-- <form action="{{ route('page.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
-                                        </form>
+                                        </form> --}}
                                     </td>
                                 </tr>
                                 @endforeach
