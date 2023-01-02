@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="footer-left">
-                        <img src="{{ asset('/') }}frontend_asset/img/niterlogo.png" alt="">
+                        <img src="{{ asset('/') }}assets/images/logo.png" alt="">
                     </div>
                     <div class="footer-right">
                         <nav>

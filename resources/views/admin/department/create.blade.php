@@ -54,7 +54,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             @enderror
-                            <div class="mt-2">
+                            {{-- <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Facebook Link</label>
                                 <input type="text" class="form-control" id="placeholderInput" placeholder="Facebook" name="facebook">
                             </div>
@@ -65,7 +65,7 @@
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Linkdin Link</label>
                                 <input type="text" class="form-control" id="placeholderInput" placeholder="Linkdin" name="linkdin">
-                            </div>
+                            </div> --}}
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Department Image</label>
                                 <input type="file" class="form-control" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">

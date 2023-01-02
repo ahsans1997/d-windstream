@@ -23,65 +23,22 @@
                         <div class="card-body text-secondary">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="department">
-                                            <div class="departmnet-img">
-                                                <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/research/1.JPG" alt="">
-                                            </div>
-                                            <div class="department-body">
-                                                <h3>Department Name</h3>
-                                                <hr>
-                                                <a href="" class="btn btn-light">View Departmnet</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="department">
-                                            <div class="departmnet-img">
-                                                <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/research/1.JPG" alt="">
-                                            </div>
-                                            <div class="department-body">
-                                                <h3>Department Name</h3>
-                                                <hr>
-                                                <a href="" class="btn btn-light">View Departmnet</a>
+                                    @foreach ($departments as $department)
+                                        <div class="col-md-4">
+                                            <div class="department">
+                                                <div class="departmnet-img">
+                                                    <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/research/1.JPG" alt="">
+                                                </div>
+                                                <div class="department-body">
+                                                    <h3>{{ $department->name }}</h3>
+                                                    <hr>
+                                                    <a href="{{ route('department.single',$department->slug) }}" class="btn btn-light">View Departmnet</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="department">
-                                            <div class="departmnet-img">
-                                                <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/research/1.JPG" alt="">
-                                            </div>
-                                            <div class="department-body">
-                                                <h3>Department Name</h3>
-                                                <hr>
-                                                <a href="" class="btn btn-light">View Departmnet</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="department">
-                                            <div class="departmnet-img">
-                                                <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/research/1.JPG" alt="">
-                                            </div>
-                                            <div class="department-body">
-                                                <h3>Department Name</h3>
-                                                <hr>
-                                                <a href="" class="btn btn-light">View Departmnet</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="department">
-                                            <div class="departmnet-img">
-                                                <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/research/1.JPG" alt="">
-                                            </div>
-                                            <div class="department-body">
-                                                <h3>Department Name</h3>
-                                                <hr>
-                                                <a href="" class="btn btn-light">View Departmnet</a>
-                                            </div>
-                                        </div>
+                                    @endforeach
+                                    <div class="col-md-12 mt-5 text-right">
+                                        {{ $departments->links() }}
                                     </div>
                                 </div>
                             </div>

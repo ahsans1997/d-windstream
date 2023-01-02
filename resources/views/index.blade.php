@@ -27,7 +27,7 @@
                         <div class="col-md-12">
                             <div class="logo">
                                 <a href="{{ url('/') }}"><img
-                                        src="{{ asset('/') }}frontend_asset/img/niterlogo.png" alt=""></a>
+                                        src="{{ asset('/') }}assets/images/{{ $settings->web_logo }}" alt=""></a>
                             </div>
                             <div class="search">
                                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -52,7 +52,7 @@
             data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{ asset('/') }}frontend_asset/img/banner.jpg" alt="First slide">
+                    <img class="d-block w-100" src="{{ asset('/') }}assets/images/banner/{{ $settings->homebanner }}" alt="First slide">
                 </div>
             </div>
 
@@ -115,7 +115,7 @@
 
                 </div>
                 <div class="col-md-12 text-center">
-                    <a href="" class="more">More About Academics</a>
+                    <a href="{{ route('department') }}" class="more">More About Department</a>
                 </div>
             </div>
         </div>
@@ -144,7 +144,7 @@
                 @foreach ($news as $n)
                     <div class="col-md-3 news-banner-3">
                         <div class="news">
-                            <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/news/2.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('/') }}assets/images/news/{{ $n->image }}" alt="">
                             <div class="news-banner-body">
                                 <p>{{ $n->department->name }}</p>
                                 <h5><a href="{{ route('news.single',$n->slug) }}">{{ Str::words($n->title, 6) }}</a></h4>
@@ -166,7 +166,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-center">
-                    <a href="" class="more">More About University News</a>
+                    <a href="{{ route('news') }}" class="more">More About University News</a>
                 </div>
             </div>
         </div>
@@ -174,13 +174,16 @@
     <!-- News End -->
 
     <!-- Research Start -->
+    @php
+        $research = json_decode($settings->home_research);
+    @endphp
     <section class="research-section section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="research-top color-black">
-                        <h3 class="section-header"><b>Research & Scholarship</b></h3>
-                        <p>Driving discoveries vital to our world, our health, and our intellectual life</p>
+                        <h3 class="section-header">{{ $research->title }}</h3>
+                        <p>{{ $research->research_description }}</p>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -188,72 +191,37 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <h3 class="counter"><span data-max="5"></span> Institutes</h3>
-                                    <p>cross disciplinary boundaries</p>
+                                    <h3 class="counter"><span data-max="{{ $research->section_1->section_1_count }}"></span> {{ $research->section_1->section_1_title }}</h3>
+                                    <p>{{ $research->section_1->section_1_description }}</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <h3><b><span data-max="20"></span> Libraries</b></h3>
-                                    <p>hold over 9.5 million volumes</p>
+                                    <h3><b><span data-max="{{ $research->section_2->section_2_count }}"></span> {{ $research->section_2->section_2_title }}</b></h3>
+                                    <p>{{ $research->section_2->section_2_description }}</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <h3><b>$<span data-max="1.93">0</span> Billion</b></h3>
-                                    <p>sponsored research budget</p>
+                                    <h3><b><span data-max="{{ $research->section_3->section_3_count }}"></span> {{ $research->section_3->section_3_title }}</b></h3>
+                                    <p>{{ $research->section_3->section_3_description }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="research">
-                        <div class="research-image">
-                            <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/research/1.JPG"
-                                alt="">
-                        </div>
-                        <div class="research-body">
-                            <p>SCIENCE & TECHNOLOGY</p>
-                            <h4><a href="">Understanding wildfire season</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="research">
-                        <div class="research-image">
-                            <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/research/2.JPG"
-                                alt="">
-                        </div>
-                        <div class="research-body">
-                            <p>SCIENCE & TECHNOLOGY</p>
-                            <h4><a href="">Understanding wildfire season</a></h4>
+                @foreach ($researches as $research)
+                    <div class="col-md-3">
+                        <div class="research">
+                            <div class="research-image">
+                                <img class="img-fluid" src="{{ asset('/') }}assets/images/research/{{ $research->image }}"
+                                    alt="">
+                            </div>
+                            <div class="research-body">
+                                <p>{{ $research->department->name }}</p>
+                                <h4><a href="">{{ Str::words($research->title, 8) }}</a></h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="research">
-                        <div class="research-image">
-                            <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/research/3.jpg"
-                                alt="">
-                        </div>
-                        <div class="research-body">
-                            <p>SCIENCE & TECHNOLOGY</p>
-                            <h4><a href="">Understanding wildfire season</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="research">
-                        <div class="research-image">
-                            <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/research/4.JPG"
-                                alt="">
-                        </div>
-                        <div class="research-body">
-                            <p>SCIENCE & TECHNOLOGY</p>
-                            <h4><a href="">Understanding wildfire season</a></h4>
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
                 <div class="col-md-12 text-center">
-                    <a class="more" href="">More About Research</a>
+                    <a class="more" href="{{ route('research') }}">More About Research</a>
                 </div>
             </div>
         </div>
@@ -269,76 +237,29 @@
                         <h3 class="section-header"><b>Upcoming Events</b></h3>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="event">
-                        <div class="image">
-                            <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/Events/1.jpg"
-                                alt="">
-                        </div>
-                        <div class="event-date">
-                            <p>Nov</p>
-                            <p>30</p>
-                        </div>
-                        <div class="event-body">
-                            <h4>CONFERENCE/SYMPOSIUM</h4>
-                            <h3><a href="">StorageX International Symposium</a></h3>
-                            <h5>10:30 AM</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="event">
-                        <div class="image">
-                            <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/Events/2.JPG"
-                                alt="">
-                        </div>
-                        <div class="event-date">
-                            <p>Nov</p>
-                            <p>30</p>
-                        </div>
-                        <div class="event-body">
-                            <h4>CONFERENCE/SYMPOSIUM</h4>
-                            <h3><a href="">StorageX International Symposium</a></h3>
-                            <h5>10:30 AM</h5>
+                @foreach ($events as $event)
+                    <div class="col-md-3">
+                        <div class="event">
+                            <div class="image">
+                                <img class="img-fluid" src="{{ asset('/') }}assets/images/Events/{{ $event->image }}"
+                                    alt="">
+                            </div>
+                            <div class="event-date">
+                                <p>{{ date('M', strtotime($event->datetime)) }}</p>
+                                <p>{{ date('d', strtotime($event->datetime)) }}</p>
+                            </div>
+                            <div class="event-body">
+                                <h4>{{ $event->department->name }}</h4>
+                                <h3><a href="{{ route('event.single',$event->slug) }}">{{ Str::words($event->title, 5) }}</a></h3>
+                                <h5>{{ date('h:i', strtotime($event->datetime)) }}</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="event">
-                        <div class="image">
-                            <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/Events/3.JPG"
-                                alt="">
-                        </div>
-                        <div class="event-date">
-                            <p>Nov</p>
-                            <p>30</p>
-                        </div>
-                        <div class="event-body">
-                            <h4>CONFERENCE/SYMPOSIUM</h4>
-                            <h3><a href="">StorageX International Symposium</a></h3>
-                            <h5>10:30 AM</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="event">
-                        <div class="image">
-                            <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/Events/4.jpg"
-                                alt="">
-                        </div>
-                        <div class="event-date">
-                            <p>Nov</p>
-                            <p>30</p>
-                        </div>
-                        <div class="event-body">
-                            <h4>CONFERENCE/SYMPOSIUM</h4>
-                            <h3><a href="">StorageX International Symposium</a></h3>
-                            <h5>10:30 AM</h5>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
+
                 <div class="col-md-12 text-center">
-                    <a class="more" href="">More About Event</a>
+                    <a class="more" href="{{ route('event') }}">More About Event</a>
                 </div>
             </div>
         </div>
@@ -346,42 +267,51 @@
     <!-- Upcoming Events End -->
 
     <!-- About Start -->
+    @php
+        $about = json_decode($settings->home_about);
+    @endphp
     <section class="section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="h-about-header color-black">
-                        <h3 class="section-header"><b>About NITER</b></h3>
-                        <p>A place for learning, discovery, innovation, expression and discourse</p>
+                        <h3 class="section-header"><b>{{ $about->about_title }}</b></h3>
+                        <p>{{ $about->about_description }}</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="h-about-body">
-                        <h5>Opening In</h5>
-                        <h3><span data-max="1979"></span></h3>
+                        <h5>{{ $about->about_section_1->about_section_1_title }}</h5>
+                        <h3><span data-max="{{ $about->about_section_1->about_section_1_count }}"></span></h3>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="h-about-body">
-                        <h5>Student</h5>
-                        <h3><span data-max="1712"></span></h3>
+                        <h5>{{ $about->about_section_2->about_section_2_title }}</h5>
+                        <h3><span data-max="{{ $about->about_section_2->about_section_2_count }}"></span></h3>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="h-about-body">
-                        <h5>Faculty</h5>
-                        <h3><span data-max="10"></span></h3>
+                        <h5>{{ $about->about_section_3->about_section_3_title }}</h5>
+                        <h3><span data-max="{{ $about->about_section_3->about_section_3_count }}"></span></h3>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="h-about-body">
+                        <h5>{{ $about->about_section_4->about_section_4_title }}</h5>
+                        <h3><span data-max="{{ $about->about_section_4->about_section_4_count }}"></span></h3>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="h-about-link">
-                        <h5><a href="">More about NITER</a></h5>
+                        <h5><a href="{{ route('about') }}">More about NITER</a></h5>
                     </div>
                 </div>
             </div>
         </div>
         <div class="h-about-image">
-            <img src="{{ asset('/') }}frontend_asset/img/h-about-banner.jpg" alt="">
+            <img src="{{ asset('/') }}assets/images/banner/{{ $settings->homefooterbanner }}" alt="">
         </div>
     </section>
     <!-- About End -->

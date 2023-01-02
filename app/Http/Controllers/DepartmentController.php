@@ -148,4 +148,16 @@ class DepartmentController extends Controller
         Department::findOrFail($department->id)->delete();
         return back()->with('delete', 'Your Department Delete Successfull.');
     }
+
+    public function department()
+    {
+        return view('department',[
+            'departments' => Department::paginate(10),
+        ]);
+    }
+
+    public function departmentsingle($slug)
+    {
+        return view('department-single');
+    }
 }
