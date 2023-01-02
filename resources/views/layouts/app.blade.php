@@ -199,7 +199,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('faculty-member-research.create') }}" class="nav-link {{ request()->routeIs('faculty-member-research.create') ? 'active' : '' }}"
-                                            data-key="t-chat"> Add faculty Research
+                                            data-key="t-chat"> Add faculty Member Research
                                         </a>
                                     </li>
                                 </ul>
