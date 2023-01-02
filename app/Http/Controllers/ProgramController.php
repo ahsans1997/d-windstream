@@ -180,7 +180,8 @@ class ProgramController extends Controller
 
 
             // $current_key = array_values($request->semister_course_name);
-        //    ProgramCurriculamCours::where('program_id',$id)->whereNotIn('id',$current_key)->get();
+            // dd($current_key);
+            // ProgramCurriculamCours::where('program_id',$id)->whereNotIn('id',$current_key)->get();
 
 
             // dd($test);
