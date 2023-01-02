@@ -178,8 +178,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link menu-link"
-                                href="#news" data-bs-toggle="collapse" role="button" aria-expanded="false"
-                                aria-controls="sidebarApps">
+                                href="#news" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
                                 <i class="ri-apps-2-line"></i> <span data-key="t-apps">News</span>
                             </a>
                             <div class="collapse menu-dropdown {{ request()->routeIs('news.*') ? 'show' : '' }}" id="news">
