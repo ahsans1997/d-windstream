@@ -106,7 +106,7 @@
                             <ul>
                                 @foreach ($departments as $department)
                                     <li><a
-                                            href="{{ route('department.single', $department->slug) }}">{{ $department->department_short_form }}</a>
+                                            href="{{ route('department', $department->slug) }}">{{ $department->department_short_form }}</a>
                                     </li>
                                 @endforeach
                             </ul>

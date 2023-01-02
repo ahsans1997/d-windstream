@@ -6,10 +6,22 @@
 
             @forelse ($faculty_members as $member)
                 <div class="col-sm-4">
-                    <x-faculty-profile name="{{ $member->name }}" designation="{{ $member->designation }}"
-                        image="{{ !empty($member->image) ? 'storage/facultyMember/' . $member->image : '' }}"
-                        url="{{ route('member-profile', $member->slug) }}">
-                    </x-faculty-profile>
+                    <div class="card profile-card">
+                        <div class="card-body">
+                            <div class="rounded-circle profile-image-rounded">                    
+                                    <img style="width:100%" src="{{ !empty($member->image) ? 'storage/facultyMember/' . $member->image : asset('frontend_asset/img/profile.jpg') }}" alt="">
+                                
+                            </div>
+                            <div class="title">
+                                <h4><strong>{{ $member->name }}</strong></h4>
+                                <span>{{ $member->designation->name }}</span>
+                            </div>
+                            <div class="link">
+                                <a href="{{ url('member-profile',$member->slug) }}">View Profile <i class="fa fa-check"></i></a>
+                            </div>
+                    
+                        </div>
+                    </div>
                 </div>
             @empty
 

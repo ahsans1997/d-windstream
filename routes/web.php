@@ -47,9 +47,15 @@ Route::get('department/{slug}', [DepartmentController::class, 'departmentsingle'
 
 Route::get('research', [ResearchController::class, 'research'])->name('research');
 Route::get('research/{slug}', [ResearchController::class, 'researchsingle'])->name('research.single');
+// Route::get('/department', [FrontendController::class, 'department'])->name('department');
+// Route::get('/department/{slug}', [FrontendController::class, 'department'])->name('department.single');
+Route::get('/research', [FrontendController::class, 'research'])->name('research');
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 
 
 Route::get('/program/{slug?}', [ProgramController::class, 'program'])->name('program');
+Route::get('/department/{slug?}', [DepartmentController::class, 'department'])->name('department');
 
 
 Route::redirect('/admin', '/login');
