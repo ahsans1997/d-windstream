@@ -167,7 +167,7 @@ class DepartmentController extends Controller
                 $title = 'Program of ' . $department->name;
                 $department_news = News::where('department_id', $department->id)->orderBY('id','desc')->paginate(5);
                 $department_events = Event::where('department_id', $department->id)->paginate(5);
-                $department_faculty_member = FacultyMember::where('department_id', $department->id)->paginate(5);
+                $department_faculty_member = FacultyMember::with('designation')->where('department_id', $department->id)->paginate(5);
                 return view('department-single', [
                     'department' => $department,
                     'department_news' => $department_news,

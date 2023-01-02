@@ -736,6 +736,19 @@ li a.active{
     margin-top: 50px;
 }
 
+.event-p-img {
+    height: 220px;
+    overflow: hidden;
+    transition: all 2s;
+    cursor: pointer;
+}
+.event-p-img:hover img {
+    transform: scale(1.2);    
+}
+.department_event_card{
+    height:460px;
+}
+
 
 /* News CSS */
 
@@ -794,8 +807,8 @@ li a.active{
 
 .event-p {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin-top: 30px;
-    height: 460px;
+    margin-top: 0px;
+    height: 430px;
 }
 
 .event-p-img img {
