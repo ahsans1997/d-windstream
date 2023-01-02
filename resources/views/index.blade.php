@@ -65,38 +65,40 @@
     <!-- Header End -->
 
     <!-- Accelerating climate solutions Start -->
+    @php
+        $part1 = json_decode($homesection->part1);
+        $part2 = json_decode($homesection->part2);
+        $part3 = json_decode($homesection->part3);
+    @endphp
     <section class="academic-section section">
         <div class="container color-black">
             <div class="row">
                 <div class="col-md-12 accelerating-climate-solutions-header color-black">
-                    <h2 class="section-header">Accelerating climate solutions</h2>
-                    <p>The new Stanford Doerr School of Sustainability is designed to tackle urgent global challenges
-                    </p>
+                    <h2 class="section-header">{{ $homesection->section_1_title }}</h2>
+                    <p>{{ $homesection->section_1_description }}</p>
                 </div>
                 <div class="col-md-4 accelerating-climate-solutions">
-                    <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/Accelerating/1.JPG"
+                    <img class="img-fluid" src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part1_image }}"
                         alt="">
-                    <h3>Generating knowledge</h3>
-                    <p>Experts across seven departments will expand understanding of the natural world and its
-                        intersections with human society</p>
-                    <a href="">Departments <i class="fa-solid fa-angle-right"></i></a>
+                    <h3>{{ $part1->part1_title }}</h3>
+                    <p>{{ $part1->part1_description }}</p>
+                    <a href="{{ $part1->part1_link }}">{{ $part1->part1_link_name }} <i class="fa-solid fa-angle-right"></i></a>
                 </div>
                 <div class="col-md-4 accelerating-climate-solutions">
-                    <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/Accelerating/2.JPG"
+                    <img class="img-fluid" src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part2_image }}"
                         alt="">
-                    <h3>Generating knowledge</h3>
-                    <p>Experts across seven departments will expand understanding of the natural world and its
-                        intersections with human society</p>
-                    <a href="">Institutes <i class="fa-solid fa-angle-right"></i></a>
+                    <h3>{{ $part2->part2_title }}</h3>
+                    <p>{{ $part2->part2_description }}</p>
+                    <a href="{{ $part2->part2_link }}">{{ $part2->part2_link_name }} <i class="fa-solid fa-angle-right"></i></a>
                 </div>
                 <div class="col-md-4 accelerating-climate-solutions">
-                    <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/Accelerating/3.jpg"
+                    <img class="img-fluid" src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part3_image }}"
                         alt="">
-                    <h3>Generating knowledge</h3>
-                    <p>Experts across seven departments will expand understanding of the natural world and its
-                        intersections with human society</p>
-                    <a href="">Sustainability Accelerator <i class="fa-solid fa-angle-right"></i></a>
+                    <h3>{{ $part3->part3_title }}</h3>
+                    <p>{{ $part3->part3_description }}</p>
+                    <a href="{{ $part3->part3_link }}">{{ $part3->part3_link_name }} <i class="fa-solid fa-angle-right"></i></a>
                 </div>
+
                 <div class="col-md-12 seven-schools-in-which-to-pursue-your-passions">
                     <h3>{{ ucwords(numberToWord($departments->count())) }} schools in which to pursue your passions</h3>
                     <div class="home-departments">
