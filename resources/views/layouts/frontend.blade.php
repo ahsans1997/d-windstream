@@ -24,8 +24,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="logo">
-                        <a href="{{ url('/') }}"><img src="{{ asset('/') }}frontend_asset/img/niterlogo.png"
-                                alt=""></a>
+                        <a href="{{ url('/') }}"><img src="{{ asset('/') }}frontend_asset/img/niterlogo.png" alt=""></a>
                     </div>
                     <div class="search">
                         <i class="fa-solid fa-magnifying-glass"></i>

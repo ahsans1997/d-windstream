@@ -368,13 +368,17 @@ class FacultyMemberController extends Controller
     {
         $member = FacultyMember::with('department','designation','education','experience','membership','award')->where('slug', $slug)->first();
 
-        // dd($member);
+        if($member){
+            $data = [
+                'member' => $member,
+                'title' => 'Member Details for '.$member->name,
+            ];
+            return view('member-profile', $data);
+        }else{
+            return abort(404);
+        }
 
-        $data = [
-            'member' => $member,
-            'title' => 'Member Details for '.$member->name,
-        ];
-        return view('member-profile', $data);
+        
 
     }
 }

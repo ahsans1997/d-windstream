@@ -639,6 +639,11 @@ li {
     margin-top: -5px;
 }
 
+li a.active{
+    border-bottom: 3px solid #000;
+    padding-bottom:10px;
+}
+
 
 
 /*
@@ -705,11 +710,12 @@ li {
 
 .department-body {
     padding: 20px;
+    height:100px;
 }
 
 .department-body h3 {
-    margin-top: 15px;
     font-weight: 700;
+    font-size:24px;
 }
 
 .department-body a {

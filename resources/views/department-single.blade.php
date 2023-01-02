@@ -9,67 +9,88 @@
                         <img class="img-fluid" src="asset/img/news/2.JPG" alt="">
                     </div>
                     <div class="news-single-body">
-                        <h2><b>Department Name</b></h2>
+                        <h2>{{ $department->name }}</h2>
 
                         <div class="news-description">
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam distinctio porro hic
-                                voluptatibus optio, vitae quidem officia itaque error ipsam perferendis illum provident
-                                iure, minus, dignissimos ratione molestiae libero excepturi.
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus repellendus alias
-                                impedit saepe molestiae praesentium officia, possimus, soluta assumenda libero ex nulla?
-                                Reiciendis magni laboriosam fugit asperiores placeat expedita deleniti.
-
-                            </p>
+                            {!! $department->description !!}
                         </div>
                     </div>
                     <!-- department news -->
                     <div class="container departmnet-news">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="card border-secondary mb-3">
-                                    <div class="card-header" style="background-color: #bbffd4;"><b>NEWS</b></div>
+                                    <div class="card-header" style="background-color: #bbffd4;"><b>Latest News</b></div>
                                     <div class="card-body text-secondary">
                                         <div class="container">
                                             <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="news">
-                                                        <div class="news-img">
-                                                            <img class="img-fluid" src="asset/img/news/1.JPG" alt="">
-                                                        </div>
-                                                        <div class="news-body">
-                                                            <h3>News Titile</h3>
-                                                            <hr>
-                                                            <a href="news-single.html" class="btn btn-light">View
-                                                                Departmnet</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="news">
-                                                        <div class="news-img">
-                                                            <img class="img-fluid" src="asset/img/news/2.JPG" alt="">
-                                                        </div>
-                                                        <div class="news-body">
-                                                            <h3>News Titile</h3>
-                                                            <hr>
-                                                            <a href="news-single.html" class="btn btn-light">View
-                                                                News</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="news">
-                                                        <div class="news-img">
-                                                            <img class="img-fluid" src="asset/img/news/3.webp" alt="">
-                                                        </div>
-                                                        <div class="news-body">
-                                                            <h3>News Titile</h3>
-                                                            <hr>
-                                                            <a href="news-single.html" class="btn btn-light">View
-                                                                News</a>
+
+                                                @forelse($department_news as $news)
+
+                                                <ul class="d-block">
+                                                    <li class="flex justify-around">
+                                                        <a class="text-dark" href="{{ url('/news', $news->slug) }}"><i class="fa fa-link"></i> {{ Str::limit($news->title, 20) }}</a>  <span>{{$news->created_at->format('d-M-Y')}}</span>
+                                                    </li>
+                                                </ul>
+                                                    {{-- {{ dd($news) }} --}}
+                                                    <div class="col-md-6 d-none">
+                                                        <div class="news">
+                                                            {{-- <div class="news-img">
+                                                                @if ($news->image)
+                                                                    <img class="img-fluid"
+                                                                        src="{{ asset('assets/images/news') . '/' . $news->image }}"
+                                                                        alt="">
+                                                                @else
+                                                                    <img src="//via.placeholder.com/350x150"
+                                                                        class="lazyloaded" data-ll-status="loaded">
+                                                                @endif
+                                                            </div> --}}
+                                                            <div class="news-body">
+                                                                <h3>{{ Str::limit($news->title, 20) }}</h3>
+                                                                <hr>
+                                                                <a href="{{ url('/news', $news->slug) }}"
+                                                                    class="btn btn-light">Read More..
+                                                                    </a>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                @empty
+                                                    <div class="col-md-12">
+                                                        <div class="alert alert-danger">
+                                                            <h3>No News Found</h3>
+                                                        </div>
+                                                    </div>
+                                                @endforelse
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card border-secondary mb-3">
+                                    <div class="card-header" style="background-color: #bbffd4;"><b>Latest Events</b></div>
+                                    <div class="card-body text-secondary">
+                                        <div class="container">
+                                            <div class="row">
+                                                @forelse($department_events as $event)
+
+                                                <ul class="d-block">
+                                                    <li class="flex justify-around">
+                                                        <a class="text-dark" href="{{ url('/event', $news->slug) }}"><i class="fa fa-link"></i> {{ Str::limit($event->title, 20) }}</a>  <span>{{$event->created_at->format('d-M-Y')}}</span>
+                                                    </li>
+                                                </ul>
+                                                @empty
+                                                    <div class="col-md-12">
+                                                        <div class="alert alert-danger">
+                                                            <h3>No Event Found</h3>
+                                                        </div>
+                                                    </div>
+                                                @endforelse
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -77,7 +98,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- department event -->
+                    <!-- department event 
                     <div class="container department-event">
                         <div class="row">
                             <div class="col-md-12">
@@ -86,42 +107,39 @@
                                     <div class="card-body text-secondary">
                                         <div class="container">
                                             <div class="row">
-                                                <div class="col-md-4">
+
+                                                @forelse($department_events as $event)
+
+                                                
+                                                <div class="col-md-3">
                                                     <div class="event-p">
                                                         <div class="event-p-img">
-                                                            <img class="img-fluid" src="asset/img/Events/1.jpg" alt="">
+                                                            @if ($event->image)
+                                                                    <img class="img-fluid"
+                                                                        src="{{ asset('assets/images/events') . '/' . $event->image }}"
+                                                                        alt="">
+                                                                @else
+                                                                    <img src="//via.placeholder.com/350x150"
+                                                                        class="lazyloaded" data-ll-status="loaded">
+                                                                @endif
                                                         </div>
                                                         <div class="event-p-body">
-                                                            <h3>Event Title</h3>
+                                                            <h3>{{$event->title}}</h3>
                                                             <hr>
-                                                            <a href="" class="btn btn-light">View event</a>
+                                                            <a href="{{route('event',$event->slug)}}" class="btn btn-light">View event</a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <div class="event-p">
-                                                        <div class="event-p-img">
-                                                            <img class="img-fluid" src="asset/img/Events/4.jpg" alt="">
-                                                        </div>
-                                                        <div class="event-p-body">
-                                                            <h3>Event Title</h3>
-                                                            <hr>
-                                                            <a href="" class="btn btn-light">View Event</a>
+                                                @empty
+                                                    <div class="col-md-12">
+                                                        <div class="alert alert-danger">
+                                                            <h3>No Event Found</h3>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="event-p">
-                                                        <div class="event-p-img">
-                                                            <img class="img-fluid" src="asset/img/Events/3.JPG" alt="">
-                                                        </div>
-                                                        <div class="event-p-body">
-                                                            <h3>Event Title</h3>
-                                                            <hr>
-                                                            <a href="" class="btn btn-light">View Event</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                @endforelse
+
+
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -129,6 +147,8 @@
                             </div>
                         </div>
                     </div>
+
+                -->
                     <!-- faculty member -->
                     <div class="container department-facultymember">
                         <div class="row">
@@ -138,36 +158,36 @@
                                     <div class="card-body text-secondary">
                                         <div class="container">
                                             <div class="row">
+
+                                                @forelse($department_faculty_member as $faculty)
+
+                                                {{ dd($faculty)}}
+
                                                 <div class="col-md-4">
                                                     <div class="event-p">
                                                         <div class="event-p-img">
-                                                            <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
+                                                            @if ($faculty->image)
+                                                            <img class="img-fluid"
+                                                                src="{{ asset('assets/images/faculty') . '/' . $faculty->image }}"
+                                                                alt="">
+                                                        @else
+                                                            <img src="//via.placeholder.com/350x150"
+                                                                class="lazyloaded" data-ll-status="loaded">
+                                                        @endif
                                                         </div>
                                                         <div class="event-p-body">
                                                             <h3>Faculty Member Name</h3>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <div class="event-p">
-                                                        <div class="event-p-img">
-                                                            <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
-                                                        </div>
-                                                        <div class="event-p-body">
-                                                            <h3>Faculty Member Name</h3>
+
+                                                @empty
+                                                    <div class="col-md-12">
+                                                        <div class="alert alert-danger">
+                                                            <h3>No Faculty Member Found</h3>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="event-p">
-                                                        <div class="event-p-img">
-                                                            <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
-                                                        </div>
-                                                        <div class="event-p-body">
-                                                            <h3>Faculty Member Name</h3>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                @endforelse
                                             </div>
                                         </div>
                                     </div>
