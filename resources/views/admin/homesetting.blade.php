@@ -4,7 +4,9 @@
 @php
 $research = json_decode($setting->home_research);
 $about = json_decode($setting->home_about);
-$section_1 = json_decode($setting->home_section_1);
+$part1 = json_decode($homesection->part1);
+$part2 = json_decode($homesection->part2);
+$part3 = json_decode($homesection->part3);
 @endphp
 
 
@@ -109,75 +111,100 @@ $section_1 = json_decode($setting->home_section_1);
                                     <div class="card border-primary">
                                         <div class="card-header">Section 1 Update</div>
                                         <div class="card-body">
-                                            <form action="{{ route('setting.update',1) }}" method="POST"
-                                                enctype="multipart/form-data">
-                                                @csrf
-                                                @method('PUT')
-                                                <label for="">Section 1 Title</label>
-                                                <input type="text" name="home_section_1_title" class="form-control"
-                                                    value="{{ $section_1->home_section_1_title }}">
-                                                <label for="">section 1 Description</label>
-                                                <input type="text" name="home_section_1_description" class="form-control"
-                                                    value="{{ $section_1->home_section_1_description }}">
+                                            <div class="card">
+                                              <div class="card-header">Title</div>
+                                                <div class="card-body">
+                                                    <form action="{{ route('setting.section1',1) }}" method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <label for="">Title</label>
+                                                        <input type="text" name="section_1_title" class="form-control"
+                                                            value="{{ $homesection->section_1_title }}">
+                                                        <label for="">section 1 Description</label>
+                                                        <input type="text" name="section_1_description" class="form-control"
+                                                            value="{{ $homesection->section_1_description }}">
+                                                        <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                                    </form>
+                                                </div>
+                                            </div>
 
-                                                <div class="card border-dark mt-3" style="max-width: 600px;">
-                                                    <div class="card-header">{{ $section_1->home_section_1_part_1->home_section_1_part_1_title }}
-                                                    </div>
+                                            <div class="card" style="width: 600px">
+                                                <form action="{{ route('setting.section1',1) }}" method="POST"  enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <div class="card-header">{{ $part1->part1_title }}</div>
                                                     <div class="card-body">
                                                         <div class="section_1">
+                                                            <img class="img-fluid" src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part1_image }}" alt="">
+                                                            <input type="file" class="form-control mt-2" name="part1_image">
                                                             <label for="">Title</label>
                                                             <input type="text" class="form-control"
-                                                                name="home_section_1_part_1_title"
-                                                                value="{{ $section_1->home_section_1_part_1->home_section_1_part_1_title }}">
+                                                                name="part1_title"
+                                                                value="{{ $part1->part1_title }}">
                                                             <label for="">Description</label>
-                                                            <input type="text" class="form-control"
-                                                                name="home_section_1_part_1_description"
-                                                                value="{{ $section_1->home_section_1_part_1->home_section_1_part_1_description }}">
+                                                            <textarea name="part1_description" class="form-control" rows="5">{{ $part1->part1_description }}</textarea>
                                                             <label for="">Link</label>
-                                                            <input type="text" class="form-control" name="home_section_1_part_1_link" value="{{ $section_1->home_section_1_part_1->home_section_1_part_1_link }}">
+                                                            <input type="text" class="form-control" name="part1_link_name" value="{{ $part1->part1_link_name }}">
+                                                            <label for="">Link</label>
+                                                            <input type="text" class="form-control" name="part1_link" value="{{ $part1->part1_link }}">
+                                                            <button class="btn btn-info mt-3 mb-2" style="float: right">Submit</button>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="card border-dark mt-3" style="max-width: 600px;">
-                                                    <div class="card-header">{{ $section_1->home_section_1_part_2->home_section_1_part_2_title }}
-                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="card" style="width: 600px">
+                                                <form action="{{ route('setting.section1',1) }}" method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <div class="card-header">{{ $part2->part2_title }}</div>
                                                     <div class="card-body">
                                                         <div class="section_1">
+                                                            <img class="img-fluid" src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part2_image }}" alt="">
+                                                            <input type="file" class="form-control mt-2" name="part2_image">
                                                             <label for="">Title</label>
                                                             <input type="text" class="form-control"
-                                                                name="home_section_1_part_2_title"
-                                                                value="{{ $section_1->home_section_1_part_2->home_section_1_part_2_title }}">
+                                                                name="part2_title"
+                                                                value="{{ $part2->part2_title }}">
                                                             <label for="">Description</label>
-                                                            <input type="text" class="form-control"
-                                                                name="home_section_1_part_2_description"
-                                                                value="{{ $section_1->home_section_1_part_2->home_section_1_part_2_description }}">
+                                                            <textarea name="part2_description" class="form-control" rows="5">{{ $part2->part2_description }}</textarea>
                                                             <label for="">Link</label>
-                                                            <input type="text" class="form-control" name="home_section_1_part_2_link" value="{{ $section_1->home_section_1_part_2->home_section_1_part_2_link }}">
+                                                            <input type="text" class="form-control" name="part2_link_name" value="{{ $part2->part2_link_name }}">
+                                                            <label for="">Link</label>
+                                                            <input type="text" class="form-control" name="part2_link" value="{{ $part2->part2_link }}">
+                                                            <button class="btn btn-info mt-3 mb-2" style="float: right">Submit</button>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="card border-dark mt-3" style="max-width: 600px;">
-                                                    <div class="card-header">{{ $section_1->home_section_1_part_3->home_section_1_part_3_title }}
-                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="card" style="width: 600px">
+                                                <form action="{{ route('setting.section1',1) }}" method="POST"  enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <div class="card-header">{{ $part3->part3_title }}</div>
                                                     <div class="card-body">
                                                         <div class="section_1">
+                                                            <img class="img-fluid" src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part3_image }}" alt="">
+                                                            <input type="file" class="form-control mt-2" name="part3_image">
                                                             <label for="">Title</label>
                                                             <input type="text" class="form-control"
-                                                                name="home_section_1_part_3_title"
-                                                                value="{{ $section_1->home_section_1_part_3->home_section_1_part_3_title }}">
+                                                                name="part3_title"
+                                                                value="{{ $part3->part3_title }}">
                                                             <label for="">Description</label>
-                                                            <input type="text" class="form-control"
-                                                                name="home_section_1_part_3_description"
-                                                                value="{{ $section_1->home_section_1_part_3->home_section_1_part_3_description }}">
+                                                            <textarea name="part3_description" class="form-control" rows="5">{{ $part3->part3_description }}</textarea>
                                                             <label for="">Link</label>
-                                                            <input type="text" class="form-control" name="home_section_1_part_3_link" value="{{ $section_1->home_section_1_part_3->home_section_1_part_3_link }}">
+                                                            <input type="text" class="form-control" name="part3_link_name" value="{{ $part3->part3_link_name }}">
+                                                            <label for="">Link</label>
+                                                            <input type="text" class="form-control" name="part3_link" value="{{ $part3->part3_link }}">
+                                                            <button class="btn btn-info mt-3 mb-2" style="float: right">Submit</button>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </form>
+                                            </div>
 
 
-                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
-                                            </form>
+
+
+
                                         </div>
                                     </div>
                                 </div>

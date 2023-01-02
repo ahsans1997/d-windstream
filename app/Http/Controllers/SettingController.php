@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HomeSection;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -19,6 +20,7 @@ class SettingController extends Controller
     {
         return view('admin.homesetting',[
             'setting' => Setting::latest()->first(),
+            'homesection' => HomeSection::latest()->first(),
         ]);
     }
 
@@ -293,32 +295,7 @@ class SettingController extends Controller
             ]);
         }
 
-        if($request->home_section_1_title)
-        {
-            $home_section_1_data = [
-                'home_section_1_title' => $request->home_section_1_title,
-                'home_section_1_description' => $request->home_section_1_description,
-                'home_section_1_part_1' => [
-                    'home_section_1_part_1_title' => $request->home_section_1_part_1_title,
-                    'home_section_1_part_1_description' => $request->home_section_1_part_1_description,
-                    'home_section_1_part_1_link' => $request->home_section_1_part_1_link,
-                ],
-                'home_section_1_part_2' => [
-                    'home_section_1_part_2_title' => $request->home_section_1_part_2_title,
-                    'home_section_1_part_2_description' => $request->home_section_1_part_2_description,
-                    'home_section_1_part_2_link' => $request->home_section_1_part_2_link,
-                ],
-                'home_section_1_part_3' => [
-                    'home_section_1_part_3_title' => $request->home_section_1_part_3_title,
-                    'home_section_1_part_3_description' => $request->home_section_1_part_3_description,
-                    'home_section_1_part_3_link' => $request->home_section_1_part_3_link,
-                ],
-            ];
-            $section_1 = json_encode($home_section_1_data);
-            Setting::findOrFail($id)->update([
-                'home_section_1' => $section_1,
-            ]);
-        }
+
 
 
         if($request->research_description)
@@ -384,4 +361,101 @@ class SettingController extends Controller
         return back();
 
     }
+
+    public function section1(Request $request, $id)
+    {
+        if ($request->section_1_title){
+            HomeSection::FindOrFail($id)->update([
+                'section_1_title' => $request->section_1_title,
+                'section_1_description' => $request->section_1_description
+            ]);
+        }
+
+        if($request->part1_title)
+        {
+            if($request->hasFile('part1_image'))
+            {
+                if (HomeSection::findOrFail($id)->part1_image != "default.png") {
+                    $location = 'public/assets/images/section_1/'.HomeSection::findOrFail($id)->part1_image;
+                    unlink(base_path($location));
+                }
+                $image = $request->file('part1_image');
+                $image_name = "1".".".$image->getClientOriginalExtension();
+                $image_location = 'public/assets/images/section_1/'.$image_name;
+                Image::make($image)->save(base_path($image_location));
+                HomeSection::findOrFail($id)->update([
+                    'part1_image' => $image_name,
+                ]);
+            }
+            $data = [
+                'part1_title' => $request->part1_title,
+                'part1_description' => $request->part1_description,
+                'part1_link_name' => $request->part1_link_name,
+                'part1_link' => $request->part1_link,
+            ];
+            $part1 = json_encode($data);
+            HomeSection::findOrFail($id)->update([
+                'part1' => $part1
+            ]);
+        }
+        if($request->part2_title)
+        {
+            if($request->hasFile('part2_image'))
+            {
+                if (HomeSection::findOrFail($id)->part2_image != "default.png") {
+                    $location = 'public/assets/images/section_1/'.HomeSection::findOrFail($id)->part2_image;
+                    unlink(base_path($location));
+                }
+                $image = $request->file('part2_image');
+                $image_name = "2".".".$image->getClientOriginalExtension();
+                $image_location = 'public/assets/images/section_1/'.$image_name;
+                Image::make($image)->save(base_path($image_location));
+                HomeSection::findOrFail($id)->update([
+                    'part2_image' => $image_name,
+                ]);
+            }
+            $data = [
+                'part2_image' => $image_name,
+                'part2_title' => $request->part2_title,
+                'part2_description' => $request->part2_description,
+                'part2_link_name' => $request->part2_link_name,
+                'part2_link' => $request->part2_link,
+            ];
+            $part2 = json_encode($data);
+            HomeSection::findOrFail($id)->update([
+                'part2' => $part2
+            ]);
+        }
+        if($request->part2_title)
+        {
+            if($request->hasFile('part3_image'))
+            {
+                if (HomeSection::findOrFail($id)->part3_image != "default.png") {
+                    $location = 'public/assets/images/section_1/'.HomeSection::findOrFail($id)->part3_image;
+                    unlink(base_path($location));
+                }
+                $image = $request->file('part3_image');
+                $image_name = "3".".".$image->getClientOriginalExtension();
+                $image_location = 'public/assets/images/section_1/'.$image_name;
+                Image::make($image)->save(base_path($image_location));
+                HomeSection::findOrFail($id)->update([
+                    'part3_image' => $image_name,
+                ]);
+            }
+            $data = [
+                'part1_image' => $image_name,
+                'part1_title' => $request->part1_title,
+                'part1_description' => $request->part1_description,
+                'part1_link_name' => $request->part1_link_name,
+                'part1_link' => $request->part1_link,
+            ];
+            $part3 = json_encode($data);
+            HomeSection::findOrFail($id)->update([
+                'part3' => $part3
+            ]);
+        }
+        return back();
+    }
+
 }
+
