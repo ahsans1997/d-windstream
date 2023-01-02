@@ -215,11 +215,7 @@
                                             data-key="t-chat"> Add Research
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('faculty-member-research.create') }}" class="nav-link {{ request()->routeIs('faculty-member-research.create') ? 'active' : '' }}"
-                                            data-key="t-chat"> Add faculty Member Research
-                                        </a>
-                                    </li>
+
                                 </ul>
                             </div>
                         </li>
@@ -291,7 +287,7 @@
                                 aria-expanded="false" aria-controls="sidebarApps">
                                 <i class="ri-apps-2-line"></i> <span data-key="t-apps">Faculty</span>
                             </a>
-                            <div class="collapse menu-dropdown {{ request()->routeIs('faculty.*') ? 'show' : '' }}" id="faculty">
+                            <div class="collapse menu-dropdown {{ request()->routeIs('faculty.*','faculty-member-research.*','faculty-member.*') ? 'show' : '' }}" id="faculty">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
                                         <a href="{{ route('faculty.index') }}" class="nav-link {{ request()->routeIs('faculty.index') ? 'active' : '' }}">Faculty</a>
@@ -308,6 +304,8 @@
                                         <a href="{{ route('faculty-member.create') }}" class="nav-link {{ request()->routeIs('faculty-member.create') ? 'active' : '' }}"
                                             data-key="t-chat">Add Faculty Member</a>
                                     </li>
+                                    <li class="nav-item">
+
                                 </ul>
                             </div>
                         </li>
@@ -435,8 +433,8 @@
         $(document).ready(function() {
             $('.summernote').summernote();
             $(document).on('click', '.datepicker', function() {
-            $(this).datepicker().focus();
-        });
+                $(this).datepicker().focus();
+            });
         });
 
         // $( ".datepicker" ).datepicker();

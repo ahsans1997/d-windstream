@@ -383,4 +383,11 @@ class FacultyMemberController extends Controller
         return view('member-profile', $data);
 
     }
+
+    public function addResearch($id){
+        $data = [
+            'faculty_member' => FacultyMember::with('invited_talks','research_interests','research_supervisions','research_works')->find($id),
+        ];
+        return view('admin.facultyMember.researchCreate', $data);
+    }
 }

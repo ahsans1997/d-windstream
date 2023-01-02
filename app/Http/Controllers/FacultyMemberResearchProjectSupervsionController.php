@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FacultyMember;
+use App\Models\FacultyMemberResearchProjectSupervsion;
 use Illuminate\Http\Request;
 
-class FacultyMemberResearchController extends Controller
+class FacultyMemberResearchProjectSupervsionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,7 @@ class FacultyMemberResearchController extends Controller
      */
     public function index()
     {
-        $data =[
-            'faculty_members' => FacultyMember::with('department')->get(),
-        ];
-        return view('admin.facultyMemberResearch.index',$data);
+        //
     }
 
     /**
@@ -27,9 +24,7 @@ class FacultyMemberResearchController extends Controller
      */
     public function create()
     {
-        return view('admin.research.facultymemberresearch.create',[
-            'faculty_members' => FacultyMember::all(),
-        ]);
+        //
     }
 
     /**
@@ -40,16 +35,16 @@ class FacultyMemberResearchController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\FacultyMemberResearchProjectSupervsion  $facultyMemberResearchProjectSupervsion
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(FacultyMemberResearchProjectSupervsion $facultyMemberResearchProjectSupervsion)
     {
         //
     }
@@ -57,10 +52,10 @@ class FacultyMemberResearchController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\FacultyMemberResearchProjectSupervsion  $facultyMemberResearchProjectSupervsion
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(FacultyMemberResearchProjectSupervsion $facultyMemberResearchProjectSupervsion)
     {
         //
     }
@@ -69,10 +64,10 @@ class FacultyMemberResearchController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\FacultyMemberResearchProjectSupervsion  $facultyMemberResearchProjectSupervsion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, FacultyMemberResearchProjectSupervsion $facultyMemberResearchProjectSupervsion)
     {
         //
     }
@@ -80,19 +75,11 @@ class FacultyMemberResearchController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\FacultyMemberResearchProjectSupervsion  $facultyMemberResearchProjectSupervsion
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(FacultyMemberResearchProjectSupervsion $facultyMemberResearchProjectSupervsion)
     {
         //
-    }
-
-    public function add($id){
-        $data = [
-            'faculty_member' => FacultyMember::with('')->find($id),
-        ];
-
-        return view('admin.facultyMemberResearch.create',$data);
     }
 }

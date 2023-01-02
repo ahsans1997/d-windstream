@@ -17,6 +17,7 @@ use App\Http\Controllers\ResearchController;
 use App\Http\Controllers\SettingController;
 use App\Models\Designation;
 use App\Models\FacultyMember;
+use App\Models\FacultyMemberResearch;
 use Barryvdh\Debugbar\DataCollector\EventCollector;
 use Illuminate\Support\Facades\Route;
 
@@ -85,5 +86,5 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('programs', ProgramController::class);
     Route::resource('designation', DesignationController::class);
     Route::resource('page',PageController::class);
-
+    Route::get('faculty-member-research-add/{id}',[FacultyMemberController::class,'addResearch'])->name('faculty-member-research-add');
 });
