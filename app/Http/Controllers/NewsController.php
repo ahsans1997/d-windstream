@@ -180,13 +180,18 @@ class NewsController extends Controller
 
     public function news(){
         return view('news',[
-            'news' => News::orderBy('id', 'DESC')->simplePaginate(9),
+            'news' => News::orderBy('id', 'DESC')->paginate(9),
+            'title' => 'All News'
         ]);
     }
     public function newssingle($slug){
+
+        $news_info = News::where('slug', $slug)->first();
+
         return view('news-single',[
-            'news_info' => News::where('slug', $slug)->first(),
+            'news_info' => $news_info,
             'news' => News::orderBy('id', 'desc')->limit(3)->get(),
+            'title' => 'Single News',
         ]);
     }
 

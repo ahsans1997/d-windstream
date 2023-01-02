@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-5 " style="">
 
         <div class="row mb-5">
             <div class="col d-flex">
@@ -10,7 +10,7 @@
                 <div class="info ml-5">
                     <h2 class="bold">{{ $member->name }}</h2>
                     <span>
-                        ({{ $member->designation }})</span>
+                        ({{ $member->designation->name }})</span>
                     <p>
                         Department of {{ $member->department->name }}
                     </p>
@@ -110,7 +110,7 @@
                                                         <td>{{ $education->degree_name }}</td>
                                                         <td>{{ $education->subject }}</td>
                                                         <td>{{ $education->board_or_institute }}</td>
-                                                        <td>{{ country($education->country_id)->name }}</td>
+                                                        <td>{{ country($education->country_id)->name  }}</td>
                                                         <td>{{ $education->passing_year }}</td>
                                                     </tr>
                                                 @endforeach
@@ -324,7 +324,7 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th class="width2per">SL</th>
+                                                {{-- <th class="width2per">SL</th> --}}
                                                 <th class="width30per"> Collaboration &amp; Membership Name</th>
                                                 <th class="width20per">Type</th>
                                                 <th class="width20per">Membership Year</th>
@@ -675,14 +675,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                          @forelse ($member->membership as $membership)
+                                          @forelse ($member->award as $award)
                                           <tr>
-                                              <td></td>
-                                              <td>{{ $membership->type }}</td>
-                                              <td>{{ $membership->title }}</td>
-                                              <td>{{ $membership->year }}</td>
-                                              <td>{{ country($membership->country_id)->name }}</td>
-                                              <td>{{ $membership->description }}</td>
+                                              <td>{{ $award->type }}</td>
+                                              <td>{{ $award->title }}</td>
+                                              <td>{{ $award->year }}</td>
+                                              <td>{{ country($award->country_id)->name }}</td>
+                                              <td>{{ $award->description }}</td>
                                           </tr>
                                       @empty
 
@@ -699,20 +698,7 @@
                             <div id="contactInfo" class="tab-pane fade">
                                 <div class="info title">
                                     <div class="col-lg-10 col-md-9 col-sm-6 col-xs-12">
-                                        <div class="bold font-size-18px">Dr. Sejuti Rahman</div>
-                                        <div style="font-size:13px;">
-                                            Assistant Professor &amp; Chairperson
-                                        </div>
-                                        <div style="font-size:13px;">
-                                            Department of Robotics and Mechatronics Engineering
-                                        </div>
-                                        <div style="font-size:13px;">
-                                            Faculty of Engineering and Technology
-                                        </div>
-                                        <div style="font-size:13px;">
-                                            Email: sejuti@gmail.com </div>
-                                        <div style="font-size:13px;">
-                                        </div>
+                                        {!! $member->contact !!}
                                     </div>
                                 </div>
                             </div>

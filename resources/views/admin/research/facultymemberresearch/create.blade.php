@@ -55,7 +55,7 @@
                                 <div class="col-md-12">
                                     <div class="mt-2">
                                         <label for="placeholderInput" class="form-label">Faculty Member*</label>
-                                        <select class="form-select mb-3" aria-label=".form-select-lg example" name="department_id">
+                                        <select class="form-select userselect2 mb-3" aria-label=".form-select-lg example" name="department_id">
                                             <option selected value="">Open this select menu</option>
                                             @foreach ($faculty_members as $faculty_member)
                                                 <option value="{{ $faculty_member->id }}">{{ $faculty_member->name }}</option>
@@ -101,4 +101,10 @@
 @endsection
 
 
-
+@push('script')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.userselect2').select2();
+        });
+    </script>
+@endpush

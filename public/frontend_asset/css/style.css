@@ -635,6 +635,15 @@ li {
     margin-top: 50px;
 }
 
+.menu nav {
+    margin-top: -5px;
+}
+
+li a.active{
+    border-bottom: 3px solid #000;
+    padding-bottom:10px;
+}
+
 
 
 /*
@@ -701,11 +710,12 @@ li {
 
 .department-body {
     padding: 20px;
+    height:100px;
 }
 
 .department-body h3 {
-    margin-top: 15px;
     font-weight: 700;
+    font-size:24px;
 }
 
 .department-body a {
@@ -724,6 +734,19 @@ li {
 
 .department-facultymember {
     margin-top: 50px;
+}
+
+.event-p-img {
+    height: 220px;
+    overflow: hidden;
+    transition: all 2s;
+    cursor: pointer;
+}
+.event-p-img:hover img {
+    transform: scale(1.2);
+}
+.department_event_card{
+    height:460px;
 }
 
 
@@ -784,8 +807,8 @@ li {
 
 .event-p {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin-top: 30px;
-    height: 460px;
+    margin-top: 0px;
+    height: 430px;
 }
 
 .event-p-img img {
@@ -958,16 +981,16 @@ h1.page-title {
     margin-bottom: 30px;
 }
 
-.profile-card .profile-image-rounded{
+.profile-card .profile-image-rounded {
     overflow: hidden;
     width: 120px;
     height: 120px;
     display: block;
     margin: 15px auto;
-    border:5px solid #ddd;
+    border: 5px solid #ddd;
 }
 
-.profile-card .profile-image-rounded:hover img{
+.profile-card .profile-image-rounded:hover img {
     cursor: pointer;
     transform: scale(1.2);
     transition: all 0.5;
@@ -979,6 +1002,7 @@ h1.page-title {
     text-align: center;
     padding: 5px;
 }
+
 .profile-card .card-body {
     margin: 0;
     padding: 0;
@@ -991,19 +1015,20 @@ h1.page-title {
     border-radius: 35px;
     padding: 5px 15px;
     max-width: 200px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .profile-card .link:hover {
-    background:#002147;
+    background: #002147;
 }
-.profile-card .link:hover a{
-    color:#fff;
+
+.profile-card .link:hover a {
+    color: #fff;
     text-decoration: none;
 }
 
-.profile-card.link a  {
-    color:#002147;
+.profile-card.link a {
+    color: #002147;
     text-decoration: none;
 }
 
@@ -1255,10 +1280,9 @@ h1.page-title {
     animation: count-up infinite;
     /* Set the animation duration to 5 seconds */
     animation-duration: 5s;
-  }
-
-  @keyframes count-up {
 }
+
+@keyframes count-up {}
 
 @keyframes count-up {
 
@@ -1271,5 +1295,4 @@ h1.page-title {
     100% {
         content: "100";
     }
-  }
-
+}

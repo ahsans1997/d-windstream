@@ -160,4 +160,15 @@ class ResearchController extends Controller
         Research::findOrFail($research->id)->delete();
         return back()->with('delete', 'delete complete');
     }
+
+    public function research()
+    {
+        return view('research',[
+            'researches' => Research::paginate(10),
+        ]);
+    }
+    public function researchsingle()
+    {
+        return 'research add';
+    }
 }

@@ -28,9 +28,13 @@
     <link href="{{ asset('/') }}assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
     {{-- Color Piker --}}
-    <link rel="stylesheet" href="{{ asset('/') }}assets/css/colorpicker.css">
+    {{-- <link rel="stylesheet" href="{{ asset('/') }}assets/css/colorpicker.css"> --}}
     <!-- Data Table -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+
+    <!-- select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -415,14 +419,14 @@
 
     <!-- App js -->
     <script src="{{ asset('/') }}assets/js/app.js"></script>
-    <script src="{{ asset('/') }}assets/js/colorpicker.js"></script>
+    {{-- <script src="{{ asset('/') }}assets/js/colorpicker.js"></script> --}}
     <script src="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.js"></script>
     <script src="{{ asset('/') }}assets/libs/toastr/toastr.min.js"></script>
 
 
     <!-- Data Table -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <!-- include summernote css/js -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
