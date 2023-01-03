@@ -28,6 +28,7 @@ class CreateSettingsTable extends Migration
 
             $table->text('home_research')->nullable();
             $table->text('home_about')->nullable();
+            $table->text('portal')->nullable();
 
             $table->string('programbanner')->nullable();
             $table->string('newsbanner')->nullable();

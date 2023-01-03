@@ -2,7 +2,9 @@
 
 @section('content')
 
-
+@php
+    $portal = json_decode($setting->portal)
+@endphp
 
 <div class="page-content">
     <div class="container-fluid">
@@ -238,11 +240,13 @@
                                     <div class="card border-primary">
                                         <div class="card-header">Poratl</div>
                                         <div class="card-body">
-                                            <form action="">
+                                            <form action="{{ route('setting.update',1) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
                                                 <label for="">Student Poartal Link</label>
-                                                <input type="text" class="form-control" name="student_poartal">
+                                                <input type="text" class="form-control" name="student_portal" value="{{ $portal->student_portal }}">
                                                 <label class="mt-3" for="">Teacher Poartal Link</label>
-                                                <input type="text" class="form-control" name="teacher_poartal">
+                                                <input type="text" class="form-control" name="teacher_portal" value="{{ $portal->teacher_portal }}">
                                                 <button class="btn btn-info mt-3" style="float: right">Submit</button>
                                             </form>
                                         </div>

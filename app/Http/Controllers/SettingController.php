@@ -295,7 +295,17 @@ class SettingController extends Controller
             ]);
         }
 
-
+        if($request->student_portal || $request->teacher_portal)
+        {
+            $data = [
+                'student_portal' => $request->student_portal,
+                'teacher_portal' => $request->teacher_portal,
+            ];
+            $portal = json_encode($data);
+            Setting::findOrFail($id)->update([
+                'portal' => $portal
+            ]);
+        }
 
 
         if($request->research_description)
@@ -353,11 +363,6 @@ class SettingController extends Controller
                 'home_about' => $about
             ]);
         }
-
-
-
-
-
         return back();
 
     }

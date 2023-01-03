@@ -31,11 +31,9 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Department Name</th>
-                                    <th scope="col">Description</th>
                                     <th scope="col">Facebook</th>
                                     <th scope="col">Twiter</th>
                                     <th scope="col">Linkdin</th>
-                                    <th scope="col">Image</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -44,7 +42,6 @@
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $department->name }}</td>
-                                    <td class="text-wrap">{{ $department->description }}</td>
                                     <td>
                                         @php
                                             $social_link = $department->social_link;
@@ -66,9 +63,7 @@
                                             echo $linkdin->linkdin;
                                         @endphp
                                     </td>
-                                    <td>
-                                        <img src="{{ asset('/') }}assets/uploads/department/{{ $department->image }}" class="img-fluid" alt="" style="width: 100px">
-                                    </td>
+
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             <a href="{{ route('department.edit', $department->id) }}" class="btn btn-success btn-icon waves-effect waves-light"><i class="ri-edit-2-fill"></i></a>

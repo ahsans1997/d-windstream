@@ -26,7 +26,6 @@
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Title</th>
-                                <th scope="col">Description</th>
                                 <th scope="col">Department</th>
                                 <th scope="col">Venue</th>
                                 <th scope="col">Organization</th>
@@ -42,7 +41,6 @@
                                 <tr>
                                     <th>{{ $loop->index + 1 }}</th>
                                     <td class="text-wrap">{{ $event->title }}</td>
-                                    <td class="text-wrap">{{ $event->description }}</td>
                                     <td class="text-wrap">{{ $event->department->name }}</td>
                                     <td class="text-wrap {{ (!$event->venue) ? 'text-danger' : '' }}">{{ ($event->venue) ? $event->venue : 'Null' }}</td>
                                     <td class="text-wrap {{ (!$event->organization) ? 'text-danger' : '' }}">{{ ($event->organization) ? $event->organization : 'Null' }}</td>

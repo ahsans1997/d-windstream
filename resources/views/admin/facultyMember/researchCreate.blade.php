@@ -20,8 +20,8 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <table id="research_interest" class="table">
-                                        <thead>
+                                    <table id="research_interest" class="table table-bordered">
+                                        <thead class="thead-dark">
                                             <th>Subject*</th>
                                             <th>Description</th>
                                             <th>Research Interest (Goal, Target Indicator)</th>
@@ -49,8 +49,8 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <table id="research_supervision" class="table">
-                                        <thead>
+                                    <table id="research_supervision" class="table table-bordered">
+                                        <thead class="thead-dark">
                                             <th>Level of Study*</th>
                                             <th>Title*</th>
                                             <th>Supervisor*</th>
@@ -86,8 +86,8 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <table id="research_work" class="table">
-                                        <thead>
+                                    <table id="research_work" class="table table-bordered">
+                                        <thead class="thead-dark">
                                             <th>Subject*</th>
                                             <th>Project Name*</th>
                                             <th>Source of Fund*</th>
@@ -121,8 +121,8 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <table id="research_invited_talk" class="table">
-                                        <thead>
+                                    <table id="research_invited_talk" class="table table-bordered">
+                                        <thead class="thead-dark">
                                             <th>Invited Talk*</th>
 
 
