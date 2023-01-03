@@ -167,15 +167,14 @@ class NewsController extends Controller
 
     public function featured($id)
     {
-        if(News::findOrFail($id)->featured == 1){
-            News::findOrFail($id)->update([
-                'featured' => 2,
-            ]);
+        $news = News::findOrFail($id);
+        if(News::findOrFail($id)->featured == 0){
+            $news->featured = 1;
+            $news->save();
         }
         else{
-            News::findOrFail($id)->update([
-                'featured' => 1,
-            ]);
+            $news->featured = 0;
+            $news->save();
         }
         return back();
     }
@@ -183,33 +182,13 @@ class NewsController extends Controller
     {
         $news = News::find($id);
 
-        $count = News::where('action', 2)->count();
-        $count2 = News::where('action', 3)->count();
-
-        if (News::findOrFail($id)->action == 1)
+        if(News::findOrFail($id)->action == 0)
         {
-            if($count == 0)
-            {
-                $news->action = 2;
-                $news->featured = 1;
-                $news->save();
-            }
-            if($count ==1 && $count2 == 0)
-            {
-                $news->action = 3;
-                $news->featured = 1;
-                $news->save();
-            }
-            if($count ==0 && $count2 ==1)
-            {
-                $news->action = 2;
-                $news->featured = 1;
-                $news->save();
-            }
+            $news->action = 1;
+            $news->save();
         }
         else{
-            $news->action = 1;
-            $news->featured = 1;
+            $news->action = 0;
             $news->save();
         }
         return back();

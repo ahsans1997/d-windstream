@@ -32,9 +32,9 @@
                         <div class="mt-2">
                             <label for="placeholderInput" class="form-label">Department</label>
                             <select class="form-select mb-3" aria-label=".form-select-lg example" name="department_id">
-                                <option selected value="">Open this select menu</option>
+                                <option  value="">Open this select menu</option>
                                 @foreach ($departments as $department)
-                                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                    <option {{ $department->department_id == $department->id ? 'selected' : '' }} value="{{ $department->id }}">{{ $department->name }}</option>
                                 @endforeach
                             </select>
                         </div>
