@@ -37,7 +37,9 @@
                                 <select class="form-select mb-3" aria-label=".form-select-lg example" name="department_id">
                                     <option selected value="">Open this select menu</option>
                                     @foreach ($departments as $department)
-                                        <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                        <option value="{{ $department->id }}"
+                                            {{ $notice->department_id == $department->id ? 'selected' : '' }}
+                                            >{{ $department->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -57,6 +59,7 @@
                             </div>
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Notice Image</label>
+                                <img style="width:100px;margin-bottom:10px;margin-top:10px;" src="{{asset('assets/images/notices').'/'.$notice->image}}" alt="">
                                 <input type="file" class="form-control" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             </div>
 

@@ -30,7 +30,7 @@
                                     <tr>
                                         <th>{{ $loop->index + 1 }}</th>
                                         <td>{{ $notice->title }}</td>
-                                        <td>{{ $notice->description }}</td>
+                                        <td class="text-wrap">{{ $notice->description }}</td>
                                         <td>{{ $notice->department->name }}</td>
                                         <td>
                                             <img src="{{ asset('/') }}assets/uploads/notices/{{ $notice->image }}" class="img-fluid" alt="" style="width: 100px">
