@@ -18,13 +18,13 @@
                 <div class="footer">
                     <h4>Academic</h4>
                     <ul>
-                        <li><a href="">Programs A-Z</a></li>
-                        <li><a href="">Departments A-Z</a></li>
+                        <li><a href="{{ route('program') }}">Programs A-Z</a></li>
+                        <li><a href="{{ route('department')}}">Departments A-Z</a></li>
                     </ul>
                     <h4>Admission</h4>
                     <ul>
-                        <li><a href="">Undergraduate Admission</a></li>
-                        <li><a href="">Graduate Admission</a></li>
+                        <li><a href="{{route('program')}}">Undergraduate Admission</a></li>
+                        <li><a href="route('program')">Graduate Admission</a></li>
                     </ul>
                 </div>
             </div>

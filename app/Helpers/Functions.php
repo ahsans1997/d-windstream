@@ -62,7 +62,7 @@ function country($id = null)
     }
 }
 
-function settings()
+function setting()
 {
     return Setting::first();
 }
