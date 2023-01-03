@@ -56,7 +56,7 @@
                             <div class="info title">
                                 <div class="col-md-10 m-auto">
                                     <div class="card border-primary">
-                                        <div class="card-header">Mobile Logo</div>
+                                        <div class="card-header">Logo</div>
                                         <div class="card-body">
                                             <form action="{{ route('setting.update',1) }}" method="POST"
                                                 enctype="multipart/form-data">

@@ -51,7 +51,6 @@ class SettingController extends Controller
             Setting::findOrFail($id)->update([
                 'web_logo' => $image_name,
             ]);
-            dd($request->all());
         }
 
         if($request->hasFile('mobile_logo'))
