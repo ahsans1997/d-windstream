@@ -44,7 +44,7 @@ function default_header_banner($page_name = '')
 }
 
 function usefullLinks(){
-    
+
     // return view('usefullLinks',$data);
     $data =  '<ul>';
     $data .= '<li><a href="'.route('home').'"><i class="fas fa-square"></i> Home</a></li>';
@@ -111,4 +111,11 @@ function numberToWord($num = false)
         $commas = $commas - 1;
     }
     return implode(' ', $words);
+}
+
+function portallink()
+{
+    $data = Setting::latest()->first();
+    $portal = json_decode($data->portal);
+    return $portal;
 }

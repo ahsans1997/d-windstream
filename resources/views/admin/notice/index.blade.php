@@ -19,7 +19,6 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Title</th>
-                                    <th scope="col">Description</th>
                                     <th scope="col">Department</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Action</th>
@@ -30,7 +29,6 @@
                                     <tr>
                                         <th>{{ $loop->index + 1 }}</th>
                                         <td>{{ $notice->title }}</td>
-                                        <td class="text-wrap">{{ $notice->description }}</td>
                                         <td>{{ $notice->department->name }}</td>
                                         <td>
                                             <img src="{{ asset('/') }}assets/uploads/notices/{{ $notice->image }}" class="img-fluid" alt="" style="width: 100px">

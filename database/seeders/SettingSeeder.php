@@ -59,7 +59,14 @@ class SettingSeeder extends Seeder
             ],
         ];
 
+
         $about = json_encode($about_data);
+
+        $portal_data = [
+            'student_portal' => 'studentportal.com',
+            'teacher_portal' => 'teacherportal.com',
+        ];
+        $portal = json_encode($portal_data);
 
         $setting = [
             'organization_name' => 'Company Name',
@@ -76,6 +83,7 @@ class SettingSeeder extends Seeder
 
             'home_research' => $research,
             'home_about' => $about,
+            'portal' => $portal,
 
             'programbanner' => 'programbanner.jpg',
             'newsbanner' => 'newsbanner.jpg',

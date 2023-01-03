@@ -19,7 +19,6 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Title</th>
-                                    <th scope="col">Description</th>
                                     <th scope="col">Department</th>
                                     <th scope="col">Category</th>
                                     <th scope="col">Action</th>
@@ -30,7 +29,6 @@
                                     <tr>
                                         <th>{{ $n->id }}</th>
                                         <td class="text-wrap">{{ $n->title }}</td>
-                                        <td class="text-wrap">{{ $n->description }}</td>
                                         <td>{{ $n->department->name }}</td>
                                         <td>{{ $n->category->name }}</td>
                                         <td>
