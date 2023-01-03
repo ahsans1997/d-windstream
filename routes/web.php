@@ -17,6 +17,7 @@ use App\Http\Controllers\ResearchController;
 use App\Http\Controllers\SettingController;
 use App\Models\Designation;
 use App\Models\FacultyMember;
+use App\Models\FacultyMemberResearch;
 use Barryvdh\Debugbar\DataCollector\EventCollector;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +51,10 @@ Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 
 Route::get('/program/{slug?}', [ProgramController::class, 'program'])->name('program');
 Route::get('/department/{slug?}', [DepartmentController::class, 'department'])->name('department');
+
+Route::get('notice/{slug?}', [NoticeController::class, 'notice'])->name('notice');
+
+Route::get('notice-search', [NoticeController::class, 'noticeSearch'])->name('notice-search');
 
 
 Route::redirect('/admin', '/login');
@@ -86,5 +91,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('programs', ProgramController::class);
     Route::resource('designation', DesignationController::class);
     Route::resource('page',PageController::class);
+    Route::get('faculty-member-research-add/{id}',[FacultyMemberController::class,'addResearch'])->name('faculty-member-research-add');
 
+    Route::post('faculty-member-research-store/{id}',[FacultyMemberController::class,'facultyMemberResearchStore'])->name('faculty-member-research-store');
 });

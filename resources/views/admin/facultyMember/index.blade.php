@@ -37,6 +37,8 @@
 
                                     <td>
                                          <a href="{{ route('faculty-member.edit', $member->id) }}" class="btn btn-info btn-sm">Edit</a>
+                                        
+                                         <a href="{{ route('faculty-member-research-add', $member->id) }}" class="btn btn-primary waves-effect waves-light">Add Research</a>
                                          <form action="{{ route('faculty-member.destroy', $member->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')

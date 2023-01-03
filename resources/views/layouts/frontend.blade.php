@@ -15,7 +15,7 @@
         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/') }}frontend_asset/css/style.css">
-    
+
 </head>
 
 <body>
@@ -24,7 +24,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="logo">
-                        <a href="{{ url('/') }}"><img src="{{ asset('/') }}frontend_asset/img/niterlogo.png" alt=""></a>
+                        <a href="{{ url('/') }}"><img src="{{ asset('/') }}frontend_asset/img/niterlogo.png"
+                                alt=""></a>
                     </div>
                     <div class="search">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -72,6 +73,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+    
+
+    @stack('script')
 
 </body>
 

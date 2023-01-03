@@ -39,6 +39,27 @@ class FacultyMember extends Model
         return $this->hasMany(FacultyMemberPublication::class,'faculty_member_id','id');
     }
 
+    public function invited_talks()
+    {
+        return $this->hasMany(FacultyMemberResearchInvitedTalk::class,'faculty_member_id','id');
+    }
+
+    public function research_interests()
+    {
+        return $this->hasMany(FacultyMemberResearchInterest::class,'faculty_member_id','id');
+    }
+
+    public function research_supervisions()
+    {
+        return $this->hasMany(FacultyMemberResearchProjectSupervsion::class,'faculty_member_id','id');
+    }
+
+    public function research_works()
+    {
+        return $this->hasMany(FacultyMemberResearchWork::class,'faculty_member_id','id');
+    }
+
+
     public function designation()
     {
         return $this->belongsTo(Designation::class,'designation_id','id');

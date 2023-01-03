@@ -45,7 +45,7 @@
                         <li><a href="">FAQ</a></li>
                         <li><a href="">Student Portal</a></li>
                         <li><a href="">Staff Portal</a></li>
-                        <li><a target="_blnack" href="https://mail.google.com">Webmail Login</a></li>
+                        <li><a target="_blank" href="https://mail.google.com">Webmail Login</a></li>
                     </ul>
                 </div>
             </div>
