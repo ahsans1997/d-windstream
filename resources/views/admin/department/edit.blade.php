@@ -28,32 +28,17 @@
                                 <label for="placeholderInput" class="form-label">Department Name</label>
                                 <input type="text" class="form-control" id="placeholderInput" placeholder="Department Name" name="name" value="{{ $department->name }}">
                             </div>
-                            @error('name')
-                                <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">
-                                    {{ $message }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                            @enderror
+
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Description</label>
                                 <textarea name="description" class="form-control" rows="6">{{ $department->description }}</textarea>
                             </div>
-                            @error('description')
-                                <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">
-                                    {{ $message }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                            @enderror
+
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Contact number</label>
                                 <input type="number" class="form-control" id="placeholderInput" placeholder="Contact Number" name="contact_info" value="{{ $department->contact_info }}">
                             </div>
-                            @error('contact_info')
-                                <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">
-                                    {{ $message }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                            @enderror
+
                             {{-- <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Facebook Link</label>
                                 <input type="text" class="form-control" id="placeholderInput" placeholder="Facebook" name="facebook" value="@php
