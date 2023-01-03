@@ -18,7 +18,7 @@ class PageController extends Controller
         $data = [
             'pages' => Page::get(),
         ];
-        return view('admin.page.index',$data);
+        return view('admin.page.index', $data);
     }
 
     /**
@@ -91,7 +91,7 @@ class PageController extends Controller
         $data = [
             'page' => Page::find($id),
         ];
-        return view('admin.page.edit',$data);
+        return view('admin.page.edit', $data);
     }
 
     /**
@@ -105,8 +105,8 @@ class PageController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'image' => 'mimes:jpg,jpeg,png,bmp,gif,svg,webp,pdf| max:2024',
-            'file' => 'max:2024',
+            'image' => 'mimes:jpg,jpeg,png,bmp,gif,svg,webp| max:2024',
+            'file' => 'mimes:pdf,max:2024',
 
         ]);
 
@@ -114,6 +114,15 @@ class PageController extends Controller
         $page->title = $request->title;
         $page->description = $request->description;
         $page->status = $request->status;
+
+        if ($request->redirect) {
+            $page->redirect = $request->redirect;
+            $page->redirect_url = $request->redirect_url;
+        }else{
+            $page->redirect = 0;
+            $page->redirect_url = null;
+        }
+
 
 
         if ($request->image) {

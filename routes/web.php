@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [FrontendController::class, 'home'])->name('home');
+
 Route::get('about', [FrontendController::class, 'about'])->name('about');
 Route::get('contact', [FrontendController::class, 'contact'])->name('contact');
 
@@ -62,6 +62,9 @@ Route::redirect('/admin', '/login');
 
 Route::get('faculty-member',[FacultyMemberController::class, 'facultyMember'])->name('faculty-member');
 Route::get('member-profile/{slug}',[FacultyMemberController::class, 'memberProfile'])->name('member-profile');
+
+
+Route::get('/{slug?}', [FrontendController::class, 'home'])->name('home');
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->prefix('admin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');

@@ -160,7 +160,7 @@ class NoticeController extends Controller
     {
         if ($slug == null) {
             $data = [
-                'notices' => Notice::paginate(10),
+                'notices' => Notice::orderBy('id','desc')->paginate(10),
                 'title' => 'Notice'
             ];
             return view('notice.notice', $data);
@@ -168,12 +168,12 @@ class NoticeController extends Controller
 
             $notice = Notice::where('slug', $slug)->first();
 
-            if ($notice) {
-                
+            if ($notice) {                
                 $title = 'Notice of ' . $notice->title;
 
                 return view('notice.notice-single', [
-                    'department' => $notice,
+                    'notice' => $notice,
+                    'notices' => Notice::orderBy('id','desc')->paginate(10),
                     'title' => $title
                 ]);
             } else {
