@@ -53,7 +53,7 @@
                 <div class="footer">
                     <h4>Otheres</h4>
                     <ul>
-                        <li><a href="">Notice A-Z</a></li>
+                        <li><a href="{{ route('notice')}}">Notice A-Z</a></li>
                         <li><a href="">Clubs & Society</a></li>
                         <li><a href="">Approved Noc</a></li>
                         <li><a href="">Niter Form</a></li>
