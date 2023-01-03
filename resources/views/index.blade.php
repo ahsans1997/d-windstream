@@ -130,19 +130,19 @@
                     <h2 class="section-header"><b>University News</b></h2>
                     <p></p>
                 </div>
-                @if ($news)
+
                     <div class="col-md-6 news-banner-6">
                         <div class="news">
                             <img class="img-fluid photo" src="{{ asset('/') }}frontend_asset/img/news/1.jpg"
                                 alt="">
                             <div class="news-image-body">
-                                <p>{{ print_r($news) }}</p>
+                                <p>Cse</p>
                                 <h4><a href=""><b>Pandemic stress physically aged teens’ brains, a new study
                                             finds</b></a></h4>
                             </div>
                         </div>
                     </div>
-                @endif
+
                 @foreach ($news as $n)
                     <div class="col-md-3 news-banner-3">
                         <div class="news">
