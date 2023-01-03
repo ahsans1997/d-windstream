@@ -5,9 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="news-single-image">
-                        <img class="img-fluid" src="asset/img/news/2.JPG" alt="">
-                    </div>
+                    
                     <div class="news-single-body">
                         <h2>{{ $department->name }}</h2>
 

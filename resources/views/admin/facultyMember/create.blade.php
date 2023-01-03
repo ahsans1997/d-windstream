@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="news-form">
-                        <form action="{{ route('faculty-member.store') }}" method="post" enctype="multipart/form-data">
+                        <form id="faculty_member_from" action="{{ route('faculty-member.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-4">
@@ -256,6 +256,13 @@
 @push('script')
     <script>
         $(document).ready(function() {
+
+            $('#faculty_member_from').on('keydown', 'input', function (event) {
+
+                if (event.which == 13) {
+                    event.preventDefault();
+                }
+            });
 
             function addEducation(years,countries){
                 let year_text = '';

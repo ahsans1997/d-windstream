@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="news-form">
-                        <form action="{{ route('faculty-member-research-store',$faculty_member->id) }}" method="post" enctype="multipart/form-data">
+                        <form id="faculty_member_research_from" action="{{ route('faculty-member-research-store',$faculty_member->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <h4>Research Interest</h4> <button id="addResearchInterest" class="btn btn-info" style="float: right">Add</button>
@@ -160,6 +160,14 @@
 @push('script')
     <script>
         $(document).ready(function() {
+
+
+            $('#faculty_member_research_from').on('keydown', 'input', function (event) {
+
+                if (event.which == 13) {
+                    event.preventDefault();
+                }
+            });
 
             $('#addResearchInterest').on('click', function(e) {
                 e.preventDefault();

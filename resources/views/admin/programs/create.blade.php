@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="news-form">
-                        <form action="{{ route('programs.store') }}" method="post" enctype="multipart/form-data">
+                        <form id="programefrom" action="{{ route('programs.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-3">
@@ -66,13 +66,15 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <table id="semister_table" class="table">
-                                        <thead>
+                                    <table id="semister_table" class="table table-bordered">
+                                        <thead class="thead-dark">
                                             <th>Name</th>
+                                            <th></th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td style="width: 200px"><input type="text" name="semister_course_name[]" class="form-control " required></td>
+                                            <tr >
+                                                <td style="width: 100%"><input type="text" name="semister_course_name[]" class="form-control" required></td>
+                                                <td style="width: 5%"></td>
                                             </tr>
 
                                         </tbody>
@@ -86,15 +88,17 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <table id="syllabus_table" class="table">
-                                        <thead>
+                                    <table id="syllabus_table" class="table table-bordered">
+                                        <thead class="thead-dark">
                                             <th>Name</th>
                                             <th>Link</th>
+                                            <th></th>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td style="width: 200px"><input type="text" name="syllabus_name[]" class="form-control " required></td>
-                                                <td style="width: 200px"><input type="text" name="syllabus_link[]" class="form-control " required></td>
+                                                <td style="width: 30%"><input type="text" name="syllabus_name[]" class="form-control " required></td>
+                                                <td style="width: 65%"><input type="text" name="syllabus_link[]" class="form-control " required></td>
+                                                <td style="width: 5%"></td>
                                             </tr>
 
                                         </tbody>
@@ -122,6 +126,12 @@
 @push('script')
     <script>
         $(document).ready(function() {
+            $('#programefrom').on('keydown', 'input', function (event) {
+
+                if (event.which == 13) {
+                    event.preventDefault();
+                }
+            });
             $('#addsemister').on('click', function(e) {
                 e.preventDefault();
                 $('#semister_table tbody').append(
