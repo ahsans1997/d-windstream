@@ -36,7 +36,7 @@
                             @enderror
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Description</label>
-                                <textarea name="description" class="form-control" rows="6">{{ $department->description }}</textarea>
+                                <textarea name="description" class="summernote form-control" rows="6">{{ $department->description }}</textarea>
                             </div>
                             @error('description')
                                 <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">
