@@ -20,7 +20,7 @@ class CreateFacultyMemberResearchWorksTable extends Migration
             $table->text('project_name');
             $table->text('source_of_funding');
             $table->text('from_date');
-            $table->text('to_date');
+            $table->text('to_date')->nullable();
             $table->text('collaboration')->nullable();
             $table->timestamps();
         });
