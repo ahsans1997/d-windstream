@@ -16,6 +16,10 @@ use App\Models\FacultyMemberEducation;
 use App\Models\FacultyMemberExperience;
 use App\Models\FacultyMemberMembership;
 use App\Models\FacultyMemberPublication;
+use App\Models\FacultyMemberResearchInterest;
+use App\Models\FacultyMemberResearchInvitedTalk;
+use App\Models\FacultyMemberResearchProjectSupervsion;
+use App\Models\FacultyMemberResearchWork;
 
 class FacultyMemberController extends Controller
 {
@@ -384,7 +388,7 @@ class FacultyMemberController extends Controller
             return abort(404);
         }
 
-        
+
 
     }
 
@@ -393,5 +397,83 @@ class FacultyMemberController extends Controller
             'faculty_member' => FacultyMember::with('invited_talks','research_interests','research_supervisions','research_works')->find($id),
         ];
         return view('admin.facultyMember.researchCreate', $data);
+    }
+
+    public function facultyMemberResearchStore(Request $request, $id)
+    {
+        // dd($request->all());
+
+        DB::beginTransaction();
+        try{
+
+            FacultyMemberResearchInterest::where('faculty_member_id', $id)->delete();
+            FacultyMemberResearchProjectSupervsion::where('faculty_member_id', $id)->delete();
+            FacultyMemberResearchWork::where('faculty_member_id', $id)->delete();
+            FacultyMemberResearchInvitedTalk::where('faculty_member_id', $id)->delete();
+
+            if(isset($request->research_interset_subject)){
+                $len_research_interset_subject = sizeof($request->research_interset_subject);
+                for($i=0; $i<$len_research_interset_subject; $i++){
+                    $facultyMemberResearchInterest = new FacultyMemberResearchInterest();
+                    $facultyMemberResearchInterest->faculty_member_id = $id;
+                    $facultyMemberResearchInterest->subject = $request->research_interset_subject[$i];
+                    $facultyMemberResearchInterest->description = $request->research_interset_description[$i];
+                    $facultyMemberResearchInterest->rechach_interest_target_goal = $request->research_interset_goal[$i];
+                    $facultyMemberResearchInterest->save();
+
+                    // dd($facultyMemberResearchInterest);
+                }
+            }
+
+            if(isset($request->research_supervision_level_study)){
+                $len_research_supervision_level_study = sizeof($request->research_supervision_level_study);
+                for($i=0; $i<$len_research_supervision_level_study; $i++){
+                    $facultyMemberResearchProjectSupervsion = new FacultyMemberResearchProjectSupervsion();
+                    $facultyMemberResearchProjectSupervsion->faculty_member_id = $id;
+                    $facultyMemberResearchProjectSupervsion->level_of_study = $request->research_supervision_level_study[$i];
+                    $facultyMemberResearchProjectSupervsion->title = $request->research_supervision_title[$i];
+                    $facultyMemberResearchProjectSupervsion->supervisor = $request->research_supervision_supervisor[$i];
+                    $facultyMemberResearchProjectSupervsion->co_supervisor = $request->research_supervision_co_supervisor[$i];
+                    $facultyMemberResearchProjectSupervsion->student_name = $request->research_supervision_student[$i];
+                    $facultyMemberResearchProjectSupervsion->area_of_research = $request->research_supervision_area_of_research[$i];
+                    $facultyMemberResearchProjectSupervsion->current_completion = $request->research_supervision_current_competion[$i];
+                    $facultyMemberResearchProjectSupervsion->save();
+                }
+            }
+
+            if(isset($request->research_work_subject)){
+                $len_research_work_subject = sizeof($request->research_work_subject);
+                for($i=0; $i<$len_research_work_subject; $i++){
+                    $facultyMemberResearchWork = new FacultyMemberResearchWork();
+                    $facultyMemberResearchWork->faculty_member_id = $id;
+                    $facultyMemberResearchWork->subject = $request->research_work_subject[$i];
+                    $facultyMemberResearchWork->project_name = $request->research_work_project_name[$i];
+                    $facultyMemberResearchWork->source_of_funding = $request->research_work_source_of_fund[$i];
+                    $facultyMemberResearchWork->from_date = $request->research_work_from_date[$i];
+                    $facultyMemberResearchWork->to_date = $request->research_work_to_date[$i];
+                    $facultyMemberResearchWork->collaboration = $request->research_work_collaboration[$i];
+                    $facultyMemberResearchWork->save();
+                }
+            }
+
+            if(isset($request->invited_talk_title)){
+                $len_invited_talk_title = sizeof($request->invited_talk_title);
+                for($i=0; $i<$len_invited_talk_title; $i++){
+                    $facultyMemberResearchInvitedTalk = new FacultyMemberResearchInvitedTalk();
+                    $facultyMemberResearchInvitedTalk->faculty_member_id = $id;
+                    $facultyMemberResearchInvitedTalk->invited_talk_title = $request->invited_talk_title[$i];
+                    $facultyMemberResearchInvitedTalk->save();
+                }
+            }
+
+            DB::commit();
+            Toastr::success("Faculty Member Research Updated Successfully");
+            return redirect()->back();
+        }catch(\Exception $e){
+            DB::rollback();
+            dd($e);
+            Toastr::error("Some Problem happen");
+        }
+
     }
 }
