@@ -39,6 +39,11 @@
                                 type="button" role="tab" aria-controls="allbanner" aria-selected="false">All
                                 Banner</button>
                         </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="portal-tab" data-bs-toggle="tab" data-bs-target="#portal"
+                                type="button" role="tab" aria-controls="portal" aria-selected="false">Portal</button>
+                        </li>
                     </ul>
 
                     <div class="tab-content" id="myTabContent">
@@ -227,6 +232,24 @@
 
                         <!-- End Single Tab -->
 
+                        <div id="portal" class="tab-pane fade mt-4">
+                            <div class="info title">
+                                <div class="col-md-10 m-auto">
+                                    <div class="card border-primary">
+                                        <div class="card-header">Poratl</div>
+                                        <div class="card-body">
+                                            <form action="">
+                                                <label for="">Student Poartal Link</label>
+                                                <input type="text" class="form-control" name="student_poartal">
+                                                <label class="mt-3" for="">Teacher Poartal Link</label>
+                                                <input type="text" class="form-control" name="teacher_poartal">
+                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div id="allbanner" class="tab-pane fade mt-4">
                             <div class="info title">
                                 <div class="col-md-10 m-auto">

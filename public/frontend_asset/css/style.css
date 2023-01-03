@@ -553,6 +553,14 @@ li {
     width: 100%;
 }
 
+.about-info{
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    margin-top: 45px;
+    padding: 20px 0px 10px;
+    text-align: center;
+}
+
 /* footer */
 
 .social-link {

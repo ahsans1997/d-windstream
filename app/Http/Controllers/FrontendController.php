@@ -16,6 +16,8 @@ class FrontendController extends Controller
         return view('index',[
             'departments' => Department::all(),
             'news' => News::where('featured', 2)->limit(4)->get(),
+            'news1' => News::where('action', 2)->first(),
+            'news2' => News::where('action', 3)->first(),
             'events' => Event::where('featured', 2)->limit(4)->get(),
             'researches' => Event::orderBy('id', 'desc')->limit(4)->get(),
             'settings' => Setting::latest()->first(),
