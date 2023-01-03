@@ -15,6 +15,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ResearchController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UserController;
 use App\Models\Designation;
 use App\Models\FacultyMember;
 use App\Models\FacultyMemberResearch;
@@ -94,4 +95,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('faculty-member-research-add/{id}',[FacultyMemberController::class,'addResearch'])->name('faculty-member-research-add');
 
     Route::post('faculty-member-research-store/{id}',[FacultyMemberController::class,'facultyMemberResearchStore'])->name('faculty-member-research-store');
+
+    Route::resource('user', UserController::class);
 });

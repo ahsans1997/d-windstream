@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
                         'name' => 'Admin',
                         'email' => 'admin@gmail.com',
                         'password' => bcrypt('12345678'),
+                        'profile_photo_path' => 'default.png',
                     ]
             ];
         foreach($data as $user){
