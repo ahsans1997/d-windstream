@@ -151,18 +151,6 @@ class DepartmentController extends Controller
         return back()->with('delete', 'Your Department Delete Successfull.');
     }
 
-<<<<<<< HEAD
-    public function department()
-    {
-        return view('department',[
-            'departments' => Department::paginate(10),
-        ]);
-    }
-
-    public function departmentsingle($slug)
-    {
-        return view('department-single');
-=======
     public function department($slug = null)
     {
         if ($slug == null) {
@@ -191,6 +179,5 @@ class DepartmentController extends Controller
                 return abort(404);
             }
         }
->>>>>>> 5c7897af83c94cd89098fa71dfb5c136cf46b273
     }
 }

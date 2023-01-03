@@ -108,13 +108,14 @@ class NoticeController extends Controller
             'title' => 'required',
             'description' => 'required',
             'department_id' => 'required',
+            'slug' => 'required|unique:news,slug,'.$notice->id,
         ]);
         $slug = Str::slug($request->title, '-');
         Notice::findOrFail($notice->id)->update([
             'title' => $request->title,
             'description' => $request->description,
             'department_id' => $request->department_id,
-            'slug' => $slug,
+            'slug' => Str::slug($request->slug, '-'),
             'meta_keywords' => $request->meta_keywords,
             'meta_description' => $request->meta_description,
             'created_at' => Carbon::now(),

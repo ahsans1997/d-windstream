@@ -5,8 +5,6 @@
                 <div class="col-md-12">
                     <ul>
                         <li><a href=""><i class="fa-brands fa-square-facebook"></i></a></li>
-                        <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
-                        <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
                         <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
                         <li><a style="color: red;" href=""><i class="fa-brands fa-youtube"></i></a></li>
                     </ul>
@@ -16,7 +14,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="footer">
                     <h4>Academic</h4>
                     <ul>
@@ -30,7 +28,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="footer">
                     <h4>About</h4>
                     <ul>
@@ -40,16 +38,25 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="footer">
                     <h4>Link</h4>
                     <ul>
                         <li><a href="">FAQ</a></li>
-                        <li><a href="">NITER Forms</a></li>
-                        <li><a href="">Approved NOC</a></li>
-                        <li><a href="">Career at NITER</a></li>
+                        <li><a href="">Student Portal</a></li>
+                        <li><a href="">Staff Portal</a></li>
+                        <li><a target="_blnack" href="https://mail.google.com">Webmail Login</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="footer">
+                    <h4>Otheres</h4>
+                    <ul>
                         <li><a href="">Notice A-Z</a></li>
                         <li><a href="">Clubs & Society</a></li>
+                        <li><a href="">Approved Noc</a></li>
+                        <li><a href="">Niter Form</a></li>
                     </ul>
                 </div>
             </div>

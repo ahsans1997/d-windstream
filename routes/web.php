@@ -42,14 +42,8 @@ Route::get('news/{slug}',[NewsController::class, 'newssingle'])->name('news.sing
 Route::get('event', [EventController::class, 'event'])->name('event');
 Route::get('event/{slug}', [EventController::class, 'eventsingle'])->name('event.single');
 
-Route::get('department', [DepartmentController::class, 'department'])->name('department');
-Route::get('department/{slug}', [DepartmentController::class, 'departmentsingle'])->name('department.single');
+Route::get('research/{slug?}', [ResearchController::class, 'research'])->name('research');
 
-Route::get('research', [ResearchController::class, 'research'])->name('research');
-Route::get('research/{slug}', [ResearchController::class, 'researchsingle'])->name('research.single');
-// Route::get('/department', [FrontendController::class, 'department'])->name('department');
-// Route::get('/department/{slug}', [FrontendController::class, 'department'])->name('department.single');
-Route::get('/research', [FrontendController::class, 'research'])->name('research');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 
@@ -70,6 +64,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
 
     Route::resource('news', NewsController::class);
     Route::get('news/featured/{id}', [NewsController::class, 'featured'])->name('news.featured');
+    Route::get('news/action/{id}', [NewsController::class, 'action'])->name('news.action');
 
     Route::resource('research', ResearchController::class);
     Route::resource('faculty-member-research', FacultyMemberResearchController::class);
