@@ -48,7 +48,7 @@
                         <li><a href="">NITER Forms</a></li>
                         <li><a href="">Approved NOC</a></li>
                         <li><a href="">Career at NITER</a></li>
-                        <li><a href="">Notice A-Z</a></li>
+                        <li><a href="{{url('/notice')}}">Notice A-Z</a></li>
                         <li><a href="">Clubs & Society</a></li>
                     </ul>
                 </div>

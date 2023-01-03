@@ -497,8 +497,10 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
     {!! Toastr::message() !!}
+
     <script type="text/javascript">
         $(document).ready(function() {
+            
             $('.summernote').summernote();
             $(document).on('click', '.datepicker', function() {
                 $(this).datepicker().focus();

@@ -54,6 +54,10 @@ Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/program/{slug?}', [ProgramController::class, 'program'])->name('program');
 Route::get('/department/{slug?}', [DepartmentController::class, 'department'])->name('department');
 
+Route::get('notice/{slug?}', [NoticeController::class, 'notice'])->name('notice');
+
+Route::get('notice-search', [NoticeController::class, 'noticeSearch'])->name('notice-search');
+
 
 Route::redirect('/admin', '/login');
 
