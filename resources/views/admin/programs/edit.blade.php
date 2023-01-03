@@ -24,7 +24,7 @@ Programs Create
                     </div>
 
                     <div class="news-form">
-                        <form action="{{ route('programs.update',$program->id) }}" method="post" enctype="multipart/form-data">
+                        <form id="programefrom" action="{{ route('programs.update',$program->id) }}" method="post" enctype="multipart/form-data">
                             @method('put')
                             @csrf
                             <div class="row">
@@ -76,22 +76,23 @@ Programs Create
 
                             </div>
 
-                            <h4>Courses(Year/Semester)</h4>
+                            <h4>Courses(Year/Semester)</h4> <button id="addsemister" style="float: right">Add</button>
 
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <table id="semister_table" class="table">
-                                        <thead>
+                                    <table id="semister_table" class="table table-bordered" >
+                                        <thead class="thead-dark">
                                             <th>Name</th>
+                                            <th></th>
                                         </thead>
-                                        <tbody id="semister_table_tbody">
+                                        <tbody id="semister_table_tbody" >
                                             @foreach ($program->semister as $semister)
 
                                             {{-- {{ dd($semister)}} --}}
 
                                                 <tr>
-                                                    <td style="width: 200px"><input type="text" name="semister_course_name[{{$semister->id}}][]" value="{{$semister->name}}" class="form-control " required>
+                                                    <td style="width: 100%" class="table-primary"><input type="text" name="semister_course_name[{{$semister->id}}][]" value="{{$semister->name}}" class="form-control " required>
 
                                                         <input type="hidden" class="semister_id" name="semister_course_id[]" value="{{$semister->id}}">
                                                         <table class="table subjects_table">
@@ -120,7 +121,9 @@ Programs Create
                                                                                 <label for="subjects_description" class="form-label">Description*</label>
                                                                                 <textarea type="text" class="summernote form-control"  name="subjects_description[{{$semister->id}}][]" required>{{$subject->description}}</textarea>
                                                                             </div>
-                                                                            <button style="width: 100px;float:right"  id="btnCancleSubjects" class="btn btn-danger">-</button>
+                                                                            <div class="col-md-12 d-flex justify-content-center mt-2">
+                                                                                <button id="btnCancleSubjects" class="btn btn-danger">-</button>
+                                                                            </div>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
@@ -130,6 +133,8 @@ Programs Create
                                                         </table>
 
                                                     </td>
+                                                    <td style="width: 5%"><lable  id="btnCancleSemister" class="btn btn-danger float-right">-</lable></td>
+
                                                 </tr>
                                             @endforeach
 
@@ -145,17 +150,17 @@ Programs Create
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <table id="syllabus_table" class="table">
-                                        <thead>
+                                    <table id="syllabus_table" class="table table-bordered">
+                                        <thead class="theam-dard">
                                             <th>Name</th>
                                             <th>Link</th>
                                         </thead>
                                         <tbody>
                                            @foreach ($program->syllabus as $syllabus)
                                             <tr>
-                                                <td style="width: 200px"><input type="text" name="syllabus_name[]" class="form-control " value="{{$syllabus->name}}" required></td>
-                                                <td style="width: 200px"><input type="text" name="syllabus_link[]" class="form-control " value="{{$syllabus->link}}" required></td>
-                                                <td style="width: 40px"><lable  id="btnCancleSyllabus" class="btn btn-danger float-right">-</lable></td>
+                                                <td style="width: 30%"><input type="text" name="syllabus_name[]" class="form-control " value="{{$syllabus->name}}" required></td>
+                                                <td style="width: 65%"><input type="text" name="syllabus_link[]" class="form-control " value="{{$syllabus->link}}" required></td>
+                                                <td style="width: 5%"><lable  id="btnCancleSyllabus" class="btn btn-danger float-right">-</lable></td>
 
                                             </tr>
                                            @endforeach
@@ -190,12 +195,18 @@ Programs Create
 @push('script')
     <script>
         $(document).ready(function() {
+             $('#programefrom').on('keydown', 'input', function (event) {
+
+                if (event.which == 13) {
+                    event.preventDefault();
+                }
+            });
 
             $('#addsemister').on('click', function(e) {
                 e.preventDefault();
                 $('#semister_table #semister_table_tbody').append(
                     '<tr>'+
-                        '<td style="width: 200px"><input type="text" name="semister_course_name[]" class="form-control" required></td>'+
+                        '<td style="width: 200px"><input type="text" name="semister_course_name_new[]" class="form-control" required></td>'+
                         '<td style="width: 40px"><lable  id="btnCancleSemister" class="btn btn-danger float-right">-</lable></td>' +
 
                     '</tr>'
@@ -218,6 +229,10 @@ Programs Create
                 e.preventDefault();
                 var id = $(this).parents("tr").find("input.semister_id").val();
                 $(this).parents("tr").find("tbody").append(
+                    '<tr class="table-success">'+
+                        '<td>'+
+                        '</td>'+
+                    '</tr>'+
                     '<tr>'+
                         '<td>'+
                             '<div class="row col-md-12">'+
@@ -237,7 +252,9 @@ Programs Create
                                     '<label for="subjects_description" class="form-label">Description*</label>'+
                                     '<textarea type="text" class="summernote form-control"  name="subjects_description['+id+'][]"  required></textarea>'+
                                 '</div>'+
-                                '<button style="width: 100px;float:right"  id="btnCancleSubjects" class="btn btn-danger">-</button>'+
+                                '<div class="col-md-12 d-flex justify-content-center mt-2">'+
+                                    '<button id="btnCancleSubjects" class="btn btn-danger">-</button>'+
+                                '</div>'+
                             '</div>'+
                         '</td>'+
                     '</tr>'

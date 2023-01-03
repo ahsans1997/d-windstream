@@ -175,35 +175,39 @@ class ProgramController extends Controller
             $program->save();
 
 
+            $old_curriculam = ProgramCurriculamCours::where('program_id', $id)->pluck('id')->toArray();
+            $old_curriculam_from_request = $request->semister_course_id;
 
+            $array_diff = array_diff($old_curriculam, $old_curriculam_from_request);
 
+            if (isset($array_diff)) {
+                foreach ($array_diff as $key => $value) {
+                    CurriculamSubject::where('program_curriculam_id', $value)->delete();
+                    $program_curriculam_cours = ProgramCurriculamCours::find($value);
+                    $program_curriculam_cours->delete();
+                }
+            }
 
-
-            // $current_key = array_values($request->semister_course_name);
-            // dd($current_key);
-            // ProgramCurriculamCours::where('program_id',$id)->whereNotIn('id',$current_key)->get();
-
-
-            // dd($test);
-
-            // foreach($request->semister_course_name as $key=>$semister){
-            //     $program_curriculam_cours = ProgramCurriculamCours::find($key);
-            //     $program_curriculam_cours->name = $semister[0];
-            //     // dd($semister[0]);
-            //     $program_curriculam_cours->save();
-            // }
 
             $len_semister = sizeof($request->semister_course_id);
 
             for ($i = 0; $i < $len_semister; $i++) {
-                // dd($request->semister_course_id[$i]);
                 $program_curriculam_cours = ProgramCurriculamCours::find($request->semister_course_id[$i]);
-                // dd($program_curriculam_cours);
-                // dd($request->semister_course_name[$request->semister_course_id[$i]][0]);
                 $program_curriculam_cours->name = $request->semister_course_name[$request->semister_course_id[$i]][0];
                 $program_curriculam_cours->save();
             }
-            // dd($len_semister);
+
+            if(isset($request->semister_course_name_new)){
+                $len_semister_name_new = sizeof($request->semister_course_name_new);
+                for($i=0; $i<$len_semister_name_new; $i++){
+
+                        $program_curriculam_cours = new ProgramCurriculamCours();
+                        $program_curriculam_cours->program_id = $program->id;
+                        $program_curriculam_cours->name = $request->semister_course_name_new[$i];
+                        $program_curriculam_cours->save();
+
+                }
+            }
             for ($i = 0; $i < $len_semister; $i++) {
                 CurriculamSubject::where('program_curriculam_id', $request->semister_course_id[$i])->delete();
                 if (isset($request->subjects_name[$request->semister_course_id[$i]])) {
