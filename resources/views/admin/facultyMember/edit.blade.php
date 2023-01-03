@@ -108,8 +108,8 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <table id="education_table" class="table">
-                                        <thead>
+                                    <table id="education_table" class="table table-bordered">
+                                         <thead class="thead-dark">
                                             <th>Degree Name</th>
                                             <th>Group/Major Subject</th>
                                             <th>Board/Institute</th>
@@ -152,8 +152,8 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <table id="experience_table" class="table">
-                                        <thead>
+                                    <table id="experience_table" class="table table-bordered">
+                                         <thead class="thead-dark">
                                             <th>Title</th>
                                             <th>Organization</th>
                                             <th>Location</th>
@@ -187,8 +187,8 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <table id="membership_table" class="table">
-                                        <thead>
+                                    <table id="membership_table" class="table table-bordered">
+                                         <thead class="thead-dark">
                                             <th>Collaboration & Membership Name</th>
                                             <th>Type</th>
                                             <th>Membership Year</th>
@@ -217,8 +217,8 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <table id="award_table" class="table">
-                                        <thead>
+                                    <table id="award_table" class="table table-bordered">
+                                         <thead class="thead-dark">
                                             <th>Award Type</th>
                                             <th>Title</th>
                                             <th>Year</th>
@@ -269,8 +269,8 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <table id="publication_table" class="table">
-                                        <thead>
+                                    <table id="publication_table" class="table table-bordered">
+                                         <thead class="thead-dark">
                                             <th>Publication Type</th>
                                             <th>Description</th>
                                             <th>Link</th>
