@@ -178,10 +178,10 @@
 
             <a href="{{ route('dashboard') }}" class="logo logo-light">
                 <span class="logo-sm">
-                    <img src="{{ asset('/') }}assets/images/profilelogo.png" alt="" height="22">
+                    <img src="{{asset('assets/images/'. setting()->mobile_logo)}}" alt="" height="22">
                 </span>
                 <span class="logo-lg">
-                    <img src="{{ asset('/') }}assets/images/" alt="" height="17">
+                    <img src="{{asset('assets/images/'. setting()->web_logo)}}" alt="" height="50">
                 </span>
             </a>
             <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -393,9 +393,9 @@
                                     <a class="nav-link menu-link {{ request()->routeIs('setting.home') ? 'active' : '' }}" href="{{ route('setting.home') }}"> Home Settings</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('page.index') }}" class="nav-link {{ request()->routeIs('page.index') ? 'active' : '' }}" data-key="t-chat">Page</a>
+                                    <a href="{{ route('page.index') }}" class="nav-link {{ request()->routeIs('page.index') ? 'active' : '' }}" data-key="t-chat">Pages</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item d-none">
                                     <a href="{{ route('page.create') }}" class="nav-link {{ request()->routeIs('page.create') ? 'active' : '' }}" data-key="t-chat">Add Page</a>
                                 </li>
 

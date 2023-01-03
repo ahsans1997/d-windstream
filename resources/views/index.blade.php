@@ -15,6 +15,11 @@
         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/') }}frontend_asset/css/style.css">
+    <style>
+        .footer-image{
+            height:200px;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,7 +32,7 @@
                         <div class="col-md-12">
                             <div class="logo">
                                 <a href="{{ url('/') }}"><img
-                                        src="{{ asset('/') }}assets/images/{{ $settings->web_logo }}" alt=""></a>
+                                        src="{{ asset('/') }}assets/images/{{ $settings->web_logo }}" style="height:50px;width:auto;" alt=""></a>
                             </div>
                             <div class="search">
                                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -58,13 +63,7 @@
 
         </div>
 
-        {{-- <div class="banner">
-            <img src="{{ asset('/') }}frontend_asset/img/banner.jpg" alt="">
-        </div> --}}
     </header>
-    <!-- Header End -->
-
-    <!-- Accelerating climate solutions Start -->
     @php
         $part1 = json_decode($homesection->part1);
         $part2 = json_decode($homesection->part2);
@@ -312,10 +311,10 @@
                 </div>
             </div>
         </div>
-        <div class="h-about-image">
-            <img src="{{ asset('/') }}assets/images/banner/{{ $settings->homefooterbanner }}" alt="">
-        </div>
+        
     </section>
+    <div class="footer-image" style="background-image: url({{ url('assets/images/banner').'/'.$settings->homefooterbanner }})">
+    </div>
     <!-- About End -->
     @include('footer')
 

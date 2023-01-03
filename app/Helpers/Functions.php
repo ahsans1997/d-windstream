@@ -12,28 +12,28 @@ function default_header_banner($page_name = '')
 
     switch (request()->route()->getname()) {
         case 'department':
-            return asset('/') . 'assets/images/banner/' . settings()->departmentbanner;
+            return asset('/') . 'assets/images/banner/' . setting()->departmentbanner;
             break;
         case 'program':
-            return asset('/') . 'assets/images/banner/' . settings()->programbanner;
+            return asset('/') . 'assets/images/banner/' . setting()->programbanner;
             break;
         case 'news':
-            return asset('/') . 'assets/images/banner/' . settings()->newsbanner;
+            return asset('/') . 'assets/images/banner/' . setting()->newsbanner;
             break;
         case 'event':
-            return asset('/') . 'assets/images/banner/' . settings()->eventbanner;
+            return asset('/') . 'assets/images/banner/' . setting()->eventbanner;
             break;
         case 'research':
-            return asset('/') . 'assets/images/banner/' . settings()->researchbanner;
+            return asset('/') . 'assets/images/banner/' . setting()->researchbanner;
             break;
         case 'about':
-            return asset('/') . 'assets/images/banner/' . settings()->aboutbanner;
+            return asset('/') . 'assets/images/banner/' . setting()->aboutbanner;
             break;
         case 'contact':
-            return asset('/') . 'assets/images/banner/' . settings()->contactbanner;
+            return asset('/') . 'assets/images/banner/' . setting()->contactbanner;
             break;
         case 'faculty-member':
-            return asset('/') . 'assets/images/banner/' . settings()->facultymemberbanner;
+            return asset('/') . 'assets/images/banner/' . setting()->facultymemberbanner;
             break;
         default:
             return asset('/') . 'frontend_asset/img/banner.jpg';
