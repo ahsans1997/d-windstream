@@ -35,6 +35,11 @@
                                         <td>{{ $n->category->name }}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
+                                                @if ($n->action == 1)
+                                                    <a href="{{ route('news.action',$n->id) }}" class="btn btn-success btn-icon waves-effect waves-light btn-sm"><i class="ri-eye-fill"></i></a>
+                                                @else
+                                                    <a href="{{ route('news.action',$n->id) }}" class="btn btn-danger btn-icon waves-effect waves-light btn-sm"><i class="ri-eye-off-fill"></i></a>
+                                                @endif
                                                 @if ($n->featured == 1)
                                                     <a href="{{ route('news.featured',$n->id) }}" class="btn btn-outline-success btn-icon waves-effect waves-light btn-sm"><i class="ri-eye-fill"></i></a>
                                                 @else

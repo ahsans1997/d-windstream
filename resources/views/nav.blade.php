@@ -16,14 +16,14 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul>
-                <li><a class="{{ request()->path() == 'department' ? 'active' : '' }}" href="{{ route('home') }}">Home</a></li>
-                <li><a class="{{ request()->path() == 'department' ? 'active' : '' }}" href="{{ route('program') }}">Programs</a></li>
-                <li><a class="{{ request()->path() == 'department' ? 'active' : '' }}" href="{{ route('news') }}">News</a></li>
-                <li><a class="{{ request()->path() == 'department' ? 'active' : '' }}" href="{{ route('event') }}">Events</a></li>
+                <li><a class="{{ request()->path() == '/' ? 'active' : '' }}" href="{{ route('home') }}">Home</a></li>
+                <li><a class="{{ request()->path() == 'program' ? 'active' : '' }}" href="{{ route('program') }}">Programs</a></li>
+                <li><a class="{{ request()->path() == 'news' ? 'active' : '' }}" href="{{ route('news') }}">News</a></li>
+                <li><a class="{{ request()->path() == 'event' ? 'active' : '' }}" href="{{ route('event') }}">Events</a></li>
                 <li><a class="{{ request()->path() == 'department' ? 'active' : '' }}"  href="{{ route('department') }}">Department</a></li>
-                <li><a class="{{ request()->path() == 'department' ? 'active' : '' }}" href="{{ route('about') }}">About</a></li>
-                <li><a class="{{ request()->path() == 'department' ? 'active' : '' }}" href="{{ route('research') }}">Research</a></li>
-                <li><a class="{{ request()->path() == 'department' ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a></li>
+                <li><a class="{{ request()->path() == 'about' ? 'active' : '' }}" href="{{ route('about') }}">About</a></li>
+                <li><a class="{{ request()->path() == 'research' ? 'active' : '' }}" href="{{ route('research') }}">Research</a></li>
+                <li><a class="{{ request()->path() == 'contact' ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a></li>
             </ul>
 
         </div>

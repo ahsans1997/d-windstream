@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Department;
 use App\Models\News;
+use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
@@ -176,6 +178,43 @@ class NewsController extends Controller
             ]);
         }
         return back();
+    }
+    public function action($id)
+    {
+        $news = News::find($id);
+
+        $count = News::where('action', 2)->count();
+        $count2 = News::where('action', 3)->count();
+
+        if (News::findOrFail($id)->action == 1)
+        {
+            if($count == 0)
+            {
+                $news->action = 2;
+                $news->featured = 1;
+                $news->save();
+            }
+            if($count ==1 && $count2 == 0)
+            {
+                $news->action = 3;
+                $news->featured = 1;
+                $news->save();
+            }
+            if($count ==0 && $count2 ==1)
+            {
+                $news->action = 2;
+                $news->featured = 1;
+                $news->save();
+            }
+        }
+        else{
+            $news->action = 1;
+            $news->featured = 1;
+            $news->save();
+        }
+        return back();
+
+
     }
 
     public function news(){

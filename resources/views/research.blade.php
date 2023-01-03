@@ -32,7 +32,7 @@
                                                 <div class="research-p-body">
                                                     <h3>{{ Str::words($research->title, 6) }}</h3>
                                                     <hr>
-                                                    <a href="{{ route('research.single',$research->slug) }}" class="btn btn-light">View Research</a>
+                                                    <a href="{{ route('research',$research->slug) }}" class="btn btn-light">View Research</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -108,13 +108,14 @@ class NoticeController extends Controller
             'title' => 'required',
             'description' => 'required',
             'department_id' => 'required',
+            'slug' => 'required|unique:news,slug,'.$notice->id,
         ]);
         $slug = Str::slug($request->title, '-');
         Notice::findOrFail($notice->id)->update([
             'title' => $request->title,
             'description' => $request->description,
             'department_id' => $request->department_id,
-            'slug' => $slug,
+            'slug' => Str::slug($request->slug, '-'),
             'meta_keywords' => $request->meta_keywords,
             'meta_description' => $request->meta_description,
             'created_at' => Carbon::now(),
@@ -153,5 +154,53 @@ class NoticeController extends Controller
         }
         Notice::findOrFail($notice->id)->delete();
         return back()->with('delete', 'Your Department Delete Successfull.');
+    }
+
+    public function notice($slug=null)
+    {
+        if ($slug == null) {
+            $data = [
+                'notices' => Notice::paginate(10),
+                'title' => 'Notice'
+            ];
+            return view('notice.notice', $data);
+        } else {
+
+            $notice = Notice::where('slug', $slug)->first();
+
+            if ($notice) {
+                
+                $title = 'Notice of ' . $notice->title;
+
+                return view('notice.notice-single', [
+                    'department' => $notice,
+                    'title' => $title
+                ]);
+            } else {
+                return abort(404);
+            }
+        }
+    }
+
+    public function noticeSearch(Request $request)
+    {       
+        $query = Notice::query();
+        
+        if($request->search){
+            $query->where('title', 'like', '%' . $request->search . '%')
+                ->orWhere('description', 'like', '%' . $request->search . '%');
+        }
+
+        if($request->from_date && $request->to_date){
+            $query->whereBetween('created_at', [Carbon::parse($request->from_date), Carbon::parse($request->to_date)->addDay()]);
+        }
+
+        $notice = $query->paginate(10);        
+
+        $data = [
+            'notices' => $notice,
+            'title_search' => 'Search Result'
+        ];
+        return view('notice.noticelist', $data);
     }
 }

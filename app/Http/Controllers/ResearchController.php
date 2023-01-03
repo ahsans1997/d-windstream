@@ -161,14 +161,27 @@ class ResearchController extends Controller
         return back()->with('delete', 'delete complete');
     }
 
-    public function research()
+    public function research($slug = null)
     {
-        return view('research',[
-            'researches' => Research::paginate(10),
-        ]);
-    }
-    public function researchsingle()
-    {
-        return 'research add';
+        if ($slug == null)
+        {
+            return view('research',[
+                'researches' => Research::paginate(10),
+                'title' => 'Research',
+            ]);
+        }
+        else
+        {
+            $research = Research::where('slug', $slug)->first();
+            if($research)
+            {
+                return view('research-single',[
+                    'title' => 'Research of '.$research->title,
+                    'research' => $research,
+                    'researchs' => Research::limit(4)->get(),
+                ]);
+            }
+        }
+
     }
 }

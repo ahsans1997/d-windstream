@@ -43,6 +43,15 @@ function default_header_banner($page_name = '')
     return asset('/') . 'frontend_asset/img/banner.jpg';
 }
 
+function usefullLinks(){
+    
+    // return view('usefullLinks',$data);
+    $data =  '<ul>';
+    $data .= '<li><a href="'.route('home').'"><i class="fas fa-square"></i> Home</a></li>';
+    $data .= '</ul>';
+    return $data;
+}
+
 
 function country($id = null)
 {
