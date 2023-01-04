@@ -103,10 +103,11 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $request->validate([
             'title' => 'required',
             'image' => 'mimes:jpg,jpeg,png,bmp,gif,svg,webp| max:2024',
-            'file' => 'mimes:pdf,max:2024',
+            'file' => 'mimes:pdf,xlm,xls,xlsm,xlsx,xlt,xltm,xltx,doc,docm,docx,dot,dotx,max:2024',
 
         ]);
 
@@ -131,10 +132,19 @@ class PageController extends Controller
             $page->image = $imageName;
         }
 
+
+
         if ($request->file) {
             $fileName = time() . '.' . $request->file->extension();
             $request->file->move(storage_path('app/public/page'), $fileName);
             $page->file = $fileName;
+        }
+
+        if(isset($request->delete_image)){
+            $page->image = null;
+        }
+        if(isset($request->delete_file)){
+            $page->file = null;
         }
 
         $page->save();
