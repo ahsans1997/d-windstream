@@ -70,10 +70,10 @@ class SettingSeeder extends Seeder
 
         $setting = [
             'organization_name' => 'Company Name',
-            'web_logo'=> 'logo.png',
-            'mobile_logo'=> 'mobilelogo.png',
-            'homebanner' => 'homebanner.jpg',
-            'homefooterbanner' => 'homefooterbanner.jpg',
+            'web_logo'=> '',
+            'mobile_logo'=> '',
+            'homebanner' => '',
+            'homefooterbanner' => '',
             'header_color' => '#8FFFB8',
             'footer_color' => '#8FFFB8',
             'meta_description' => 'website',
@@ -85,16 +85,16 @@ class SettingSeeder extends Seeder
             'home_about' => $about,
             'portal' => $portal,
 
-            'programbanner' => 'programbanner.jpg',
-            'newsbanner' => 'newsbanner.jpg',
-            'eventbanner' => 'eventbanner.jpg',
-            'departmentbanner' => 'departmentbanner.jpg',
-            'researchbanner' => 'researchbanner.jpg',
-            'aboutbanner' => 'aboutbanner.jpg',
-            'contactbanner' => 'contactbanner.jpg',
-            'facultymemberbanner' => 'facultymemberbanner.jpg',
-            'noticebanner' => 'noticebanner.jpg',
-            'defaultbanner' => 'defaultbanner.jpg',
+            'programbanner' => '',
+            'newsbanner' => '',
+            'eventbanner' => '',
+            'departmentbanner' => '',
+            'researchbanner' => '',
+            'aboutbanner' => '',
+            'contactbanner' => '',
+            'facultymemberbanner' => '',
+            'noticebanner' => '',
+            'defaultbanner' => '',
 
         ];
         Setting::insert($setting);

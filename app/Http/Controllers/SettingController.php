@@ -36,8 +36,9 @@ class SettingController extends Controller
         if($request->hasFile('web_logo'))
         {
 
-            if (Setting::findOrFail($id)->web_logo != "default.png") {
+            if (Setting::findOrFail($id)->web_logo) {
                 $location = 'public/assets/images/'.Setting::findOrFail($id)->web_logo;
+                
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
                     'web_logo' => "default.png",
@@ -55,7 +56,7 @@ class SettingController extends Controller
 
         if($request->hasFile('mobile_logo'))
         {
-            if (Setting::findOrFail($id)->mobile_logo != "default.png") {
+            if (Setting::findOrFail($id)->mobile_logo) {
                 $location = 'public/assets/images/'.Setting::findOrFail($id)->mobile_logo;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
@@ -72,7 +73,7 @@ class SettingController extends Controller
         }
         if($request->hasFile('homebanner'))
         {
-            if (Setting::findOrFail($id)->homebanner != "default.png") {
+            if (Setting::findOrFail($id)->homebanner) {
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->homebanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
@@ -89,7 +90,7 @@ class SettingController extends Controller
         }
         if($request->hasFile('homefooterbanner'))
         {
-            if (Setting::findOrFail($id)->homefooterbanner != "default.png") {
+            if (Setting::findOrFail($id)->homefooterbanne) {
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->homefooterbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
@@ -106,7 +107,7 @@ class SettingController extends Controller
         }
         if($request->hasFile('programbanner'))
         {
-            if (Setting::findOrFail($id)->programbanner != "default.png") {
+            if (Setting::findOrFail($id)->programbanner) {
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->programbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
@@ -123,7 +124,7 @@ class SettingController extends Controller
         }
         if($request->hasFile('newsbanner'))
         {
-            if (Setting::findOrFail($id)->newsbanner != "default.png") {
+            if (Setting::findOrFail($id)->newsbanner) {
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->newsbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
@@ -140,7 +141,7 @@ class SettingController extends Controller
         }
         if($request->hasFile('eventbanner'))
         {
-            if (Setting::findOrFail($id)->eventbanner != "default.png") {
+            if (Setting::findOrFail($id)->eventbanner) {
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->eventbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
@@ -157,7 +158,7 @@ class SettingController extends Controller
         }
         if($request->hasFile('departmentbanner'))
         {
-            if (Setting::findOrFail($id)->departmentbanner != "default.png") {
+            if (Setting::findOrFail($id)->departmentbanner) {
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->departmentbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
@@ -174,7 +175,7 @@ class SettingController extends Controller
         }
         if($request->hasFile('researchbanner'))
         {
-            if (Setting::findOrFail($id)->researchbanner != "default.png") {
+            if (Setting::findOrFail($id)->researchbanner) {
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->researchbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
@@ -191,7 +192,7 @@ class SettingController extends Controller
         }
         if($request->hasFile('aboutbanner'))
         {
-            if (Setting::findOrFail($id)->aboutbanner != "default.png") {
+            if (Setting::findOrFail($id)->aboutbanner) {
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->aboutbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
@@ -208,7 +209,7 @@ class SettingController extends Controller
         }
         if($request->hasFile('contactbanner'))
         {
-            if (Setting::findOrFail($id)->contactbanner != "default.png") {
+            if (Setting::findOrFail($id)->contactbanner) {
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->contactbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
@@ -225,7 +226,7 @@ class SettingController extends Controller
         }
         if($request->hasFile('facultymemberbanner'))
         {
-            if (Setting::findOrFail($id)->facultymemberbanner != "default.png") {
+            if (Setting::findOrFail($id)->facultymemberbanner) {
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->facultymemberbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
@@ -242,7 +243,7 @@ class SettingController extends Controller
         }
         if($request->hasFile('noticebanner'))
         {
-            if (Setting::findOrFail($id)->noticebanner != "default.png") {
+            if (Setting::findOrFail($id)->noticebanner) {
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->noticebanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
@@ -259,7 +260,7 @@ class SettingController extends Controller
         }
         if($request->hasFile('defaultbanner'))
         {
-            if (Setting::findOrFail($id)->defaultbanner != "default.png") {
+            if (Setting::findOrFail($id)->defaultbanner) {
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->defaultbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
@@ -379,7 +380,7 @@ class SettingController extends Controller
         {
             if($request->hasFile('part1_image'))
             {
-                if (HomeSection::findOrFail($id)->part1_image != "default.png") {
+                if (HomeSection::findOrFail($id)->part1_image ) {
                     $location = 'public/assets/images/section_1/'.HomeSection::findOrFail($id)->part1_image;
                     unlink(base_path($location));
                 }
@@ -406,7 +407,7 @@ class SettingController extends Controller
         {
             if($request->hasFile('part2_image'))
             {
-                if (HomeSection::findOrFail($id)->part2_image != "default.png") {
+                if (HomeSection::findOrFail($id)->part2_image ) {
                     $location = 'public/assets/images/section_1/'.HomeSection::findOrFail($id)->part2_image;
                     unlink(base_path($location));
                 }
@@ -434,7 +435,7 @@ class SettingController extends Controller
         {
             if($request->hasFile('part3_image'))
             {
-                if (HomeSection::findOrFail($id)->part3_image != "default.png") {
+                if (HomeSection::findOrFail($id)->part3_image ) {
                     $location = 'public/assets/images/section_1/'.HomeSection::findOrFail($id)->part3_image;
                     unlink(base_path($location));
                 }
