@@ -311,7 +311,7 @@
                 </div>
             </div>
         </div>
-        
+
     </section>
     <div class="footer-image" style="background-image: url({{ url('assets/images/banner').'/'.$settings->homefooterbanner }})">
     </div>

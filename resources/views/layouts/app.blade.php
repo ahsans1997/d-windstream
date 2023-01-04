@@ -109,8 +109,14 @@
                         <button type="button" class="btn" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="d-flex align-items-center">
-                                <img class="rounded-circle header-profile-user"
+                                @if (Auth::user()->profile_photo_path)
+                                    <img class="rounded-circle header-profile-user"
                                     src="{{ asset('/') }}assets/images/user/{{ Auth::user()->profile_photo_path }}" alt="Avatar">
+                                    @endif
+                                @if (Auth::user()->profile_photo_path == '')
+                                    <img class="rounded-circle header-profile-user"
+                                    src="{{ asset('/') }}assets/images/user/default.png" alt="Avatar">
+                                @endif
                                 <span class="text-start ms-xl-2">
                                     <span
                                         class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ Auth::user()->name }}</span>
@@ -174,10 +180,10 @@
 
             <a href="{{ route('dashboard') }}" class="logo logo-light">
                 <span class="logo-sm">
-                    <img src="{{asset('assets/images/'. setting()->mobile_logo)}}" alt="" height="22">
+                    <img src="{{asset('assets/images/'. setting()->mobile_logo)}}" alt="" style="width:100%;height:auto;">
                 </span>
                 <span class="logo-lg">
-                    <img src="{{asset('assets/images/'. setting()->web_logo)}}" alt="" height="50">
+                    <img src="{{asset('assets/images/'. setting()->web_logo)}}" alt="" style="width:100%;height:auto;">
                 </span>
             </a>
             <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -220,7 +226,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#programs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
-                            <i class="ri-apps-2-line"></i> <span data-key="t-apps">Programs</span>
+                            <i class="ri-mini-program-fill"></i> <span data-key="t-apps">Programs</span>
                         </a>
                         <div class="collapse menu-dropdown {{ request()->routeIs('programs.*') ? 'show' : '' }}" id="programs">
                             <ul class="nav nav-sm flex-column">
@@ -239,7 +245,7 @@
                         <a class="nav-link menu-link"
                             href="#news" data-bs-toggle="collapse" role="button" aria-expanded="false"
                             aria-controls="sidebarApps">
-                            <i class="ri-apps-2-line"></i> <span data-key="t-apps">News</span>
+                            <i class="ri-newspaper-fill"></i> <span data-key="t-apps">News</span>
                         </a>
                         <div class="collapse menu-dropdown {{ request()->routeIs('news.*') ? 'show' : '' }}" id="news">
                             <ul class="nav nav-sm flex-column">

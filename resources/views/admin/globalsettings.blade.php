@@ -406,8 +406,8 @@
                                                                             <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
                                                                                 @csrf
                                                                                 @method('PUT')
-                                                                                <input class="form-control"
-                                                                                    name="facultymemberbanner mt-3" type="file">
+                                                                                <input class="form-control mt-3"
+                                                                                    name="facultymemberbanner" type="file">
                                                                                 <button class="btn btn-info mt-3" style="float: right">Submit</button>
                                                                             </form>
                                                                     </div>

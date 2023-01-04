@@ -80,8 +80,6 @@ class UserController extends Controller
             'email' => 'required',
         ]);
 
-
-
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
