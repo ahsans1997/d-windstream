@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('about', [FrontendController::class, 'about'])->name('about');
+// Route::get('about', [FrontendController::class, 'about'])->name('about');
 Route::get('contact', [FrontendController::class, 'contact'])->name('contact');
 
 
@@ -46,7 +46,7 @@ Route::get('event/{slug}', [EventController::class, 'eventsingle'])->name('event
 
 Route::get('research/{slug?}', [ResearchController::class, 'research'])->name('research');
 
-Route::get('/about', [FrontendController::class, 'about'])->name('about');
+// Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 
 
