@@ -220,7 +220,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#programs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
-                            <i class="ri-apps-2-line"></i> <span data-key="t-apps">Programs</span>
+                            <i class="ri-mini-program-fill"></i> <span data-key="t-apps">Programs</span>
                         </a>
                         <div class="collapse menu-dropdown {{ request()->routeIs('programs.*') ? 'show' : '' }}" id="programs">
                             <ul class="nav nav-sm flex-column">
@@ -239,7 +239,7 @@
                         <a class="nav-link menu-link"
                             href="#news" data-bs-toggle="collapse" role="button" aria-expanded="false"
                             aria-controls="sidebarApps">
-                            <i class="ri-apps-2-line"></i> <span data-key="t-apps">News</span>
+                            <i class="ri-newspaper-fill"></i> <span data-key="t-apps">News</span>
                         </a>
                         <div class="collapse menu-dropdown {{ request()->routeIs('news.*') ? 'show' : '' }}" id="news">
                             <ul class="nav nav-sm flex-column">
