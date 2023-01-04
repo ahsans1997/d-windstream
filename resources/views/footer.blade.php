@@ -72,10 +72,10 @@
                     <div class="footer-right">
                         <nav>
                             <ul>
-                                <li><a href="">NITER Home</a></li>
-                                <li><a href="">Terms of Use</a></li>
-                                <li><a href="">Privacy</a></li>
-                                <li><a href=""> Accessibility</a></li>
+                                <li><a href="{{url('/niter-form')}}">NITER Home</a></li>
+                                <li><a href="{{url('/terms-of-use')}}">Terms of Use</a></li>
+                                <li><a href="{{url('/privacy')}}">Privacy</a></li>
+                                <li><a href="{{url('/accessibility')}}"> Accessibility</a></li>
                             </ul>
                         </nav>
                     </div>
