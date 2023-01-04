@@ -61,17 +61,17 @@
                     <!-- LOGO -->
                     <div class="navbar-brand-box horizontal-logo">
                         <a href="{{ url('/')}}" class="logo logo-dark">
-                            @if(setting()->web_logo)                        
+                            @if(setting()->web_logo)
                             <span class="logo-lg">
                                 <img src="{{asset('assets/images/'. setting()->web_logo)}}" alt="" height="50">
                             </span>
-                            @else 
+                            @else
                             <span class="logo-lg">
                                 <img src="{{ asset('/') }}assets/images/logo-dark.png" alt="" height="17">
                             </span>
                             @endif
                         </a>
-    
+
                         <a href="{{ url('/')}}" class="logo logo-light">
                             @if(setting()->mobile_logo)
                             <span class="logo-sm">
@@ -84,7 +84,7 @@
                             @endif
                         </a>
                     </div>
-    
+
                     <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
                         id="topnav-hamburger-icon">
                         <span class="hamburger-icon">
@@ -121,13 +121,10 @@
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
                             <h6 class="dropdown-header">Welcome</h6>
-                            <a class="dropdown-item" href="{{ route('user.index') }}"><i
+                            <a class="dropdown-item" href="{{ route('user.edit',Auth::id()) }}"><i
                                     class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                     class="align-middle">Profile</span></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('user.edit',Auth::id()) }}"><i
-                                    class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
-                                    class="align-middle">Settings</span></a>
                             <form action="{{ route('logout') }}" method="POST">
                                 <button class="dropdown-item">
                                     @csrf
@@ -427,7 +424,7 @@
                     <div class="col-sm-6">
                         <script>
                             document.write(new Date().getFullYear())
-                        </script> © Velzon.
+                        </script> © NITER.
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">

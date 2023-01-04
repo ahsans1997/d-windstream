@@ -17,7 +17,7 @@ class CreateSyllabusAllsTable extends Migration
             $table->id();
             $table->foreignId('programs_id');
             $table->text('link');
-            $table->text('name');
+            $table->string('name');
             $table->timestamps();
         });
     }

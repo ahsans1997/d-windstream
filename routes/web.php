@@ -100,4 +100,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::post('faculty-member-research-store/{id}',[FacultyMemberController::class,'facultyMemberResearchStore'])->name('faculty-member-research-store');
 
     Route::resource('user', UserController::class);
+    Route::put('user/images/{id}', [UserController::class, 'image'])->name('user.image');
+    Route::put('user/password/{id}', [UserController::class, 'password'])->name('user.password');
 });

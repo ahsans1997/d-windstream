@@ -41,26 +41,8 @@
                                                         <input type="email" class="form-control" value="{{ $user->email }}" name="email">
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Password</label>
-                                                        <input type="password" class="form-control" placeholder="Password" name="password">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Confirm Password</label>
-                                                        <input type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation"/>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-lg-4">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Image</label>
-                                                        <input type="file" class="form-control" name="profile_photo_path"/>
-                                                    </div>
-                                                </div>
 
+                                                <!--end col-->
                                                 <div class="col-lg-12">
                                                     <div class="hstack gap-2 justify-content-end">
                                                         <button type="submit" class="btn btn-primary">Update</button>
@@ -72,6 +54,46 @@
                                         </form>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="card text-left">
+                            <div class="card-header">Image Change</div>
+                            <div class="card-body">
+                                <form action="{{ route('user.password', $user->id) }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                        <div class="mb-3">
+                                            <label class="form-label">Password</label>
+                                            <input type="password" class="form-control" placeholder="Password" name="password">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Confirm Password</label>
+                                            <input type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation"/>
+                                        </div>
+                                    <div class="col-lg-12 mt-3">
+                                        <div class="hstack gap-2 justify-content-end">
+                                            <button type="submit" class="btn btn-primary">Password Update</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card text-left">
+                            <div class="card-header">Image Change</div>
+                            <div class="card-body">
+                                <form action="{{ route('user.image', $user->id) }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="mb-6">
+                                        <label class="form-label">Image</label>
+                                        <input type="file" class="form-control" name="profile_photo_path"/>
+                                    </div>
+                                    <div class="col-lg-12 mt-3">
+                                        <div class="hstack gap-2 justify-content-end">
+                                            <button type="submit" class="btn btn-primary">Image Upload</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

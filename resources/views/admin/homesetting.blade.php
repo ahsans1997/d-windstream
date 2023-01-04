@@ -26,12 +26,14 @@ $part3 = json_decode($homesection->part3);
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="banner-tab" data-bs-toggle="tab" data-bs-target="#banner"
-                                type="button" role="tab" aria-controls="banner" aria-selected="false">Banner</button>
+                            <button class="nav-link active" id="banner-tab" data-bs-toggle="tab"
+                                data-bs-target="#banner" type="button" role="tab" aria-controls="banner"
+                                aria-selected="false">Banner</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="section_1-tab" data-bs-toggle="tab" data-bs-target="#section_1"
-                                type="button" role="tab" aria-controls="section_1" aria-selected="false">Section 1</button>
+                                type="button" role="tab" aria-controls="section_1" aria-selected="false">Section
+                                1</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="home_research-tab" data-bs-toggle="tab"
@@ -111,100 +113,231 @@ $part3 = json_decode($homesection->part3);
                                     <div class="card border-primary">
                                         <div class="card-header">Section 1 Update</div>
                                         <div class="card-body">
-                                            <div class="card">
-                                              <div class="card-header">Title</div>
-                                                <div class="card-body">
-                                                    <form action="{{ route('setting.section1',1) }}" method="POST">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <label for="">Title</label>
-                                                        <input type="text" name="section_1_title" class="form-control"
-                                                            value="{{ $homesection->section_1_title }}">
-                                                        <label for="">section 1 Description</label>
-                                                        <input type="text" name="section_1_description" class="form-control"
-                                                            value="{{ $homesection->section_1_description }}">
-                                                        <button class="btn btn-info mt-3" style="float: right">Submit</button>
-                                                    </form>
+                                            <div class="course-info-list text-justify">
+                                                <div class="tab-info">
+                                                    <!-- Tab Nav -->
+
+                                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+                                                        <li class="nav-item" role="presentation">
+                                                            <button class="nav-link active" id="title-tab"
+                                                                data-bs-toggle="tab" data-bs-target="#title"
+                                                                type="button" role="tab" aria-controls="title"
+                                                                aria-selected="false">Title</button>
+                                                        </li>
+                                                        <li class="nav-item" role="presentation">
+                                                            <button class="nav-link" id="part1-tab" data-bs-toggle="tab"
+                                                                data-bs-target="#part1" type="button" role="tab"
+                                                                aria-controls="part1" aria-selected="false">Part
+                                                                1</button>
+                                                        </li>
+                                                        <li class="nav-item" role="presentation">
+                                                            <button class="nav-link" id="part2-tab" data-bs-toggle="tab"
+                                                                data-bs-target="#part2" type="button" role="tab"
+                                                                aria-controls="part2" aria-selected="false">Part
+                                                                2</button>
+                                                        </li>
+                                                        <li class="nav-item" role="presentation">
+                                                            <button class="nav-link" id="part3-tab" data-bs-toggle="tab"
+                                                                data-bs-target="#part3" type="button" role="tab"
+                                                                aria-controls="part3" aria-selected="false">Part
+                                                                3</button>
+                                                        </li>
+                                                    </ul>
+
+                                                    <div class="tab-content" id="myTabContent">
+
+                                                        <!-- Single Tab -->
+
+
+
+                                                        <!-- End Single Tab -->
+
+                                                        <div id="title" class="tab-pane fade active show mt-4"
+                                                            role="tabpanel">
+                                                            <div class="info title">
+                                                                <div class="col-md-10 m-auto">
+                                                                    <div class="card border-primary">
+                                                                        <div class="card-header">Title</div>
+                                                                        <div class="card-body">
+
+                                                                            <form
+                                                                                action="{{ route('setting.section1',1) }}"
+                                                                                method="POST">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <label for="">Title</label>
+                                                                                <input type="text"
+                                                                                    name="section_1_title"
+                                                                                    class="form-control"
+                                                                                    value="{{ $homesection->section_1_title }}">
+                                                                                <label for="">section 1
+                                                                                    Description</label>
+                                                                                <input type="text"
+                                                                                    name="section_1_description"
+                                                                                    class="form-control"
+                                                                                    value="{{ $homesection->section_1_description }}">
+                                                                                <button class="btn btn-info mt-3"
+                                                                                    style="float: right">Submit</button>
+                                                                            </form>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="part1" class="tab-pane fade mt-4" role="tabpanel">
+                                                            <div class="info title">
+                                                                <div class="col-md-10 m-auto">
+                                                                    <div class="card border-primary">
+                                                                        <div class="card-header">
+                                                                            {{ $part1->part1_title }}</div>
+                                                                        <div class="card-body">
+                                                                            <form
+                                                                                action="{{ route('setting.section1',1) }}"
+                                                                                method="POST"
+                                                                                enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <div class="section_1">
+                                                                                    <img class="img-fluid"
+                                                                                        src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part1_image }}"
+                                                                                        alt="">
+                                                                                    <input type="file"
+                                                                                        class="form-control mt-2"
+                                                                                        name="part1_image">
+                                                                                    <label for="">Title</label>
+                                                                                    <input type="text"
+                                                                                        class="form-control"
+                                                                                        name="part1_title"
+                                                                                        value="{{ $part1->part1_title }}">
+                                                                                    <label for="">Description</label>
+                                                                                    <textarea name="part1_description"
+                                                                                        class="form-control"
+                                                                                        rows="5">{{ $part1->part1_description }}</textarea>
+                                                                                    <label for="">Link</label>
+                                                                                    <input type="text"
+                                                                                        class="form-control"
+                                                                                        name="part1_link_name"
+                                                                                        value="{{ $part1->part1_link_name }}">
+                                                                                    <label for="">Link</label>
+                                                                                    <input type="text"
+                                                                                        class="form-control"
+                                                                                        name="part1_link"
+                                                                                        value="{{ $part1->part1_link }}">
+                                                                                    <button
+                                                                                        class="btn btn-info mt-3 mb-2"
+                                                                                        style="float: right">Submit</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="part2" class="tab-pane fade mt-4" role="tabpanel">
+                                                            <div class="info title">
+                                                                <div class="col-md-10 m-auto">
+                                                                    <div class="card border-primary">
+                                                                        <div class="card-header">
+                                                                            {{ $part2->part2_title }}</div>
+                                                                        <div class="card-body">
+                                                                            <form
+                                                                                action="{{ route('setting.section1',1) }}"
+                                                                                method="POST"
+                                                                                enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                @method('PUT')
+
+                                                                                <div class="section_1">
+                                                                                    <img class="img-fluid"
+                                                                                        src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part2_image }}"
+                                                                                        alt="">
+                                                                                    <input type="file"
+                                                                                        class="form-control mt-2"
+                                                                                        name="part2_image">
+                                                                                    <label for="">Title</label>
+                                                                                    <input type="text"
+                                                                                        class="form-control"
+                                                                                        name="part2_title"
+                                                                                        value="{{ $part2->part2_title }}">
+                                                                                    <label for="">Description</label>
+                                                                                    <textarea name="part2_description"
+                                                                                        class="form-control"
+                                                                                        rows="5">{{ $part2->part2_description }}</textarea>
+                                                                                    <label for="">Link</label>
+                                                                                    <input type="text"
+                                                                                        class="form-control"
+                                                                                        name="part2_link_name"
+                                                                                        value="{{ $part2->part2_link_name }}">
+                                                                                    <label for="">Link</label>
+                                                                                    <input type="text"
+                                                                                        class="form-control"
+                                                                                        name="part2_link"
+                                                                                        value="{{ $part2->part2_link }}">
+                                                                                    <button
+                                                                                        class="btn btn-info mt-3 mb-2"
+                                                                                        style="float: right">Submit</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="part3" class="tab-pane fade mt-4" role="tabpanel">
+                                                            <div class="info title">
+                                                                <div class="col-md-10 m-auto">
+                                                                    <div class="card border-primary">
+                                                                        <div class="card-header">
+                                                                            {{ $part3->part3_title }}</div>
+                                                                        <div class="card-body">
+                                                                            <form
+                                                                                action="{{ route('setting.section1',1) }}"
+                                                                                method="POST"
+                                                                                enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                @method('PUT')
+
+                                                                                <div class="section_1">
+                                                                                    <img class="img-fluid"
+                                                                                        src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part3_image }}"
+                                                                                        alt="">
+                                                                                    <input type="file"
+                                                                                        class="form-control mt-2"
+                                                                                        name="part3_image">
+                                                                                    <label for="">Title</label>
+                                                                                    <input type="text"
+                                                                                        class="form-control"
+                                                                                        name="part3_title"
+                                                                                        value="{{ $part3->part3_title }}">
+                                                                                    <label for="">Description</label>
+                                                                                    <textarea name="part3_description"
+                                                                                        class="form-control"
+                                                                                        rows="5">{{ $part3->part3_description }}</textarea>
+                                                                                    <label for="">Link</label>
+                                                                                    <input type="text"
+                                                                                        class="form-control"
+                                                                                        name="part3_link_name"
+                                                                                        value="{{ $part3->part3_link_name }}">
+                                                                                    <label for="">Link</label>
+                                                                                    <input type="text"
+                                                                                        class="form-control"
+                                                                                        name="part3_link"
+                                                                                        value="{{ $part3->part3_link }}">
+                                                                                    <button
+                                                                                        class="btn btn-info mt-3 mb-2"
+                                                                                        style="float: right">Submit</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-
-                                            <div class="card" style="width: 600px">
-                                                <form action="{{ route('setting.section1',1) }}" method="POST"  enctype="multipart/form-data">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <div class="card-header">{{ $part1->part1_title }}</div>
-                                                    <div class="card-body">
-                                                        <div class="section_1">
-                                                            <img class="img-fluid" src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part1_image }}" alt="">
-                                                            <input type="file" class="form-control mt-2" name="part1_image">
-                                                            <label for="">Title</label>
-                                                            <input type="text" class="form-control"
-                                                                name="part1_title"
-                                                                value="{{ $part1->part1_title }}">
-                                                            <label for="">Description</label>
-                                                            <textarea name="part1_description" class="form-control" rows="5">{{ $part1->part1_description }}</textarea>
-                                                            <label for="">Link</label>
-                                                            <input type="text" class="form-control" name="part1_link_name" value="{{ $part1->part1_link_name }}">
-                                                            <label for="">Link</label>
-                                                            <input type="text" class="form-control" name="part1_link" value="{{ $part1->part1_link }}">
-                                                            <button class="btn btn-info mt-3 mb-2" style="float: right">Submit</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="card" style="width: 600px">
-                                                <form action="{{ route('setting.section1',1) }}" method="POST" enctype="multipart/form-data">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <div class="card-header">{{ $part2->part2_title }}</div>
-                                                    <div class="card-body">
-                                                        <div class="section_1">
-                                                            <img class="img-fluid" src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part2_image }}" alt="">
-                                                            <input type="file" class="form-control mt-2" name="part2_image">
-                                                            <label for="">Title</label>
-                                                            <input type="text" class="form-control"
-                                                                name="part2_title"
-                                                                value="{{ $part2->part2_title }}">
-                                                            <label for="">Description</label>
-                                                            <textarea name="part2_description" class="form-control" rows="5">{{ $part2->part2_description }}</textarea>
-                                                            <label for="">Link</label>
-                                                            <input type="text" class="form-control" name="part2_link_name" value="{{ $part2->part2_link_name }}">
-                                                            <label for="">Link</label>
-                                                            <input type="text" class="form-control" name="part2_link" value="{{ $part2->part2_link }}">
-                                                            <button class="btn btn-info mt-3 mb-2" style="float: right">Submit</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="card" style="width: 600px">
-                                                <form action="{{ route('setting.section1',1) }}" method="POST"  enctype="multipart/form-data">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <div class="card-header">{{ $part3->part3_title }}</div>
-                                                    <div class="card-body">
-                                                        <div class="section_1">
-                                                            <img class="img-fluid" src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part3_image }}" alt="">
-                                                            <input type="file" class="form-control mt-2" name="part3_image">
-                                                            <label for="">Title</label>
-                                                            <input type="text" class="form-control"
-                                                                name="part3_title"
-                                                                value="{{ $part3->part3_title }}">
-                                                            <label for="">Description</label>
-                                                            <textarea name="part3_description" class="form-control" rows="5">{{ $part3->part3_description }}</textarea>
-                                                            <label for="">Link</label>
-                                                            <input type="text" class="form-control" name="part3_link_name" value="{{ $part3->part3_link_name }}">
-                                                            <label for="">Link</label>
-                                                            <input type="text" class="form-control" name="part3_link" value="{{ $part3->part3_link }}">
-                                                            <button class="btn btn-info mt-3 mb-2" style="float: right">Submit</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-
-
-
-
-
                                         </div>
                                     </div>
                                 </div>
@@ -292,8 +425,6 @@ $part3 = json_decode($homesection->part3);
                                                         </div>
                                                     </div>
                                                 </div>
-
-
                                                 <button class="btn btn-info mt-3" style="float: right">Submit</button>
                                             </form>
                                         </div>
@@ -301,8 +432,6 @@ $part3 = json_decode($homesection->part3);
                                 </div>
                             </div>
                         </div>
-
-
                         <div id="home_about" class="tab-pane fade mt-4">
                             <div class="info title">
                                 <div class="col-md-10 m-auto">
