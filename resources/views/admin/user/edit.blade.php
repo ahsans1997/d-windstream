@@ -15,6 +15,9 @@
                                     <img src="{{ asset('/') }}assets/images/user/{{ $user->profile_photo_path }}" class="img-fluid" alt="user-profile-image">
                                     <h5 class="fs-16 mb-1 mt-3">{{ $user->name }}</h5>
                                     <p class="text-muted mb-0">{{ $user->email }}</p>
+                                    <p class="text-muted mb-0">
+
+                                    </p>
                                 </div>
                             </div>
                         </div>
