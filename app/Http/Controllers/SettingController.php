@@ -38,10 +38,10 @@ class SettingController extends Controller
 
             if (Setting::findOrFail($id)->web_logo) {
                 $location = 'public/assets/images/'.Setting::findOrFail($id)->web_logo;
-                
+
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'web_logo' => "default.png",
+                    'web_logo' => "",
                 ]);
             }
 
@@ -60,7 +60,7 @@ class SettingController extends Controller
                 $location = 'public/assets/images/'.Setting::findOrFail($id)->mobile_logo;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'mobile_logo' => "default.png",
+                    'mobile_logo' => "",
                 ]);
             }
             $image = $request->file('mobile_logo');
@@ -77,7 +77,7 @@ class SettingController extends Controller
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->homebanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'homebanner' => "default.png",
+                    'homebanner' => "",
                 ]);
             }
             $image = $request->file('homebanner');
@@ -94,7 +94,7 @@ class SettingController extends Controller
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->homefooterbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'homefooterbanner' => "default.png",
+                    'homefooterbanner' => "",
                 ]);
             }
             $image = $request->file('homefooterbanner');
@@ -111,7 +111,7 @@ class SettingController extends Controller
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->programbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'programbanner' => "default.png",
+                    'programbanner' => "",
                 ]);
             }
             $image = $request->file('programbanner');
@@ -128,7 +128,7 @@ class SettingController extends Controller
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->newsbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'newsbanner' => "default.png",
+                    'newsbanner' => "",
                 ]);
             }
             $image = $request->file('newsbanner');
@@ -145,7 +145,7 @@ class SettingController extends Controller
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->eventbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'eventbanner' => "default.png",
+                    'eventbanner' => "",
                 ]);
             }
             $image = $request->file('eventbanner');
@@ -162,7 +162,7 @@ class SettingController extends Controller
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->departmentbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'departmentbanner' => "default.png",
+                    'departmentbanner' => "",
                 ]);
             }
             $image = $request->file('departmentbanner');
@@ -179,7 +179,7 @@ class SettingController extends Controller
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->researchbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'researchbanner' => "default.png",
+                    'researchbanner' => "",
                 ]);
             }
             $image = $request->file('researchbanner');
@@ -196,7 +196,7 @@ class SettingController extends Controller
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->aboutbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'aboutbanner' => "default.png",
+                    'aboutbanner' => "",
                 ]);
             }
             $image = $request->file('aboutbanner');
@@ -213,7 +213,7 @@ class SettingController extends Controller
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->contactbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'contactbanner' => "default.png",
+                    'contactbanner' => "",
                 ]);
             }
             $image = $request->file('contactbanner');
@@ -230,7 +230,7 @@ class SettingController extends Controller
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->facultymemberbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'facultymemberbanner' => "default.png",
+                    'facultymemberbanner' => "",
                 ]);
             }
             $image = $request->file('facultymemberbanner');
@@ -247,7 +247,7 @@ class SettingController extends Controller
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->noticebanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'noticebanner' => "default.png",
+                    'noticebanner' => "",
                 ]);
             }
             $image = $request->file('noticebanner');
@@ -264,7 +264,7 @@ class SettingController extends Controller
                 $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->defaultbanner;
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
-                    'defaultbanner' => "default.png",
+                    'defaultbanner' => "",
                 ]);
             }
             $image = $request->file('defaultbanner');
