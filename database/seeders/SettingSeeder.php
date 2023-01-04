@@ -85,16 +85,16 @@ class SettingSeeder extends Seeder
             'home_about' => $about,
             'portal' => $portal,
 
-            'programbanner' => 'programbanner.jpg',
-            'newsbanner' => 'newsbanner.jpg',
-            'eventbanner' => 'eventbanner.jpg',
-            'departmentbanner' => 'departmentbanner.jpg',
-            'researchbanner' => 'researchbanner.jpg',
-            'aboutbanner' => 'aboutbanner.jpg',
-            'contactbanner' => 'contactbanner.jpg',
-            'facultymemberbanner' => 'facultymemberbanner.jpg',
-            'noticebanner' => 'noticebanner.jpg',
-            'defaultbanner' => 'defaultbanner.jpg',
+            'programbanner' => '',
+            'newsbanner' => '',
+            'eventbanner' => '',
+            'departmentbanner' => '',
+            'researchbanner' => '',
+            'aboutbanner' => '',
+            'contactbanner' => '',
+            'facultymemberbanner' => '',
+            'noticebanner' => '',
+            'defaultbanner' => '',
 
         ];
         Setting::insert($setting);
