@@ -174,10 +174,10 @@
 
             <a href="{{ route('dashboard') }}" class="logo logo-light">
                 <span class="logo-sm">
-                    <img src="{{asset('assets/images/'. setting()->mobile_logo)}}" alt="" height="22">
+                    <img src="{{asset('assets/images/'. setting()->mobile_logo)}}" alt="" style="width:100%;height:auto;">
                 </span>
                 <span class="logo-lg">
-                    <img src="{{asset('assets/images/'. setting()->web_logo)}}" alt="" height="50">
+                    <img src="{{asset('assets/images/'. setting()->web_logo)}}" alt="" style="width:100%;height:auto;">
                 </span>
             </a>
             <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"

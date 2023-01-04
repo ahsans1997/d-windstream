@@ -54,7 +54,10 @@
                                             </select>
                                         </div>
 
-
+                                        <div class="col-md-12">
+                                            <label for="delete_image">Delete This image</label>
+                                            <input type="checkbox" name="delete_image" id="delete_image" value="1">
+                                        </div>
                                         <div class="col-md-12">
                                             <label for="image" class="form-label">Image</label>
                                             <input type="file" class="form-control" name="image" placeholder="imgae">
@@ -73,9 +76,7 @@
                                                     $ext == 'png' ||
                                                     $ext == 'svg' ||
                                                     $ext == 'webp')
-                                                    <img alt="No File Uploaded"
-                                                        src="{{ asset('storage/page/' . $page->image) }}"
-                                                        style="width: 100px; height:100px;">
+                                                    <img alt="No File Uploaded"  src="{{ asset('storage/page/' . $page->image) }}" style="width: 100px; height:100px;">
                                                 @else
                                                     <a target="_blank" href="{{ asset('storage/page/' . $page->image) }}">
                                                         <i class="fa-regular fa-file-pdf"></i>{{ $page->image }}
@@ -84,7 +85,10 @@
                                             @else
                                             @endif
                                         </div>
-
+                                        <div class="col-md-12">
+                                            <label for="delete_image">Delete This file</label>
+                                            <input type="checkbox" name="delete_file" id="delete_file" value="1">
+                                        </div>
                                         <div class="col-md-12">
                                             <label for="file" class="form-label">File</label>
                                             <input type="file" class="form-control" name="file" placeholder="file">
