@@ -16,7 +16,7 @@ class CreateProgramCurriculamCoursTable extends Migration
         Schema::create('program_curriculam_cours', function (Blueprint $table) {
             $table->id();
             $table->foreignId('program_id');
-            $table->text('name');
+            $table->string('name');
             $table->timestamps();
         });
     }

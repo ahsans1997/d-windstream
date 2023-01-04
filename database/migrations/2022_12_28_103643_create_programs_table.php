@@ -15,15 +15,15 @@ class CreateProgramsTable extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
-            $table->text('session_name');
+            $table->string('name');
+            $table->string('session_name');
             $table->text('description')->nullable();
             $table->text('description_list');
             $table->integer('duration_in_month');
             $table->foreignId('faculty_id');
             $table->foreignId('deaprtment_id');
             $table->enum('dgree_type',['UnderGraduate','Graduate','MPhil','PhD']);
-            $table->text('slug')->unique();
+            $table->string('slug')->unique();
             $table->softDeletes();
             $table->timestamps();
         });
