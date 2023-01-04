@@ -70,10 +70,10 @@ class SettingSeeder extends Seeder
 
         $setting = [
             'organization_name' => 'Company Name',
-            'web_logo'=> 'logo.png',
-            'mobile_logo'=> 'mobilelogo.png',
-            'homebanner' => 'homebanner.jpg',
-            'homefooterbanner' => 'homefooterbanner.jpg',
+            'web_logo'=> '',
+            'mobile_logo'=> '',
+            'homebanner' => '',
+            'homefooterbanner' => '',
             'header_color' => '#8FFFB8',
             'footer_color' => '#8FFFB8',
             'meta_description' => 'website',

@@ -38,6 +38,7 @@ class SettingController extends Controller
 
             if (Setting::findOrFail($id)->web_logo) {
                 $location = 'public/assets/images/'.Setting::findOrFail($id)->web_logo;
+                
                 unlink(base_path($location));
                 Setting::findOrFail($id)->update([
                     'web_logo' => "default.png",
