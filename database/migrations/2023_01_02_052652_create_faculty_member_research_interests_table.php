@@ -16,7 +16,7 @@ class CreateFacultyMemberResearchInterestsTable extends Migration
         Schema::create('faculty_member_research_interests', function (Blueprint $table) {
             $table->id();
             $table->foreignId('faculty_member_id');
-            $table->text('subject');
+            $table->string('subject');
             $table->text('description')->nullable();
             $table->text('rechach_interest_target_goal')->nullable();
             $table->timestamps();

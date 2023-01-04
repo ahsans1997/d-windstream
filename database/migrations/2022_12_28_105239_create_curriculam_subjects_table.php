@@ -16,8 +16,8 @@ class CreateCurriculamSubjectsTable extends Migration
         Schema::create('curriculam_subjects', function (Blueprint $table) {
             $table->id();
             $table->foreignId('program_curriculam_id');
-            $table->text('code');
-            $table->text('name');
+            $table->string('code');
+            $table->string('name');
             $table->text('description');
             $table->integer('credit');
             $table->timestamps();
