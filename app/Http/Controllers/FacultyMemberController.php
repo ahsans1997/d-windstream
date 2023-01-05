@@ -381,7 +381,7 @@ class FacultyMemberController extends Controller
         if($member){
             $data = [
                 'member' => $member,
-                'title' => 'Member Details for '.$member->name,
+                'title' => 'Profile of '.$member->name,
             ];
             return view('member-profile', $data);
         }else{

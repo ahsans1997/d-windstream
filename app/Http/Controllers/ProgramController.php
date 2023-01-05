@@ -275,7 +275,7 @@ class ProgramController extends Controller
             $program = Program::with('department','faculty','semister','semister.subjects','syllabus')->where('slug', $slug)->first();
 
             // dd($program->toArray());
-            $title = 'Program of ' . $program->name;
+            $title = $program->name;
             return view('program-single', [
                 'program' => $program,
                 'title' => $title

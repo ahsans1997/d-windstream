@@ -11,7 +11,7 @@
                         <div class="card-header"><h2>{{ $news_info->title }}</h2></div>
                         <div class="card-body">
                             <div class="news-single-image">
-                                <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/news/2.JPG" alt="">
+                                <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/news/{{ $news_info->image }}" alt="">
                             </div>
                             <button type="button" class="btn btn-light">{{ $news_info->department->name }}</button>
                             <button type="button" class="btn btn-light">{{ $news_info->category->name }}</button>

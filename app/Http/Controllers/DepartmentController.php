@@ -165,7 +165,7 @@ class DepartmentController extends Controller
 
             if ($department) {
 
-                $title = $department->name;
+                $title = 'Department of ' . $department->name;
                 $department_news = News::where('department_id', $department->id)->orderBY('id', 'desc')->paginate(5);
                 $department_events = Event::where('department_id', $department->id)->paginate(5);
                 $department_faculty_member = FacultyMember::with('designation')->where('department_id', $department->id)->paginate(5);

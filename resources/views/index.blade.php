@@ -34,10 +34,6 @@
                                 <a href="{{ url('/') }}"><img
                                         src="{{ asset('/') }}assets/images/{{ $settings->web_logo }}" style="height:50px;width:auto;" alt=""></a>
                             </div>
-                            <div class="search">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                                <span>Search</span>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -313,7 +309,7 @@
         </div>
 
     </section>
-    <div class="footer-image" style="background-image: url({{ url('assets/images/banner').'/'.$settings->homefooterbanner }})">
+    <div class="footer-image img-fluid" style="background-image: url({{ url('assets/images/banner').'/'.$settings->homefooterbanner }})">
     </div>
     <!-- About End -->
     @include('footer')
