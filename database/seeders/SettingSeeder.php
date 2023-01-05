@@ -70,10 +70,6 @@ class SettingSeeder extends Seeder
 
         $setting = [
             'organization_name' => 'Company Name',
-            'web_logo'=> '',
-            'mobile_logo'=> '',
-            'homebanner' => '',
-            'homefooterbanner' => '',
             'header_color' => '#8FFFB8',
             'footer_color' => '#8FFFB8',
             'meta_description' => 'website',
@@ -84,17 +80,6 @@ class SettingSeeder extends Seeder
             'home_research' => $research,
             'home_about' => $about,
             'portal' => $portal,
-
-            'programbanner' => '',
-            'newsbanner' => '',
-            'eventbanner' => '',
-            'departmentbanner' => '',
-            'researchbanner' => '',
-            'aboutbanner' => '',
-            'contactbanner' => '',
-            'facultymemberbanner' => '',
-            'noticebanner' => '',
-            'defaultbanner' => '',
 
         ];
         Setting::insert($setting);

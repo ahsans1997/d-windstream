@@ -26,6 +26,7 @@ class SettingController extends Controller
 
     public function update(Request $request, $id)
     {
+        $setting = Setting::findOrFail($id);
         if($request->organization_name)
         {
             Setting::findOrFail($id)->update([
@@ -35,245 +36,130 @@ class SettingController extends Controller
 
         if($request->hasFile('web_logo'))
         {
-
-            if (Setting::findOrFail($id)->web_logo) {
-                $location = 'public/assets/images/'.Setting::findOrFail($id)->web_logo;
-
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'web_logo' => "",
-                ]);
+            if($setting->getFirstMedia('web_logo'))
+            {
+                $setting->clearMediaCollection('web_logo');
             }
-
-            $image = $request->file('web_logo');
-            $image_name = "logo".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'web_logo' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('web_logo')->toMediaCollection('web_logo');
+            $setting->save();
         }
 
         if($request->hasFile('mobile_logo'))
         {
-            if (Setting::findOrFail($id)->mobile_logo) {
-                $location = 'public/assets/images/'.Setting::findOrFail($id)->mobile_logo;
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'mobile_logo' => "",
-                ]);
+            if($setting->getFirstMedia('mobile_logo'))
+            {
+                $setting->clearMediaCollection('mobile_logo');
             }
-            $image = $request->file('mobile_logo');
-            $image_name = "mobilelogo".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'mobile_logo' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('mobile_logo')->toMediaCollection('mobile_logo');
+            $setting->save();
         }
         if($request->hasFile('homebanner'))
         {
-            if (Setting::findOrFail($id)->homebanner) {
-                $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->homebanner;
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'homebanner' => "",
-                ]);
+            if($setting->getFirstMedia('homebanner'))
+            {
+                $setting->clearMediaCollection('homebanner');
             }
-            $image = $request->file('homebanner');
-            $image_name = "homebanner".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/banner/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'homebanner' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('homebanner')->toMediaCollection('homebanner');
+            $setting->save();
         }
         if($request->hasFile('homefooterbanner'))
         {
-            if (Setting::findOrFail($id)->homefooterbanne) {
-                $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->homefooterbanner;
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'homefooterbanner' => "",
-                ]);
+            if($setting->getFirstMedia('homefooterbanner'))
+            {
+                $setting->clearMediaCollection('homefooterbanner');
             }
-            $image = $request->file('homefooterbanner');
-            $image_name = "homefooterbanner".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/banner/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'homefooterbanner' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('homefooterbanner')->toMediaCollection('homefooterbanner');
+            $setting->save();
         }
         if($request->hasFile('programbanner'))
         {
-            if (Setting::findOrFail($id)->programbanner) {
-                $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->programbanner;
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'programbanner' => "",
-                ]);
+            if($setting->getFirstMedia('programbanner'))
+            {
+                $setting->clearMediaCollection('programbanner');
             }
-            $image = $request->file('programbanner');
-            $image_name = "programbanner".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/banner/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'programbanner' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('programbanner')->toMediaCollection('programbanner');
+            $setting->save();
         }
         if($request->hasFile('newsbanner'))
         {
-            if (Setting::findOrFail($id)->newsbanner) {
-                $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->newsbanner;
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'newsbanner' => "",
-                ]);
+            if($setting->getFirstMedia('newsbanner'))
+            {
+                $setting->clearMediaCollection('newsbanner');
             }
-            $image = $request->file('newsbanner');
-            $image_name = "newsbanner".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/banner/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'newsbanner' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('newsbanner')->toMediaCollection('newsbanner');
+            $setting->save();
         }
         if($request->hasFile('eventbanner'))
         {
-            if (Setting::findOrFail($id)->eventbanner) {
-                $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->eventbanner;
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'eventbanner' => "",
-                ]);
+            if($setting->getFirstMedia('eventbanner'))
+            {
+                $setting->clearMediaCollection('eventbanner');
             }
-            $image = $request->file('eventbanner');
-            $image_name = "eventbanner".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/banner/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'eventbanner' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('eventbanner')->toMediaCollection('eventbanner');
+            $setting->save();
         }
         if($request->hasFile('departmentbanner'))
         {
-            if (Setting::findOrFail($id)->departmentbanner) {
-                $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->departmentbanner;
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'departmentbanner' => "",
-                ]);
+            if($setting->getFirstMedia('departmentbanner'))
+            {
+                $setting->clearMediaCollection('departmentbanner');
             }
-            $image = $request->file('departmentbanner');
-            $image_name = "departmentbanner".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/banner/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'departmentbanner' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('departmentbanner')->toMediaCollection('departmentbanner');
+            $setting->save();
         }
         if($request->hasFile('researchbanner'))
         {
-            if (Setting::findOrFail($id)->researchbanner) {
-                $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->researchbanner;
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'researchbanner' => "",
-                ]);
+            if($setting->getFirstMedia('researchbanner'))
+            {
+                $setting->clearMediaCollection('researchbanner');
             }
-            $image = $request->file('researchbanner');
-            $image_name = "researchbanner".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/banner/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'researchbanner' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('researchbanner')->toMediaCollection('researchbanner');
+            $setting->save();
         }
         if($request->hasFile('aboutbanner'))
         {
-            if (Setting::findOrFail($id)->aboutbanner) {
-                $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->aboutbanner;
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'aboutbanner' => "",
-                ]);
+            if($setting->getFirstMedia('aboutbanner'))
+            {
+                $setting->clearMediaCollection('aboutbanner');
             }
-            $image = $request->file('aboutbanner');
-            $image_name = "aboutbanner".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/banner/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'aboutbanner' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('aboutbanner')->toMediaCollection('aboutbanner');
+            $setting->save();
         }
         if($request->hasFile('contactbanner'))
         {
-            if (Setting::findOrFail($id)->contactbanner) {
-                $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->contactbanner;
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'contactbanner' => "",
-                ]);
+            if($setting->getFirstMedia('contactbanner'))
+            {
+                $setting->clearMediaCollection('contactbanner');
             }
-            $image = $request->file('contactbanner');
-            $image_name = "contactbanner".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/banner/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'contactbanner' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('contactbanner')->toMediaCollection('contactbanner');
+            $setting->save();
         }
         if($request->hasFile('facultymemberbanner'))
         {
-            if (Setting::findOrFail($id)->facultymemberbanner) {
-                $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->facultymemberbanner;
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'facultymemberbanner' => "",
-                ]);
+            if($setting->getFirstMedia('facultymemberbanner'))
+            {
+                $setting->clearMediaCollection('facultymemberbanner');
             }
-            $image = $request->file('facultymemberbanner');
-            $image_name = "facultymemberbanner".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/banner/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'facultymemberbanner' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('facultymemberbanner')->toMediaCollection('facultymemberbanner');
+            $setting->save();
         }
         if($request->hasFile('noticebanner'))
         {
-            if (Setting::findOrFail($id)->noticebanner) {
-                $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->noticebanner;
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'noticebanner' => "",
-                ]);
+            if($setting->getFirstMedia('noticebanner'))
+            {
+                $setting->clearMediaCollection('noticebanner');
             }
-            $image = $request->file('noticebanner');
-            $image_name = "noticebanner".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/banner/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'noticebanner' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('noticebanner')->toMediaCollection('noticebanner');
+            $setting->save();
         }
         if($request->hasFile('defaultbanner'))
         {
-            if (Setting::findOrFail($id)->defaultbanner) {
-                $location = 'public/assets/images/banner/'.Setting::findOrFail($id)->defaultbanner;
-                unlink(base_path($location));
-                Setting::findOrFail($id)->update([
-                    'defaultbanner' => "",
-                ]);
+            if($setting->getFirstMedia('defaultbanner'))
+            {
+                $setting->clearMediaCollection('defaultbanner');
             }
-            $image = $request->file('defaultbanner');
-            $image_name = "defaultbanner".".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/banner/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Setting::findOrFail($id)->update([
-                'defaultbanner' => $image_name,
-            ]);
+            $setting->addMediaFromRequest('defaultbanner')->toMediaCollection('defaultbanner');
+            $setting->save();
         }
 
         if($request->meta_description)

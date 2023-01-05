@@ -70,7 +70,7 @@
                                                                 <div class="card-body">
                                                                     <div class="web_logo">
                                                                         <img class="img-fluid" style="height: 0 auto;"
-                                                                            src="{{ asset('/') }}assets/images/{{ $setting->web_logo }}"
+                                                                            src="{{ $setting->getFirstMediaUrl('web_logo') }}"
                                                                             alt="">
 
                                                                         <label class="mt-5">Change Logo</label>
@@ -86,7 +86,7 @@
                                                                 <div class="card-body">
                                                                     <div class="mobile_logo">
                                                                         <img class="img-fluid" style="height: 0 auto;"
-                                                                            src="{{ asset('/') }}assets/images/{{ $setting->mobile_logo }}"
+                                                                            src="{{ $setting->getFirstMediaUrl('mobile_logo') }}"
                                                                             alt="">
 
                                                                         <label class="mt-5">Change Logo</label>
@@ -268,10 +268,11 @@
                                                                 <div class="card-header">Change Program Banner</div>
                                                                 <div class="card-body">
                                                                     <div class="programbanner">
-                                                                        <img class="img-fluid mt-3" src="{{ asset('/') }}assets/images/banner/{{ $setting->programbanner }}" alt="">
+                                                                        <img class="img-fluid mt-3" src="" alt="">
                                                                         <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
                                                                             @csrf
                                                                             @method('PUT')
+                                                                            <img class="img-fluid mt-3" src="{{ $setting->getFirstMediaUrl('programbanner') }}" alt="">
                                                                             <input class="form-control mt-3" name="programbanner" type="file">
                                                                             <button class="btn btn-info mt-3" style="float: right">Submit</button>
                                                                         </form>
@@ -285,7 +286,7 @@
                                                                 <div class="card-body">
                                                                     <div class="newsbanner">
                                                                         <img class="img-fluid mt-3"
-                                                                            src="{{ asset('/') }}assets/images/banner/{{ $setting->newsbanner }}"
+                                                                            src="{{ $setting->getFirstMediaUrl('newsbanner') }}"
                                                                             alt="">
                                                                             <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
                                                                                 @csrf
@@ -305,7 +306,7 @@
                                                                 <div class="card-body">
                                                                     <div class="eventbanner">
                                                                         <img class="img-fluid mt-3"
-                                                                            src="{{ asset('/') }}assets/images/banner/{{ $setting->eventbanner }}"
+                                                                            src="{{ $setting->getFirstMediaUrl('eventbanner') }}"
                                                                             alt="">
                                                                             <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
                                                                                 @csrf
@@ -324,7 +325,7 @@
                                                                 <div class="card-body">
                                                                     <div class="departmentbanner">
                                                                         <img class="img-fluid mt-3"
-                                                                            src="{{ asset('/') }}assets/images/banner/{{ $setting->departmentbanner }}"
+                                                                            src="{{ $setting->getFirstMediaUrl('departmentbanner') }}"
                                                                             alt="">
                                                                             <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
                                                                                 @csrf
@@ -343,7 +344,7 @@
                                                                 <div class="card-body">
                                                                     <div class="researchbanner">
                                                                         <img class="img-fluid mt-3"
-                                                                            src="{{ asset('/') }}assets/images/banner/{{ $setting->researchbanner }}"
+                                                                            src="{{ $setting->getFirstMediaUrl('researchbanner') }}"
                                                                             alt="">
                                                                             <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
                                                                                 @csrf
@@ -362,7 +363,7 @@
                                                                 <div class="card-body">
                                                                     <div class="aboutbanner">
                                                                         <img class="img-fluid mt-3"
-                                                                            src="{{ asset('/') }}assets/images/banner/{{ $setting->aboutbanner }}"
+                                                                            src="{{ $setting->getFirstMediaUrl('aboutbanner') }}"
                                                                             alt="">
                                                                             <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
                                                                                 @csrf
@@ -381,7 +382,7 @@
                                                                 <div class="card-body">
                                                                     <div class="contactbanner">
                                                                         <img class="img-fluid mt-3"
-                                                                            src="{{ asset('/') }}assets/images/banner/{{ $setting->contactbanner }}"
+                                                                            src="{{ $setting->getFirstMediaUrl('contactbanner') }}"
                                                                             alt="">
                                                                             <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
                                                                                 @csrf
@@ -401,7 +402,7 @@
                                                                 <div class="card-body">
                                                                     <div class="contactbanner">
                                                                         <img class="img-fluid mt-3"
-                                                                            src="{{ asset('/') }}assets/images/banner/{{ $setting->facultymemberbanner }}"
+                                                                            src="{{ $setting->getFirstMediaUrl('facultymemberbanner') }}"
                                                                             alt="">
                                                                             <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
                                                                                 @csrf
@@ -420,7 +421,7 @@
                                                                 <div class="card-body">
                                                                     <div class="contactbanner">
                                                                         <img class="img-fluid mt-3"
-                                                                            src="{{ asset('/') }}assets/images/banner/{{ $setting->noticebanner }}"
+                                                                            src="{{ $setting->getFirstMediaUrl('noticebanner') }}"
                                                                             alt="">
                                                                             <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
                                                                                 @csrf
@@ -439,7 +440,7 @@
                                                                 <div class="card-body">
                                                                     <div class="contactbanner">
                                                                         <img class="img-fluid mt-3"
-                                                                            src="{{ asset('/') }}assets/images/banner/{{ $setting->defaultbanner }}"
+                                                                            src="{{ $setting->getFirstMediaUrl('defaultbanner') }}"
                                                                             alt="">
                                                                             <form action="{{ route('setting.update',1) }}" method="POST" enctype="multipart/form-data">
                                                                                 @csrf

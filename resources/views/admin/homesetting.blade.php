@@ -69,7 +69,7 @@ $part3 = json_decode($homesection->part3);
                                                                 <div class="card-body">
                                                                     <div class="top_Banner">
                                                                         <img class="img-fluid" style="height: 0 auto;"
-                                                                            src="{{ asset('/') }}assets/images/banner/{{ $setting->homebanner }}"
+                                                                            src="{{ $setting->getFirstMediaUrl('homebanner') }}"
                                                                             alt="">
 
                                                                         <label class="mt-5">Change Top Banner</label>
@@ -85,7 +85,7 @@ $part3 = json_decode($homesection->part3);
                                                                 <div class="card-body">
                                                                     <div class="footer_banner">
                                                                         <img class="img-fluid" style="height: 0 auto;"
-                                                                            src="{{ asset('/') }}assets/images/banner/{{ $setting->homefooterbanner }}"
+                                                                            src="{{ $setting->getFirstMediaUrl('homefooterbanner') }}"
                                                                             alt="">
 
                                                                         <label class="mt-5">Change Footer Banner</label>

@@ -32,7 +32,7 @@
                         <div class="col-md-12">
                             <div class="logo">
                                 <a href="{{ url('/') }}"><img
-                                        src="{{ asset('/') }}assets/images/{{ $settings->web_logo }}" style="height:50px;width:auto;" alt=""></a>
+                                        src="{{ $settings->getFirstMediaUrl('web_logo') }}" style="height:60px;width:auto;" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
             data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{ asset('/') }}assets/images/banner/{{ $settings->homebanner }}" alt="First slide">
+                    <img class="d-block w-100" src="{{ $settings->getFirstMediaUrl('homebanner') }}" alt="First slide">
                 </div>
             </div>
 
@@ -309,7 +309,7 @@
         </div>
 
     </section>
-    <div class="footer-image img-fluid" style="background-image: url({{ url('assets/images/banner').'/'.$settings->homefooterbanner }})">
+    <div class="footer-image" style="background-image: url({{ $settings->getFirstMediaUrl('homefooterbanner') }})">
     </div>
     <!-- About End -->
     @include('footer')

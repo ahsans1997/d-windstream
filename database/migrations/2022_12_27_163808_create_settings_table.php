@@ -16,10 +16,6 @@ class CreateSettingsTable extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('organization_name')->nullable();
-            $table->string('web_logo')->nullable();
-            $table->string('mobile_logo')->nullable();
-            $table->string('homebanner')->nullable();
-            $table->string('homefooterbanner')->nullable();
             $table->string('header_color')->nullable();
             $table->string('footer_color')->nullable();
             $table->string('meta_description')->nullable();
@@ -29,17 +25,6 @@ class CreateSettingsTable extends Migration
             $table->text('home_research')->nullable();
             $table->text('home_about')->nullable();
             $table->text('portal')->nullable();
-
-            $table->string('programbanner')->nullable();
-            $table->string('newsbanner')->nullable();
-            $table->string('eventbanner')->nullable();
-            $table->string('departmentbanner')->nullable();
-            $table->string('researchbanner')->nullable();
-            $table->string('aboutbanner')->nullable();
-            $table->string('contactbanner')->nullable();
-            $table->string('facultymemberbanner')->nullable();
-            $table->string('noticebanner')->nullable();
-            $table->string('defaultbanner')->nullable();
             $table->timestamps();
         });
     }
