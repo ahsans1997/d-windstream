@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="program-header">Program Of NITER</h3>
+                    <h3 class="program-header">Program af NITER</h3>
                     <hr>
                 </div>
                 <div class="col-md-4">

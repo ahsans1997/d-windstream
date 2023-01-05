@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card border-info">
-                    <div class="card-header">Letest News</div>
+                    <div class="card-header">Letest Research</div>
                     <div class="card-body">
                         <nav>
                             <ul>

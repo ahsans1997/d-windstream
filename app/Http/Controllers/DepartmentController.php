@@ -156,7 +156,7 @@ class DepartmentController extends Controller
         if ($slug == null) {
             $data = [
                 'departments' => Department::paginate(9),
-                'title' => 'Department'
+                'title' => 'Departments'
             ];
             return view('department', $data);
         } else {
@@ -164,8 +164,8 @@ class DepartmentController extends Controller
             $department = Department::where('slug', $slug)->first();
 
             if ($department) {
-                
-                $title = 'Program of ' . $department->name;
+
+                $title = $department->name;
                 $department_news = News::where('department_id', $department->id)->orderBY('id', 'desc')->paginate(5);
                 $department_events = Event::where('department_id', $department->id)->paginate(5);
                 $department_faculty_member = FacultyMember::with('designation')->where('department_id', $department->id)->paginate(5);

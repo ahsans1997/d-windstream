@@ -591,7 +591,8 @@ li {
 }
 
 .footer h4 {
-    font-size: 35px;
+    font-size: 25px;
+    font-weight: bold;
     color: #820000;
 }
 
@@ -1182,7 +1183,7 @@ h1.page-title {
         text-align: center;
     }
 
- 
+
 
     /* menu */
 

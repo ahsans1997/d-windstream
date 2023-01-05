@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-3">
                 <div class="footer">
-                    <h4>Otheres</h4>
+                    <h4>Others</h4>
                     <ul>
                         <li><a href="{{ route('notice')}}">Notice A-Z</a></li>
                         <li><a href="{{url('/clubs-and-societies')}}">Clubs & Society</a></li>
