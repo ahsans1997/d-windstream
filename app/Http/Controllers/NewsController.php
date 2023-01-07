@@ -137,16 +137,13 @@ class NewsController extends Controller
             'meta_description' => $request->meta_description,
          ]);
 
-        if ($request->hasFile('image')) {
 
-        }
         if($request->hasFile('image')){
             if($request->hasFile('image'))
             {
                 $news->clearMediaCollection('news');
             }
             $news->addMediaFromRequest('image')->toMediaCollection('news');
-            $news->save();
         }
         if($request->hasFile('images')){
             if($request->hasFile('images'))

@@ -49,31 +49,33 @@ class EventController extends Controller
             'department_id' => 'required',
             'datetime' => 'required',
         ]);
+        $event = new Event();
         $slug = Str::slug($request->title, '-');
-        $event_id = Event::insertGetId([
-            'title' => $request->title,
-            'description' => $request->description,
-            'department_id' => $request->department_id,
-            'venue' => $request->venue,
-            'datetime' => $request->datetime,
-            'organization' => $request->organization,
-            'price' => $request->price,
-            'registration_start' => $request->registration_start,
-            'registration_end' => $request->registration_end,
-            'maximum_sit' => $request->maximum_sit,
-            'slug' => $slug,
-            'meta_keywords' => $request->meta_keywords,
-            'meta_description' => $request->meta_description,
-            'created_at' => Carbon::now(),
-        ]);
+
+        $event->title = $request->title;
+        $event->description = $request->description;
+        $event->department_id = $request->department_id;
+        $event->venue = $request->venue;
+        $event->datetime = $request->datetime;
+        $event->organization = $request->organization;
+        $event->price = $request->price;
+        $event->registration_start = $request->registration_start;
+        $event->registration_end = $request->registration_end;
+        $event->maximum_sit = $request->maximum_sit;
+        $event->slug = $slug;
+        $event->meta_keywords = $request->meta_keywords;
+        $event->meta_description = $request->meta_description;
+        $event->created_at = Carbon::now();
+        $event->save();
+
+
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $image_name = $slug.".".$image->getClientOriginalExtension();
-            $iamge_location = 'public/assets/images/events/'.$image_name;
-            Image::make($image)->save(base_path($iamge_location));
-            Event::findOrFail($event_id)->update([
-                'image' => $image_name,
-            ]);
+            $event->addMediaFromRequest('image')->toMediaCollection('event');
+        }
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $img) {
+                $event->addMedia($img)->toMediaCollection('events');
+            }
         }
         return back()->with('success', 'Event Added SuccessFull.');
     }
@@ -120,39 +122,43 @@ class EventController extends Controller
             'slug' => 'required|unique:events,slug,'.$event->id,
         ]);
         $slug = Str::slug($request->title, '-');
-        Event::findOrFail($event->id)->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'department_id' => $request->department_id,
-            'venue' => $request->venue,
-            'datetime' => $request->datetime,
-            'organization' => $request->organization,
-            'price' => $request->price,
-            'registration_start' => $request->registration_start,
-            'registration_end' => $request->registration_end,
-            'maximum_sit' => $request->maximum_sit,
-            'slug' =>Str::slug($request->slug, '-'),
-            'meta_keywords' => $request->meta_keywords,
-            'meta_description' => $request->meta_description,
-            'created_at' => Carbon::now(),
-        ]);
 
-        if ($request->hasFile('image')) {
-            if(Event::findOrFail($event->id)->image != "default.png"){
-                $location = 'public/assets/images/events/'.Event::findOrFail($event->id)->image;
-                unlink(base_path($location));
-                Event::findOrFail($event->id)->update([
-                    'image' => "default.png",
-                ]);
+        $event = Event::findOrFail($event->id);
+        $event->title = $request->title;
+        $event->description = $request->description;
+        $event->department_id = $request->department_id;
+        $event->venue = $request->venue;
+        $event->datetime = $request->datetime;
+        $event->organization = $request->organization;
+        $event->price = $request->price;
+        $event->registration_start = $request->registration_start;
+        $event->registration_end = $request->registration_end;
+        $event->maximum_sit = $request->maximum_sit;
+        $event->slug = Str::slug($request->slug, '-');
+        $event->meta_keywords = $request->meta_keywords;
+        $event->meta_description = $request->meta_description;
+        $event->created_at = Carbon::now();
+        $event->save();
+
+        if($request->hasFile('image')){
+            if($request->hasFile('image'))
+            {
+                $event->clearMediaCollection('event');
             }
-            $image = $request->file('image');
-            $image_name = $slug.".".$image->getClientOriginalExtension();
-            $iamge_location = 'public/assets/images/events/'.$image_name;
-            Image::make($image)->save(base_path($iamge_location));
-            Event::findOrFail($event->id)->update([
-                'image' => $image_name,
-            ]);
+            $event->addMediaFromRequest('image')->toMediaCollection('event');
         }
+        if($request->hasFile('images')){
+            if($request->hasFile('images'))
+            {
+                foreach ($event->getMedia('events') as $img) {
+                    $event->clearMediaCollection('events');
+                }
+            }
+            foreach ($request->file('images') as $img) {
+                $event->addMedia($img)->toMediaCollection('events');
+            }
+        }
+
         return redirect()->route('event.index')->with('success', 'Event Added SuccessFull.');
     }
 
@@ -164,12 +170,12 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        if(Event::findOrFail($event->id)->image != "default.png")
-        {
-            $image_location = 'public/assets/images/events/'.Event::findOrFail($event->id)->image;
-            unlink(base_path($image_location));
+        $event = Event::findOrFail($event->id);
+        $event->clearMediaCollection('event');
+        foreach ($event->getMedia('events') as $img) {
+            $event->clearMediaCollection('events');
         }
-        Event::findOrFail($event->id)->delete();
+        $event->delete();
         return back()->with('delete', 'Event Delete Successfull.');
     }
 

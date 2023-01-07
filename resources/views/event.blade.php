@@ -27,7 +27,7 @@
                                     <div class="col-md-4 mt-4">
                                         <div class="event-p">
                                             <div class="event-p-img">
-                                                <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/Events/1.jpg" alt="">
+                                                <img class="img-fluid" src="{{ $event->getFirstMediaUrl('event') }}" alt="">
                                             </div>
                                             <div class="event-p-body">
                                                 <h3>{{ Str::words($event->title, 7) }}</h3>

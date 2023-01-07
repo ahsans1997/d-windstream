@@ -31,7 +31,7 @@
                                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                       <span class="sr-only">Next</span>
                                     </a>
-                                  </div>
+                                </div>
                             </div>
                             <button type="button" class="btn btn-light">{{ $news_info->department->name }}</button>
                             <button type="button" class="btn btn-light">{{ $news_info->category->name }}</button>
