@@ -26,13 +26,25 @@ class SettingController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validation = $request->validate([
+            'web_logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'mobile_logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'homebanner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'homefooterbanner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'programbanner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'newsbanner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'eventbanner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'departmentbanner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'researchbanner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'aboutbanner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'contactbanner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'facultymemberbanner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'noticebanner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'defaultbanner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+        ]);
+
         $setting = Setting::findOrFail($id);
-        if($request->organization_name)
-        {
-            Setting::findOrFail($id)->update([
-                'organization_name' => $request->organization_name,
-            ]);
-        }
+
 
         if($request->hasFile('web_logo'))
         {
@@ -164,21 +176,23 @@ class SettingController extends Controller
 
         if($request->meta_description)
         {
-            Setting::findOrFail($id)->update([
-                'meta_description' => $request->meta_description
-            ]);
+            $setting->meta_description = $request->meta_description;
+            $setting->save();
         }
         if($request->meta_keyword)
         {
-            Setting::findOrFail($id)->update([
-                'meta_keyword' => $request->meta_keyword
-            ]);
+            $setting->meta_keyword = $request->meta_keyword;
+            $setting->save();
         }
         if($request->google_analytics)
         {
-            Setting::findOrFail($id)->update([
-                'google_analytics' => $request->google_analytics
-            ]);
+            $setting->google_analytics = $request->google_analytics;
+            $setting->save();
+        }
+        if($request->organization_name)
+        {
+            $setting->organization_name = $request->organization_name;
+            $setting->save();
         }
 
         if($request->student_portal || $request->teacher_portal)

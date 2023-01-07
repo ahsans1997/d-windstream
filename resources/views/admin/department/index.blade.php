@@ -31,9 +31,9 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Department Name</th>
-                                    <th scope="col">Facebook</th>
+                                    {{-- <th scope="col">Facebook</th>
                                     <th scope="col">Twiter</th>
-                                    <th scope="col">Linkdin</th>
+                                    <th scope="col">Linkdin</th> --}}
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -42,7 +42,7 @@
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $department->name }}</td>
-                                    <td>
+                                    {{-- <td>
                                         @php
                                             $social_link = $department->social_link;
                                             $facebook = json_decode($social_link);
@@ -62,7 +62,7 @@
                                             $linkdin = json_decode($social_link);
                                             echo $linkdin->linkdin;
                                         @endphp
-                                    </td>
+                                    </td> --}}
 
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">

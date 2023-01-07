@@ -28,7 +28,7 @@
                                                 <div class="departmnet-img">
                                                     @if ($department->image)
                                                         <img class="img-fluid"
-                                                            src="{{ asset('assets/images/department') . '/' . $department->image }}"
+                                                            src="{{ $department->getFirstMediaUrl('department') }}"
                                                             alt="">
                                                     @else
                                                         <img src="//via.placeholder.com/350x150" class="lazyloaded"

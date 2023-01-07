@@ -12,35 +12,35 @@ function default_header_banner($page_name = '')
 
     switch (request()->route()->getname()) {
         case 'department':
-            return asset('/') . 'assets/images/banner/' . setting()->departmentbanner;
+            return setting()->getFirstMediaUrl('departmentbanner');
             break;
         case 'program':
-            return asset('/') . 'assets/images/banner/' . setting()->programbanner;
+            return setting()->getFirstMediaUrl('programbanner');
             break;
         case 'news':
-            return asset('/') . 'assets/images/banner/' . setting()->newsbanner;
+            return setting()->getFirstMediaUrl('newsbanner');
             break;
         case 'event':
-            return asset('/') . 'assets/images/banner/' . setting()->eventbanner;
+            return setting()->getFirstMediaUrl('eventbanner');
             break;
         case 'research':
-            return asset('/') . 'assets/images/banner/' . setting()->researchbanner;
+            return setting()->getFirstMediaUrl('researchbanner');
             break;
         case 'about':
-            return asset('/') . 'assets/images/banner/' . setting()->aboutbanner;
+            return setting()->getFirstMediaUrl('aboutbanner');
             break;
         case 'contact':
-            return asset('/') . 'assets/images/banner/' . setting()->contactbanner;
+            return setting()->getFirstMediaUrl('contactbanner');
             break;
         case 'faculty-member':
-            return asset('/') . 'assets/images/banner/' . setting()->facultymemberbanner;
+            return setting()->getFirstMediaUrl('facultymemberbanner');
             break;
         default:
             return asset('/') . 'frontend_asset/img/banner.jpg';
             break;
     }
 
-    return asset('/') . 'frontend_asset/img/banner.jpg';
+    return setting()->getFirstMediaUrl('defaultbanner');
 }
 
 function usefullLinks(){

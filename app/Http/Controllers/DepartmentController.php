@@ -47,6 +47,7 @@ class DepartmentController extends Controller
             'name' => 'required|unique:departments',
             'description' => 'required',
             'contact_info' => 'required|numeric',
+            'image' => 'mimes:JPG,jpg,jpeg,png,gif,svg|max:10248',
         ]);
         $slug = Str::slug($request->name, '-');
         $department_id = Department::insertGetId([
@@ -58,13 +59,9 @@ class DepartmentController extends Controller
             'created_at' => Carbon::now(),
         ]);
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $image_name = $slug . "." . $image->getClientOriginalExtension();
-            $iamge_location = 'public/assets/images/department/' . $image_name;
-            Image::make($image)->save(base_path($iamge_location));
-            Department::findOrFail($department_id)->update([
-                'image' => $image_name,
-            ]);
+            $department = new Department();
+            $department->addMediaFromRequest('image')->toMediaCollection('department');
+            $department->save();
         }
         return back()->with('success', 'Department Added SuccessFull.');
     }
@@ -107,6 +104,7 @@ class DepartmentController extends Controller
             'description' => 'required',
             'contact_info' => 'required|numeric',
         ]);
+
         $slug = Str::slug($request->name, '-');
         Department::findOrFail($department->id)->update([
             'name' => $request->name,
@@ -117,20 +115,14 @@ class DepartmentController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            if (Department::findOrFail($department->id)->image != "default.png") {
-                $location = 'public/assets/images/department/' . Department::findOrFail($department->id)->image;
-                unlink(base_path($location));
-                Department::findOrFail($department->id)->update([
-                    'image' => "default.png",
-                ]);
+            $department = Department::findOrFail($department->id);
+            if($department->getFirstMedia('image'))
+            {
+                $department->clearMediaCollection('image');
             }
-            $image = $request->file('image');
-            $image_name = $slug . "." . $image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/department/' . $image_name;
-            Image::make($image)->save(base_path($image_location));
-            Department::findOrFail($department->id)->update([
-                'image' => $image_name,
-            ]);
+            $department->addMediaFromRequest('image')->toMediaCollection('image');
+            $department->save();
+
         }
         return redirect()->route('department.index')->with('success', 'Department update successfull');
     }
@@ -143,11 +135,9 @@ class DepartmentController extends Controller
      */
     public function destroy(Department $department)
     {
-        if (Department::findOrFail($department->id)->image != "default,png") {
-            $image_location = 'public/assets/images/department/' . Department::findOrFail($department->id)->image;
-            unlink(base_path($image_location));
-        }
-        Department::findOrFail($department->id)->delete();
+        $department = Department::findOrFail($department->id);
+        $department->clearMediaCollection('image');
+        $department->delete();
         return back()->with('delete', 'Your Department Delete Successfull.');
     }
 

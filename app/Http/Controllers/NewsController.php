@@ -52,26 +52,30 @@ class NewsController extends Controller
             'description' => 'required',
             'department_id' => 'required',
             'category_id' => 'required',
+            'image' => 'mimes:JPG,jpg,jpeg,png,gif,svg|max:10248',
         ]);
         $slug = Str::slug($request->title, '-') ;
-        $news_id = News::insertGetId([
-            'title' => $request->title,
-            'description' => $request->description,
-            'department_id' => $request->department_id,
-            'category_id' => $request->category_id,
-            'slug' => $slug,
-            'meta_keywords' => $request->meta_keywords,
-            'meta_description' => $request->meta_description,
-            'created_at' => Carbon::now(),
-        ]);
+
+        $news = new News();
+        $news->title = $request->title;
+        $news->description = $request->description;
+        $news->department_id = $request->department_id;
+        $news->category_id = $request->category_id;
+        $news->slug = $slug;
+        $news->meta_keywords = $request->meta_keywords;
+        $news->meta_description = $request->meta_description;
+        $news->created_at = Carbon::now();
+        $news->save();
+
+
         if($request->hasFile('image')){
-            $image = $request->file('image');
-            $image_name = $slug.".".$image->getClientOriginalExtension();
-            $location = 'public/assets/images/news/'.$image_name;
-            Image::make($image)->save(base_path($location));
-            News::findOrFail($news_id)->update([
-                'image' => $image_name,
-            ]);
+            $news->addMediaFromRequest('image')->toMediaCollection('news');
+            $news->save();
+        }
+        if($request->hasFile('images')){
+            foreach ($request->file('images') as $img) {
+                $news->addMedia($img)->toMediaCollection('newses');
+            }
         }
         return back()->with('success', 'News created successfull.');
     }
@@ -119,7 +123,9 @@ class NewsController extends Controller
             'department_id' => 'required',
             'category_id' => 'required',
             'slug' => 'required|unique:news,slug,'.$news->id,
+            'image' => 'mimes:JPG,jpg,jpeg,png,gif,svg|max:10248',
         ]);
+        $news = News::findOrFail($news->id);
 
          News::find($news->id)->update([
             'title' => $request->title,
@@ -132,20 +138,26 @@ class NewsController extends Controller
          ]);
 
         if ($request->hasFile('image')) {
-            if(News::findOrFail($news->id)->image != "default.png"){
-                $location = 'public/assets/images/news/'.News::findOrFail($news->id)->image;
-                unlink(base_path($location));
-                News::findOrFail($news->id)->update([
-                    'image' => "default.png",
-                ]);
+
+        }
+        if($request->hasFile('image')){
+            if($request->hasFile('image'))
+            {
+                $news->clearMediaCollection('news');
             }
-            $image = $request->file('image');
-            $image_name = Str::slug($request->title, '-').".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/news/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            News::findOrFail($news->id)->update([
-                'image' => $image_name,
-            ]);
+            $news->addMediaFromRequest('image')->toMediaCollection('news');
+            $news->save();
+        }
+        if($request->hasFile('images')){
+            if($request->hasFile('images'))
+            {
+                foreach ($news->getMedia('newses') as $img) {
+                    $news->clearMediaCollection('newses');
+                }
+            }
+            foreach ($request->file('images') as $img) {
+                $news->addMedia($img)->toMediaCollection('newses');
+            }
         }
         return back()->with('success', 'News update successfull.');
     }
@@ -158,12 +170,12 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        if(News::findOrFail($news->id)->image != "default,png")
-        {
-            $image_location = 'public/assets/images/news/'.News::findOrFail($news->id)->image;
-            unlink(base_path($image_location));
+        $news = News::findOrFail($news->id);
+        $news->clearMediaCollection('news');
+        foreach ($news->getMedia('newses') as $img) {
+            $news->clearMediaCollection('newses');
         }
-        News::findOrFail($news->id)->delete();
+        $news->delete();
         return back()->with('delete', 'Your Department Delete Successfull.');
     }
 

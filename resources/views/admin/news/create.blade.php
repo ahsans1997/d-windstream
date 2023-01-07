@@ -55,8 +55,12 @@
 
 
                             <div class="mt-2">
-                                <label for="placeholderInput" class="form-label">News Image</label>
-                                <input type="file" class="form-control" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                <label class="form-label">News Image</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+                            <div class="mt-2">
+                                <label class="form-label">News Multiple Images</label>
+                                <input type="file" class="form-control" name="images[]" multiple>
                             </div>
 
                             <div class="card mt-4">

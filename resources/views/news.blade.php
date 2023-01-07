@@ -27,7 +27,7 @@
                                     <div class="col-md-4">
                                         <div class="news">
                                             <div class="news-img">
-                                                <img class="img-fluid" src="{{ asset('/') }}frontend_asset/img/news/1.JPG" alt="">
+                                                <img class="img-fluid" src="{{ $n->getFirstMediaUrl('news') }}" alt="">
                                             </div>
                                             <div class="news-body">
                                                 <h3>{{ Str::words($n->title, 7) }}</h3>
