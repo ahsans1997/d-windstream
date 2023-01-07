@@ -139,19 +139,17 @@ class NewsController extends Controller
 
 
         if($request->hasFile('image')){
-            if($request->hasFile('image'))
-            {
-                $news->clearMediaCollection('news');
-            }
+
+            $news->clearMediaCollection('news');
+
             $news->addMediaFromRequest('image')->toMediaCollection('news');
         }
         if($request->hasFile('images')){
-            if($request->hasFile('images'))
-            {
-                foreach ($news->getMedia('newses') as $img) {
-                    $news->clearMediaCollection('newses');
-                }
+
+            foreach ($news->getMedia('newses') as $img) {
+                $news->clearMediaCollection('newses');
             }
+
             foreach ($request->file('images') as $img) {
                 $news->addMedia($img)->toMediaCollection('newses');
             }

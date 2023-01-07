@@ -8,7 +8,7 @@
                     <p class="published text-right"><i class="fa fa-table"></i> Published: {{ $notice->created_at->format('d-M-Y') }}</p>
                     <h2><strong>{{ $notice->title }}</strong></h2>
                     <div class="thumbnail">
-                        <img src="{{ asset('assets/images/notices/' . $notice->image) }}" alt="{{ $notice->title }}"
+                        <img src="{{ $notice->getFirstMediaUrl('notice') }}" alt="{{ $notice->title }}"
                             class="img-fluid">
                     </div>
                     <div class="notice-content mt-2">

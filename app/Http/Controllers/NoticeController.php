@@ -47,25 +47,22 @@ class NoticeController extends Controller
             'title' => 'required',
             'description' => 'required',
             'department_id' => 'required',
+            'image' => 'mimes:JPG,jpg,jpeg,png,gif,svg|max:10248',
         ]);
         $slug = Str::slug($request->title, '-');
-        $notice_id = Notice::insertGetId([
-            'title' => $request->title,
-            'description' => $request->description,
-            'department_id' => $request->department_id,
-            'slug' => $slug,
-            'meta_keywords' => $request->meta_keywords,
-            'meta_description' => $request->meta_description,
-            'created_at' => Carbon::now(),
-        ]);
+        $notice = new Notice();
+        $notice->title = $request->title;
+        $notice->description = $request->description;
+        $notice->department_id = $request->department_id;
+        $notice->slug = $slug;
+        $notice->meta_keywords = $request->meta_keywords;
+        $notice->meta_description = $request->meta_description;
+        $notice->created_at = Carbon::now();
+        $notice->save();
+
+
         if($request->hasFile('image')){
-            $image = $request->file('image');
-            $image_name = $slug.".".$image->getClientOriginalExtension();
-            $location = 'public/assets/images/notices/'.$image_name;
-            Image::make($image)->save(base_path($location));
-            Notice::findOrFail($notice_id)->update([
-                'image' => $image_name,
-            ]);
+            $notice->addMediaFromRequest('image')->toMediaCollection('notice');
         }
         return back()->with('success', 'Notice created successfull.');
     }
@@ -109,32 +106,25 @@ class NoticeController extends Controller
             'description' => 'required',
             'department_id' => 'required',
             'slug' => 'required|unique:news,slug,'.$notice->id,
+            'image' => 'mimes:JPG,jpg,jpeg,png,gif,svg|max:10248',
         ]);
-        $slug = Str::slug($request->title, '-');
-        Notice::findOrFail($notice->id)->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'department_id' => $request->department_id,
-            'slug' => Str::slug($request->slug, '-'),
-            'meta_keywords' => $request->meta_keywords,
-            'meta_description' => $request->meta_description,
-            'created_at' => Carbon::now(),
-        ]);
+
+        $notice = Notice::findOrFail($notice->id);
+        $notice->title = $request->title;
+        $notice->description = $request->description;
+        $notice->department_id = $request->department_id;
+        $notice->slug = Str::slug($request->title, '-');
+        $notice->meta_keywords = $request->meta_keywords;
+        $notice->meta_description = $request->meta_description;
+        $notice->created_at = Carbon::now();
+        $notice->save();
+
+
         if($request->hasFile('image')){
-            if(Notice::findOrFail($notice->id)->image != "default.png"){
-                $location = 'public/assets/images/notices/'.Notice::findOrFail($notice->id)->image;
-                unlink(base_path($location));
-                Notice::findOrFail($notice->id)->update([
-                    'image' => "default.png",
-                ]);
-            }
-            $image = $request->file('image');
-            $image_name = $slug.".".$image->getClientOriginalExtension();
-            $location = 'public/assets/images/notices/'.$image_name;
-            Image::make($image)->save(base_path($location));
-            Notice::findOrFail($notice->id)->update([
-                'image' => $image_name,
-            ]);
+
+            $notice->clearMediaCollection('notice');
+
+            $notice->addMediaFromRequest('image')->toMediaCollection('notice');
         }
         return redirect()->route('notice.index')->with('success', 'Notice update successfull.');
     }
@@ -147,12 +137,9 @@ class NoticeController extends Controller
      */
     public function destroy(Notice $notice)
     {
-        if(Notice::findOrFail($notice->id)->image != "default,png")
-        {
-            $image_location = 'public/assets/images/notices/'.Notice::findOrFail($notice->id)->image;
-            unlink(base_path($image_location));
-        }
-        Notice::findOrFail($notice->id)->delete();
+        $notice = Notice::findOrFail($notice->id);
+        $notice->clearMediaCollection('notice');
+        $notice->delete();
         return back()->with('delete', 'Your Department Delete Successfull.');
     }
 
@@ -168,7 +155,7 @@ class NoticeController extends Controller
 
             $notice = Notice::where('slug', $slug)->first();
 
-            if ($notice) {                
+            if ($notice) {
                 $title = 'Notice of ' . $notice->title;
 
                 return view('notice.notice-single', [
@@ -183,9 +170,9 @@ class NoticeController extends Controller
     }
 
     public function noticeSearch(Request $request)
-    {       
+    {
         $query = Notice::query();
-        
+
         if($request->search){
             $query->where('title', 'like', '%' . $request->search . '%')
                 ->orWhere('description', 'like', '%' . $request->search . '%');
@@ -195,7 +182,7 @@ class NoticeController extends Controller
             $query->whereBetween('created_at', [Carbon::parse($request->from_date), Carbon::parse($request->to_date)->addDay()]);
         }
 
-        $notice = $query->paginate(10);        
+        $notice = $query->paginate(10);
 
         $data = [
             'notices' => $notice,

@@ -48,6 +48,7 @@ class EventController extends Controller
             'description' => 'required',
             'department_id' => 'required',
             'datetime' => 'required',
+            'image' => 'mimes:JPG,jpg,jpeg,png,gif,svg|max:10248',
         ]);
         $event = new Event();
         $slug = Str::slug($request->title, '-');
@@ -120,6 +121,7 @@ class EventController extends Controller
             'department_id' => 'required',
             'datetime' => 'required',
             'slug' => 'required|unique:events,slug,'.$event->id,
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10248',
         ]);
         $slug = Str::slug($request->title, '-');
 
@@ -141,19 +143,16 @@ class EventController extends Controller
         $event->save();
 
         if($request->hasFile('image')){
-            if($request->hasFile('image'))
-            {
-                $event->clearMediaCollection('event');
-            }
+
+            $event->clearMediaCollection('event');
+
             $event->addMediaFromRequest('image')->toMediaCollection('event');
         }
         if($request->hasFile('images')){
-            if($request->hasFile('images'))
-            {
-                foreach ($event->getMedia('events') as $img) {
-                    $event->clearMediaCollection('events');
-                }
+            foreach ($event->getMedia('events') as $img) {
+                $event->clearMediaCollection('events');
             }
+
             foreach ($request->file('images') as $img) {
                 $event->addMedia($img)->toMediaCollection('events');
             }
