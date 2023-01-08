@@ -27,7 +27,7 @@
                                         <div class="col-md-4">
                                             <div class="research-p">
                                                 <div class="research-p-img">
-                                                    <img class="img-fluid" src="{{ asset('/') }}assets/images/research/{{ $research->image }}">
+                                                    <img class="img-fluid" src="{{ $research->getFirstMediaUrl('research') }}">
                                                 </div>
                                                 <div class="research-p-body">
                                                     <h3>{{ Str::words($research->title, 6) }}</h3>

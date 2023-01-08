@@ -70,7 +70,6 @@ class NewsController extends Controller
 
         if($request->hasFile('image')){
             $news->addMediaFromRequest('image')->toMediaCollection('news');
-            $news->save();
         }
         if($request->hasFile('images')){
             foreach ($request->file('images') as $img) {

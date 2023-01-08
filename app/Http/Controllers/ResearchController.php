@@ -49,26 +49,22 @@ class ResearchController extends Controller
             'title' => 'required|unique:research',
             'description' => 'required',
             'department_id' => 'required',
+            'image' => 'mimes:JPG,jpg,jpeg,png,gif,svg|max:10248',
         ]);
         $slug = Str::slug($request->title, '-');
-        $research_id = Research::insertGetId([
-            'title' => $request->title,
-            'description' => $request->description,
-            'department_id' => $request->department_id,
-            'slug' => $slug,
-            'approve' => 1,
-            'meta_keywords' => $request->meta_keywords,
-            'meta_description' => $request->meta_description,
-            'created_at' => Carbon::now(),
-        ]);
+        $research = new Research();
+        $research->title = $request->title;
+        $research->description = $request->description;
+        $research->department_id = $request->department_id;
+        $research->slug = $slug;
+        $research->approve = 1;
+        $research->meta_keywords = $request->meta_keywords;
+        $research->meta_description = $request->meta_description;
+        $research->created_at = Carbon::now();
+        $research->save();
+
         if($request->hasFile('image')){
-            $image = $request->file('image');
-            $image_name = $slug.".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/research/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Research::findOrFail($research_id)->update([
-                'image' => $image_name,
-            ]);
+            $research->addMediaFromRequest('image')->toMediaCollection('research');
         }
         return back()->with('success', 'Research add successfull');
     }
@@ -111,8 +107,10 @@ class ResearchController extends Controller
             'title' => 'required',
             'description' => 'required',
             'department_id' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10248',
         ]);
         $slug = Str::slug($request->title, '-');
+        $research = Research::findOrFail($research->id);
         Research::findOrFail($research->id)->update([
             'title' => $request->title,
             'description' => $request->description,
@@ -124,20 +122,8 @@ class ResearchController extends Controller
         ]);
 
         if($request->hasFile('image')){
-            if (Research::findOrFail($research->id)->image != "default.png") {
-                $location = 'public/assets/images/research/'.Research::findOrFail($research->id)->image;
-                unlink(base_path($location));
-                Research::findOrFail($research->id)->update([
-                    'image' => "default.png",
-                ]);
-            }
-            $image = $request->file('image');
-            $image_name = $slug.".".$image->getClientOriginalExtension();
-            $image_location = 'public/assets/images/research/'.$image_name;
-            Image::make($image)->save(base_path($image_location));
-            Research::findOrFail($research->id)->update([
-                'image' => $image_name,
-            ]);
+            $research->clearMediaCollection('research');
+            $research->addMediaFromRequest('image')->toMediaCollection('research');
         }
         return back()->with('success', 'Research edit successfull');
     }
@@ -150,14 +136,9 @@ class ResearchController extends Controller
      */
     public function destroy(Research $research)
     {
-        if (Research::findOrFail($research->id)->image != "default.png"){
-            $image_location = 'public/assets/images/research/'.Research::findOrFail($research->id)->image;
-            unlink(base_path($image_location));
-        }
-        if (Research::findOrFail($research->id)->file != ""){
-            Storage::delete(Research::findOrFail($research->id)->file);
-        }
-        Research::findOrFail($research->id)->delete();
+        $research = Research::findOrFail($research->id);
+        $research->clearMediaCollection('research');
+        $research->delete();
         return back()->with('delete', 'delete complete');
     }
 

@@ -49,8 +49,8 @@
                                 <input type="file" class="form-control" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             </div>
                             <div class="mt-2">
-                                <label for="placeholderInput" class="form-label">Research File</label>
-                                <input type="file" class="form-control" name="file" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                <label for="">Image</label>
+                                <img class="img-fluid" style="width: 150px" src="{{ $research->getFirstMediaUrl('research') }}" alt="">
                             </div>
 
                             <div class="card mt-4">

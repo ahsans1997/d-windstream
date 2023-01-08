@@ -207,7 +207,7 @@
                     <div class="col-md-3">
                         <div class="research">
                             <div class="research-image">
-                                <img class="img-fluid" src="{{ asset('/') }}assets/images/research/{{ $research->image }}"
+                                <img class="img-fluid" src="{{ $research->getFirstMediaUrl('research') }}"
                                     alt="">
                             </div>
                             <div class="research-body">
@@ -238,7 +238,7 @@
                     <div class="col-md-3">
                         <div class="event">
                             <div class="image">
-                                <img class="img-fluid" src="{{ asset('/') }}assets/images/Events/{{ $event->image }}"
+                                <img class="img-fluid" src="{{ $event->getFirstMediaUrl('event') }}"
                                     alt="">
                             </div>
                             <div class="event-date">
