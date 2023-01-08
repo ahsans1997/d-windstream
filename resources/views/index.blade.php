@@ -212,7 +212,7 @@
                                     alt="">
                             </div>
                             <div class="research-body">
-                                <p>{{ $research->department->name }}</p>
+                                {{-- <p>{{ $research->department->name }}</p> --}}
                                 <h4><a href="{{ route('research',$research->slug) }}">{{ Str::words($research->title, 8) }}</a></h4>
                             </div>
                         </div>
