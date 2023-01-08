@@ -201,7 +201,7 @@ $part3 = json_decode($homesection->part3);
                                                                                 @method('PUT')
                                                                                 <div class="section_1">
                                                                                     <img class="img-fluid"
-                                                                                        src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part1_image }}"
+                                                                                        src="{{ $homesection->getFirstMediaUrl('part1_image') }}"
                                                                                         alt="">
                                                                                     <input type="file"
                                                                                         class="form-control mt-2"
@@ -251,7 +251,7 @@ $part3 = json_decode($homesection->part3);
 
                                                                                 <div class="section_1">
                                                                                     <img class="img-fluid"
-                                                                                        src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part2_image }}"
+                                                                                        src="{{ $homesection->getFirstMediaUrl('part2_image') }}"
                                                                                         alt="">
                                                                                     <input type="file"
                                                                                         class="form-control mt-2"
@@ -301,7 +301,7 @@ $part3 = json_decode($homesection->part3);
 
                                                                                 <div class="section_1">
                                                                                     <img class="img-fluid"
-                                                                                        src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part3_image }}"
+                                                                                        src="{{ $homesection->getFirstMediaUrl('part3_image') }}"
                                                                                         alt="">
                                                                                     <input type="file"
                                                                                         class="form-control mt-2"

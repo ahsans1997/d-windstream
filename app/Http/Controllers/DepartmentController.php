@@ -116,13 +116,10 @@ class DepartmentController extends Controller
 
         if ($request->hasFile('image')) {
             $department = Department::findOrFail($department->id);
-            if($department->getFirstMedia('image'))
-            {
-                $department->clearMediaCollection('image');
-            }
-            $department->addMediaFromRequest('image')->toMediaCollection('image');
-            $department->save();
 
+            $department->clearMediaCollection('department');
+
+            $department->addMediaFromRequest('image')->toMediaCollection('department');
         }
         return redirect()->route('department.index')->with('success', 'Department update successfull');
     }

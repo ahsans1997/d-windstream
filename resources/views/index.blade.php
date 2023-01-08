@@ -73,21 +73,21 @@
                     <p>{{ $homesection->section_1_description }}</p>
                 </div>
                 <div class="col-md-4 accelerating-climate-solutions">
-                    <img class="img-fluid" src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part1_image }}"
+                    <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part1_image') }}"
                         alt="">
                     <h3>{{ $part1->part1_title }}</h3>
                     <p>{{ $part1->part1_description }}</p>
                     <a href="{{ $part1->part1_link }}">{{ $part1->part1_link_name }} <i class="fa-solid fa-angle-right"></i></a>
                 </div>
                 <div class="col-md-4 accelerating-climate-solutions">
-                    <img class="img-fluid" src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part2_image }}"
+                    <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part2_image') }}"
                         alt="">
                     <h3>{{ $part2->part2_title }}</h3>
                     <p>{{ $part2->part2_description }}</p>
                     <a href="{{ $part2->part2_link }}">{{ $part2->part2_link_name }} <i class="fa-solid fa-angle-right"></i></a>
                 </div>
                 <div class="col-md-4 accelerating-climate-solutions">
-                    <img class="img-fluid" src="{{ asset('/') }}assets/images/section_1/{{ $homesection->part3_image }}"
+                    <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part3_image') }}"
                         alt="">
                     <h3>{{ $part3->part3_title }}</h3>
                     <p>{{ $part3->part3_description }}</p>
@@ -203,6 +203,7 @@
                         </div>
                     </div>
                 </div>
+
                 @foreach ($researches as $research)
                     <div class="col-md-3">
                         <div class="research">

@@ -41,9 +41,6 @@ class HomeSectionSeeder extends Seeder
             'part1' => $part1,
             'part2' => $part2,
             'part3' => $part3,
-            'part1_image' => 'default.png',
-            'part2_image' => 'default.png',
-            'part3_image' => 'default.png',
         ];
 
 

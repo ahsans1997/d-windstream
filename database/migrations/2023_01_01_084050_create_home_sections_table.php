@@ -20,9 +20,6 @@ class CreateHomeSectionsTable extends Migration
             $table->text('part1');
             $table->text('part2');
             $table->text('part3');
-            $table->text('part1_image');
-            $table->text('part2_image');
-            $table->text('part3_image');
             $table->timestamps();
         });
     }
