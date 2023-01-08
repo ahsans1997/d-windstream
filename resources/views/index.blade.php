@@ -141,7 +141,7 @@
                 @foreach ($news as $n)
                     <div class="col-md-3 news-banner-3">
                         <div class="news">
-                            <img class="img-fluid" src="{{ asset('/') }}assets/images/news/{{ $n->image }}" alt="">
+                            <img class="img-fluid" src="{{ $n->getFirstMediaUrl('news') }}" alt="">
                             <div class="news-banner-body">
                                 <p>{{ $n->department->name }}</p>
                                 <h5><a href="{{ route('news.single',$n->slug) }}">{{ Str::words($n->title, 6) }}</a></h4>
@@ -212,7 +212,7 @@
                                     alt="">
                             </div>
                             <div class="research-body">
-                                {{-- <p>{{ $research->department->name }}</p> --}}
+                                <p>{{ $research->department->name }}</p>
                                 <h4><a href="{{ route('research',$research->slug) }}">{{ Str::words($research->title, 8) }}</a></h4>
                             </div>
                         </div>

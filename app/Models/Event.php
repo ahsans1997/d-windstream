@@ -16,7 +16,7 @@ class Event extends Model implements HasMedia
 
     public function department()
     {
-         return $this->belongsTo(Department::class);
+        return $this->belongsTo(Department::class);
     }
 }
 

@@ -16,6 +16,6 @@ class Research extends Model implements HasMedia
 
     public function department()
     {
-        return $this -> BelongsTo(Department::class);
+        return $this->belongsTo(Department::class);
     }
 }

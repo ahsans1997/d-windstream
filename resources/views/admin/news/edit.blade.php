@@ -37,7 +37,7 @@
                                 <select class="form-select mb-3" aria-label=".form-select-lg example" name="department_id">
                                     <option value="">Open this select menu</option>
                                     @foreach ($departments as $department)
-                                        <option {{ $department->department_id == $department->id ? 'selected' : '' }} value="{{ $department->id }}">{{ $department->name }}</option>
+                                        <option {{ $news->department_id == $department->id ? 'selected' : '' }} value="{{ $department->id }}">{{ $department->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -47,7 +47,7 @@
                                 <select class="form-select mb-3" aria-label=".form-select-lg example" name="category_id">
                                     <option value="">Open this select menu</option>
                                     @foreach ($categories as $category)
-                                        <option {{ $category->category_id == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option {{ $news->category_id == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
