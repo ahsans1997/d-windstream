@@ -103,6 +103,9 @@
                             <i class='bx bx-fullscreen fs-22'></i>
                         </button>
                     </div>
+                    <div class="ms-1 header-item d-none d-sm-flex">
+                        <a href="{{ url('/') }}" type="button" target="_blank" class="btn btn-info">Views Website</a>
+                    </div>
 
 
                     <div class="dropdown ms-sm-3 header-item topbar-user">
@@ -112,7 +115,7 @@
                                 @if (Auth::user()->profile_photo_path)
                                     <img class="rounded-circle header-profile-user"
                                     src="{{ asset('/') }}assets/images/user/{{ Auth::user()->profile_photo_path }}" alt="Avatar">
-                                    @endif
+                                @endif
                                 @if (Auth::user()->profile_photo_path == '')
                                     <img class="rounded-circle header-profile-user"
                                     src="{{ asset('/') }}assets/images/user/default.png" alt="Avatar">
@@ -374,6 +377,25 @@
                                         data-key="t-chat">Add Faculty Member</a>
                                 </li>
                                 <li class="nav-item">
+
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#labfacility" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarApps">
+                            <i class="ri-apps-2-line"></i> <span data-key="t-apps">Lab Facility</span>
+                        </a>
+                        <div class="collapse menu-dropdown {{ request()->routeIs('labfacility.*') ? 'show' : '' }}" id="labfacility">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('labfacility.index') }}" class="nav-link {{ request()->routeIs('labfacility.index') ? 'active' : '' }}">All Lab Facility</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('labfacility.create') }}" class="nav-link {{ request()->routeIs('labfacility.create') ? 'active' : '' }}"
+                                        data-key="t-chat">Add Lab Facility</a>
+                                </li>
 
                             </ul>
                         </div>

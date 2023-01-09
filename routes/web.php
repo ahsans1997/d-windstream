@@ -9,6 +9,7 @@ use App\Http\Controllers\FacultyMemberController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FacultyMemberResearchController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\LabfacilityController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PageController;
@@ -98,6 +99,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('faculty-member-research-add/{id}',[FacultyMemberController::class,'addResearch'])->name('faculty-member-research-add');
 
     Route::post('faculty-member-research-store/{id}',[FacultyMemberController::class,'facultyMemberResearchStore'])->name('faculty-member-research-store');
+
+    Route::resource('labfacility', LabfacilityController::class);
 
     Route::resource('user', UserController::class);
     Route::put('user/images/{id}', [UserController::class, 'image'])->name('user.image');
