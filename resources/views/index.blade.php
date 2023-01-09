@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('/') }}frontend_asset/css/style.css">
     <style>
         .footer-image{
-            height:200px;
+            height:300px;
         }
     </style>
 </head>

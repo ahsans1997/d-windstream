@@ -267,7 +267,7 @@ class ProgramController extends Controller
         if ($slug == null) {
             $data = [
                 'programs' => Program::with('department')->paginate(5),
-                'title' => 'Program'
+                'title' => 'Programs'
             ];
             return view('program', $data);
         } else {

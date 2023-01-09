@@ -197,12 +197,14 @@ class EventController extends Controller
     {
         return view('event',[
             'events' => Event::orderBy('id', 'desc')->simplePaginate(5),
+            'title' => 'Events',
         ]);
     }
     public function eventsingle($slug){
         return view('event-single',[
             'event_info' => Event::where('slug', $slug)->first(),
             'events' => Event::orderBy('id', 'desc')->limit(3)->get(),
+            'title' => 'Single Event',
         ]);
     }
 }

@@ -42,8 +42,8 @@ class PageController extends Controller
         $request->validate([
             'title' => 'required',
             'slug' => 'required|unique:pages,slug',
-            'image' => 'mimes:jpg,jpeg,png,bmp,gif,svg,webp,pdf| max:2024',
-            'file' => 'max:2024',
+            'image' => 'mimes:jpg,jpeg,png,bmp,gif,svg,webp,pdf| max:10224',
+            'file' => 'max:10224',
 
         ]);
 
