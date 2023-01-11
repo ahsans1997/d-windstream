@@ -21,9 +21,11 @@ class CreateFacultyMembersTable extends Migration
             $table->foreignId('faculty_id');
             $table->text('bio');
             $table->text('contact');
+            $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->string('file')->nullable();
             $table->enum('on_leave',["true","false"]);
+            $table->integer('order')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

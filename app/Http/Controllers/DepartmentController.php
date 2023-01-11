@@ -154,12 +154,14 @@ class DepartmentController extends Controller
 
                 $title = 'Department of ' . $department->name;
                 $department_news = News::where('department_id', $department->id)->orderBY('id', 'desc')->paginate(5);
-                $department_events = Event::where('department_id', $department->id)->paginate(5);
-                $department_faculty_member = FacultyMember::with('designation')->where('department_id', $department->id)->paginate(5);
+                $department_news_featured = News::where('department_id', $department->id)->where('action', 1)->orderBY('id', 'desc')->limit(2)->get();
+                $department_events = Event::where('department_id', $department->id)->where('datetime','>',Carbon::now())->paginate(5);
+                $department_faculty_member = FacultyMember::with('designation')->where('department_id', $department->id)->orderBy('order', 'asc')->paginate(4);
 
                 return view('department-single', [
                     'department' => $department,
                     'department_news' => $department_news,
+                    'department_news_featured' => $department_news_featured,
                     'department_events' => $department_events,
                     'department_faculty_member' => $department_faculty_member,
                     'title' => $title

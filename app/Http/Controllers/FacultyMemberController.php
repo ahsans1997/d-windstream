@@ -91,6 +91,7 @@ class FacultyMemberController extends Controller
             $facultyMember->slug = $this->slug($request->name);
             $facultyMember->faculty_id = 1;
             $facultyMember->on_leave = isset($request->on_leave) ? $request->on_leave : "false";
+            $facultyMember->order = $request->order;
 
             if ($request->image) {
                 $fileName = time() . '.' . $request->image->extension();
@@ -251,6 +252,7 @@ class FacultyMemberController extends Controller
             $facultyMember->slug = $request->slug;
             $facultyMember->faculty_id = 1;
             $facultyMember->on_leave = isset($request->on_leave) ? $request->on_leave : "false";
+            $facultyMember->order = $request->order;
 
             if ($request->image) {
                 $fileName = time() . '.' . $request->image->extension();

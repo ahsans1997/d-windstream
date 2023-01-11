@@ -242,7 +242,7 @@ li {
     position: absolute;
     margin-top: -115px;
     max-width: 550px;
-    width: 100%;
+    width: 96%;
     height: 115px;
     background: linear-gradient(360deg, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0)100%);
 }

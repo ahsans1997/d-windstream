@@ -25,12 +25,12 @@
                                         <div class="container">
                                             <div class="row">
 
-                                                @foreach ($department_news as $n)
+                                                @foreach ($department_news_featured as $n)
                                                     <div class="col-md-6 news-banner-6">
                                                         <div class="news">
                                                             @if ($n->image)
                                                                     <img class="img-fluid"
-                                                                        src="{{ asset('assets/images/news') . '/' . $n->image }}"
+                                                                        src="{{ $n->getFirstMediaUrl('news') }}"
                                                                         alt="">
                                                                 @else
                                                                     <img src="{{ asset('/') }}frontend_asset/img/news/1.jpg"
@@ -174,7 +174,7 @@
     @endforelse
 
 
-                                                                   
+
                                                                 </div>
                                                             </div>
                                                         </div>
