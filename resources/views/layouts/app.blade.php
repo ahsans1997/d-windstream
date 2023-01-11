@@ -400,6 +400,24 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#club" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarApps">
+                            <i class="ri-apps-2-line"></i> <span data-key="t-apps">Clubs</span>
+                        </a>
+                        <div class="collapse menu-dropdown {{ request()->routeIs('club.*') ? 'show' : '' }}" id="club">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('club.index') }}" class="nav-link {{ request()->routeIs('club.index') ? 'active' : '' }}">All Clubs</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('club.create') }}" class="nav-link {{ request()->routeIs('club.create') ? 'active' : '' }}"
+                                        data-key="t-chat">Add Club</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
 
 
 

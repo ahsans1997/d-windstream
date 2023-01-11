@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Club;
+use App\Models\Department;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ClubController extends Controller
 {
@@ -14,7 +17,9 @@ class ClubController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.club.index',[
+            'clubs' => Club::all(),
+        ]);
     }
 
     /**
@@ -24,7 +29,9 @@ class ClubController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.club.create',[
+            'departments' => Department::all(),
+        ]);
     }
 
     /**
@@ -35,7 +42,26 @@ class ClubController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:clubs',
+            'description' => 'required',
+            'department_id' => 'required',
+        ]);
+        $club = new Club();
+        $club->name = $request->name;
+        $club->description = $request->description;
+        $club->department_id = $request->department_id;
+        $club->slug = Str::slug($request->name, '-');
+        $club->meta_keywords = $request->meta_keywords;
+        $club->meta_description = $request->meta_description;
+        $club->save();
+
+        if($request->hasFile('image')){
+            $club->addMediaFromRequest('image')->toMediaCollection('club');
+        }
+
+        Toastr::success('Club Successfully Created', 'Success');
+        return back();
     }
 
     /**
@@ -57,7 +83,10 @@ class ClubController extends Controller
      */
     public function edit(Club $club)
     {
-        //
+        return view('admin.club.edit',[
+            'club' => $club,
+            'departments' => Department::all(),
+        ]);
     }
 
     /**
@@ -69,7 +98,27 @@ class ClubController extends Controller
      */
     public function update(Request $request, Club $club)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:clubs,name,'.$club->id,
+            'description' => 'required',
+            'department_id' => 'required',
+        ]);
+        $club = Club::find($club->id);
+        $club->name = $request->name;
+        $club->description = $request->description;
+        $club->department_id = $request->department_id;
+        $club->slug = Str::slug($request->name, '-');
+        $club->meta_keywords = $request->meta_keywords;
+        $club->meta_description = $request->meta_description;
+        $club->save();
+
+        if($request->hasFile('image')){
+            $club->clearMediaCollection('club');
+            $club->addMediaFromRequest('image')->toMediaCollection('club');
+        }
+
+        Toastr::success('Club Successfully Update', 'Success');
+        return back();
     }
 
     /**
@@ -80,6 +129,10 @@ class ClubController extends Controller
      */
     public function destroy(Club $club)
     {
-        //
+        $club = Club::find($club->id);
+        $club->clearMediaCollection('club');
+        $club->delete();
+        Toastr::warning('Club Successfully Deleted', 'Success');
+        return back();
     }
 }

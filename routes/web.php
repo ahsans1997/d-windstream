@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClubController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
@@ -94,6 +95,9 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('get-country-year',[FacultyMemberController::class,'getCountryYear'])->name('get-country-year');
 
     Route::resource('programs', ProgramController::class);
+
+    Route::resource('club', ClubController::class);
+
     Route::resource('designation', DesignationController::class);
     Route::resource('page',PageController::class);
     Route::get('faculty-member-research-add/{id}',[FacultyMemberController::class,'addResearch'])->name('faculty-member-research-add');

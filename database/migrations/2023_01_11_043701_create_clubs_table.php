@@ -15,6 +15,12 @@ class CreateClubsTable extends Migration
     {
         Schema::create('clubs', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->longText('description');
+            $table->integer('department_id');
+            $table->string('slug');
+            $table->text('meta_keywords');
+            $table->text('meta_description');
             $table->timestamps();
         });
     }
