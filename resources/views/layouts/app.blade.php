@@ -418,6 +418,24 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#office" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarApps">
+                            <i class="ri-apps-2-line"></i> <span data-key="t-apps">Offices</span>
+                        </a>
+                        <div class="collapse menu-dropdown {{ request()->routeIs('offices.*') ? 'show' : '' }}" id="office">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('offices.index') }}" class="nav-link {{ request()->routeIs('offices.index') ? 'active' : '' }}">All Offices</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('offices.create') }}" class="nav-link {{ request()->routeIs('offices.create') ? 'active' : '' }}"
+                                        data-key="t-chat">Add Offices</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
 
 
 

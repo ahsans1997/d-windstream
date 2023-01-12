@@ -13,6 +13,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LabfacilityController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ResearchController;
@@ -97,6 +98,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('programs', ProgramController::class);
 
     Route::resource('club', ClubController::class);
+    Route::resource('offices', OfficeController::class);
 
     Route::resource('designation', DesignationController::class);
     Route::resource('page',PageController::class);
