@@ -135,5 +135,7 @@ class LabfacilityController extends Controller
         $labfacility = Labfacility::find($labfacility->id);
         $labfacility->clearMediaCollection('labfacility');
         $labfacility->delete();
+        Toastr::warning("Lab Facility Delete succssfuly");
+        return back();
     }
 }

@@ -76,7 +76,8 @@ class NewsController extends Controller
                 $news->addMedia($img)->toMediaCollection('newses');
             }
         }
-        return back()->with('success', 'News created successfull.');
+        Toastr::success('News Added Successfully', 'Success');
+        return back();
     }
 
     /**
@@ -153,7 +154,8 @@ class NewsController extends Controller
                 $news->addMedia($img)->toMediaCollection('newses');
             }
         }
-        return back()->with('success', 'News update successfull.');
+        Toastr::success('News Updated Successfully', 'Success');
+        return back();
     }
 
     /**
@@ -170,7 +172,8 @@ class NewsController extends Controller
             $news->clearMediaCollection('newses');
         }
         $news->delete();
-        return back()->with('delete', 'Your Department Delete Successfull.');
+        Toastr::warning('News Delete Successfully');
+        return back();
     }
 
     public function featured($id)

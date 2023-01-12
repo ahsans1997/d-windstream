@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use App\Models\Event;
+use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -78,7 +79,8 @@ class EventController extends Controller
                 $event->addMedia($img)->toMediaCollection('events');
             }
         }
-        return back()->with('success', 'Event Added SuccessFull.');
+        Toastr::success('Event added successfully', 'Success');
+        return back();
     }
 
     /**
@@ -157,8 +159,8 @@ class EventController extends Controller
                 $event->addMedia($img)->toMediaCollection('events');
             }
         }
-
-        return redirect()->route('event.index')->with('success', 'Event Added SuccessFull.');
+        Toastr::success('Event updated successfully', 'Success');
+        return redirect()->route('event.index');
     }
 
     /**
@@ -175,6 +177,7 @@ class EventController extends Controller
             $event->clearMediaCollection('events');
         }
         $event->delete();
+        Toastr::warning('Event deleted successfully');
         return back()->with('delete', 'Event Delete Successfull.');
     }
 

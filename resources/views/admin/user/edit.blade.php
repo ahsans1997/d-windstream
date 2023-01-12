@@ -12,7 +12,7 @@
                         <div class="card mt-n5">
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <img src="{{ asset('/') }}assets/images/user/{{ $user->profile_photo_path }}" class="img-fluid" alt="user-profile-image">
+                                    <img src="{{ $user->getFirstMediaUrl('profile_photo_path') }}" class="img-fluid" alt="user-profile-image">
                                     <h5 class="fs-16 mb-1 mt-3">{{ $user->name }}</h5>
                                     <p class="text-muted mb-0">{{ $user->email }}</p>
                                     <p class="text-muted mb-0">

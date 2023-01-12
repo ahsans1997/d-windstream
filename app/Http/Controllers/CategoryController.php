@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -43,7 +44,8 @@ class CategoryController extends Controller
         Category::insert([
             'name' => $request->name,
         ]);
-        return back()-> with('success', 'Category create Successfull.');
+        Toastr::success('Category added successfully', 'Success');
+        return back();
     }
 
     /**
@@ -85,7 +87,8 @@ class CategoryController extends Controller
         Category::findOrFail($category->id)->update([
             'name' => $request->name,
         ]);
-        return back()->with('success', 'Category update successfull.');
+        Toastr::success('Category update successfully', 'Success');
+        return back();
     }
 
     /**
@@ -97,6 +100,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         Category::findOrFail($category->id)->delete();
-        return back()->with('delete', 'Category delete successfull.');
+        Toastr::warning('Category delete successfully');
+        return back();
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use App\Models\Notice;
+use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -64,7 +65,8 @@ class NoticeController extends Controller
         if($request->hasFile('image')){
             $notice->addMediaFromRequest('image')->toMediaCollection('notice');
         }
-        return back()->with('success', 'Notice created successfull.');
+        Toastr::success('Notice Successfully Saved :)' ,'Success');
+        return back();
     }
 
     /**
@@ -126,7 +128,8 @@ class NoticeController extends Controller
 
             $notice->addMediaFromRequest('image')->toMediaCollection('notice');
         }
-        return redirect()->route('notice.index')->with('success', 'Notice update successfull.');
+        Toastr::success('Notice Successfully Updated :)' ,'Success');
+        return redirect()->route('notice.index');
     }
 
     /**
@@ -140,7 +143,8 @@ class NoticeController extends Controller
         $notice = Notice::findOrFail($notice->id);
         $notice->clearMediaCollection('notice');
         $notice->delete();
-        return back()->with('delete', 'Your Department Delete Successfull.');
+        Toastr::warning('Notice Successfully Deleted :)');
+        return back();
     }
 
     public function notice($slug=null)

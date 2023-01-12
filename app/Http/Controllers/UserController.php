@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
@@ -100,20 +101,16 @@ class UserController extends Controller
     }
     public function image(Request $request, $id)
     {
-        if(User::findOrFail($id)->profile_photo_path){
-            $location = 'public/assets/images/user/'.User::findOrFail($id)->profile_photo_path;
-            unlink(base_path($location));
-            User::findOrFail($id)->update([
-                'profile_photo_path' => "",
-            ]);
-        }
-        $image = $request->file('profile_photo_path');
-        $image_name = 'user'.".".$image->getClientOriginalExtension();
-        $image_location = 'public/assets/images/user/'.$image_name;
-        Image::make($image)->save(base_path($image_location));
-        User::findOrFail($id)->update([
-            'profile_photo_path' => $image_name,
+        $validated = $request->validate([
+            'profile_photo_path' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
         ]);
+        $user = User::findOrFail($id);
+        if ($request->hasFile('profile_photo_path')) {
+            $user->clearMediaCollection('profile_photo_path');
+            $user->addMediaFromRequest('profile_photo_path')->toMediaCollection('profile_photo_path');
+        }
+        Toastr::success('Profile Photo Updated Successfully', 'Success');
         return back();
     }
     public function password(Request $request, $id)

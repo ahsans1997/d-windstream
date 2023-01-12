@@ -9,6 +9,7 @@ use App\Models\Department;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\FacultyMember;
+use Brian2694\Toastr\Facades\Toastr;
 use Intervention\Image\Facades\Image;
 
 class DepartmentController extends Controller
@@ -63,7 +64,8 @@ class DepartmentController extends Controller
             $department->addMediaFromRequest('image')->toMediaCollection('department');
             $department->save();
         }
-        return back()->with('success', 'Department Added SuccessFull.');
+        Toastr::success('Department Successfully Added', 'Success');
+        return back();
     }
 
     /**
@@ -121,7 +123,8 @@ class DepartmentController extends Controller
 
             $department->addMediaFromRequest('image')->toMediaCollection('department');
         }
-        return redirect()->route('department.index')->with('success', 'Department update successfull');
+        Toastr::success('Department Successfully Updated', 'Success');
+        return redirect()->route('department.index');
     }
 
     /**
@@ -135,7 +138,8 @@ class DepartmentController extends Controller
         $department = Department::findOrFail($department->id);
         $department->clearMediaCollection('image');
         $department->delete();
-        return back()->with('delete', 'Your Department Delete Successfull.');
+        Toastr::warning('Department Successfully Deleted');
+        return back();
     }
 
     public function department($slug = null)

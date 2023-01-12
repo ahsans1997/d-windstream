@@ -67,11 +67,11 @@
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             <a href="{{ route('department.edit', $department->id) }}" class="btn btn-success btn-icon waves-effect waves-light"><i class="ri-edit-2-fill"></i></a>
-                                            <form action="{{ route('department.destroy', $department->id) }}" method="post">
+                                            {{-- <form action="{{ route('department.destroy', $department->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
-                                            </form>
+                                            </form> --}}
                                         </div>
                                     </td>
                                 </tr>
