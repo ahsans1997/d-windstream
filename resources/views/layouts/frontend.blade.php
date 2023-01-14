@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="logo">
-                        <a href="{{ url('/') }}"><img src="{{ asset('/') }}frontend_asset/img/niterlogo.png"
+                        <a href="{{ url('/') }}"><img src="{{ setting()->getFirstMediaUrl('web_logo') }}"
                                 alt=""></a>
                     </div>
                 </div>

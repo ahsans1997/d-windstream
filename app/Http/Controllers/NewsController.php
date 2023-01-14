@@ -23,6 +23,7 @@ class NewsController extends Controller
     {
         return view('admin.news.index',[
             'news' => News::with('category','department')->orderBy('id','desc')->paginate(10),
+            'categories' => Category::all(),
         ]);
     }
 

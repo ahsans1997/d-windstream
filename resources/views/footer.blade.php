@@ -67,7 +67,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="footer-left">
-                        <img src="{{asset('assets/images/'. setting()->web_logo)}}" alt="" style="height:50px;width:auto;">
+                        <img src="{{ setting()->getFirstMediaUrl('web_logo') }}" alt="" style="height:50px;width:auto;">
                     </div>
                     <div class="footer-right">
                         <nav>
