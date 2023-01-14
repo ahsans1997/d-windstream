@@ -36,7 +36,7 @@ function default_header_banner($page_name = '')
             return setting()->getFirstMediaUrl('facultymemberbanner');
             break;
         default:
-            return asset('/') . 'frontend_asset/img/banner.jpg';
+            return setting()->getFirstMediaUrl('defaultbanner');
             break;
     }
 

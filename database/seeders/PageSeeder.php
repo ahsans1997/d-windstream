@@ -69,6 +69,18 @@ class PageSeeder extends Seeder
             [
                 'title' => 'Vision and Mission',
                 'slug' => 'vision-mission',
+            ],
+            [
+                'title' => 'Undergraduate Program',
+                'slug' => 'undergraduate-program',
+            ],
+            [
+                'title' => 'Graduate Program',
+                'slug' => 'graduate-program',
+            ],
+            [
+                'title' => 'Alumni',
+                'slug' => 'alumni',
             ]
         ];
 
@@ -81,6 +93,6 @@ class PageSeeder extends Seeder
             }
         }
 
-        
+
     }
 }

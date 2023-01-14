@@ -20,8 +20,8 @@ class CreateOfficesTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('slug');
-            $table->string('meta_keywords');
-            $table->string('meta_description');
+            $table->string('meta_keywords')->nullable();
+            $table->string('meta_description')->nullable();
             $table->timestamps();
         });
     }

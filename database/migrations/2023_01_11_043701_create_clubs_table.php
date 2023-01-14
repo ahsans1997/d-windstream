@@ -19,8 +19,8 @@ class CreateClubsTable extends Migration
             $table->longText('description');
             $table->integer('department_id');
             $table->string('slug');
-            $table->text('meta_keywords');
-            $table->text('meta_description');
+            $table->text('meta_keywords')->nullable();
+            $table->text('meta_description')->nullable();
             $table->timestamps();
         });
     }

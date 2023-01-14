@@ -135,4 +135,29 @@ class ClubController extends Controller
         Toastr::warning('Club Successfully Deleted', 'Success');
         return back();
     }
+    public function clubs($slug = null)
+    {
+        if ($slug == null) {
+            $data = [
+                'clubs' => Club::paginate(9),
+                'title' => 'Clubs'
+            ];
+            return view('clubs.clubs', $data);
+        } else {
+
+            $club = Club::where('slug', $slug)->first();
+
+            if ($club) {
+
+                $title = $club->name;
+
+                return view('clubs.club-single', [
+                    'club' => $club,
+                    'title' => $title
+                ]);
+            } else {
+                return abort(404);
+            }
+        }
+    }
 }

@@ -37,10 +37,10 @@
                                 <input type="text" class="form-control" id="placeholderInput" value="{{ $office->address }}" name="address">
                             </div>
 
-                            <div class="mt-2">
+                            {{-- <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Office Image</label>
                                 <input type="file" class="form-control" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                            </div>
+                            </div> --}}
 
 
                             <div class="card mt-4">

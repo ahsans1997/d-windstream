@@ -28,7 +28,7 @@
                                 @forelse ($clubs as $club)
                                     <tr>
                                         <th>{{ $club->id }}</th>
-                                        <td>{{ $club->title }}</td>
+                                        <td>{{ $club->name }}</td>
                                         <td>{{ $club->department->name }}</td>
                                         <td>
                                             <img src="{{ $club->getFirstMediaUrl('club') }}" class="img-fluid" alt="" style="width: 100px">

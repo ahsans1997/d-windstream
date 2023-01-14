@@ -132,4 +132,25 @@ class OfficeController extends Controller
         Toastr::success('Office successfully deleted');
         return back();
     }
+    public function offices($slug = null)
+    {
+        if ($slug == null) {
+            $offices = Office::latest()->get();
+            return view('offices.offices',[
+                'offices' => $offices,
+                'title' => 'Offices',
+            ]);
+        } else {
+            $office = Office::where('slug', $slug)->first();
+
+            if ($office) {
+                return view('offices.office-single',[
+                    'office' => $office,
+                    'title' => $office->name,
+                ]);
+            } else {
+                return abort(404);
+            }
+        }
+    }
 }

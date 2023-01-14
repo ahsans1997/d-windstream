@@ -23,8 +23,8 @@
                     </ul>
                     <h4>Admission</h4>
                     <ul>
-                        <li><a href="{{route('program')}}">Undergraduate Admission</a></li>
-                        <li><a href="route('program')">Graduate Admission</a></li>
+                        <li><a href="{{ url('/undergraduate-program') }}">Undergraduate Admission</a></li>
+                        <li><a href="{{ url('/graduate-program') }}">Graduate Admission</a></li>
                     </ul>
                 </div>
             </div>
@@ -57,6 +57,9 @@
                         <li><a href="{{url('/clubs-and-societies')}}">Clubs & Society</a></li>
                         <li><a href="{{url('/approved-noc')}}">Approved Noc</a></li>
                         <li><a href="{{url('/niter-form')}}">Niter Form</a></li>
+                        <li><a href="{{url('/alumni')}}">Alumni</a></li>
+                        <li><a href="{{ route('clubs') }}">Clubs</a></li>
+                        <li><a href="{{ route('offices') }}">All Offices</a></li>
                     </ul>
                 </div>
             </div>
