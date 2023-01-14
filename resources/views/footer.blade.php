@@ -23,8 +23,8 @@
                     </ul>
                     <h4>Admission</h4>
                     <ul class="list-style">
-                        <li><a href="{{ url('/undergraduate-program') }}">Undergraduate Admission</a></li>
-                        <li><a href="{{ url('/graduate-program') }}">Graduate Admission</a></li>
+                        <li><a href="{{ url('/undergraduate-admission') }}">Undergraduate Admission</a></li>
+                        <li><a href="{{ url('/graduate-admission') }}">Graduate Admission</a></li>
                     </ul>
                 </div>
             </div>

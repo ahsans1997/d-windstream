@@ -269,14 +269,14 @@ class ProgramController extends Controller
                 'programs' => Program::with('department')->paginate(5),
                 'title' => 'Programs'
             ];
-            return view('program', $data);
+            return view('program.program', $data);
         } else {
 
             $program = Program::with('department','faculty','semister','semister.subjects','syllabus')->where('slug', $slug)->first();
 
             // dd($program->toArray());
             $title = $program->name;
-            return view('program-single', [
+            return view('program.program-single', [
                 'program' => $program,
                 'title' => $title
             ]);

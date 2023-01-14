@@ -146,7 +146,7 @@ class ResearchController extends Controller
     {
         if ($slug == null)
         {
-            return view('research',[
+            return view('research.research',[
                 'researches' => Research::paginate(10),
                 'title' => 'Research',
             ]);
@@ -156,7 +156,7 @@ class ResearchController extends Controller
             $research = Research::where('slug', $slug)->first();
             if($research)
             {
-                return view('research-single',[
+                return view('research.research-single',[
                     'title' => 'Research of '.$research->title,
                     'research' => $research,
                     'researchs' => Research::limit(4)->get(),
@@ -164,5 +164,13 @@ class ResearchController extends Controller
             }
         }
 
+    }
+    public function researchsearch(Request $request)
+    {
+        $search = $request->search;
+        return view('research.researchlist',[
+            'researches' => Research::where('title', 'like', '%'.$search.'%')->paginate(6),
+            'title_search' => 'Search Research',
+        ]);
     }
 }

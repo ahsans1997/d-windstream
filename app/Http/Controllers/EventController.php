@@ -198,16 +198,23 @@ class EventController extends Controller
 
     public function event()
     {
-        return view('event',[
+        return view('event.event',[
             'events' => Event::orderBy('id', 'desc')->simplePaginate(5),
             'title' => 'Events',
         ]);
     }
     public function eventsingle($slug){
-        return view('event-single',[
+        return view('event.event-single',[
             'event_info' => Event::where('slug', $slug)->first(),
             'events' => Event::orderBy('id', 'desc')->limit(3)->get(),
             'title' => 'Single Event',
+        ]);
+    }
+    public function eventsearch(Request $request){
+        $search = $request->search;
+        return view('event.eventlist',[
+            'events' => Event::where('title', 'like', '%'.$search.'%')->simplePaginate(6),
+            'title_search' => 'Search Event',
         ]);
     }
 }

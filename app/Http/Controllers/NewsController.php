@@ -209,7 +209,7 @@ class NewsController extends Controller
     }
 
     public function news(){
-        return view('news',[
+        return view('news.news',[
             'news' => News::orderBy('id', 'DESC')->paginate(9),
             'title' => 'All News'
         ]);
@@ -218,10 +218,20 @@ class NewsController extends Controller
 
         $news_info = News::where('slug', $slug)->first();
 
-        return view('news-single',[
+        return view('news.news-single',[
             'news_info' => $news_info,
             'news' => News::orderBy('id', 'desc')->limit(3)->get(),
             'title' => 'Single News',
+        ]);
+    }
+
+    public function newssearch(Request $request)
+    {
+
+        $news = News::where('title', 'like', '%'.$request->search.'%')->paginate(9);
+        return view('news.newslist',[
+            'news' => $news,
+            'title_search' => 'Search Result'
         ]);
     }
 

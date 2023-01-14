@@ -5,27 +5,7 @@
 <div class="main-div">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 card-header">
-                <h2>Clubs List</h2>
-                <div class="form-group">
-
-
-                    <div class="row">
-                        <div class="col-md-8">
-                            <input type="text" name="search" class="form-control" placeholder="Search Club">
-                        </div>
-
-                        <div class="col-md-2">
-                            <button type="button" class="btn btn-primary btn-block" id="search">
-                                <i class="fa fa-search"></i> Search
-                            </button>
-                        </div>
-                        <div class="col-md-2">
-                            <a href="{{route('clubs')}}" class="btn btn-danger btn-block">Reset</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="col-md-12 card-header">Clubs List</div>
 
             <div class="col-md-12 pt-3" id="clubList">
                 @include('clubs.clubslist')

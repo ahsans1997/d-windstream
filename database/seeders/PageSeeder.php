@@ -71,12 +71,12 @@ class PageSeeder extends Seeder
                 'slug' => 'vision-mission',
             ],
             [
-                'title' => 'Undergraduate Program',
-                'slug' => 'undergraduate-program',
+                'title' => 'Undergraduate Admission',
+                'slug' => 'undergraduate-admission',
             ],
             [
-                'title' => 'Graduate Program',
-                'slug' => 'graduate-program',
+                'title' => 'Graduate Admission',
+                'slug' => 'graduate-admission',
             ],
             [
                 'title' => 'Alumni',

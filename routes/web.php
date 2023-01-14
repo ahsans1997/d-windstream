@@ -43,11 +43,14 @@ Route::get('contact', [FrontendController::class, 'contact'])->name('contact');
 
 Route::get('news',[NewsController::class, 'news'])->name('news');
 Route::get('news/{slug}',[NewsController::class, 'newssingle'])->name('news.single');
+Route::get('news-search', [NewsController::class, 'newssearch'])->name('news.search');
 
 Route::get('event', [EventController::class, 'event'])->name('event');
 Route::get('event/{slug}', [EventController::class, 'eventsingle'])->name('event.single');
+Route::get('event-search', [EventController::class, 'eventsearch'])->name('event.search');
 
 Route::get('research/{slug?}', [ResearchController::class, 'research'])->name('research');
+Route::get('research-search', [ResearchController::class, 'researchsearch'])->name('research.search');
 
 // Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
