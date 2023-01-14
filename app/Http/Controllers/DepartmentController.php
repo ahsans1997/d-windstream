@@ -9,6 +9,7 @@ use App\Models\Department;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\FacultyMember;
+use App\Models\Labfacility;
 use Brian2694\Toastr\Facades\Toastr;
 use Intervention\Image\Facades\Image;
 
@@ -161,6 +162,7 @@ class DepartmentController extends Controller
                 $department_news_featured = News::where('department_id', $department->id)->where('action', 1)->orderBY('id', 'desc')->limit(2)->get();
                 $department_events = Event::where('department_id', $department->id)->where('datetime','>',Carbon::now())->paginate(5);
                 $department_faculty_member = FacultyMember::with('designation')->where('department_id', $department->id)->orderBy('order', 'asc')->paginate(4);
+                $department_lab_facility = Labfacility::where('department_id', $department->id)->first();
 
                 return view('department-single', [
                     'department' => $department,
@@ -168,6 +170,7 @@ class DepartmentController extends Controller
                     'department_news_featured' => $department_news_featured,
                     'department_events' => $department_events,
                     'department_faculty_member' => $department_faculty_member,
+                    'department_lab_facility' => $department_lab_facility,
                     'title' => $title
                 ]);
             } else {

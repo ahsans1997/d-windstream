@@ -146,17 +146,17 @@
                                                                 <div class="row">
 
                                                                     @forelse($department_events as $event)
-    <div class="col-md-3">
+                                                                    <div class="col-md-3">
                                                                         <div class="event-p">
                                                                             <div class="event-p-img">
                                                                                 @if ($event->image)
-    <img class="img-fluid"
-                                                                                            src="{{ asset('assets/images/events') . '/' . $event->image }}"
-                                                                                            alt="">
-@else
-    <img src="//via.placeholder.com/350x150"
-                                                                                            class="lazyloaded" data-ll-status="loaded">
-    @endif
+                                                                                     <img class="img-fluid"
+                                                                                        src="{{ asset('assets/images/events') . '/' . $event->image }}"
+                                                                                        alt="">
+                                                                                @else
+                                                                                    <img src="//via.placeholder.com/350x150"
+                                                                                    class="lazyloaded" data-ll-status="loaded">
+                                                                                @endif
                                                                             </div>
                                                                             <div class="event-p-body">
                                                                                 <h3>{{ $event->title }}</h3>
@@ -165,16 +165,13 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                @empty
+                                                                    @empty
                                                                         <div class="col-md-12">
                                                                             <div class="alert alert-danger">
                                                                                 <h3>No Event Found</h3>
                                                                             </div>
                                                                         </div>
-    @endforelse
-
-
-
+                                                                    @endforelse
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -234,6 +231,31 @@
                             </div>
                         </div>
                     </div>
+                    @if ($department_lab_facility)
+                    <div class="container department-facultymember">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card border-secondary mb-3">
+                                    <div class="card-header" style="background-color: #bbffd4;"><b>Lab Facility</b></div>
+                                    <div class="card-body text-secondary">
+                                        <div class="container">
+                                            <div class="row">
+
+                                                <div class="col-md-4">
+                                                    <img class="img-fluid" src="{{ $department_lab_facility->getFirstMediaUrl('labfacility') }}" alt="">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <p>{{ $department_lab_facility->description }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+
                 </div>
             </div>
         </div>

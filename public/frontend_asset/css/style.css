@@ -4,8 +4,12 @@
     font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
-ul,
+/* ul,
 li {
+    list-style: none;
+} */
+
+.list-style{
     list-style: none;
 }
 
