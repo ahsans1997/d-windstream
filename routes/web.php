@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClubController;
 use App\Http\Controllers\DashboardController;
@@ -60,6 +61,8 @@ Route::get('/program/{slug?}', [ProgramController::class, 'program'])->name('pro
 Route::get('/department/{slug?}', [DepartmentController::class, 'department'])->name('department');
 Route::get('/clubs/{slug?}', [ClubController::class, 'clubs'])->name('clubs');
 Route::get('/offices/{slug?}', [OfficeController::class, 'offices'])->name('offices');
+Route::get('career/{slug?}', [CareerController::class, 'career'])->name('career');
+Route::get('career/download/{slug}', [CareerController::class, 'download'])->name('career.download');
 
 Route::get('notice/{slug?}', [NoticeController::class, 'notice'])->name('notice');
 
@@ -112,6 +115,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::post('faculty-member-research-store/{id}',[FacultyMemberController::class,'facultyMemberResearchStore'])->name('faculty-member-research-store');
 
     Route::resource('labfacility', LabfacilityController::class);
+    Route::resource('career', CareerController::class);
 
     Route::resource('user', UserController::class);
     Route::put('user/images/{id}', [UserController::class, 'image'])->name('user.image');

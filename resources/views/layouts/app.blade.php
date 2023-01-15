@@ -100,7 +100,7 @@
                     <div class="ms-1 header-item d-none d-sm-flex">
                         <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
                             data-toggle="fullscreen">
-                            <i class='bx bx-fullscreen fs-22'></i>
+                            <i class='bx bx-fullscreen fs-22' style="margin: 0 -10px"></i>
                         </button>
                     </div>
                     <div class="ms-1 header-item d-none d-sm-flex">
@@ -431,6 +431,24 @@
                                 <li class="nav-item">
                                     <a href="{{ route('offices.create') }}" class="nav-link {{ request()->routeIs('offices.create') ? 'active' : '' }}"
                                         data-key="t-chat">Add Offices</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#office" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarApps">
+                            <i class="ri-apps-2-line"></i> <span data-key="t-apps">Careers</span>
+                        </a>
+                        <div class="collapse menu-dropdown {{ request()->routeIs('career.*') ? 'show' : '' }}" id="office">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('career.index') }}" class="nav-link {{ request()->routeIs('career.index') ? 'active' : '' }}">Career</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('career.create') }}" class="nav-link {{ request()->routeIs('career.create') ? 'active' : '' }}"
+                                        data-key="t-chat">Add Career</a>
                                 </li>
 
                             </ul>

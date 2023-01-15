@@ -57,6 +57,7 @@
                         <li><a href="{{url('/clubs-and-societies')}}">Clubs & Society</a></li>
                         <li><a href="{{url('/approved-noc')}}">Approved Noc</a></li>
                         <li><a href="{{url('/niter-form')}}">Niter Form</a></li>
+                        <li><a href="{{route('career')}}">Career</a></li>
                         <li><a href="{{url('/alumni')}}">Alumni</a></li>
                         <li><a href="{{ route('clubs') }}">Clubs</a></li>
                         <li><a href="{{ route('offices') }}">All Offices</a></li>
