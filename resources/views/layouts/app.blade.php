@@ -339,7 +339,7 @@
                             aria-controls="sidebarApps">
                             <i class="ri-calendar-event-line"></i> <span data-key="t-apps">Designation</span>
                         </a>
-                    <div class="collapse menu-dropdown {{ request()->routeIs('designation.*') ? 'show' : '' }}" id="designation">
+                        <div class="collapse menu-dropdown {{ request()->routeIs('designation.*') ? 'show' : '' }}" id="designation">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a href="{{ route('designation.index') }}" class="nav-link {{ request()->routeIs('designation.index') ? 'active' : '' }}">
@@ -348,6 +348,26 @@
                                 <li class="nav-item">
                                     <a href="{{ route('designation.create') }}" class="nav-link {{ request()->routeIs('designation.create') ? 'active' : '' }}"
                                         data-key="t-chat"> Add Designation
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link"
+                            href="#governingbody" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                            aria-controls="sidebarApps">
+                            <i class="ri-calendar-event-line"></i> <span data-key="t-apps">Governing Body</span>
+                        </a>
+                        <div class="collapse menu-dropdown {{ request()->routeIs('governingbody.*') ? 'show' : '' }}" id="governingbody">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('governingbody.index') }}" class="nav-link {{ request()->routeIs('governingbody.index') ? 'active' : '' }}">
+                                        All Governing Body </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('governingbody.create') }}" class="nav-link {{ request()->routeIs('governingbody.create') ? 'active' : '' }}"
+                                        data-key="t-chat"> Add Governing Body
                                     </a>
                                 </li>
                             </ul>

@@ -13,11 +13,6 @@
                     <div class="header">
                         <h2>Create Notice</h2>
                     </div>
-                    @if (session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ session('success') }}
-                        </div>
-                    @endif
                     <div class="form mt-3">
                         <form action="{{ route('notice.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
@@ -26,20 +21,10 @@
                                 <label for="placeholderInput" class="form-label">Title</label>
                                 <input type="text" class="form-control" id="placeholderInput" placeholder="Title" name="title">
                             </div>
-                            @error('title')
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Description</label>
                                 <textarea name="description" class="summernote form-control" rows="6"></textarea>
                             </div>
-                            @error('description')
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Department</label>
                                 <select class="form-select mb-3" aria-label=".form-select-lg example" name="department_id">
@@ -49,11 +34,6 @@
                                     @endforeach
                                 </select>
                             </div>
-                            @error('department_id')
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
 
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Notice Image</label>

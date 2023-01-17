@@ -20,6 +20,7 @@
                     <ul class="list-style">
                         <li><a href="{{ route('program') }}">Programs A-Z</a></li>
                         <li><a href="{{ route('department')}}">Departments A-Z</a></li>
+                        <li><a href="{{route('faculty-member')}}">All Faculty Member</a></li>
                     </ul>
                     <h4>Admission</h4>
                     <ul class="list-style">
@@ -32,9 +33,10 @@
                 <div class="footer">
                     <h4>About</h4>
                     <ul class="list-style">
+                        <li><a href="">Messages</a></li>
                         <li><a href="{{url('/historical-overview')}}">Historical Overview</a></li>
                         <li><a href="{{url('/vision-mission')}}">Vision & Mission</a></li>
-                        <li><a href="{{route('faculty-member')}}">Faculty Member</a></li>
+                        <li><a href="">The Governing Body</a></li>
                     </ul>
                 </div>
             </div>
@@ -54,12 +56,13 @@
                     <h4>Others</h4>
                     <ul class="list-style">
                         <li><a href="{{ route('notice')}}">Notice A-Z</a></li>
-                        <li><a href="{{url('/clubs-and-societies')}}">Clubs & Society</a></li>
+                        <li><a href="{{ route('clubs') }}">Clubs & Society</a></li>
                         <li><a href="{{url('/approved-noc')}}">Approved Noc</a></li>
                         <li><a href="{{url('/niter-form')}}">Niter Form</a></li>
                         <li><a href="{{route('career')}}">Career</a></li>
                         <li><a href="{{url('/alumni')}}">Alumni</a></li>
-                        <li><a href="{{ route('clubs') }}">Clubs</a></li>
+                        <li><a href="{{url('/seip')}}">SEIP</a></li>
+                        <li><a href="">Resources</a></li>
                         <li><a href="{{ route('offices') }}">All Offices</a></li>
                     </ul>
                 </div>

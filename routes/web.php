@@ -11,6 +11,8 @@ use App\Http\Controllers\FacultyMemberController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FacultyMemberResearchController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\GoverningBodyController;
+use App\Http\Controllers\GoverningController;
 use App\Http\Controllers\LabfacilityController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NoticeController;
@@ -23,6 +25,7 @@ use App\Http\Controllers\UserController;
 use App\Models\Designation;
 use App\Models\FacultyMember;
 use App\Models\FacultyMemberResearch;
+use App\Models\Governing;
 use Barryvdh\Debugbar\DataCollector\EventCollector;
 use Illuminate\Support\Facades\Route;
 
@@ -116,6 +119,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
 
     Route::resource('labfacility', LabfacilityController::class);
     Route::resource('career', CareerController::class);
+
+    Route::resource('governingbody', GoverningBodyController::class);
 
     Route::resource('user', UserController::class);
     Route::put('user/images/{id}', [UserController::class, 'image'])->name('user.image');
