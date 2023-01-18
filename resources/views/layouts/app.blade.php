@@ -207,6 +207,7 @@
                             <i class="ri-dashboard-2-line"></i> <span>Dashboards</span>
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link menu-link"
                             href="#department" data-bs-toggle="collapse" role="button" aria-expanded="false"
@@ -227,6 +228,7 @@
                             </ul>
                         </div>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#programs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
                             <i class="ri-mini-program-fill"></i> <span data-key="t-apps">Programs</span>
@@ -269,6 +271,7 @@
                             </ul>
                         </div>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link menu-link"
                             href="#research" data-bs-toggle="collapse" role="button" aria-expanded="false"
@@ -291,6 +294,7 @@
                             </ul>
                         </div>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link menu-link"
                             href="#event" data-bs-toggle="collapse" role="button" aria-expanded="false"
@@ -311,6 +315,7 @@
                             </ul>
                         </div>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link menu-link "
                             href="#notice" data-bs-toggle="collapse" role="button" aria-expanded="false"
@@ -333,6 +338,7 @@
                             </ul>
                         </div>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link menu-link"
                             href="#designation" data-bs-toggle="collapse" role="button" aria-expanded="false"
@@ -353,6 +359,7 @@
                             </ul>
                         </div>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link menu-link"
                             href="#governingbody" data-bs-toggle="collapse" role="button" aria-expanded="false"
@@ -420,6 +427,7 @@
                             </ul>
                         </div>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#club" data-bs-toggle="collapse" role="button"
                             aria-expanded="false" aria-controls="sidebarApps">
@@ -438,6 +446,7 @@
                             </ul>
                         </div>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#office" data-bs-toggle="collapse" role="button"
                             aria-expanded="false" aria-controls="sidebarApps">
@@ -456,6 +465,7 @@
                             </ul>
                         </div>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#office" data-bs-toggle="collapse" role="button"
                             aria-expanded="false" aria-controls="sidebarApps">
@@ -475,8 +485,11 @@
                         </div>
                     </li>
 
-
-
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="{{ route('about.index') }}">
+                            <i class="ri-dashboard-2-line"></i> <span>About</span>
+                        </a>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#settings" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">

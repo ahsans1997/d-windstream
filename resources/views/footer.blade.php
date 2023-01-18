@@ -33,9 +33,9 @@
                 <div class="footer">
                     <h4>About</h4>
                     <ul class="list-style">
-                        <li><a href="">Messages</a></li>
-                        <li><a href="{{url('/historical-overview')}}">Historical Overview</a></li>
-                        <li><a href="{{url('/vision-mission')}}">Vision & Mission</a></li>
+                        <li><a href="{{ route('about') }}">Messages</a></li>
+                        <li><a href="{{ route('about') }}">Historical Overview</a></li>
+                        <li><a href="{{ route('about') }}">Vision & Mission</a></li>
                         <li><a href="">The Governing Body</a></li>
                     </ul>
                 </div>

@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul>
                 <li><a class="{{ request()->path() == '/' ? 'active' : '' }}" href="{{ route('home') }}">Home</a></li>
-                <li><a class="{{ request()->path() == 'about' ? 'active' : '' }}" href="{{ url('/about') }}">About</a></li>
+                <li><a class="{{ request()->path() == 'about' ? 'active' : '' }}" href="{{ route('about') }}">About</a></li>
                 <li><a class="{{ request()->path() == 'program' ? 'active' : '' }}" href="{{ route('program') }}">Programs</a></li>
                 <li><a class="{{ request()->path() == 'news' ? 'active' : '' }}" href="{{ route('news') }}">News</a></li>
                 <li><a class="{{ request()->path() == 'event' ? 'active' : '' }}" href="{{ route('event') }}">Events</a></li>
