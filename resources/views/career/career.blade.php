@@ -5,19 +5,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card-header">Clubs List</div>
+                    <div class="card-header">Job List</div>
                     <div class="card-body">
                         @forelse($careers as $career)
                             <div class="info border-bottom-1 p-2">
-                                <h5><a href="{{ route('career',$career->slug) }}" class="color-black">{{ $career->title }}</a>
-                                </h5>
+                                <h4><a href="{{ route('career.download',$career->slug) }}" class="color-black">{{ $career->title }}</a>
+                                </h4>
                                 <ul class="d-flex justify-content-between">
                                     <li class="d-inline-block">Date : {{ $career->date_start }} to {{ $career->date_end }}</li>
-                                    <li class="d-inline-block pull-right">
-                                        <a href="{{ route('career',$career->slug) }}" target="_blank"
-                                            class="btn circle btn-dark border btn-sm text-center rounded-5">
-                                            <i class="fas fa-plus" style="color: #002147"></i> Read More</a>
-                                    </li>
                                 </ul>
                             </div>
                         @empty
