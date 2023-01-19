@@ -467,11 +467,29 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link menu-link" href="#office" data-bs-toggle="collapse" role="button"
+                        <a class="nav-link menu-link" href="#faq" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarApps">
+                            <i class="ri-apps-2-line"></i> <span data-key="t-apps">FAQ</span>
+                        </a>
+                        <div class="collapse menu-dropdown {{ request()->routeIs('faq.*') ? 'show' : '' }}" id="faq">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('faq.index') }}" class="nav-link {{ request()->routeIs('faq.index') ? 'active' : '' }}">FAQ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('faq.create') }}" class="nav-link {{ request()->routeIs('faq.create') ? 'active' : '' }}"
+                                        data-key="t-chat">Add FAQ</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#career" data-bs-toggle="collapse" role="button"
                             aria-expanded="false" aria-controls="sidebarApps">
                             <i class="ri-apps-2-line"></i> <span data-key="t-apps">Careers</span>
                         </a>
-                        <div class="collapse menu-dropdown {{ request()->routeIs('career.*') ? 'show' : '' }}" id="office">
+                        <div class="collapse menu-dropdown {{ request()->routeIs('career.*') ? 'show' : '' }}" id="career">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a href="{{ route('career.index') }}" class="nav-link {{ request()->routeIs('career.index') ? 'active' : '' }}">Career</a>

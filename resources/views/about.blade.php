@@ -8,13 +8,13 @@
                     <!-- Tab navs -->
                     <div class="nav flex-column nav-tabs text-center" id="v-tabs-tab" role="tablist"
                         aria-orientation="vertical">
-                        <a class="nav-link active" id="v-tabs-historical-tab" data-mdb-toggle="tab" href="#v-tabs-historical"
+                        <a class="nav-link " id="v-tabs-historical-tab" data-mdb-toggle="tab" href="#v-tabs-historical"
                             role="tab" aria-controls="v-tabs-historical" aria-selected="true">Historical Overview</a>
 
                         <a class="nav-link" id="v-tabs-vision-tab" data-mdb-toggle="tab" href="#v-tabs-vision"
                             role="tab" aria-controls="v-tabs-vision" aria-selected="false">Vision & Mission</a>
 
-                        <a class="nav-link" id="v-tabs-Chairman-tab" data-mdb-toggle="tab" href="#v-tabs-Chairman"
+                        <a class="nav-link active" id="v-tabs-Chairman-tab" data-mdb-toggle="tab" href="#v-tabs-Chairman"
                             role="tab" aria-controls="v-tabs-Chairman" aria-selected="false">Message From Chairman</a>
 
                             <a class="nav-link" id="v-tabs-Principal-tab" data-mdb-toggle="tab" href="#v-tabs-Principal"
@@ -26,7 +26,7 @@
                 <div class="col-9 mt-4" style="border: 1px solid gray;">
                     <!-- Tab content -->
                     <div class="tab-content" id="v-tabs-tabContent" style="padding: 5px">
-                        <div class="tab-pane fade show active" id="v-tabs-historical" role="tabpanel"
+                        <div class="tab-pane fade " id="v-tabs-historical" role="tabpanel"
                             aria-labelledby="v-tabs-historical-tab">
                             <h4 style="font-weight: 700; font-size: 24px" class="mt-4">Historical Overview</h4>
                             {!! $about->historicaloverview !!}
@@ -38,7 +38,7 @@
                             <h4 style="font-weight: 700; font-size: 24px" class="mt-4">Vision</h4>
                             {!! $about->vision !!}
                         </div>
-                        <div class="tab-pane fade" id="v-tabs-Chairman" role="tabpanel"
+                        <div class="tab-pane fade show active" id="v-tabs-Chairman" role="tabpanel"
                             aria-labelledby="v-tabs-Chairman-tab">
                             <h4 style="font-weight: 700; font-size: 40px" class="mt-4"><u>Messages From Chairman</u></h4>
                             <div class="row">
@@ -50,6 +50,7 @@
                                     <h5 class="mt-2">Chairman</h5>
                                 </div>
                                 <div class="col-md-12 mt-4">
+                                    <h5 style="font-weight: 900">Respected Teachers, Dear Students, Officers and Staffs:</h5>
                                     {!! $about->messagefromchairman !!}
                                 </div>
                             </div>
@@ -67,6 +68,7 @@
                                     <h5 class="mt-2">Principal</h5>
                                 </div>
                                 <div class="col-md-12 mt-4">
+                                    <h5 style="font-weight: 900">Respected Teachers, Dear Students, Officers and Staffs:</h5>
                                     {!! $about->messagefromprincipal !!}
                                 </div>
                             </div>

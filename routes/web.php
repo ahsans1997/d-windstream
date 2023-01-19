@@ -11,6 +11,7 @@ use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\FacultyMemberController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FacultyMemberResearchController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\GoverningBodyController;
 use App\Http\Controllers\LabfacilityController;
@@ -72,6 +73,7 @@ Route::get('faculty-member',[FacultyMemberController::class, 'facultyMember'])->
 Route::get('member-profile/{slug}',[FacultyMemberController::class, 'memberProfile'])->name('member-profile');
 
 Route::get('about', [AboutController::class, 'about'])->name('about');
+Route::get('faq', [FaqController::class, 'faq'])->name('faq');
 
 Route::get('/{slug?}', [FrontendController::class, 'home'])->name('home');
 
@@ -118,6 +120,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('career', CareerController::class);
 
     Route::resource('governingbody', GoverningBodyController::class);
+
+    Route::resource('faq', FaqController::class);
 
     Route::resource('user', UserController::class);
     Route::put('user/images/{id}', [UserController::class, 'image'])->name('user.image');
