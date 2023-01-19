@@ -32,7 +32,7 @@
                         <div class="col-md-12">
                             <div class="logo">
                                 <a href="{{ url('/') }}"><img
-                                        src="{{ $settings->getFirstMediaUrl('web_logo') }}" style="height:60px;width:auto;" alt=""></a>
+                                        src="{{ $settings->getFirstMediaUrl('web_logo') }}" style="height:70px;width:auto;" alt=""></a>
                             </div>
                         </div>
                     </div>

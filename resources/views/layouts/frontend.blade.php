@@ -25,8 +25,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="logo">
-                        <a href="{{ url('/') }}"><img src="{{ setting()->getFirstMediaUrl('web_logo') }}"
-                                alt=""></a>
+                        <a href="{{ url('/') }}"><img class="img-fluid" src="{{ setting()->getFirstMediaUrl('web_logo') }}"
+                            style="height:70px;width:auto;" alt=""></a>
                     </div>
                 </div>
             </div>

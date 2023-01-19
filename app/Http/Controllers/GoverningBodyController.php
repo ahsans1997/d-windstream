@@ -132,4 +132,14 @@ class GoverningBodyController extends Controller
         Toastr::warning('Governing Body Member Deleted Successfully', 'Success');
         return back();
     }
+
+    public function governingbody()
+    {
+        return view('governingbody',[
+            'chairmans' => GoverningBody::where('position', 1)->orderBy('serial', 'asc')->get(),
+            'members' => GoverningBody::where('position', 2)->orderBy('serial', 'asc')->get(),
+            'secretarys' => GoverningBody::where('position', 3)->orderBy('serial', 'asc')->get(),
+            'title' => 'The Governing Body',
+        ]);
+    }
 }

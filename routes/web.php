@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClubController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
@@ -52,7 +53,7 @@ Route::get('research/{slug?}', [ResearchController::class, 'research'])->name('r
 Route::get('research-search', [ResearchController::class, 'researchsearch'])->name('research.search');
 
 // Route::get('/about', [FrontendController::class, 'about'])->name('about');
-Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 
 
 Route::get('/program/{slug?}', [ProgramController::class, 'program'])->name('program');
@@ -74,6 +75,7 @@ Route::get('member-profile/{slug}',[FacultyMemberController::class, 'memberProfi
 
 Route::get('about', [AboutController::class, 'about'])->name('about');
 Route::get('faq', [FaqController::class, 'faq'])->name('faq');
+Route::get('governing-body', [GoverningBodyController::class, 'governingbody'])->name('governingbody');
 
 Route::get('/{slug?}', [FrontendController::class, 'home'])->name('home');
 
@@ -122,6 +124,9 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('governingbody', GoverningBodyController::class);
 
     Route::resource('faq', FaqController::class);
+
+    Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+    Route::get('contact/{id}', [ContactController::class, 'update'])->name('contact.update');
 
     Route::resource('user', UserController::class);
     Route::put('user/images/{id}', [UserController::class, 'image'])->name('user.image');

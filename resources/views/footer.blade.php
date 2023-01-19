@@ -36,7 +36,7 @@
                         <li><a href="{{ route('about') }}">Messages</a></li>
                         <li><a href="{{ route('about') }}">Historical Overview</a></li>
                         <li><a href="{{ route('about') }}">Vision & Mission</a></li>
-                        <li><a href="">The Governing Body</a></li>
+                        <li><a href="{{ route('governingbody') }}">The Governing Body</a></li>
                     </ul>
                 </div>
             </div>
