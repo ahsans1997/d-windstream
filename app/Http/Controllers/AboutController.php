@@ -123,6 +123,7 @@ class AboutController extends Controller
     {
         return view('about',[
             'about' => About::findOrFail(1),
+            'title' => 'About',
         ]);
     }
 }

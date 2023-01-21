@@ -28,18 +28,6 @@ class PageSeeder extends Seeder
                 'slug' => 'accessibility',
             ],
             [
-                'title' => 'About',
-                'slug' => 'about',
-            ],
-            [
-                'title' => 'Contact',
-                'slug' => 'contact',
-            ],
-            [
-                'title' => 'faq',
-                'slug' => 'faq',
-            ],
-            [
                 'title' => 'Student Portal',
                 'slug' => 'student-portal',
             ],
@@ -51,10 +39,6 @@ class PageSeeder extends Seeder
                 'slug' => 'webmail-login',
             ],
             [
-                'title' => 'Clubs and societies',
-                'slug' => 'clubs-and-societies',
-            ],
-            [
                 'title' => 'Approved Noc',
                 'slug' => 'approved-noc',
             ],
@@ -63,24 +47,12 @@ class PageSeeder extends Seeder
                 'slug' => 'niter-form',
             ],
             [
-                'title' => 'Historical Overview',
-                'slug' => 'historical-overview',
-            ],
-            [
-                'title' => 'Vision and Mission',
-                'slug' => 'vision-mission',
-            ],
-            [
-                'title' => 'Undergraduate Admission',
-                'slug' => 'undergraduate-admission',
-            ],
-            [
-                'title' => 'Graduate Admission',
-                'slug' => 'graduate-admission',
-            ],
-            [
                 'title' => 'Alumni',
                 'slug' => 'alumni',
+            ],
+            [
+                'title' => 'SEIP',
+                'slug' => 'seip',
             ]
         ];
 

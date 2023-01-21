@@ -44,7 +44,7 @@
                 <div class="footer">
                     <h4>Link</h4>
                     <ul class="list-style">
-                        <li><a href="{{url('/faq')}}">FAQ</a></li>
+                        <li><a href="{{route('faq')}}">FAQ</a></li>
                         <li><a target="_blank" href="{{url('/student-portal')}}">Student Portal</a></li>
                         <li><a target="_blank" href="{{url('/staff-portal')}}">Staff Portal</a></li>
                         <li><a target="_blank" href="{{url('/webmail-login')}}">Webmail Login</a></li>

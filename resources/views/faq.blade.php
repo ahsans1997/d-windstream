@@ -100,10 +100,10 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingThree">
+                        <div class="card-header" id="headingFive">
                             <h5 class="mb-0">
                                 <button class="btn btn-link collapsed button" type="button" data-toggle="collapse"
-                                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                                     Library
                                 </button>
                                 <button class="btn btn-link collapsed button plus" type="button" data-toggle="collapse"
@@ -112,7 +112,7 @@
                                 </button>
                             </h5>
                         </div>
-                        <div id="collapseThree" class="collapse question" aria-labelledby="headingThree"
+                        <div id="collapseFive" class="collapse question" aria-labelledby="headingFive"
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 @foreach ($library as $l)
