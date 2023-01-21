@@ -38,7 +38,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('contact', [FrontendController::class, 'contact'])->name('contact');
+// Route::get('contact', [FrontendController::class, 'contact'])->name('contact');
 
 
 Route::get('news',[NewsController::class, 'news'])->name('news');
@@ -126,7 +126,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('faq', FaqController::class);
 
     Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
-    Route::get('contact/{id}', [ContactController::class, 'update'])->name('contact.update');
+    Route::put('contact/{id}', [ContactController::class, 'update'])->name('contact.update');
 
     Route::resource('user', UserController::class);
     Route::put('user/images/{id}', [UserController::class, 'image'])->name('user.image');

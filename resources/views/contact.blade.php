@@ -1,83 +1,264 @@
 @extends('layouts.frontend')
 
 @section('content')
-    <div class="main-div">
+    @php
+        $enquiries = json_decode($contact->enquiries);
+        $accommodation = json_decode($contact->accommodation);
+        $emergency = json_decode($contact->emergency);
+        $exam = json_decode($contact->exam);
+        $library = json_decode($contact->library);
+        $accounts = json_decode($contact->accounts);
+        $it = json_decode($contact->it);
+        $crir = json_decode($contact->crir);
+        $location = json_decode($contact->location);
+    @endphp
+
+    <div class="main-div mb-3">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="contact-header">
-                        <h2>Contact OF NITER</h2>
-                        <hr>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="contact-info">
-                        <h3>Contact Details</h3>
-                        <hr>
-                        <div class="contact-body">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <i class="fa-solid fa-map-location-dot"></i>
-                                        <div class="contact-body-info">
-                                            <h4>Address</h4>
-                                            <p>NITER, Nayarhat Savar, Dhaka 1350 Bangladesh</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <i class="fa-solid fa-phone-volume"></i>
-                                        <div class="contact-body-info">
-                                            <h4>Call us</h4>
-                                            <p>01755-060275</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <i class="fa-solid fa-envelope-open-text"></i>
-                                        <div class="contact-body-info">
-                                            <h4>Mail</h4>
-                                            <p>ad.niter@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <i class="fa-brands fa-facebook"></i>
-                                        <div class="contact-body-info">
-                                            <h4>Facebook</h4>
-                                            <p></p>
-                                        </div>
-                                    </div>
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        General Enquiries
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordion">
+                                <div class="card-body" style="margin-left: 40px">
+                                    <p>
+                                        <label for="">Phone : </label>
+                                        <span>{{ $enquiries->enquiryphone }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Email : </label>
+                                        <span>{{ $enquiries->enquiryemail }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Address : </label>
+                                        <span>{{ $enquiries->enquiryaddress }}</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="contact-info">
-                        <h3>Send Us A Message</h3>
-                        <hr>
-                        <div class="contact-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Name</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                        aria-expanded="false" aria-controls="collapseTwo">
+                                        Students Accommodation
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body" style="margin-left: 40px">
+                                    <h2><u>Boys Hostel</u></h2>
+                                    <p>
+                                        <label for="">Phone : </label>
+                                        <span>{{ $accommodation->boys->accommodationboysphone }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Email : </label>
+                                        <span>{{ $accommodation->boys->accommodationboysemail }}</span>
+                                    </p>
+                                    <hr>
+                                    <h2><u>Girls Hostel</u></h2>
+                                    <p>
+                                        <label for="">Email : </label>
+                                        <span>{{ $accommodation->female->accommodationfemalephone }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Email : </label>
+                                        <span>{{ $accommodation->female->accommodationfemaleemail }}</span>
+                                    </p>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Message</label>
-                                    <textarea name="" id="" class="form-control" cols="10"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="contact-map">
-                        <h3>Google Map</h3>
-                        <hr>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.230071552741!2d90.22937307608241!3d23.916905782362296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755e8dae5260da7%3A0x20a78235074c8264!2z4Kac4Ka-4Kak4KeA4KefIOCmrOCmuOCnjeCmpOCnjeCmsCDgpqrgp43gprDgppXgp4zgprbgprIg4KaTIOCml-CmrOCnh-Cmt-Cmo-CmviDgpofgpqjgprjgp43gpp_gpr_gpp_gpr_gpongpp8gLSDgpqjgpr_gpp_gpr7gprA!5e0!3m2!1sen!2sbd!4v1671945621621!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Emergency
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                data-parent="#accordion">
+                                <div class="card-body" style="margin-left: 40px">
+                                    <h2><u>Medical Team</u></h2>
+                                    <p>
+                                        <label for="">Phone : </label>
+                                        <span>{{ $emergency->medical->emergencymedicalphone }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Email : </label>
+                                        <span>{{ $emergency->medical->emergencymedicalemail }}</span>
+                                    </p>
+                                    <hr>
+                                    <h2><u>Proctorial Team</u></h2>
+                                    <p>
+                                        <label for="">Phone : </label>
+                                        <span>{{ $emergency->proctorial->emergencyproctorialphone }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Email : </label>
+                                        <span>{{ $emergency->proctorial->emergencyproctorialemail }}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                        data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Office of the Controller of Exam
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                data-parent="#accordion">
+                                <div class="card-body" style="margin-left: 40px">
+                                    <p>
+                                        <label for="">Phone : </label>
+                                        <span>{{ $exam->examphone }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Email : </label>
+                                        <span>{{ $exam->examemail }}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFive">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                        data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        NITER Library
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+                                data-parent="#accordion">
+                                <div class="card-body" style="margin-left: 40px">
+                                    <p>
+                                        <label for="">Phone : </label>
+                                        <span>{{ $library->libraryphone }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Email : </label>
+                                        <span>{{ $library->libraryemail }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Online Support : </label>
+                                        <span>{{ $library->libraryonlinesupport }}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSix">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                        data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        Office of the Accounts and Audits
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
+                                data-parent="#accordion">
+                                <div class="card-body" style="margin-left: 40px">
+                                    <p>
+                                        <label for="">Phone : </label>
+                                        <span>{{ $accounts->accountsphone }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Email : </label>
+                                        <span>{{ $accounts->accountsemail }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Bank Account Name & No : </label>
+                                        <span>{{ $accounts->accountsbank }}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSeven">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                        data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                        IT Cell
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven"
+                                data-parent="#accordion">
+                                <div class="card-body" style="margin-left: 40px">
+                                    <p>
+                                        <label for="">Phone : </label>
+                                        <span>{{ $it->itphone }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Email : </label>
+                                        <span>{{ $it->itemail }}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingEight">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                        data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                        CRIR of NITER
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseEight" class="collapse" aria-labelledby="headingEight"
+                                data-parent="#accordion">
+                                <div class="card-body" style="margin-left: 40px">
+                                    <p>
+                                        <label for="">Phone : </label>
+                                        <span>{{ $crir->crirphone }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Email : </label>
+                                        <span>{{ $crir->criremail }}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingNine">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                        data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                        Campus Location & Map
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseNine" class="collapse" aria-labelledby="headingNine"
+                                data-parent="#accordion">
+                                <div class="card-body" style="margin-left: 40px">
+                                    <p>
+                                        <label for="">Address : </label>
+                                        <span>{{ $location->locationaddress }}</span>
+                                    </p>
+                                    <p>
+                                        <label for="">Location & Map : </label>
+                                        <span><a href="{{ $location->locationmap }}" target="_blank" class="btn btn-success">View Map</a></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

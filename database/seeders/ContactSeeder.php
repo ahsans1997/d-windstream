@@ -16,69 +16,71 @@ class ContactSeeder extends Seeder
     public function run()
     {
         $enquiry = [
-            'phone' => '+880 2 5500 0000',
-            'email' => 'test@test.com',
-            'address' => 'Dhaka, Bangladesh',
+            'enquiryphone' => '+880 2 5500 0000',
+            'enquiryemail' => 'test@test.com',
+            'enquiryaddress' => 'Dhaka, Bangladesh',
         ];
         $enquiries = json_encode($enquiry);
 
         $accommodation = [
             'boys' =>[
-                'phone' => '+880 2 5500 0000',
-                'email' => 'test@t,com',
+                'accommodationboysphone' => '+880 2 5500 0000',
+                'accommodationboysemail' => 'test@test.com',
             ],
             'female' =>[
-                'phone' => '+880 2 5500 0000',
-                'email' => 'test@t,com',
+                'accommodationfemalephone' => '+880 2 5500 0000',
+                'accommodationfemaleemail' => 'test@test.com',
             ],
         ];
         $accommodations = json_encode($accommodation);
 
         $emergency = [
             'medical' =>[
-                'phone' => '+880 2 5500 0000',
-                'email' => 'test@t,com',
+                'emergencymedicalphone' => '+880 2 5500 0000',
+                'emergencymedicalemail' => 'test@test.com',
             ],
             'proctorial' =>[
-                'phone' => '+880 2 5500 0000',
-                'email' => 'test@t,com',
+                'emergencyproctorialphone' => '+880 2 5500 0000',
+                'emergencyproctorialemail' => 'test@test.com',
             ],
         ];
         $emergencies = json_encode($emergency);
 
         $exam = [
-            'phone' => '+880 2 5500 0000',
-            'email' => 'test@test.com',
+            'examphone' => '+880 2 5500 0000',
+            'examemail' => 'test@test.com',
         ];
         $exams = json_encode($exam);
 
         $library = [
-            'phone' => '+880 2 5500 0000',
-            'email' => 'test@test.com',
+            'libraryphone' => '+880 2 5500 0000',
+            'libraryemail' => 'test@test.com',
+            'libraryonlinesupport' => 'test',
         ];
         $libraries = json_encode($library);
 
         $accounts = [
-            'phone' => '+880 2 5500 0000',
-            'email' => 'test@test.com',
+            'accountsphone' => '+880 2 5500 0000',
+            'accountsemail' => 'test@test.com',
+            'accountsbank' => 'test bank',
         ];
         $accountss = json_encode($accounts);
 
         $it = [
-            'phone' => '+880 2 5500 0000',
-            'email' => 'test@test.com',
+            'itphone' => '+880 2 5500 0000',
+            'itemail' => 'test@test.com',
         ];
         $its = json_encode($it);
 
         $crir = [
-            'phone' => '+880 2 5500 0000',
-            'email' => 'test@test.com',
+            'crirphone' => '+880 2 5500 0000',
+            'criremail' => 'test@test.com',
         ];
         $crirs = json_encode($crir);
 
         $location = [
-            'address' => 'Dhaka, Bangladesh',
-            'map' => 'test map',
+            'locationaddress' => 'Dhaka, Bangladesh',
+            'locationmap' => 'https://goo.gl/maps/V9phPWEVeNvLUKWH7',
         ];
         $locations = json_encode($location);
 

@@ -8,16 +8,16 @@
                     <!-- Tab navs -->
                     <div class="nav flex-column nav-tabs text-center" id="v-tabs-tab" role="tablist"
                         aria-orientation="vertical">
-                        <a class="nav-link " id="v-tabs-historical-tab" data-mdb-toggle="tab" href="#v-tabs-historical"
+                        <a class="nav-link border" id="v-tabs-historical-tab" data-mdb-toggle="tab" href="#v-tabs-historical"
                             role="tab" aria-controls="v-tabs-historical" aria-selected="true">Historical Overview</a>
 
-                        <a class="nav-link" id="v-tabs-vision-tab" data-mdb-toggle="tab" href="#v-tabs-vision"
+                        <a class="nav-link border" id="v-tabs-vision-tab" data-mdb-toggle="tab" href="#v-tabs-vision"
                             role="tab" aria-controls="v-tabs-vision" aria-selected="false">Vision & Mission</a>
 
-                        <a class="nav-link active" id="v-tabs-Chairman-tab" data-mdb-toggle="tab" href="#v-tabs-Chairman"
+                        <a class="nav-link active border" id="v-tabs-Chairman-tab" data-mdb-toggle="tab" href="#v-tabs-Chairman"
                             role="tab" aria-controls="v-tabs-Chairman" aria-selected="false">Message From Chairman</a>
 
-                            <a class="nav-link" id="v-tabs-Principal-tab" data-mdb-toggle="tab" href="#v-tabs-Principal"
+                        <a class="nav-link border" id="v-tabs-Principal-tab" data-mdb-toggle="tab" href="#v-tabs-Principal"
                             role="tab" aria-controls="v-tabs-Principal" aria-selected="false">Message From Principal</a>
                     </div>
                     <!-- Tab navs -->
@@ -50,7 +50,8 @@
                                     <h5 class="mt-2">Chairman</h5>
                                 </div>
                                 <div class="col-md-12 mt-4">
-                                    <h5 style="font-weight: 900">Respected Teachers, Dear Students, Officers and Staffs:</h5>
+                                    <h5 style="font-weight: 900">Respected Teachers, Dear Students, Officers and Staffs:
+                                    </h5>
                                     {!! $about->messagefromchairman !!}
                                 </div>
                             </div>
@@ -68,7 +69,8 @@
                                     <h5 class="mt-2">Principal</h5>
                                 </div>
                                 <div class="col-md-12 mt-4">
-                                    <h5 style="font-weight: 900">Respected Teachers, Dear Students, Officers and Staffs:</h5>
+                                    <h5 style="font-weight: 900">Respected Teachers, Dear Students, Officers and Staffs:
+                                    </h5>
                                     {!! $about->messagefromprincipal !!}
                                 </div>
                             </div>
@@ -84,8 +86,15 @@
 
 @push('script')
     <style>
-
+        .border{
+            border: 1px solid gray;
+        }
     </style>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
+    {{-- <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" /> --}}
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
 @endpush

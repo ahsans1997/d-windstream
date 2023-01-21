@@ -510,6 +510,12 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link menu-link" href="{{ route('contact.index') }}">
+                            <i class="ri-dashboard-2-line"></i> <span>Contact</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link menu-link" href="#settings" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
                             <i class="ri-apps-2-line"></i> <span data-key="t-apps">Settings</span>
                         </a>
