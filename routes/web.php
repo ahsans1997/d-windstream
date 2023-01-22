@@ -22,6 +22,7 @@ use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ResearchController;
+use App\Http\Controllers\ResourcesController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -38,7 +39,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Route::get('contact', [FrontendController::class, 'contact'])->name('contact');
 
 
 Route::get('news',[NewsController::class, 'news'])->name('news');
@@ -52,7 +52,7 @@ Route::get('event-search', [EventController::class, 'eventsearch'])->name('event
 Route::get('research/{slug?}', [ResearchController::class, 'research'])->name('research');
 Route::get('research-search', [ResearchController::class, 'researchsearch'])->name('research.search');
 
-// Route::get('/about', [FrontendController::class, 'about'])->name('about');
+
 Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 
 
@@ -67,8 +67,7 @@ Route::get('notice/{slug?}', [NoticeController::class, 'notice'])->name('notice'
 
 Route::get('notice-search', [NoticeController::class, 'noticeSearch'])->name('notice-search');
 
-
-Route::redirect('/admin', '/login');
+Route::get('resources', [ResourcesController::class, 'resources'])->name('resources');
 
 Route::get('faculty-member',[FacultyMemberController::class, 'facultyMember'])->name('faculty-member');
 Route::get('member-profile/{slug}',[FacultyMemberController::class, 'memberProfile'])->name('member-profile');
@@ -77,7 +76,10 @@ Route::get('about', [AboutController::class, 'about'])->name('about');
 Route::get('faq', [FaqController::class, 'faq'])->name('faq');
 Route::get('governing-body', [GoverningBodyController::class, 'governingbody'])->name('governingbody');
 
+Route::redirect('/admin', '/login');
+
 Route::get('/{slug?}', [FrontendController::class, 'home'])->name('home');
+
 
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->prefix('admin')->group(function () {
@@ -124,6 +126,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('governingbody', GoverningBodyController::class);
 
     Route::resource('faq', FaqController::class);
+
+    Route::resource('resources', ResourcesController::class);
 
     Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
     Route::put('contact/{id}', [ContactController::class, 'update'])->name('contact.update');

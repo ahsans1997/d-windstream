@@ -62,7 +62,7 @@
                         <li><a href="{{route('career')}}">Career</a></li>
                         <li><a href="{{url('/alumni')}}">Alumni</a></li>
                         <li><a href="{{url('/seip')}}">SEIP</a></li>
-                        <li><a href="">Resources</a></li>
+                        <li><a href="{{ route('resources') }}">Resources</a></li>
                         <li><a href="{{ route('offices') }}">All Offices</a></li>
                     </ul>
                 </div>

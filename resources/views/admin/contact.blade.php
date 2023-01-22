@@ -97,7 +97,7 @@
                             <div class="tab-pane fade" id="v-tabs-emergency" role="tabpanel"
                                 aria-labelledby="v-tabs-emergency-tab">
                                 <div class="card border-primary">
-                                    <div class="card-header">Students Accommodation</div>
+                                    <div class="card-header">Emergency</div>
                                     <div class="card-body">
                                         <form action="{{ route('contact.update',$contact->id) }}" method="POST">
                                             @csrf
