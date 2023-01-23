@@ -303,16 +303,37 @@
                 </div>
                 <div class="col-md-12">
                     <div class="h-about-link">
-                        <h5><a href="{{ url('/about') }}">More about NITER</a></h5>
+                        <h5><a href="{{ route('about') }}">More about NITER</a></h5>
                     </div>
                 </div>
             </div>
         </div>
 
     </section>
-    <div class="footer-image" style="background-image: url({{ $settings->getFirstMediaUrl('homefooterbanner') }})">
-    </div>
+
+    {{-- <div class="footer-image" style="background-image: url({{ $settings->getFirstMediaUrl('homefooterbanner') }})">
+    </div> --}}
     <!-- About End -->
+    <hr>
+    <!-- Chairman Start -->
+    <section class="mb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <img src="{{ $messagefromchairman->getFirstMediaUrl('chairman') }}" class="img-fluid" alt="" style="border-radius: 50%; border: 1px solid gray; width:250px; height:250px">
+                </div>
+                <div class="col-md-9">
+                    <div class="message-from-chairman">
+                        <h3 class="section-header"><b>Message From Chairman</b></h3>
+                        <p>{!! Str::words($messagefromchairman->messagefromchairman, 150) !!}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Chairman End -->
+
+    <!-- Footer Start -->
     @include('footer')
 
 

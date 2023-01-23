@@ -29,16 +29,15 @@
                                                     <div class="col-md-6 news-banner-6">
                                                         <div class="news">
                                                             @if ($n->image)
-                                                                    <img class="img-fluid"
-                                                                        src="{{ $n->getFirstMediaUrl('news') }}"
-                                                                        alt="">
-                                                                @else
-                                                                    <img src="{{ asset('/') }}frontend_asset/img/news/1.jpg"
-                                                                        class="lazyloaded" data-ll-status="loaded">
-                                                                @endif
+                                                                <img class="img-fluid"
+                                                                    src="{{ $n->getFirstMediaUrl('news') }}" alt="">
+                                                            @else
+                                                                <img src="{{ asset('/') }}frontend_asset/img/news/1.jpg"
+                                                                    class="lazyloaded" data-ll-status="loaded">
+                                                            @endif
                                                             <div class="news-image-body">
-                                                                <p>{{ $n->department->name}}</p>
-                                                                <h4><a href="">{{$n->title}}</a></h4>
+                                                                <p>{{ $n->department->name }}</p>
+                                                                <h4><a href="">{{ $n->title }}</a></h4>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -136,51 +135,51 @@
                         </div>
                     </div>
                     <!-- department event
-                                        <div class="container department-event">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="card border-secondary mb-3">
-                                                        <div class="card-header" style="background-color: #bbffd4;"><b>Events</b></div>
-                                                        <div class="card-body text-secondary">
-                                                            <div class="container">
-                                                                <div class="row">
+                                                <div class="container department-event">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="card border-secondary mb-3">
+                                                                <div class="card-header" style="background-color: #bbffd4;"><b>Events</b></div>
+                                                                <div class="card-body text-secondary">
+                                                                    <div class="container">
+                                                                        <div class="row">
 
-                                                                    @forelse($department_events as $event)
-                                                                    <div class="col-md-3">
-                                                                        <div class="event-p">
-                                                                            <div class="event-p-img">
-                                                                                @if ($event->image)
-                                                                                     <img class="img-fluid"
-                                                                                        src="{{ asset('assets/images/events') . '/' . $event->image }}"
-                                                                                        alt="">
-                                                                                @else
-                                                                                    <img src="//via.placeholder.com/350x150"
-                                                                                    class="lazyloaded" data-ll-status="loaded">
-                                                                                @endif
+                                                                            @forelse($department_events as $event)
+    <div class="col-md-3">
+                                                                                <div class="event-p">
+                                                                                    <div class="event-p-img">
+                                                                                        @if ($event->image)
+    <img class="img-fluid"
+                                                                                                src="{{ asset('assets/images/events') . '/' . $event->image }}"
+                                                                                                alt="">
+@else
+    <img src="//via.placeholder.com/350x150"
+                                                                                            class="lazyloaded" data-ll-status="loaded">
+    @endif
+                                                                                    </div>
+                                                                                    <div class="event-p-body">
+                                                                                        <h3>{{ $event->title }}</h3>
+                                                                                        <hr>
+                                                                                        <a href="{{ route('event', $event->slug) }}" class="btn btn-light">View event</a>
+                                                                                    </div>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="event-p-body">
-                                                                                <h3>{{ $event->title }}</h3>
-                                                                                <hr>
-                                                                                <a href="{{ route('event', $event->slug) }}" class="btn btn-light">View event</a>
-                                                                            </div>
+                                                                    @empty
+                                                                                <div class="col-md-12">
+                                                                                    <div class="alert alert-danger">
+                                                                                        <h3>No Event Found</h3>
+                                                                                    </div>
+                                                                                </div>
+    @endforelse
                                                                         </div>
                                                                     </div>
-                                                                    @empty
-                                                                        <div class="col-md-12">
-                                                                            <div class="alert alert-danger">
-                                                                                <h3>No Event Found</h3>
-                                                                            </div>
-                                                                        </div>
-                                                                    @endforelse
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
 
-                                    -->
+                                            -->
                     <!-- faculty member -->
                     <div class="container department-facultymember">
                         <div class="row">
@@ -232,20 +231,57 @@
                         </div>
                     </div>
                     @if ($department_lab_facility)
-                    <div class="container department-facultymember">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card border-secondary mb-3">
-                                    <div class="card-header" style="background-color: #bbffd4;"><b>Lab Facility</b></div>
-                                    <div class="card-body text-secondary">
-                                        <div class="container">
-                                            <div class="row">
+                        <div class="container department-facultymember">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card border-secondary mb-3">
+                                        <div class="card-header" style="background-color: #bbffd4;"><b>Lab Facility</b>
+                                        </div>
+                                        <div class="card-body text-secondary">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        @foreach ($department_lab_facility as $department_lab_facility)
+                                                            <div id="accordion">
+                                                                <div class="card">
+                                                                    <div class="card-header"
+                                                                        id="heading{{ $department_lab_facility->id }}">
+                                                                        <h5 class="mb-0">
+                                                                            <button class="btn btn-link"
+                                                                                data-toggle="collapse"
+                                                                                data-target="#collapse{{ $department_lab_facility->id }}"
+                                                                                aria-expanded="true"
+                                                                                aria-controls="collapse{{ $department_lab_facility->id }}">
+                                                                                {{ $department_lab_facility->title }}
+                                                                            </button>
+                                                                        </h5>
+                                                                    </div>
 
-                                                <div class="col-md-4">
-                                                    <img class="img-fluid" src="{{ $department_lab_facility->getFirstMediaUrl('labfacility') }}" alt="">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <p>{{ $department_lab_facility->description }}</p>
+                                                                    <div id="collapse{{ $department_lab_facility->id }}"
+                                                                        class="collapse show"
+                                                                        aria-labelledby="heading{{ $department_lab_facility->id }}"
+                                                                        data-parent="#accordion">
+                                                                        <div class="card-body">
+                                                                            <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                    <img class="img-fluid"
+                                                                                        src="{{ $department_lab_facility->getFirstMediaUrl('labfacility') }}"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="col-md-8">
+                                                                                    <p>{{ $department_lab_facility->description }}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+
+
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -253,7 +289,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                     @endif
 
                 </div>

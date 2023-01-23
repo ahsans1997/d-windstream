@@ -180,15 +180,9 @@
     <div class="app-menu navbar-menu">
         <!-- LOGO -->
         <div class="navbar-brand-box">
-
-            <a href="{{ route('dashboard') }}" class="logo logo-light">
-                <span class="logo-sm">
-                    <img src="{{asset('assets/images/'. setting()->mobile_logo)}}" alt="" style="width:100%;height:auto;">
-                </span>
-                <span class="logo-lg">
-                    <img src="{{asset('assets/images/'. setting()->web_logo)}}" alt="" style="width:100%;height:auto;">
-                </span>
-            </a>
+            <h1><a href="{{ route('dashboard') }}" class="logo logo-light" style="color: #fff">
+                NITER
+            </a></h1>
             <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
                 id="vertical-hover">
                 <i class="ri-record-circle-line"></i>

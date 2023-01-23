@@ -11,5 +11,14 @@ class About extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
-    
+
+    protected $fillable = [
+        'historicaloverview',
+        'mission',
+        'vision',
+        'cname',
+        'messagefromchairman',
+        'pname',
+        'messagefromprincipal',
+    ];
 }

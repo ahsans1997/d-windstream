@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\News;
 use App\Models\Page;
 use App\Models\Event;
@@ -42,6 +43,7 @@ class FrontendController extends Controller
                 'researches' => Research::orderBy('id', 'desc')->limit(4)->get(),
                 'settings' => Setting::latest()->first(),
                 'homesection' => HomeSection::latest()->first(),
+                'messagefromchairman' => About::find(1),
             ]);
         }
     }
