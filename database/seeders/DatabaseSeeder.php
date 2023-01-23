@@ -28,5 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(HomeSectionSeeder::class);
         $this->call(PageSeeder::class);
         $this->call(ContactSeeder::class);
+        $this->call(ResourcesSeeder::class);
+        $this->call(FacultySeeder::class);
     }
 }
