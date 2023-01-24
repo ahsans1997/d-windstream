@@ -370,7 +370,8 @@ class FacultyMemberController extends Controller
     public function facultyMember()
     {
         $data = [
-            'faculty_members' => FacultyMember::with('department')->get(),
+            'faculty_members' => FacultyMember::with('department')->limit(20)->get(),
+            'desigantions' => Designation::all(),
             'title' => 'Faculty Members',
         ];
         return view('faculty-member-list', $data);
@@ -392,6 +393,26 @@ class FacultyMemberController extends Controller
 
 
 
+    }
+
+    public function facultyMembersearch(Request $request)
+    {
+        if($request->search == 'leave')
+        {
+            $profile = FacultyMember::where('on_leave', 'true')->get();
+        }
+        else if($request->search == 'all'){
+            $profile = FacultyMember::limit(20)->get();
+        }
+        else{
+            $profile = FacultyMember::where('designation_id', $request->search)->get();
+        }
+        $data = [
+            'faculty_members' => $profile,
+            'desigantions' => Designation::all(),
+            'title' => 'Faculty Members',
+        ];
+        return view('member-search', $data);
     }
 
     public function addResearch($id){

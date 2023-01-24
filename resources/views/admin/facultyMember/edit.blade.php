@@ -19,12 +19,12 @@
                             @method('put')
                             @csrf
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <label for="name" class="form-label"> Name*</label>
                                     <input type="text" class="form-control" placeholder="Faculty Member Name"
                                         name="name" value="{{$faculty_member->name}}" required>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <label for="designation" class="form-label"> Designation*</label>
                                     <select class="form-control" name="designation" required>
                                         @foreach ($desigantions as $designation)
@@ -34,13 +34,18 @@
 
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <label for="department_id" class="form-label">Deaprtment*</label>
                                     <select name="department_id" class="form-control" id="department_id" required>
                                         @foreach ($departments as $department)
                                             <option value="{{ $department->id }}" @if ($department->id==$faculty_member->department_id) @endif>{{ $department->name }}</option>
                                         @endforeach
                                     </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="name" class="form-label"> Order By*</label>
+                                    <input type="number" class="form-control"
+                                        name="order" required>
                                 </div>
 
                                 <div class="col-md-12">
