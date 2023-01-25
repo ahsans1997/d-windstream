@@ -45,8 +45,8 @@
                                         <option value="">Select Type</option>
                                         <option value="UnderGraduate">UnderGraduate</option>
                                         <option value="Graduate">Graduate</option>
-                                        <option value="MPhil">MPhil</option>
-                                        <option value="PhD">PhD</option>
+                                        {{-- <option value="MPhil">MPhil</option>
+                                        <option value="PhD">PhD</option> --}}
                                     </select>
                                 </div>
                                 <div class="col-md-12">

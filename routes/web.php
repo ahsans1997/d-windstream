@@ -57,6 +57,7 @@ Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 
 
 Route::get('/program/{slug?}', [ProgramController::class, 'program'])->name('program');
+Route::get('/program-search', [ProgramController::class, 'programsearch'])->name('program.search');
 Route::get('/department/{slug?}', [DepartmentController::class, 'department'])->name('department');
 Route::get('/clubs/{slug?}', [ClubController::class, 'clubs'])->name('clubs');
 Route::get('/offices/{slug?}', [OfficeController::class, 'offices'])->name('offices');
