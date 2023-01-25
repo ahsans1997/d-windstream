@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
 
@@ -18,7 +19,7 @@ class UserController extends Controller
     public function index()
     {
         return view('admin.user.index',[
-            'user' => User::latest()->first(),
+            'user' => Auth::user(),
         ]);
     }
 

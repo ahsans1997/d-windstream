@@ -6,10 +6,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h3 class="program-header">Program af NITER</h3>
-                    <hr>
-                </div>
+                
                 <div class="col-md-4">
                     <div class="program-sidebar">
                         <div class="card bg-light mb-3">
@@ -68,7 +65,7 @@
                     url: "{{ route('program.search') }}",
                     type: "GET",
                     data: {
-                        search: search, 
+                        search: search,
                     },
                     success: function(data) {
                         $('#program').html(data);

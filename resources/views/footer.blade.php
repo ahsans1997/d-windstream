@@ -24,8 +24,8 @@
                     </ul>
                     <h4>Admission</h4>
                     <ul class="list-style">
-                        <li><a href="{{ url('/undergraduate-admission') }}">Undergraduate Admission</a></li>
-                        <li><a href="{{ url('/graduate-admission') }}">Graduate Admission</a></li>
+                        <li><a href="{{ route('admission') }}">Undergraduate Admission</a></li>
+                        <li><a href="{{ route('admission') }}">Graduate Admission</a></li>
                     </ul>
                 </div>
             </div>
@@ -69,7 +69,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-end" style="background-color: #bbffd4;">
+    <div class="footer-end mt-4" style="background-color: #bbffd4;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

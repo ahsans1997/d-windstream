@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClubController;
@@ -58,11 +59,14 @@ Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 
 Route::get('/program/{slug?}', [ProgramController::class, 'program'])->name('program');
 Route::get('/program-search', [ProgramController::class, 'programsearch'])->name('program.search');
+
 Route::get('/department/{slug?}', [DepartmentController::class, 'department'])->name('department');
 Route::get('/clubs/{slug?}', [ClubController::class, 'clubs'])->name('clubs');
 Route::get('/offices/{slug?}', [OfficeController::class, 'offices'])->name('offices');
 Route::get('career/{slug?}', [CareerController::class, 'career'])->name('career');
 Route::get('career/download/{slug}', [CareerController::class, 'download'])->name('career.download');
+
+Route::get('admission/{slug?}', [AdmissionController::class, 'admission'])->name('admission');
 
 Route::get('notice/{slug?}', [NoticeController::class, 'notice'])->name('notice');
 
@@ -130,6 +134,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('faq', FaqController::class);
 
     Route::resource('resources', ResourcesController::class);
+
+    Route::resource('admission', AdmissionController::class);
 
     Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
     Route::put('contact/{id}', [ContactController::class, 'update'])->name('contact.update');

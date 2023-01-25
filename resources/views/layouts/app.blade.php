@@ -239,6 +239,22 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#admission" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                            <i class="ri-mini-program-fill"></i> <span data-key="t-apps">Admission</span>
+                        </a>
+                        <div class="collapse menu-dropdown {{ request()->routeIs('admission.*') ? 'show' : '' }}" id="admission">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('admission.index') }}" class="nav-link {{ request()->routeIs('admission.index') ? 'active' : '' }}">Admission</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admission.create') }}" class="nav-link {{ request()->routeIs('admission.create') ? 'active' : '' }}" data-key="t-chat">Add Admission</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link menu-link"
