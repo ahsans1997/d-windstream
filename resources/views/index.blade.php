@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {!! setting()->google_analytics !!}
     <title>Niter</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -19,6 +20,21 @@
         .footer-image{
             height:300px;
         }
+        .display-none{
+            display:none;
+        }
+        .remove-header{
+            display:none;
+        }
+        .niter-text a{
+            font-size: 30px;
+            font-weight: 900;
+            color: #fff;
+            margin: 0;
+            line-height: 1.5;
+            text-decoration: none;
+            line-height: 40px;
+        }
     </style>
 </head>
 
@@ -30,9 +46,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
+                            <div class="niter-text">
+                                <a href=""><span>National Institute of</span> <br>Textile Engineering & Research</a>
+                            </div>
                             <div class="logo">
                                 <a href="{{ url('/') }}"><img
                                         src="{{ $settings->getFirstMediaUrl('web_logo') }}" style="height:70px;width:auto;" alt=""></a>
+                            </div>
+                            <div class="scroll-menu display-none" style="margin-top:7px">
+                                @include('nav')
                             </div>
                         </div>
                     </div>
@@ -348,6 +370,15 @@
     <script src="{{ asset('/') }}frontend_asset/js/counter.js"></script>
     <script>
         $(window).scroll(function() {
+            if($(window).scrollTop()) {
+                $('.logo').removeClass('display-none');
+                $('.scroll-menu').removeClass('display-none');
+                $('.niter-text').addClass('display-none');
+            } else {
+                $('.logo').addClass('display-none');
+                $('.scroll-menu').addClass('display-none');
+                $('.niter-text').removeClass('display-none');
+            }
             if ($(window).scrollTop()) {
                 $(".header-top").addClass("black");
             } else {
@@ -355,8 +386,10 @@
             }
             if ($(window).scrollTop()) {
                 $(".header-bottom").addClass("header-white");
+                $(".header-bottom").addClass("remove-header");
             } else {
                 $(".header-bottom").removeClass("header-white");
+                $(".header-bottom").removeClass("remove-header");
             }
         });
     </script>

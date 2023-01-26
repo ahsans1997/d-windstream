@@ -7,13 +7,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="event-p-header">Events Of NITER</h3>
-                    <hr>
-                </div>
-                <div class="col-md-12">
                     <div class="card border-secondary mb-3">
-                        <div class="card-header" style="background-color: #bbffd4;">
-                            <h2>Event List</h2>
+                        <div class="card-header" style="padding-top: 35px;">
                             <div class="form-group">
 
 

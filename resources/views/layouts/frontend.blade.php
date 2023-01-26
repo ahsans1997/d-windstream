@@ -20,13 +20,16 @@
 </head>
 
 <body>
-    <div class="header-top black">
+    <div class="header-top black" style="width:100%; top:0; left:0; position: fixed; z-index: 9999;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="logo">
                         <a href="{{ url('/') }}"><img class="img-fluid" src="{{ setting()->getFirstMediaUrl('web_logo') }}"
                             style="height:70px;width:auto;" alt=""></a>
+                    </div>
+                    <div class="main-menu" style="margin-top: 7px;">
+                        @include('nav')
                     </div>
                 </div>
             </div>
@@ -43,7 +46,7 @@
     </div>
 
     <div class="breadcrumb-area shadow dark  text-center text-light"
-        style="height:100px; background-image: url({{ default_header_banner('faculty-member') }});">
+        style="height:100px; margin-top:85px; background-image: url({{ default_header_banner('faculty-member') }});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">

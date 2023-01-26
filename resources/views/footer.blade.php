@@ -69,26 +69,28 @@
             </div>
         </div>
     </div>
-    <div class="footer-end mt-4" style="background-color: #bbffd4;">
+    <div class="footer-end mt-4" style="background-color: #A3332C;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="footer-left">
-                        <img src="{{ setting()->getFirstMediaUrl('web_logo') }}" alt="" style="height:50px;width:auto;">
+                        <img src="{{ setting()->getFirstMediaUrl('mobile_logo') }}" alt="" style="height:70px;width:auto;">
                     </div>
                     <div class="footer-right">
                         <nav>
                             <ul class="list-style">
-                                <li><a href="{{url('/niter-form')}}">NITER Home</a></li>
-                                <li><a href="{{url('/terms-of-use')}}">Terms of Use</a></li>
-                                <li><a href="{{url('/privacy')}}">Privacy</a></li>
-                                <li><a href="{{url('/accessibility')}}"> Accessibility</a></li>
+                                <li><a style="color: #fff;" href="{{url('/niter-form')}}">NITER Home</a></li>
+                                <li><a style="color: #fff;" href="{{url('/terms-of-use')}}">Terms of Use</a></li>
+                            </ul>
+                            <ul class="list-style">
+                                <li><a style="color: #fff;" href="{{url('/privacy')}}">Privacy</a></li>
+                                <li><a style="color: #fff;" href="{{url('/accessibility')}}"> Accessibility</a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="copyright">
+                    <div class="copyright text-white">
                         <h5>&#169; NITER - All Rights Reserved. 2022</h5>
                     </div>
                 </div>

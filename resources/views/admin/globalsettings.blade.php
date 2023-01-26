@@ -82,7 +82,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="card border-dark mb-3">
-                                                                <div class="card-header">Mobile Logo</div>
+                                                                <div class="card-header">Footer Logo</div>
                                                                 <div class="card-body">
                                                                     <div class="mobile_logo">
                                                                         <img class="img-fluid" style="height: 0 auto;"

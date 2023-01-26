@@ -43,7 +43,6 @@ li {
 /* Header start */
 
 .header {
-    height: 145px;
     width: 100%;
     top: 0;
     left: 0;
@@ -59,19 +58,13 @@ li {
 }
 
 .black {
-    background: #8FFFB8;
+    background: #A3332C;
+
 }
 
 .logo img {
     float: left;
     width: 375px;
-}
-
-.search {
-    float: right;
-    color: white;
-    margin-top: 23px;
-    font-size: 20px;
 }
 
 .header-bottom {
@@ -605,10 +598,6 @@ li {
 .footer ul li a {
     text-decoration: none;
     color: #000;
-}
-
-.footer ul li a:hover {
-    color: rgb(117, 117, 244);
 }
 
 .footer-left {

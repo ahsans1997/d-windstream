@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card border-secondary mb-3">
-                                    <div class="card-header" style="background-color: #bbffd4;"><b>Latest News</b></div>
+                                    <div class="card-header" style="background-color: #A3332C; color:white"><b>Latest News</b></div>
                                     <div class="card-body text-secondary">
                                         <div class="container">
                                             <div class="row">
@@ -52,7 +52,7 @@
 
                             <div class="col-md-6">
                                 <div class="card border-secondary mb-3">
-                                    <div class="card-header" style="background-color: #bbffd4;"><b>Latest News</b></div>
+                                    <div class="card-header" style="background-color: #A3332C; color:white"><b>Latest News</b></div>
                                     <div class="card-body text-secondary">
                                         <div class="container">
                                             <div class="row">
@@ -105,7 +105,7 @@
 
                             <div class="col-md-6">
                                 <div class="card border-secondary mb-3">
-                                    <div class="card-header" style="background-color: #bbffd4;"><b>Latest Events</b></div>
+                                    <div class="card-header" style="background-color: #A3332C; color:white"><b>Latest Events</b></div>
                                     <div class="card-body text-secondary">
                                         <div class="container">
                                             <div class="row">
@@ -185,7 +185,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card border-secondary mb-3">
-                                    <div class="card-header" style="background-color: #bbffd4;"><b>Faculty Member</b></div>
+                                    <div class="card-header" style="background-color: #A3332C; color:white"><b>Faculty Member</b></div>
                                     <div class="card-body text-secondary">
                                         <div class="container">
                                             <div class="row">
@@ -235,7 +235,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="card border-secondary mb-3">
-                                        <div class="card-header" style="background-color: #bbffd4;"><b>Lab Facility</b>
+                                        <div class="card-header" style="background-color: #A3332C; color:white"><b>Lab Facility</b>
                                         </div>
                                         <div class="card-body text-secondary">
                                             <div class="container">
