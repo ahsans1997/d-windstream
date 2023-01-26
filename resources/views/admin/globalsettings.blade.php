@@ -44,7 +44,7 @@
 
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="portal-tab" data-bs-toggle="tab" data-bs-target="#portal"
-                                type="button" role="tab" aria-controls="portal" aria-selected="false">Portal</button>
+                                type="button" role="tab" aria-controls="portal" aria-selected="false">Social</button>
                         </li>
                     </ul>
 
@@ -234,26 +234,7 @@
 
                         <!-- End Single Tab -->
 
-                        <div id="portal" class="tab-pane fade mt-4">
-                            <div class="info title">
-                                <div class="col-md-10 m-auto">
-                                    <div class="card border-primary">
-                                        <div class="card-header">Poratl</div>
-                                        <div class="card-body">
-                                            <form action="{{ route('setting.update',1) }}" method="POST">
-                                                @csrf
-                                                @method('PUT')
-                                                <label for="">Student Poartal Link</label>
-                                                <input type="text" class="form-control" name="student_portal" value="{{ $portal->student_portal }}">
-                                                <label class="mt-3" for="">Teacher Poartal Link</label>
-                                                <input type="text" class="form-control" name="teacher_portal" value="{{ $portal->teacher_portal }}">
-                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                         <div id="allbanner" class="tab-pane fade mt-4">
                             <div class="info title">
                                 <div class="col-md-10 m-auto">
@@ -456,6 +437,29 @@
                                                     </div>
                                                 </div>
 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="portal" class="tab-pane fade mt-4">
+                            <div class="info title">
+                                <div class="col-md-10 m-auto">
+                                    <div class="card border-primary">
+                                        <div class="card-header">Poratl</div>
+                                        <div class="card-body">
+                                            <form action="{{ route('setting.update',1) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                <label for="">Facebook</label>
+                                                <input type="text" class="form-control" name="facebook" value="{{ $portal->facebook }}">
+                                                <label class="mt-3" for="">LinkedIN</label>
+                                                <input type="text" class="form-control" name="linkedin" value="{{ $portal->linkedin }}">
+                                                <label class="mt-3" for="">Youtube</label>
+                                                <input type="text" class="form-control" name="youtube" value="{{ $portal->youtube }}">
+                                                <button class="btn btn-info mt-3" style="float: right">Submit</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

@@ -3,10 +3,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    @php
+                        $social = json_decode(setting()->portal);
+                    @endphp
                     <ul class="list-style">
-                        <li><a href=""><i class="fa-brands fa-square-facebook"></i></a></li>
-                        <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
-                        <li><a style="color: red;" href=""><i class="fa-brands fa-youtube"></i></a></li>
+                        <li><a href="{{ $social->facebook }}" target="_blank"><i class="fa-brands fa-square-facebook"></i></a></li>
+                        <li><a href="{{ $social->linkedin }}" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+                        <li><a style="color: red;" href="{{ $social->youtube }}" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
                     </ul>
                 </div>
             </div>

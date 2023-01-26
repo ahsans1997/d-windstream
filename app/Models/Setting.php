@@ -12,4 +12,5 @@ class Setting extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
 
+    
 }

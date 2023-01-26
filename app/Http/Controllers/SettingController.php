@@ -195,16 +195,18 @@ class SettingController extends Controller
             $setting->save();
         }
 
-        if($request->student_portal || $request->teacher_portal)
+        if($request->facebook && $request->linkedin && $request->youtube)
         {
+
             $data = [
-                'student_portal' => $request->student_portal,
-                'teacher_portal' => $request->teacher_portal,
+                'facebook' => $request->facebook,
+                'linkedin' => $request->linkedin,
+                'youtube' => $request->youtube,
             ];
             $portal = json_encode($data);
-            Setting::findOrFail($id)->update([
-                'portal' => $portal
-            ]);
+
+            $setting->portal = $portal;
+            $setting->save();
         }
 
 

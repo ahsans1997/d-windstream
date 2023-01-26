@@ -36,14 +36,31 @@ class FrontendController extends Controller
             }
 
         } else {
+            $news1 = News::where('featured', 1)->first();
+            if(isset($news1->id)){
+                $news2 = News::where('featured', 1)->where('id', '<>', $news1->id)->first();
+            }
+            else{
+                $news2 = News::where('featured', 1)->first();
+            }
+            if(isset($news1->id) && isset($news2->id)){
+                $news = News::where('featured', 1)->where('id', '<>', [$news1->id,$news2->id])->orderby('id', 'desc')->limit(4)->get();
+            }
+            else{
+                $news = News::where('featured', 1)->orderby('id', 'desc')->limit(4)->get();
+            }
+
             return view('index', [
                 'departments' => Department::all(),
-                'news' => News::where('featured', 1)->limit(6)->get(),
+                'news' => $news,
+                'news1' => $news1,
+                'news2' => $news2,
                 'events' => Event::where('featured', 2)->limit(4)->get(),
                 'researches' => Research::orderBy('id', 'desc')->limit(4)->get(),
                 'settings' => Setting::latest()->first(),
                 'homesection' => HomeSection::latest()->first(),
                 'messagefromchairman' => About::find(1),
+
             ]);
         }
     }

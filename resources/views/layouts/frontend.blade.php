@@ -35,15 +35,6 @@
             </div>
         </div>
     </div>
-    <div class="header-bottom header-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    @include('nav')
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="breadcrumb-area shadow dark  text-center text-light"
         style="height:100px; margin-top:85px; background-image: url({{ default_header_banner('faculty-member') }});">

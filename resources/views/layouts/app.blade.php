@@ -514,13 +514,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link menu-link" href="{{ route('about.index') }}">
+                        <a class="nav-link menu-link {{ request()->routeIs('about.index') ? 'active' : '' }}" href="{{ route('about.index') }}">
                             <i class="ri-dashboard-2-line"></i> <span>About</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link menu-link" href="{{ route('contact.index') }}">
+                        <a class="nav-link menu-link {{ request()->routeIs('contact.index') ? 'active' : '' }}" href="{{ route('contact.index') }}">
                             <i class="ri-dashboard-2-line"></i> <span>Contact</span>
                         </a>
                     </li>

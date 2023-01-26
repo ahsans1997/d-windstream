@@ -63,8 +63,9 @@ class SettingSeeder extends Seeder
         $about = json_encode($about_data);
 
         $portal_data = [
-            'student_portal' => 'studentportal.com',
-            'teacher_portal' => 'teacherportal.com',
+            'facebook' => 'https://facebook.com',
+            'linkedin' => 'https://linkedin.com',
+            'youtube' => 'https://youtube.com',
         ];
         $portal = json_encode($portal_data);
 

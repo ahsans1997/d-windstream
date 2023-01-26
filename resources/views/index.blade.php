@@ -49,7 +49,7 @@
                             <div class="niter-text">
                                 <a href=""><span>National Institute of</span> <br>Textile Engineering & Research</a>
                             </div>
-                            <div class="logo">
+                            <div class="logo display-none">
                                 <a href="{{ url('/') }}"><img
                                         src="{{ $settings->getFirstMediaUrl('web_logo') }}" style="height:70px;width:auto;" alt=""></a>
                             </div>
@@ -138,7 +138,6 @@
         </div>
     </section>
     <!-- Accelerating climate solutions End -->
-
     <!-- News Start -->
     <section class="news-section section">
         <div class="container">
@@ -148,17 +147,18 @@
                     <p></p>
                 </div>
 
+                @if (isset($news1))
                     <div class="col-md-6 news-banner-6">
                         <div class="news">
-                            <img class="img-fluid photo" src="{{ asset('/') }}frontend_asset/img/news/1.jpg"
+                            <img class="img-fluid photo" src="{{ $news1->getFirstMediaUrl('news') }}"
                                 alt="">
                             <div class="news-image-body">
-                                <p>Cse</p>
-                                <h4><a href=""><b>Pandemic stress physically aged teens’ brains, a new study
-                                            finds</b></a></h4>
+                                <p>{{ $news1->department->name }}</p>
+                                <h4><a href=""><strong>{{ $news1->title }}</strong></a></h4>
                             </div>
                         </div>
                     </div>
+                @endif
 
                 @foreach ($news as $n)
                     <div class="col-md-3 news-banner-3">
@@ -172,18 +172,19 @@
                     </div>
                 @endforeach
 
-
-                <div class="col-md-6 news-banner-6">
-                    <div class="news">
-                        <img class="img-fluid photo" src="{{ asset('/') }}frontend_asset/img/news/6.jpg"
-                            alt="">
-                        <div class="news-image-body">
-                            <p>SCIENCE & TECHNOLOGY</p>
-                            <h4><a href=""><b>Pandemic stress physically aged teens’ brains, a new study
-                                        finds</b></a></h4>
+                @if (isset($news2))
+                    <div class="col-md-6 news-banner-6">
+                        <div class="news">
+                            <img class="img-fluid photo" src="{{ $news2->getFirstMediaUrl('news') }}"
+                                alt="">
+                            <div class="news-image-body">
+                                <p>{{ $news2->department->name }}</p>
+                                <h4><a href=""><strong>{{ $news2->title }}</strong></a></h4>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
+
                 <div class="col-md-12 text-center">
                     <a href="{{ route('news') }}" class="more">More About University News</a>
                 </div>
