@@ -15,6 +15,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\FacultyMemberResearchController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GoverningBodyController;
 use App\Http\Controllers\LabfacilityController;
 use App\Http\Controllers\NewsController;
@@ -26,6 +27,7 @@ use App\Http\Controllers\ResearchController;
 use App\Http\Controllers\ResourcesController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -136,6 +138,11 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('resources', ResourcesController::class);
 
     Route::resource('admission', AdmissionController::class);
+
+    Route::resource('gallery', GalleryController::class);
+    Route::delete('gallery/delete/{gallery}/{id}', [GalleryController::class, 'delete'])->name('gallery.delete');
+
+    Route::resource('video', VideoController::class);
 
     Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
     Route::put('contact/{id}', [ContactController::class, 'update'])->name('contact.update');

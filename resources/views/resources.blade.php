@@ -97,15 +97,15 @@
                                     <div class="card border-primary">
                                         <div class="card-header">Photo Gallery</div>
                                         <div class="card-body">
-                                            {{-- <form action="{{ route('contact.update',$contact->id) }}" method="POST">
-                                                @csrf
-                                                @method('PUT')
-                                                <label for="">Phone</label>
-                                                <input type="text" value="{{ $it->itphone }}" name="itphone" class="form-control">
-                                                <label for="">Email</label>
-                                                <input type="text" value="{{ $it->itemail }}" name="itemail" class="form-control">
-                                                <button type="submit" class="mt-3" style="float: right">Submit</button>
-                                            </form> --}}
+                                            <div class="row">
+                                                @foreach ($photos->getMedia('gallery') as $photo)
+                                                    <div class="col-md-3">
+                                                        <div class="single-image" >
+                                                            <img src="{{ $photo->getUrl() }}" class="img-fluid" style="width: auto; height: 150px" alt="">
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -114,15 +114,15 @@
                                     <div class="card border-primary">
                                         <div class="card-header">Video Gallery</div>
                                         <div class="card-body">
-                                            {{-- <form action="{{ route('contact.update',$contact->id) }}" method="POST">
-                                                @csrf
-                                                @method('PUT')
-                                                <label for="">Phone</label>
-                                                <input type="text" value="{{ $crir->crirphone }}" name="crirphone" class="form-control">
-                                                <label for="">Email</label>
-                                                <input type="text" value="{{ $crir->criremail }}" name="criremail" class="form-control">
-                                                <button type="submit" class="mt-3" style="float: right">Submit</button>
-                                            </form> --}}
+                                            <div class="row">
+                                                @foreach ($videos as $video)
+                                                    <div class="col-md-3">
+                                                        <div class="single-image" >
+                                                            <img src="{{ $video->getFirstMediaUrl('videos') }}" class="img-fluid" style="width: auto; height: 150px" controls>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

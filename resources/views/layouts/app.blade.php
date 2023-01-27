@@ -514,6 +514,16 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link menu-link {{ request()->routeIs('gallery.index') ? 'active' : '' }}" href="{{ route('gallery.index') }}">
+                            <i class="ri-dashboard-2-line"></i> <span>Gallery</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ request()->routeIs('video.index') ? 'active' : '' }}" href="{{ route('video.index') }}">
+                            <i class="ri-dashboard-2-line"></i> <span>Video</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link menu-link {{ request()->routeIs('about.index') ? 'active' : '' }}" href="{{ route('about.index') }}">
                             <i class="ri-dashboard-2-line"></i> <span>About</span>
                         </a>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\Resources;
+use App\Models\Video;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
@@ -169,7 +171,9 @@ class ResourcesController extends Controller
     {
         return view('resources', [
             'resources' => Resources::find(1),
-            'title' => 'Resources'
+            'photos' => Gallery::find(1),
+            'videos' => Video::all(),
+            'title' => 'Resources',
         ]);
     }
 }
