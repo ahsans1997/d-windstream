@@ -11,7 +11,7 @@
                             <div class="info border-bottom-1 p-2">
                                 <h4><a href="{{ route('career.download',$career->slug) }}" class="color-black">{{ $career->title }}</a>
                                 </h4>
-                                <ul class="d-flex justify-content-between">
+                                <ul class="d-flex justify-content-between list-style">
                                     <li class="d-inline-block">Date : {{ $career->date_start }} to {{ $career->date_end }}</li>
                                 </ul>
                             </div>

@@ -94,7 +94,8 @@
                 </div>
                 <div class="col-md-12">
                     <div class="copyright text-white">
-                        <h5>&#169; NITER - All Rights Reserved. 2022</h5>
+
+                        <h5>&#169; NITER - All Rights Reserved. {{ Carbon\Carbon::now()->format('Y'); }} </h5>
                     </div>
                 </div>
             </div>

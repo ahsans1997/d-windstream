@@ -23,7 +23,7 @@
                 <li><a class="{{ request()->path() == 'event' ? 'active' : '' }}" href="{{ route('event') }}">Events</a></li>
                 <li><a class="{{ request()->path() == 'department' ? 'active' : '' }}"  href="{{ route('department') }}">Departments</a></li>
                 <li><a class="{{ request()->path() == 'research' ? 'active' : '' }}" href="{{ route('research') }}">Research</a></li>
-                <li><a class="{{ request()->path() == 'contact' ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a></li>
+                <li><a class="{{ request()->path() == 'contact' ? 'active' : '' }}" href="{{ route('contact') }}">Contact Us</a></li>
             </ul>
 
         </div>
