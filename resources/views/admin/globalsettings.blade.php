@@ -69,7 +69,10 @@
                                                                 <div class="card-header">Web Logo</div>
                                                                 <div class="card-body">
                                                                     <div class="web_logo">
-                                                                        <img class="img-fluid" style="height: 0 auto;"
+
+                                                                        {{-- {{ dd($setting) }} --}}
+                                                                        
+                                                                        <img class="img-fluid" 
                                                                             src="{{ $setting->getFirstMediaUrl('web_logo') }}"
                                                                             alt="">
 

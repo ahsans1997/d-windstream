@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {!! setting()->google_analytics !!}
+    {{-- {!! setting()->google_analytics !!} --}}
     <title>Niter</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -17,16 +17,11 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/') }}frontend_asset/css/style.css">
     <style>
-        .footer-image{
-            height:300px;
+        .footer-image {
+            height: 300px;
         }
-        .display-none{
-            display:none;
-        }
-        .remove-header{
-            display:none;
-        }
-        .niter-text a{
+
+        .niter-text a {
             font-size: 30px;
             font-weight: 900;
             color: #fff;
@@ -46,16 +41,19 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="niter-text">
-                                <a href=""><span>National Institute of</span> <br>Textile Engineering & Research</a>
+                            <div class="niter-text text-center site-title">
+                                <a href="{{ url('/') }}"><span>National Institute of</span> Textile Engineering &
+                                    Research</a>
                             </div>
-                            <div class="logo display-none">
-                                <a href="{{ url('/') }}"><img
-                                        src="{{ $settings->getFirstMediaUrl('web_logo') }}" style="height:70px;width:auto;" alt=""></a>
-                            </div>
-                            <div class="scroll-menu display-none" style="margin-top:7px">
-                                @include('nav')
-                            </div>
+                        </div>
+                        <div class="scroll-menu" style="margin-top:7px">
+                            <button class="navbar-toggler collapsed mobile-nav-button" type="button"
+                                data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                                aria-controls="navbarTogglerDemo03" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="menu-close">X</span>
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -95,29 +93,30 @@
                     <p>{{ $homesection->section_1_description }}</p>
                 </div>
                 <div class="col-md-4 accelerating-climate-solutions">
-                    <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part1_image') }}"
-                        alt="">
+                    <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part1_image') }}" alt="">
                     <h3>{{ $part1->part1_title }}</h3>
                     <p>{{ $part1->part1_description }}</p>
-                    <a href="{{ $part1->part1_link }}">{{ $part1->part1_link_name }} <i class="fa-solid fa-angle-right"></i></a>
+                    <a href="{{ $part1->part1_link }}">{{ $part1->part1_link_name }} <i
+                            class="fa-solid fa-angle-right"></i></a>
                 </div>
                 <div class="col-md-4 accelerating-climate-solutions">
-                    <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part2_image') }}"
-                        alt="">
+                    <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part2_image') }}" alt="">
                     <h3>{{ $part2->part2_title }}</h3>
                     <p>{{ $part2->part2_description }}</p>
-                    <a href="{{ $part2->part2_link }}">{{ $part2->part2_link_name }} <i class="fa-solid fa-angle-right"></i></a>
+                    <a href="{{ $part2->part2_link }}">{{ $part2->part2_link_name }} <i
+                            class="fa-solid fa-angle-right"></i></a>
                 </div>
                 <div class="col-md-4 accelerating-climate-solutions">
-                    <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part3_image') }}"
-                        alt="">
+                    <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part3_image') }}" alt="">
                     <h3>{{ $part3->part3_title }}</h3>
                     <p>{{ $part3->part3_description }}</p>
-                    <a href="{{ $part3->part3_link }}">{{ $part3->part3_link_name }} <i class="fa-solid fa-angle-right"></i></a>
+                    <a href="{{ $part3->part3_link }}">{{ $part3->part3_link_name }} <i
+                            class="fa-solid fa-angle-right"></i></a>
                 </div>
 
                 <div class="col-md-12 seven-schools-in-which-to-pursue-your-passions">
-                    <h3>{{ ucwords(numberToWord($departments->count())) }} schools in which to pursue your passions</h3>
+                    <h3>{{ ucwords(numberToWord($departments->count())) }} schools in which to pursue your passions
+                    </h3>
                     <div class="home-departments">
                         <nav>
                             <ul>
@@ -150,8 +149,7 @@
                 @if (isset($news1))
                     <div class="col-md-6 news-banner-6">
                         <div class="news">
-                            <img class="img-fluid photo" src="{{ $news1->getFirstMediaUrl('news') }}"
-                                alt="">
+                            <img class="img-fluid photo" src="{{ $news1->getFirstMediaUrl('news') }}" alt="">
                             <div class="news-image-body">
                                 <p>{{ $news1->department->name }}</p>
                                 <h4><a href=""><strong>{{ $news1->title }}</strong></a></h4>
@@ -166,7 +164,8 @@
                             <img class="img-fluid" src="{{ $n->getFirstMediaUrl('news') }}" alt="">
                             <div class="news-banner-body">
                                 <p>{{ $n->department->name }}</p>
-                                <h5><a href="{{ route('news.single',$n->slug) }}">{{ Str::words($n->title, 6) }}</a></h4>
+                                <h5><a href="{{ route('news.single', $n->slug) }}">{{ Str::words($n->title, 6) }}</a>
+                                    </h4>
                             </div>
                         </div>
                     </div>
@@ -211,15 +210,19 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <h3 class="counter"><span data-max="{{ $research->section_1->section_1_count }}"></span> {{ $research->section_1->section_1_title }}</h3>
+                                    <h3 class="counter"><span
+                                            data-max="{{ $research->section_1->section_1_count }}"></span>
+                                        {{ $research->section_1->section_1_title }}</h3>
                                     <p>{{ $research->section_1->section_1_description }}</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <h3><b><span data-max="{{ $research->section_2->section_2_count }}"></span> {{ $research->section_2->section_2_title }}</b></h3>
+                                    <h3><b><span data-max="{{ $research->section_2->section_2_count }}"></span>
+                                            {{ $research->section_2->section_2_title }}</b></h3>
                                     <p>{{ $research->section_2->section_2_description }}</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <h3><b><span data-max="{{ $research->section_3->section_3_count }}"></span> {{ $research->section_3->section_3_title }}</b></h3>
+                                    <h3><b><span data-max="{{ $research->section_3->section_3_count }}"></span>
+                                            {{ $research->section_3->section_3_title }}</b></h3>
                                     <p>{{ $research->section_3->section_3_description }}</p>
                                 </div>
                             </div>
@@ -236,7 +239,9 @@
                             </div>
                             <div class="research-body">
                                 <p>{{ $research->department->name }}</p>
-                                <h4><a href="{{ route('research',$research->slug) }}">{{ Str::words($research->title, 8) }}</a></h4>
+                                <h4><a
+                                        href="{{ route('research', $research->slug) }}">{{ Str::words($research->title, 8) }}</a>
+                                </h4>
                             </div>
                         </div>
                     </div>
@@ -262,8 +267,7 @@
                     <div class="col-md-3">
                         <div class="event">
                             <div class="image">
-                                <img class="img-fluid" src="{{ $event->getFirstMediaUrl('event') }}"
-                                    alt="">
+                                <img class="img-fluid" src="{{ $event->getFirstMediaUrl('event') }}" alt="">
                             </div>
                             <div class="event-date">
                                 <p>{{ date('M', strtotime($event->datetime)) }}</p>
@@ -271,7 +275,9 @@
                             </div>
                             <div class="event-body">
                                 <h4>{{ $event->department->name }}</h4>
-                                <h3><a href="{{ route('event.single',$event->slug) }}">{{ Str::words($event->title, 5) }}</a></h3>
+                                <h3><a
+                                        href="{{ route('event.single', $event->slug) }}">{{ Str::words($event->title, 5) }}</a>
+                                </h3>
                                 <h5>{{ date('h:i', strtotime($event->datetime)) }}</h5>
                             </div>
                         </div>
@@ -343,7 +349,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-3">
-                    <img src="{{ $messagefromchairman->getFirstMediaUrl('chairman') }}" class="img-fluid" alt="" style="border-radius: 50%; border: 1px solid gray; width:250px; height:250px">
+                    <img src="{{ $messagefromchairman->getFirstMediaUrl('chairman') }}" class="img-fluid"
+                        alt="" style="border-radius: 50%; border: 1px solid gray; width:250px; height:250px">
                 </div>
                 <div class="col-md-9">
                     <div class="message-from-chairman">
@@ -351,7 +358,7 @@
                         <p>{!! Str::words($messagefromchairman->messagefromchairman, 150) !!}</p>
                     </div>
                 </div>
-            </div>
+            </div>p
         </div>
     </section>
     <!-- Chairman End -->
@@ -371,27 +378,27 @@
     <script src="{{ asset('/') }}frontend_asset/js/counter.js"></script>
     <script>
         $(window).scroll(function() {
-            if($(window).scrollTop()) {
-                $('.logo').removeClass('display-none');
-                $('.scroll-menu').removeClass('display-none');
-                $('.niter-text').addClass('display-none');
-            } else {
-                $('.logo').addClass('display-none');
-                $('.scroll-menu').addClass('display-none');
-                $('.niter-text').removeClass('display-none');
-            }
+
             if ($(window).scrollTop()) {
-                $(".header-top").addClass("black");
+                $('.header').addClass('sticky');
+
             } else {
-                $(".header-top").removeClass("black");
+                $('.header').removeClass('sticky');
+
             }
-            if ($(window).scrollTop()) {
-                $(".header-bottom").addClass("header-white");
-                $(".header-bottom").addClass("remove-header");
-            } else {
-                $(".header-bottom").removeClass("header-white");
-                $(".header-bottom").removeClass("remove-header");
-            }
+
+            // if ($(window).scrollTop()) {
+            //     $(".header-top").addClass("black");
+            // } else {
+            //     $(".header-top").removeClass("black");
+            // }
+            // if ($(window).scrollTop()) {
+            //     $(".header-bottom").addClass("header-white");
+            //     $(".header-bottom").addClass("remove-header");
+            // } else {
+            //     $(".header-bottom").removeClass("header-white");
+            //     $(".header-bottom").removeClass("remove-header");
+            // }
         });
     </script>
 
