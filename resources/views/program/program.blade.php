@@ -6,7 +6,7 @@
 
         <div class="container">
             <div class="row">
-                
+
                 <div class="col-md-4">
                     <div class="program-sidebar">
                         <div class="card bg-light mb-3">
@@ -16,8 +16,8 @@
                             <div class="card-body">
                                 <nav>
                                     <ul class="list-style" id="">
-                                        <li><input type="checkbox" class="ahsan" id="search" name="search[]" value="UnderGraduate">Undergraduate Program</li>
-                                        <li><input type="checkbox" class="ahsan" id="search" name="search[]" value="Graduate">Graduate Program</li>
+                                        <li><input type="checkbox" class="search" id="search1" value="UnderGraduate">Undergraduate Program</li>
+                                        <li><input type="checkbox" class="search" id="search2" value="Graduate">Graduate Program</li>
                                     </ul>
                                 </nav>
                             </div>
@@ -42,30 +42,22 @@
     <script>
         $(function() {
             let search = [];
-            $('.ahsan').on('change', function(e) {
+            $('.search').on('change', function(e) {
                 // ajax search
 
                 e.preventDefault();
                 search = [];
-                // if($(this).is(':checked'))
-                // {
-                //     let search = $(this).val();
-                // }
-                // let search = $(this).val();
+
                 if($(this).is(':checked'))
                 {
                     search.push($(this).val());
                 }
-                // $('input[name="search[]":checked]').each(function()
-                // {
-                //     search.push($(this).val());
-                // });
-                // alert(search);
+
                 $.ajax({
                     url: "{{ route('program.search') }}",
                     type: "GET",
                     data: {
-                        search: search,
+                        search: search
                     },
                     success: function(data) {
                         $('#program').html(data);
