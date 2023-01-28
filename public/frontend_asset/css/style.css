@@ -1215,7 +1215,10 @@ h1.page-title {
     }
 
     .header-top {
-        background: #A3332C;        
+        padding-top: 7px;
+        height: 0px;
+        width: 60%;
+        margin: 0 auto;
     }
 
     .niter-text a {
@@ -1228,10 +1231,11 @@ h1.page-title {
         display: block;
         height: 82px;
     }
-    .header-top {
-        padding-top: 7px;
-        height: 30px;
+
+    .header.sticky .header-top{
+        display: block;
     }
+    
 
     /* .header-top {
         display: none;
