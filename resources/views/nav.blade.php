@@ -1,7 +1,7 @@
 <div class="menu">
     <nav class="navbar navbar-expand-lg">
         <div class="d-flex navbar-light mnav">
-            <div class="logo mt-2">
+            <div class="logo mt-1">
                 <a href="{{ url('/') }}"><img src="{{ $settings->getFirstMediaUrl('web_logo') }}"
                         style="height:70px;width:auto;" alt=""></a>
             </div>            
