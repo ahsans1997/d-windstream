@@ -9,7 +9,7 @@ li {
     list-style: none;
 } */
 
-.list-style{
+.list-style {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -552,7 +552,7 @@ li {
     width: 100%;
 }
 
-.about-info{
+.about-info {
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
     margin-top: 45px;
@@ -643,9 +643,9 @@ li {
     margin-top: -5px;
 }
 
-li a.active{
+li a.active {
     border-bottom: 3px solid #000;
-    padding-bottom:10px;
+    padding-bottom: 10px;
 }
 
 
@@ -714,12 +714,12 @@ li a.active{
 
 .department-body {
     padding: 20px;
-    height:100px;
+    height: 100px;
 }
 
 .department-body h3 {
     font-weight: 700;
-    font-size:24px;
+    font-size: 24px;
 }
 
 .department-body a {
@@ -746,11 +746,13 @@ li a.active{
     transition: all 2s;
     cursor: pointer;
 }
+
 .event-p-img:hover img {
     transform: scale(1.2);
 }
-.department_event_card{
-    height:460px;
+
+.department_event_card {
+    height: 460px;
 }
 
 
@@ -1036,6 +1038,26 @@ h1.page-title {
     text-decoration: none;
 }
 
+.header.sticky {
+    background: #A3332C;
+    height: 90px;
+}
+
+.header.sticky .header-top {
+    display: none;
+}
+
+.header .header-bottom {
+    display: block;
+}
+
+.header.sticky .header-bottom {
+    display: block;
+}
+
+.mobile-nav-button {
+    display: none;
+}
 
 @media only screen and (min-width:992px) and (max-width:1000px) {
 
@@ -1141,9 +1163,6 @@ h1.page-title {
 
 
 @media (max-width:767px) {
-    .logo img {
-        max-width: 80%;
-    }
 
     .accelerating-climate-solutions-header p {
         font-size: 20px;
@@ -1182,13 +1201,41 @@ h1.page-title {
 
     /* menu */
 
-    .mnav {
+    .header {
+        background: #A3332C;
+    }
+
+    .mobile-nav-button {
         display: block;
     }
 
-    .header-top {
-        display: none;
+    .mnav {
+        justify-content: space-between;
+        width: 100%;
     }
+
+    .header-top {
+        background: #A3332C;        
+    }
+
+    .niter-text a {
+        font-size: 18px !important;
+        line-height: 24px !important;
+        text-align: left !important;
+    }
+
+    .header .header-bottom {
+        display: block;
+        height: 82px;
+    }
+    .header-top {
+        padding-top: 7px;
+        height: 30px;
+    }
+
+    /* .header-top {
+        display: none;
+    } */
 
     .header-bottom .container {
         padding: 0;
@@ -1243,10 +1290,10 @@ h1.page-title {
         display: block;
     }
 
-    button.navbar-toggler {
+    /* button.navbar-toggler {
         width: 100px !important;
         flex-basis: 100px;
-    }
+    } */
 
     button.navbar-toggler:focus {
         outline: 0;

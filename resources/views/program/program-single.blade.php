@@ -9,7 +9,7 @@
 
                 <div class="col-md-10">
                     <div class="">
-                        <h2 class="mb-5"><strong>{{ $program->name }} ({{ $program->duration_in_month }} Months)</strong></h2>
+                        <h2 class="mb-5"><strong>{{ $program->name }} ({{ $program->duration_in_month }} Semester)</strong></h2>
 
                         <div class="card">
                             <div class="card-body">
@@ -20,7 +20,7 @@
                                     </div>
                                     <div class="pl-5">
                                         <h3>DURATION</h3>
-                                        <p><i class="fa fa-clock"></i> {{ $program->duration_in_month / 12 }} Years</p>
+                                        <p><i class="fa fa-clock"></i> {{ $program->duration_in_month / 2 }} Years</p>
                                     </div>
                                 </div>
                             </div>
