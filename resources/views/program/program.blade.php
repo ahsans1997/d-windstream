@@ -15,9 +15,16 @@
                             </div>
                             <div class="card-body">
                                 <nav>
-                                    <ul class="list-style" id="">
-                                        <li><input type="checkbox" class="search" id="search1" value="UnderGraduate">Undergraduate Program</li>
-                                        <li><input type="checkbox" class="search" id="search2" value="Graduate">Graduate Program</li>
+                                    <ul class="list-style">
+                                        <li>
+                                            <label for="undergrade"><input type="checkbox" class="search" id="undergrade"
+                                                    value="UnderGraduate">Undergraduate Program
+                                            </label>
+                                        </li>
+                                        <li><label for="grade">
+                                                <input type="checkbox" class="search" id="grade"
+                                                    value="Graduate">Graduate
+                                                Program</label></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -39,19 +46,18 @@
     <script src="{{ asset('/') }}assets/libs/jquery/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.css">
     <script src="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.js"></script>
-    <script>
+    <script>       
+
         $(function() {
-            let search = [];
+
+
+
             $('.search').on('change', function(e) {
-                // ajax search
-
                 e.preventDefault();
-                search = [];
-
-                if($(this).is(':checked'))
-                {
+                let search = [];
+                $('.search:checked').each(function(){
                     search.push($(this).val());
-                }
+                });
 
                 $.ajax({
                     url: "{{ route('program.search') }}",
@@ -61,7 +67,6 @@
                     },
                     success: function(data) {
                         $('#program').html(data);
-                        // alert(data);
                     }
                 });
 

@@ -8,5 +8,4 @@
     </div>
 @empty
     <div class="program-list">No Data Found</div>
-
 @endif
