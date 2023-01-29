@@ -23,12 +23,8 @@
     <div class="header-top black" style="width:100%; top:0; left:0; position: fixed; z-index: 9999;">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="logo">
-                        <a href="{{ url('/') }}"><img class="img-fluid" src="{{ setting()->getFirstMediaUrl('web_logo') }}"
-                            style="height:70px;width:auto;" alt=""></a>
-                    </div>
-                    <div class="main-menu" style="margin-top: 7px;">
+                <div class="col-md-12">                    
+                    <div class="main-menu">
                         @include('nav')
                     </div>
                 </div>

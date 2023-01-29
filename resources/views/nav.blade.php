@@ -1,8 +1,10 @@
 <div class="menu">
     <nav class="navbar navbar-expand-lg">
         <div class="d-flex navbar-light mnav">
+
+            {{-- {{ dd(setting() )}} --}}
             <div class="logo mt-1">
-                <a href="{{ url('/') }}"><img src="{{ $settings->getFirstMediaUrl('web_logo') }}"
+                <a href="{{ url('/') }}"><img src="{{ setting()->getFirstMediaUrl('web_logo') }}"
                         style="height:70px;width:auto;" alt=""></a>
             </div>            
             <button class="navbar-toggler collapsed mobile-nav-button" type="button" data-toggle="collapse"

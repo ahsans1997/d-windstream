@@ -286,12 +286,21 @@ class ProgramController extends Controller
     public function programSearch(Request $request)
     {
 
-        $search = $request->search;
-        $programs = Program::where('dgree_type', $search)->get();
+        if($request->search){
+            $search = $request->search;
+            $programs = Program::whereIn('dgree_type', $search)->get();
+    
+            $title = 'Search Result';
+            return view('program.programlist', [
+                'programs' => $programs,
+            ]);
+        }else{
+            $title = 'Search Result';
+            return view('program.programlist', [
+                'programs' => [],
+            ]);
+        }
 
-        $title = 'Search Result';
-        return view('program.programlist', [
-            'programs' => $programs,
-        ]);
+        
     }
 }
