@@ -3,7 +3,7 @@
         <h2>{{$admission->title}}</h2>
         <button type="button" class="btn btn-light">Department Of {{$admission->department->department_short_form}}</button>
         <button type="button" class="btn btn-light">{{ $admission->admission_type }}</button>
-        <p>{!! $admission->overview !!}</p>
+        <p>{!! Str::words($admission->overview, 50) !!}</p>
         <a href="{{ route('admission',$admission->slug) }}" class="btn btn-success">Read More</a>
     </div>
 @empty
