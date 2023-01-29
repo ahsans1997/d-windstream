@@ -16,7 +16,7 @@
                                 </ul>
                             </div>
                         @empty
-                            <h3 class="text-center">No notice Found</h3>
+                            <h3 class="text-center">No Career Found</h3>
                         @endforelse
                     </div>
                 </div>

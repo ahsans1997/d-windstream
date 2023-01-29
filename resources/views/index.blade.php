@@ -349,8 +349,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-3">
-                    <img src="{{ $messagefromchairman->getFirstMediaUrl('chairman') }}" class="img-fluid"
-                        alt="" style="border-radius: 50%; border: 1px solid gray; width:250px; height:250px">
+                    <img src="{{ $messagefromchairman->getFirstMediaUrl('chairman') }}" class="img-fluid rounded-circle"
+                        alt="" >
                 </div>
                 <div class="col-md-9">
                     <div class="message-from-chairman">
@@ -358,7 +358,7 @@
                         <p>{!! Str::words($messagefromchairman->messagefromchairman, 150) !!}</p>
                     </div>
                 </div>
-            </div>p
+            </div>
         </div>
     </section>
     <!-- Chairman End -->

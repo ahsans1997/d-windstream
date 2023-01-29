@@ -5,8 +5,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="row w-100">
-                        <div class="col-3">
+                    <div class="row mb-3 w-100">
+                        <div class="col-md-3">
                             <!-- Tab navs -->
                             <div class="nav flex-column nav-tabs text-center" id="v-tabs-tab" role="tablist"
                                 aria-orientation="vertical">
@@ -41,7 +41,7 @@
                             <!-- Tab navs -->
                         </div>
 
-                        <div class="col-9">
+                        <div class="col-md-9">
                             <!-- Tab content -->
                             <div class="tab-content" id="v-tabs-tabContent">
                                 <div class="tab-pane fade show active" id="v-tabs-boys" role="tabpanel"

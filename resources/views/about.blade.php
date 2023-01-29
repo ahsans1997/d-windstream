@@ -4,7 +4,7 @@
     <div class="main-div">
         <div class="container">
             <div class="row mb-4" style="border: 1px solid gray; padding: 10px;">
-                <div class="col-3 mt-3">
+                <div class="col-md-3 mt-3">
                     <!-- Tab navs -->
                     <div class="nav flex-column nav-tabs text-center" id="v-tabs-tab" role="tablist"
                         aria-orientation="vertical">
@@ -23,7 +23,7 @@
                     <!-- Tab navs -->
                 </div>
 
-                <div class="col-9 mt-4" style="border: 1px solid gray;">
+                <div class="col-md-9 mt-4" style="border: 1px solid gray;">
                     <!-- Tab content -->
                     <div class="tab-content" id="v-tabs-tabContent" style="padding: 5px">
                         <div class="tab-pane fade " id="v-tabs-historical" role="tabpanel"
