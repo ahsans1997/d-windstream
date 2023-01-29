@@ -96,22 +96,22 @@
                     <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part1_image') }}" alt="">
                     <h3>{{ $part1->part1_title }}</h3>
                     <p>{{ $part1->part1_description }}</p>
-                    <a href="{{ $part1->part1_link }}">{{ $part1->part1_link_name }} <i
-                            class="fa-solid fa-angle-right"></i></a>
+                    {{-- <a href="{{ $part1->part1_link }}">{{ $part1->part1_link_name }} <i
+                            class="fa-solid fa-angle-right"></i></a> --}}
                 </div>
                 <div class="col-md-4 accelerating-climate-solutions">
                     <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part2_image') }}" alt="">
                     <h3>{{ $part2->part2_title }}</h3>
                     <p>{{ $part2->part2_description }}</p>
-                    <a href="{{ $part2->part2_link }}">{{ $part2->part2_link_name }} <i
-                            class="fa-solid fa-angle-right"></i></a>
+                    {{-- <a href="{{ $part2->part2_link }}">{{ $part2->part2_link_name }} <i
+                            class="fa-solid fa-angle-right"></i></a> --}}
                 </div>
                 <div class="col-md-4 accelerating-climate-solutions">
                     <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part3_image') }}" alt="">
                     <h3>{{ $part3->part3_title }}</h3>
                     <p>{{ $part3->part3_description }}</p>
-                    <a href="{{ $part3->part3_link }}">{{ $part3->part3_link_name }} <i
-                            class="fa-solid fa-angle-right"></i></a>
+                    {{-- <a href="{{ $part3->part3_link }}">{{ $part3->part3_link_name }} <i
+                            class="fa-solid fa-angle-right"></i></a> --}}
                 </div>
 
                 <div class="col-md-12 seven-schools-in-which-to-pursue-your-passions">
@@ -152,7 +152,7 @@
                             <img class="img-fluid photo" src="{{ $news1->getFirstMediaUrl('news') }}" alt="">
                             <div class="news-image-body">
                                 <p>{{ $news1->department->name }}</p>
-                                <h4><a href=""><strong>{{ $news1->title }}</strong></a></h4>
+                                <h4><a href="{{ route('news.single', $news1->slug) }}"><strong>{{ $news1->title }}</strong></a></h4>
                             </div>
                         </div>
                     </div>
@@ -178,7 +178,7 @@
                                 alt="">
                             <div class="news-image-body">
                                 <p>{{ $news2->department->name }}</p>
-                                <h4><a href=""><strong>{{ $news2->title }}</strong></a></h4>
+                                <h4><a href="{{ route('news.single', $news2->slug) }}"><strong>{{ $news2->title }}</strong></a></h4>
                             </div>
                         </div>
                     </div>
@@ -355,7 +355,7 @@
                 <div class="col-md-9">
                     <div class="message-from-chairman">
                         <h3 class="section-header"><b>Message From Chairman</b></h3>
-                        <p>{!! Str::words($messagefromchairman->messagefromchairman, 150) !!}</p>
+                        <p>{!! Str::words($messagefromchairman->messagefromchairman, 150) !!} <a href="{{ route('about') }}">Read More</a></p>
                     </div>
                 </div>
             </div>

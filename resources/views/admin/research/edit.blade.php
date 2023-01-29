@@ -31,6 +31,10 @@
                                 <label for="placeholderInput" class="form-label">Description</label>
                                 <textarea name="description" class="summernote form-control" rows="6">{{ $research->description }}</textarea>
                             </div>
+                            <div class="mt-2">
+                                <label for="placeholderInput" class="form-label">Slgu</label>
+                                <input type="text" name="slug" class="form-control" value="{{ $research->slug }}" id="">
+                            </div>
 
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Department</label>

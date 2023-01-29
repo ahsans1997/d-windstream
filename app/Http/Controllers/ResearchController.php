@@ -21,7 +21,7 @@ class ResearchController extends Controller
     public function index()
     {
         return view('admin.research.index',[
-            'researches' => Research::all(),
+            'researches' => Research::orderBy('id', 'desc')->paginate(10),
         ]);
     }
 
@@ -107,9 +107,10 @@ class ResearchController extends Controller
             'title' => 'required',
             'description' => 'required',
             'department_id' => 'required',
+            'slug' => 'required|unique:research,slug,'.$research->id,
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10248',
         ]);
-        $slug = Str::slug($request->title, '-');
+        $slug = Str::slug($request->slug);
         $research = Research::findOrFail($research->id);
         Research::findOrFail($research->id)->update([
             'title' => $request->title,

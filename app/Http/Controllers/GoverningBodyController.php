@@ -42,7 +42,7 @@ class GoverningBodyController extends Controller
             'name' => 'required',
             'designation' => 'required',
             'institute' => 'required',
-            'location' => 'required',
+            // 'location' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $governingBody = new GoverningBody();
@@ -98,7 +98,7 @@ class GoverningBodyController extends Controller
             'name' => 'required',
             'designation' => 'required',
             'institute' => 'required',
-            'location' => 'required',
+            // 'location' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $governingbody = GoverningBody::find($governingbody->id);

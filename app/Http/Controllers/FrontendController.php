@@ -55,7 +55,7 @@ class FrontendController extends Controller
                 'news' => $news,
                 'news1' => $news1,
                 'news2' => $news2,
-                'events' => Event::where('featured', 2)->limit(4)->get(),
+                'events' => Event::where('featured', 2)->orderBy('id', 'desc')->limit(4)->get(),
                 'researches' => Research::orderBy('id', 'desc')->limit(4)->get(),
                 'settings' => Setting::latest()->first(),
                 'homesection' => HomeSection::latest()->first(),

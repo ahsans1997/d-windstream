@@ -280,6 +280,7 @@ class SettingController extends Controller
 
         if($request->part1_title)
         {
+            
             if($request->hasFile('part1_image'))
             {
                 $section_1 = HomeSection::findOrFail($id);
@@ -289,8 +290,8 @@ class SettingController extends Controller
             $data = [
                 'part1_title' => $request->part1_title,
                 'part1_description' => $request->part1_description,
-                'part1_link_name' => $request->part1_link_name,
-                'part1_link' => $request->part1_link,
+                // 'part1_link_name' => $request->part1_link_name,
+                // 'part1_link' => $request->part1_link,
             ];
             $part1 = json_encode($data);
             HomeSection::findOrFail($id)->update([
@@ -308,8 +309,8 @@ class SettingController extends Controller
             $data = [
                 'part2_title' => $request->part2_title,
                 'part2_description' => $request->part2_description,
-                'part2_link_name' => $request->part2_link_name,
-                'part2_link' => $request->part2_link,
+                // 'part2_link_name' => $request->part2_link_name,
+                // 'part2_link' => $request->part2_link,
             ];
             $part2 = json_encode($data);
             HomeSection::findOrFail($id)->update([
@@ -327,8 +328,8 @@ class SettingController extends Controller
             $data = [
                 'part3_title' => $request->part3_title,
                 'part3_description' => $request->part3_description,
-                'part3_link_name' => $request->part3_link_name,
-                'part3_link' => $request->part3_link,
+                // 'part3_link_name' => $request->part3_link_name,
+                // 'part3_link' => $request->part3_link,
             ];
             $part3 = json_encode($data);
             HomeSection::findOrFail($id)->update([

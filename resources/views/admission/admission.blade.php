@@ -6,7 +6,7 @@
 
         <div class="container">
             <div class="row">
-                
+
                 <div class="col-md-4">
                     <div class="program-sidebar">
                         <div class="card bg-light mb-3">
