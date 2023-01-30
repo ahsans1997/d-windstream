@@ -123,7 +123,7 @@ class NocController extends Controller
     public function noc()
     {
         return view('noc',[
-            'nocs' => Noc::orderBy('id', 'desc')->paginate(10),
+            'nocs' => Noc::orderBy('id', 'desc')->get(),
         ]);
     }
 

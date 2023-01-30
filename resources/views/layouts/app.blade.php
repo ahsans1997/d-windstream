@@ -346,6 +346,26 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link "
+                            href="#form" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                            aria-controls="sidebarApps">
+                            <i class="ri-calendar-event-line"></i> <span data-key="t-apps">Form</span>
+                        </a>
+                        <div class="collapse menu-dropdown {{ request()->routeIs('form.*') ? 'show' : '' }}" id="form">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('form.index') }}" class="nav-link {{ request()->routeIs('form.index') ? 'active' : '' }}">
+                                        All Form </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('form.create') }}" class="nav-link {{ request()->routeIs('form.create') ? 'active' : '' }}"
+                                        data-key="t-chat"> Add Form
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link menu-link "

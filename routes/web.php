@@ -14,6 +14,7 @@ use App\Http\Controllers\FacultyMemberController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FacultyMemberResearchController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GoverningBodyController;
@@ -71,6 +72,9 @@ Route::get('career/download/{slug}', [CareerController::class, 'download'])->nam
 
 Route::get('noc', [NocController::class, 'noc'])->name('noc');
 Route::get('noc/download/{slug}', [NocController::class, 'download'])->name('noc.download');
+
+Route::get('form', [FormController::class, 'form'])->name('form');
+Route::get('form/download/{slug}', [FormController::class, 'download'])->name('form.download');
 
 Route::get('admission/{slug?}', [AdmissionController::class, 'admission'])->name('admission');
 Route::get('admission-search', [AdmissionController::class, 'admissionsearch'])->name('admission.search');
@@ -139,6 +143,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::resource('career', CareerController::class);
 
     Route::resource('noc', NocController::class);
+
+    Route::resource('form', FormController::class);
 
     Route::resource('governingbody', GoverningBodyController::class);
 
