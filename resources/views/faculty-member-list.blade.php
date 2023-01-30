@@ -4,7 +4,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
-                <div class="search mb-5">
+                <div class="search mb-5" style="float: left">
                     <label for="" style="color: black">Search By : </label>
                     <select id="search" name="desigantion" class="form-control" style="width: 300px">
                         <option value="all">Search By</option>
@@ -14,7 +14,18 @@
                         <option value="leave">Study Leave</option>
                     </select>
                 </div>
+                <div class="search mb-5 mx-4" style="float: left">
+                    <label for="" style="color: black">Search By : </label>
+                    <select id="searchByDepartment" name="department_id" class="form-control" style="width: 300px">
+                        <option value="all">Search By</option>
+                        @foreach ($departments as $department)
+                            <option value="{{ $department->id }}">{{ $department->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
+
+
 
             <div class="col-md-12" >
                 <div class="row" id="profile">
@@ -48,6 +59,23 @@
                     }
                 });
 
+            });
+            $('#searchByDepartment').on('change', function(e) {
+                // ajax search
+
+                e.preventDefault();
+
+                let search = $(this).val();
+                $.ajax({
+                    url: "{{ route('member-search.department') }}",
+                    type: "GET",
+                    data: {
+                        search: search,
+                    },
+                    success: function(data) {
+                        $('#profile').html(data);
+                    }
+                });
             });
         });
     </script>

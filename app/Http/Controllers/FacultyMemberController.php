@@ -373,6 +373,7 @@ class FacultyMemberController extends Controller
             'faculty_members' => FacultyMember::with('department')->limit(20)->get(),
             'desigantions' => Designation::all(),
             'title' => 'Faculty Members',
+            'departments' => Department::all(),
         ];
         return view('faculty-member-list', $data);
     }
@@ -409,7 +410,22 @@ class FacultyMemberController extends Controller
         }
         $data = [
             'faculty_members' => $profile,
-            'desigantions' => Designation::all(),
+            'title' => 'Faculty Members',
+        ];
+        return view('member-search', $data);
+    }
+
+    public function facultyMembersearchdepartment(Request $request)
+    {
+        if($request->search == 'all'){
+            $profile = FacultyMember::limit(20)->get();
+        }
+        else{
+            $profile = FacultyMember::where('department_id', $request->search)->get();
+        }
+
+        $data = [
+            'faculty_members' => $profile,
             'title' => 'Faculty Members',
         ];
         return view('member-search', $data);

@@ -81,6 +81,7 @@ Route::get('resources', [ResourcesController::class, 'resources'])->name('resour
 Route::get('faculty-member',[FacultyMemberController::class, 'facultyMember'])->name('faculty-member');
 Route::get('member-profile/{slug}',[FacultyMemberController::class, 'memberProfile'])->name('member-profile');
 Route::get('member-search', [FacultyMemberController::class, 'facultyMembersearch'])->name('member-search');
+Route::get('member-search/department', [FacultyMemberController::class, 'facultyMembersearchdepartment'])->name('member-search.department');
 
 Route::get('about', [AboutController::class, 'about'])->name('about');
 Route::get('faq', [FaqController::class, 'faq'])->name('faq');
