@@ -328,6 +328,27 @@
 
                     <li class="nav-item">
                         <a class="nav-link menu-link "
+                            href="#noc" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                            aria-controls="sidebarApps">
+                            <i class="ri-calendar-event-line"></i> <span data-key="t-apps">NOC</span>
+                        </a>
+                        <div class="collapse menu-dropdown {{ request()->routeIs('noc.*') ? 'show' : '' }}" id="noc">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('noc.index') }}" class="nav-link {{ request()->routeIs('noc.index') ? 'active' : '' }}">
+                                        All NOC </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('noc.create') }}" class="nav-link {{ request()->routeIs('noc.create') ? 'active' : '' }}"
+                                        data-key="t-chat"> Add NOC
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link menu-link "
                             href="#notice" data-bs-toggle="collapse" role="button" aria-expanded="false"
                             aria-controls="sidebarApps">
                             <i class="ri-calendar-event-line"></i> <span data-key="t-apps">Notice</span>

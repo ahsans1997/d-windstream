@@ -19,6 +19,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GoverningBodyController;
 use App\Http\Controllers\LabfacilityController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NocController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\PageController;
@@ -67,6 +68,9 @@ Route::get('/clubs/{slug?}', [ClubController::class, 'clubs'])->name('clubs');
 Route::get('/offices/{slug?}', [OfficeController::class, 'offices'])->name('offices');
 Route::get('career/{slug?}', [CareerController::class, 'career'])->name('career');
 Route::get('career/download/{slug}', [CareerController::class, 'download'])->name('career.download');
+
+Route::get('noc', [NocController::class, 'noc'])->name('noc');
+Route::get('noc/download/{slug}', [NocController::class, 'download'])->name('noc.download');
 
 Route::get('admission/{slug?}', [AdmissionController::class, 'admission'])->name('admission');
 Route::get('admission-search', [AdmissionController::class, 'admissionsearch'])->name('admission.search');
@@ -133,6 +137,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
 
     Route::resource('labfacility', LabfacilityController::class);
     Route::resource('career', CareerController::class);
+
+    Route::resource('noc', NocController::class);
 
     Route::resource('governingbody', GoverningBodyController::class);
 

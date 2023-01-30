@@ -60,7 +60,7 @@
                     <ul class="list-style">
                         <li><a href="{{ route('notice')}}">Notice A-Z</a></li>
                         <li><a href="{{ route('clubs') }}">Clubs & Society</a></li>
-                        <li><a href="{{url('/approved-noc')}}">Approved Noc</a></li>
+                        <li><a href="{{route('noc')}}">Approved Noc</a></li>
                         <li><a href="{{url('/niter-form')}}">Niter Form</a></li>
                         <li><a href="{{route('career')}}">Career</a></li>
                         <li><a href="{{url('/alumni')}}">Alumni</a></li>

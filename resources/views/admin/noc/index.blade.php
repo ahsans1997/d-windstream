@@ -11,7 +11,7 @@
                 <div class="col">
 
                     <div class="header">
-                        <h2>Career</h2>
+                        <h2>NOC</h2>
                     </div>
                     <div class="table">
                         <table class="table table-nowrap">
@@ -19,23 +19,19 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Title</th>
-                                    <th scope="col">Start Date</th>
-                                    <th scope="col">End Date</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($careers as $career)
+                                @forelse ($nocs as $noc)
                                     <tr>
-                                        <th>{{ $career->id }}</th>
-                                        <td>{{ $career->title }}</td>
-                                        <td>{{ $career->date_start }}</td>
-                                        <td>{{ $career->date_end }}</td>
+                                        <th>{{ $noc->id }}</th>
+                                        <td>{{ $noc->title }}</td>
 
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <a href="{{ route('career.edit',$career->id) }}" class="btn btn-success btn-sm waves-effect waves-light"><i class="ri-edit-2-fill"></i></a>
-                                                <form action="{{ route('career.destroy',$career->id) }}" method="post">
+                                                <a href="{{ route('noc.edit',$noc->id) }}" class="btn btn-success btn-sm waves-effect waves-light"><i class="ri-edit-2-fill"></i></a>
+                                                <form action="{{ route('noc.destroy',$noc->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
@@ -52,7 +48,7 @@
                         </table>
                     </div>
                     <div class="row">
-                        {{ $careers->links() }}
+                        {{ $nocs->links() }}
                     </div>
                 </div> <!-- end col -->
             </div>

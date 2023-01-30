@@ -5,18 +5,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <div class="card-header">Job List</div>
+                    <div class="card-header">NOC List</div>
                     <div class="card-body">
-                        @forelse($careers as $career)
+                        @forelse($nocs as $noc)
                             <div class="info border-bottom-1 p-2">
-                                <h4><a href="{{ route('career.download',$career->slug) }}" class="color-black">{{ $career->title }}</a>
+                                <h4><a href="{{ route('noc.download',$noc->slug) }}" class="color-black">{{ $noc->title }}</a>
                                 </h4>
                                 <ul class="d-flex justify-content-between list-style">
-                                    <li class="d-inline-block">Date : {{ $career->date_start }} to {{ $career->date_end }}</li>
+                                    <li class="d-inline-block">Date : {{ $noc->created_at }}</li>
                                 </ul>
                             </div>
                         @empty
-                            <h3 class="text-center">No Career Found</h3>
+                            <h3 class="text-center">No NOC Found</h3>
                         @endforelse
                     </div>
                 </div>
