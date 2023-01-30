@@ -21,7 +21,7 @@
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <h5 class="mb-0" style="float: left">
-                                    <button class="btn btn-link c-icon" data-toggle="collapse" data-target="#collapseOne"
+                                    <button class="btn btn-link -icon" data-toggle="collapse" data-target="#collapseOne"
                                         aria-expanded="true" aria-controls="collapseOne">
                                         General Enquiries
 
@@ -275,12 +275,12 @@
 
 
 @push('script')
-    {{-- <script>
+    <script>
         $(document).ready(function () {
             $('.c-icon').on('click', function(){
                 $('.c-icon').toggleClass('fa-angle-down');
                 $('.c-icon').toggleClass('fa-angle-right');
             });
         });
-    </script> --}}
+    </script>
 @endpush
