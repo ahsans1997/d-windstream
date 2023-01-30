@@ -135,7 +135,7 @@ class AdmissionController extends Controller
     public function admission($slug = null)
     {
         if($slug == null){
-            $admissions = Admission::latest()->paginate(10);
+            $admissions = Admission::orderBy('id', 'desc')->paginate(10);
             return view('admission.admission',[
                 'admissions' => $admissions,
                 'title' => 'Admission',
@@ -145,6 +145,24 @@ class AdmissionController extends Controller
             return view('admission.admission-single',[
                 'admission' => $admission,
                 'title' => $admission->title,
+            ]);
+        }
+    }
+    public function admissionSearch(Request $request)
+    {
+        if($request->search){
+            $search = $request->search;
+            $admission = Admission::whereIn('admission_type', $search)->get();
+
+
+            $title = 'Search Result';
+            return view('admission.admissionlist', [
+                'admissions' => $admission,
+            ]);
+        }else{
+            $title = 'Search Result';
+            return view('admission.admissionlist', [
+                'admissions' => Admission::orderBy('id', 'desc')->get(),
             ]);
         }
     }

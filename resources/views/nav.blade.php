@@ -3,10 +3,10 @@
         <div class="d-flex navbar-light mnav">
 
             {{-- {{ dd(setting() )}} --}}
-            <div class="logo mt-1">
+            <div class="logo display mt-1">
                 <a href="{{ url('/') }}"><img src="{{ setting()->getFirstMediaUrl('web_logo') }}"
                         style="height:70px;width:auto;" alt=""></a>
-            </div>            
+            </div>
             <button class="navbar-toggler collapsed mobile-nav-button" type="button" data-toggle="collapse"
                 data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -20,7 +20,7 @@
             </div> --}}
         </div>
 
-        
+
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul>

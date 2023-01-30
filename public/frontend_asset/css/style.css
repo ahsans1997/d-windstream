@@ -923,7 +923,7 @@ li a.active {
 
 
 .tabbox button.active {
-    background: #3E2D79 !important;
+    background: #A3332C !important;
     color: #fff !important;
 }
 
@@ -932,7 +932,7 @@ li a.active {
 }
 
 .program-single .card-header {
-    background: #3E2D79;
+    background: #A3332C;
     padding: 0;
 }
 
@@ -1073,7 +1073,7 @@ h1.page-title {
 
     .mnav {
         display: block;
-    }    
+    }
 
     .header-bottom .container {
         padding: 0;
@@ -1198,7 +1198,7 @@ h1.page-title {
     .header.sticky .header-top{
         display: block;
     }
-    
+
 
     /* .header-top {
         display: none;
@@ -1298,7 +1298,7 @@ h1.page-title {
     .header.sticky .header-top{
         display: block;
     }
-    
+
 
     /* .header-top {
         display: none;
@@ -1389,6 +1389,8 @@ h1.page-title {
         max-width: 90%;
     }
 }
+
+
 
 
 /* animation */

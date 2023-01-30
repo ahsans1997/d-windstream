@@ -21,7 +21,7 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Phone Number</th>
-                                    <th scope="col">Image</th>
+                                    {{-- <th scope="col">Image</th> --}}
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -32,9 +32,9 @@
                                         <td>{{ $office->name }}</td>
                                         <td>{{ $office->address }}</td>
                                         <td>{{ $office->phone }}</td>
-                                        <td>
+                                        {{-- <td>
                                             <img src="{{ $office->getFirstMediaUrl('offices') }}" class="img-fluid" alt="" style="width: 100px">
-                                        </td>
+                                        </td> --}}
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <a href="{{ route('offices.edit',$office->id) }}" class="btn btn-success btn-sm waves-effect waves-light"><i class="ri-edit-2-fill"></i></a>

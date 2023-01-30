@@ -69,6 +69,8 @@ Route::get('career/{slug?}', [CareerController::class, 'career'])->name('career'
 Route::get('career/download/{slug}', [CareerController::class, 'download'])->name('career.download');
 
 Route::get('admission/{slug?}', [AdmissionController::class, 'admission'])->name('admission');
+Route::get('admission-search', [AdmissionController::class, 'admissionsearch'])->name('admission.search');
+
 
 Route::get('notice/{slug?}', [NoticeController::class, 'notice'])->name('notice');
 

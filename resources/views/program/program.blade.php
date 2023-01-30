@@ -46,7 +46,7 @@
     <script src="{{ asset('/') }}assets/libs/jquery/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.css">
     <script src="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.js"></script>
-    <script>       
+    <script>
 
         $(function() {
 

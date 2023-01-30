@@ -43,7 +43,7 @@ class OfficeController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $offices = new Office();
         $offices->name = $request->name;
@@ -54,10 +54,10 @@ class OfficeController extends Controller
         $offices->meta_keywords = $request->meta_keywords;
         $offices->meta_description = $request->meta_description;
         $offices->save();
-        if ($request->hasFile('image'))
-        {
-            $offices->addMediaFromRequest('image')->toMediaCollection('offices');
-        }
+        // if ($request->hasFile('image'))
+        // {
+        //     $offices->addMediaFromRequest('image')->toMediaCollection('offices');
+        // }
         Toastr::success('Office successfully added');
         return back();
     }
@@ -98,7 +98,7 @@ class OfficeController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $office = Office::find($office->id);
         $office->name = $request->name;
@@ -109,11 +109,11 @@ class OfficeController extends Controller
         $office->meta_keywords = $request->meta_keywords;
         $office->meta_description = $request->meta_description;
         $office->save();
-        if ($request->hasFile('image'))
-        {
-            $office->clearMediaCollection('offices');
-            $office->addMediaFromRequest('image')->toMediaCollection('offices');
-        }
+        // if ($request->hasFile('image'))
+        // {
+        //     $office->clearMediaCollection('offices');
+        //     $office->addMediaFromRequest('image')->toMediaCollection('offices');
+        // }
         Toastr::success('Office successfully updated');
         return back();
     }

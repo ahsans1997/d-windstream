@@ -21,8 +21,12 @@
             height: 300px;
         }
 
+        .display{
+            display: none;
+        }
+
         .niter-text a {
-            font-size: 30px;
+            font-size: 40px;
             font-weight: 900;
             color: #fff;
             margin: 0;
@@ -41,12 +45,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="niter-text text-center site-title">
+                            <div class="niter-text text-center mt-3 site-title">
                                 <a href="{{ url('/') }}"><span>National Institute of</span> Textile Engineering &
                                     Research</a>
                             </div>
                         </div>
-                        <div class="scroll-menu" style="margin-top:7px">
+                        {{-- <div class="scroll-menu" style="margin-top:7px">
                             <button class="navbar-toggler collapsed mobile-nav-button" type="button"
                                 data-toggle="collapse" data-target="#navbarTogglerDemo03"
                                 aria-controls="navbarTogglerDemo03" aria-expanded="false"
@@ -54,7 +58,7 @@
                                 <span class="menu-close">X</span>
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -343,19 +347,18 @@
     {{-- <div class="footer-image" style="background-image: url({{ $settings->getFirstMediaUrl('homefooterbanner') }})">
     </div> --}}
     <!-- About End -->
-    <hr>
+
     <!-- Chairman Start -->
-    <section class="mb-3">
+    <section class="" style="background-color: #F9F6EF; padding: 10px 0">
         <div class="container">
             <div class="row">
-                <div class="col-3">
+                <div class="col-2">
                     <img src="{{ $messagefromchairman->getFirstMediaUrl('chairman') }}" class="img-fluid rounded-circle"
                         alt="" >
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-10">
                     <div class="message-from-chairman">
-                        <h3 class="section-header"><b>Message From Chairman</b></h3>
-                        <p>{!! Str::words($messagefromchairman->messagefromchairman, 150) !!} <a href="{{ route('about') }}">Read More</a></p>
+                        <p>{!! Str::words($messagefromchairman->messagefromchairman, 100) !!} <a href="{{ route('about') }}">Read More</a></p>
                     </div>
                 </div>
             </div>
@@ -381,10 +384,11 @@
 
             if ($(window).scrollTop()) {
                 $('.header').addClass('sticky');
+                $('.logo').removeClass('display');
 
             } else {
                 $('.header').removeClass('sticky');
-
+                $('.logo').addClass('display');
             }
 
             // if ($(window).scrollTop()) {

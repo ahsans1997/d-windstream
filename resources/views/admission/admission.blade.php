@@ -16,8 +16,17 @@
                             <div class="card-body">
                                 <nav>
                                     <ul class="list-style" id="">
-                                        <li><input type="checkbox" class="ahsan" id="search" name="search[]" value="UnderGraduate">Undergraduate Admission</li>
-                                        <li><input type="checkbox" class="ahsan" id="search" name="search[]" value="Graduate">Graduate Admission</li>
+                                        <li>
+                                            <label for="undergrade"><input type="checkbox" class="search" id="undergrade"
+                                                value="undergradute">Undergraduate Program
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="grade">
+                                                <input type="checkbox" class="search" id="grade"
+                                                    value="gradute">Graduate
+                                                Program</label>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -25,7 +34,7 @@
 
                     </div>
                 </div>
-                <div class="col-md-8" id="program">
+                <div class="col-md-8" id="admission">
                     {{-- {{ dd($programs) }} --}}
                     @include('admission.admissionlist')
 
@@ -34,5 +43,38 @@
         </div>
     </div>
 @endsection
+
+
+@push('script')
+    <script src="{{ asset('/') }}assets/libs/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.css">
+    <script src="{{ asset('/') }}assets/libs/jqueryui/jquery-ui.min.js"></script>
+    <script>
+
+        $(function() {
+            $('.search').on('change', function(e) {
+                e.preventDefault();
+                let search = [];
+                $('.search:checked').each(function(){
+                    search.push($(this).val());
+                });
+
+
+                $.ajax({
+                    url: "{{ route('admission.search') }}",
+                    type: "GET",
+                    data: {
+                        search: search
+                    },
+                    success: function(data) {
+                        $('#admission').html(data);
+                        // alert(data);
+                    }
+                });
+
+            });
+        });
+    </script>
+@endpush
 
 

@@ -15,13 +15,13 @@
                                     <!-- Tab Nav -->
                                     <ul class="nav nav-pills">
                                         <li class="active">
-                                            <a class="btn btn-warning rounded-0 m-1" data-toggle="tab" href="#info"
+                                            <a class="btn rounded-0 m-1" style="background-color: #A3332C; color: #fff" data-toggle="tab" href="#info"
                                                 aria-expanded="true">
                                                 INFO
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="btn btn-warning rounded-0 m-1" data-toggle="tab" href="#contact"
+                                            <a class="btn rounded-0 m-1" style="background-color: #A3332C; color: #fff" data-toggle="tab" href="#contact"
                                                 aria-expanded="true">
                                                 Contact
                                             </a>

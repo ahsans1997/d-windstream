@@ -30,50 +30,50 @@
                         <!-- Tab Nav -->
                         <ul class="nav nav-pills">
                             <li class="active">
-                                <a class="btn btn-warning rounded-0 m-1" data-toggle="tab" href="#bio"
+                                <a class="btn rounded-0 m-1" style="background-color: #A3332C; color: #fff; border: none;" data-toggle="tab" href="#bio"
                                     aria-expanded="true">
                                     Bio
                                 </a>
                             </li>
                             <li>
-                                <a class="btn btn-warning rounded-0 m-1" data-toggle="tab" href="#educationInfo"
+                                <a class="btn rounded-0 m-1" style="background-color: #A3332C; color: #fff; border: none;" data-toggle="tab" href="#educationInfo"
                                     aria-expanded="true">
                                     Education
                                 </a>
                             </li>
                             <li>
-                                <a class="btn btn-warning rounded-0 m-1" data-toggle="tab" href="#experience"
+                                <a class="btn rounded-0 m-1" style="background-color: #A3332C; color: #fff; border: none;" data-toggle="tab" href="#experience"
                                     aria-expanded="false">
                                     Experience
                                 </a>
                             </li>
                             <li>
-                                <a class="btn btn-warning rounded-0 m-1" data-toggle="tab" href="#researchActivities"
+                                <a class="btn rounded-0 m-1" style="background-color: #A3332C; color: #fff; border: none;" data-toggle="tab" href="#researchActivities"
                                     aria-expanded="false">
                                     Research Activities
                                 </a>
                             </li>
                             <li>
-                                <a class="btn btn-warning rounded-0 m-1" data-toggle="tab" href="#membershipInfo"
+                                <a class="btn rounded-0 m-1" style="background-color: #A3332C; color: #fff; border: none;" data-toggle="tab" href="#membershipInfo"
                                     aria-expanded="false">
                                     Membership
                                 </a>
                             </li>
                             <li>
-                                <a class="btn btn-warning rounded-0 m-1" data-toggle="tab" href="#publicationInfo"
+                                <a class="btn rounded-0 m-1" style="background-color: #A3332C; color: #fff; border: none;" data-toggle="tab" href="#publicationInfo"
                                     aria-expanded="false">
                                     Publication
                                 </a>
                             </li>
                             <li>
-                                <a class="btn btn-warning rounded-0 m-1" data-toggle="tab" href="#awardInfo"
+                                <a class="btn rounded-0 m-1" style="background-color: #A3332C; color: #fff; border: none;" data-toggle="tab" href="#awardInfo"
                                     aria-expanded="false">
                                     Award
                                 </a>
                             </li>
 
                             <li>
-                                <a class="btn btn-warning rounded-0 m-1" data-toggle="tab" href="#contactInfo"
+                                <a class="btn rounded-0 m-1" style="background-color: #A3332C; color: #fff; border: none;" data-toggle="tab" href="#contactInfo"
                                     aria-expanded="false">
                                     Contact
                                 </a>
@@ -335,7 +335,7 @@
 
                                             @forelse ($member->membership as $membership)
                                                 <tr>
-                                                    <td></td>
+                                                    {{-- <td></td> --}}
                                                     <td>{{ $membership->title }}</td>
                                                     <td>{{ $membership->type }}</td>
                                                     <td>{{ $membership->membership_year }}</td>

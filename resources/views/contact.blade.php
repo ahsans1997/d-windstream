@@ -20,10 +20,17 @@
                     <div id="accordion">
                         <div class="card">
                             <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                <h5 class="mb-0" style="float: left">
+                                    <button class="btn btn-link c-icon" data-toggle="collapse" data-target="#collapseOne"
                                         aria-expanded="true" aria-controls="collapseOne">
                                         General Enquiries
+
+                                    </button>
+                                </h5>
+                                <h5 class="mb-0" style="float: right">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="c-icon fa-solid fa-angle-down" style="float: right"></i>
                                     </button>
                                 </h5>
                             </div>
@@ -265,3 +272,15 @@
         </div>
     </div>
 @endsection
+
+
+@push('script')
+    {{-- <script>
+        $(document).ready(function () {
+            $('.c-icon').on('click', function(){
+                $('.c-icon').toggleClass('fa-angle-down');
+                $('.c-icon').toggleClass('fa-angle-right');
+            });
+        });
+    </script> --}}
+@endpush

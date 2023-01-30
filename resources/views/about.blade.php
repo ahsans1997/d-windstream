@@ -3,7 +3,7 @@
 @section('content')
     <div class="main-div">
         <div class="container">
-            <div class="row mb-4" style="border: 1px solid gray; padding: 10px;">
+            <div class="row mb-4" style="border: 1px solid rgb(231, 226, 226); padding: 10px; border-radius: 7px">
                 <div class="col-md-3 mt-3">
                     <!-- Tab navs -->
                     <div class="nav flex-column nav-tabs text-center" id="v-tabs-tab" role="tablist"
@@ -23,25 +23,29 @@
                     <!-- Tab navs -->
                 </div>
 
-                <div class="col-md-9 mt-4" style="border: 1px solid gray;">
+                <div class="col-md-9 mt-4" style="border: 1px solid rgb(231, 226, 226); border-radius: 7px;">
                     <!-- Tab content -->
                     <div class="tab-content" id="v-tabs-tabContent" style="padding: 5px">
                         <div class="tab-pane fade " id="v-tabs-historical" role="tabpanel"
                             aria-labelledby="v-tabs-historical-tab">
-                            <h4 style="font-weight: 700; font-size: 24px" class="mt-4">Historical Overview</h4>
+                            <h4 style="font-weight: 700; font-size: 24px; border-left: 7px solid #A3332C; line-height: 35px; padding-left: 10px;" class="mt-4">Historical Overview</h4>
                             {!! $about->historicaloverview !!}
                         </div>
                         <div class="tab-pane fade" id="v-tabs-vision" role="tabpanel" aria-labelledby="v-tabs-vision-tab">
-                            <h4 style="font-weight: 700; font-size: 24px" class="mt-4">Mission</h4>
-                            {!! $about->mission !!}
+                            <h3 style="border-left: 7px solid #A3332C; line-height: 35px; padding-left: 10px; font-weight: 700; font-size: 40px;" class="mt-3">Mission & Vision</h3>
+                            <hr>
+                            <div class="mission-vision mx-4">
+                                <h4 style="font-weight: 700; font-size: 24px" class="mt-4">Mission</h4>
+                                {!! $about->mission !!}
 
-                            <h4 style="font-weight: 700; font-size: 24px" class="mt-4">Vision</h4>
-                            {!! $about->vision !!}
+                                <h4 style="font-weight: 700; font-size: 24px" class="mt-4">Vision</h4>
+                                {!! $about->vision !!}
+                            </div>
                         </div>
                         <div class="tab-pane fade show active" id="v-tabs-Chairman" role="tabpanel"
                             aria-labelledby="v-tabs-Chairman-tab">
-                            <h4 style="font-weight: 700; font-size: 40px" class="mt-4"><u>Messages From Chairman</u></h4>
-                            <div class="row">
+                            <h4 style="font-weight: 700; font-size: 40px; border-left: 7px solid #A3332C; line-height: 35px; padding-left: 10px;" class="mt-4">Messages From Chairman</h4>
+                            <div class="row mt-4">
                                 <div class="col-md-3">
                                     <img class="img-fluid" src="{{ $about->getFirstMediaUrl('chairman') }}" alt="">
                                 </div>
@@ -59,8 +63,8 @@
                         </div>
                         <div class="tab-pane fade" id="v-tabs-Principal" role="tabpanel"
                             aria-labelledby="v-tabs-Principal-tab">
-                            <h4 style="font-weight: 700; font-size: 40px" class="mt-4"><u>Messages Fron Principal</u></h4>
-                            <div class="row">
+                            <h4 style="font-weight: 700; font-size: 40px; border-left: 7px solid #A3332C; line-height: 35px; padding-left: 10px;" class="mt-4">Messages Fron Principal</h4>
+                            <div class="row mt-4">
                                 <div class="col-md-3">
                                     <img class="img-fluid" src="{{ $about->getFirstMediaUrl('principal') }}" alt="">
                                 </div>

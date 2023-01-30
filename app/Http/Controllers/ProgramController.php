@@ -266,7 +266,7 @@ class ProgramController extends Controller
 
         if ($slug == null) {
             $data = [
-                'programs' => Program::with('department')->paginate(5),
+                'programs' => Program::with('department')->orderBy('id', 'desc')->paginate(10),
                 'title' => 'Programs'
             ];
             return view('program.program', $data);
@@ -289,7 +289,7 @@ class ProgramController extends Controller
         if($request->search){
             $search = $request->search;
             $programs = Program::whereIn('dgree_type', $search)->get();
-    
+
             $title = 'Search Result';
             return view('program.programlist', [
                 'programs' => $programs,
@@ -297,10 +297,10 @@ class ProgramController extends Controller
         }else{
             $title = 'Search Result';
             return view('program.programlist', [
-                'programs' => [],
+                'programs' => Program::orderBy('id', 'desc')->get(),
             ]);
         }
 
-        
+
     }
 }
