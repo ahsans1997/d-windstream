@@ -960,7 +960,7 @@ li a.active {
 }
 
 .breadcrumb-area {
-    min-height: 400px;
+    /* min-height: 400px; */
     background-size: cover;
     background-position: center center;
     overflow: hidden;
@@ -975,7 +975,7 @@ li a.active {
 }
 
 h1.page-title {
-    margin-top: 200px;
+    /* margin-top: 200px; */
     font-weight: bold;
     border-bottom: 1px solid #ddd;
     padding-bottom: 15px;

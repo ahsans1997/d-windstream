@@ -30,6 +30,14 @@
             text-decoration: none;
             line-height: 40px;
         }
+
+        .breadcrumb-area{
+            min-height: 400px;
+        }
+        h1.page-title{
+            margin-top: 200px;
+        }
+
         @media (max-width:991px){
             .display{
                 display: block;
