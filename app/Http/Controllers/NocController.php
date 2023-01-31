@@ -90,7 +90,7 @@ class NocController extends Controller
     public function update(Request $request, Noc $noc)
     {
         $valadated = $request->validate([
-            'title' => 'required',
+            'title' => 'required|unique:nocs,title,'.$noc->id,
             'slug' => 'required|unique:nocs,slug,'.$noc->id,
             'file' => 'mimes:pdf,doc,docx|max:2048,',
         ]);
@@ -124,6 +124,7 @@ class NocController extends Controller
     {
         return view('noc',[
             'nocs' => Noc::orderBy('id', 'desc')->get(),
+            'title' => 'Noc',
         ]);
     }
 

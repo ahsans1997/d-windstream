@@ -34,6 +34,11 @@
             text-decoration: none;
             line-height: 40px;
         }
+        @media (max-width:991px){
+            .display{
+                display: block;
+            }
+        }
     </style>
 </head>
 

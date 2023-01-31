@@ -90,7 +90,7 @@ class FormController extends Controller
     public function update(Request $request, Form $form)
     {
         $validated = $request->validate([
-            'title' => 'required',
+            'title' => 'required|unique:forms,title,'.$form->id,
             'slug' => 'required|unique:forms,slug,'.$form->id,
             'file' => 'required|mimes:pdf,doc,docx|max:2048',
         ]);
@@ -123,6 +123,7 @@ class FormController extends Controller
     {
         return view('form',[
             'forms' => Form::orderBy('id', 'desc')->paginate(10),
+            'title' => 'Form',
         ]);
     }
 

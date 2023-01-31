@@ -12,7 +12,7 @@
                                 aria-orientation="vertical">
                                 <a class="nav-link text-left student-togol border" id="v-tabs-boys-tab" data-mdb-toggle="tab"
                                     href="#v-tabs-boys" role="tab" aria-controls="v-tabs-boys"
-                                    aria-selected="true">Student Accommodation</a>
+                                    aria-selected="true">Student Accommodation <i class="fa-solid fa-circle-plus mt-1" id="test" style="float: right"></i></a>
                                 <a class="nav-link text-left s-togol hide border" id="v-tabs-boys-tab" data-mdb-toggle="tab"
                                     href="#v-tabs-boys" style="padding-left: 50px" role="tab"
                                     aria-controls="v-tabs-boys" aria-selected="false">-Boys Hostel</a>
@@ -28,15 +28,13 @@
                                 <a class="nav-link text-left border" id="v-tabs-cafe-tab" data-mdb-toggle="tab"
                                     href="#v-tabs-cafe" role="tab" aria-controls="v-tabs-cafe"
                                     aria-selected="false">Cafe / Canteen</a>
-                                <a class="nav-link text-left gallery-togol border" id="v-tabs-gallery-tab" data-mdb-toggle="tab"
-                                    href="#v-tabs-gallery" role="tab" aria-controls="v-tabs-gallery"
-                                    aria-selected="false">Gallery</a>
-                                <a class="nav-link text-left g-togol hide border" id="v-tabs-gallery-tab" data-mdb-toggle="tab"
-                                    href="#v-tabs-gallery" style="padding-left: 50px" role="tab"
-                                    aria-controls="v-tabs-gallery" aria-selected="false">-Photo Gallery</a>
-                                <a class="nav-link text-left g-togol hide border" id="v-tabs-videogallery-tab" data-mdb-toggle="tab"
-                                    href="#v-tabs-videogallery" style="padding-left: 50px" role="tab"
-                                    aria-controls="v-tabs-videogallery" aria-selected="false">-Video Gallery</a>
+
+                                <a class="nav-link text-left g-togol border" id="v-tabs-gallery-tab" data-mdb-toggle="tab"
+                                    href="#v-tabs-gallery" role="tab"
+                                    aria-controls="v-tabs-gallery" aria-selected="false">Photo Gallery</a>
+                                <a class="nav-link text-left g-togol border" id="v-tabs-videogallery-tab" data-mdb-toggle="tab"
+                                    href="#v-tabs-videogallery" role="tab"
+                                    aria-controls="v-tabs-videogallery" aria-selected="false">Video Gallery</a>
                             </div>
                             <!-- Tab navs -->
                         </div>
@@ -189,10 +187,7 @@
             $('.student-togol').on('click',function() {
                 $('.s-togol').toggleClass('show');
                 $('.s-togol').toggleClass('hide');
-            });
-            $('.gallery-togol').on('click',function() {
-                $('.g-togol').toggleClass('show');
-                $('.g-togol').toggleClass('hide');
+
             });
             $('.gallerys').magnificPopup({
                 delegate: 'a',

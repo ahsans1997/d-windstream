@@ -4,7 +4,7 @@
     <div class="info border-bottom-1 p-2">
         <h5><a href="{{ route('notice',$notice->slug) }}" class="color-black">{{ $notice->title }}</a>
         </h5>
-        <ul class="d-flex justify-content-between">
+        <ul class="d-flex justify-content-between list-style">
             <li class="d-inline-block">Published Date:
                 {{ $notice->created_at->format('d-M-Y') }}
             </li>

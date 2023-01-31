@@ -16,15 +16,55 @@
         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/') }}frontend_asset/css/style.css">
+    <style>
+        .display{
+            display: none;
+        }
 
+        .niter-text a {
+            font-size: 40px;
+            font-weight: 900;
+            color: #fff;
+            margin: 0;
+            line-height: 1.5;
+            text-decoration: none;
+            line-height: 40px;
+        }
+        @media (max-width:991px){
+            .display{
+                display: block;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="header-top black" style="width:100%; top:0; left:0; position: fixed; z-index: 9999;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">                    
-                    <div class="main-menu">
+    <div class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="niter-text text-center mt-3 site-title">
+                            <a href="{{ url('/') }}"><span>National Institute of</span> Textile Engineering &
+                                Research</a>
+                        </div>
+                    </div>
+                    {{-- <div class="scroll-menu" style="margin-top:7px">
+                        <button class="navbar-toggler collapsed mobile-nav-button" type="button"
+                            data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                            aria-controls="navbarTogglerDemo03" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="menu-close">X</span>
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
                         @include('nav')
                     </div>
                 </div>
@@ -33,7 +73,7 @@
     </div>
 
     <div class="breadcrumb-area shadow dark  text-center text-light"
-        style="height:100px; margin-top:85px; background-image: url({{ default_header_banner('faculty-member') }});">
+        style="height:100px; background-image: url({{ default_header_banner('faculty-member') }});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
@@ -59,6 +99,32 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script>
+        $(window).scroll(function() {
+
+        if ($(window).scrollTop()) {
+            $('.header').addClass('sticky');
+            $('.logo').removeClass('display');
+
+        } else {
+            $('.header').removeClass('sticky');
+            $('.logo').addClass('display');
+        }
+
+        // if ($(window).scrollTop()) {
+        //     $(".header-top").addClass("black");
+        // } else {
+        //     $(".header-top").removeClass("black");
+        // }
+        // if ($(window).scrollTop()) {
+        //     $(".header-bottom").addClass("header-white");
+        //     $(".header-bottom").addClass("remove-header");
+        // } else {
+        //     $(".header-bottom").removeClass("header-white");
+        //     $(".header-bottom").removeClass("remove-header");
+        // }
+        });
     </script>
 
 

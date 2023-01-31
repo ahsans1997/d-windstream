@@ -22,7 +22,7 @@
                             <div class="card-header" id="headingOne">
                                 <h5 class="mb-0" style="float: left">
                                     <button class="btn btn-link -icon" data-toggle="collapse" data-target="#collapseOne"
-                                        aria-expanded="true" aria-controls="collapseOne">
+                                        aria-expanded="true" id="c-icon" aria-controls="collapseOne">
                                         General Enquiries
 
                                     </button>
@@ -30,7 +30,7 @@
                                 <h5 class="mb-0" style="float: right">
                                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
                                         aria-expanded="true" aria-controls="collapseOne">
-                                        <i class="c-icon fa-solid fa-angle-down" style="float: right"></i>
+                                        <i class="c-icon fa-solid fa-angle-down" id="c-icon" style="float: right"></i>
                                     </button>
                                 </h5>
                             </div>
@@ -55,10 +55,16 @@
                         </div>
                         <div class="card">
                             <div class="card-header" id="headingTwo">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                <h5 class="mb-0" style="float: left;">
+                                    <button class="btn btn-link collapsed" id="s-icon" data-toggle="collapse" data-target="#collapseTwo"
                                         aria-expanded="false" aria-controls="collapseTwo">
                                         Students Accommodation
+                                    </button>
+                                </h5>
+                                <h5 class="mb-0" style="float: right">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="s-icon fa-solid fa-angle-right" id="s-icon" style="float: right"></i>
                                     </button>
                                 </h5>
                             </div>
@@ -88,10 +94,16 @@
                         </div>
                         <div class="card">
                             <div class="card-header" id="headingThree">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                <h5 class="mb-0" style="float: left;">
+                                    <button class="btn btn-link collapsed" id="e-icon" data-toggle="collapse"
                                         data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                         Emergency
+                                    </button>
+                                </h5>
+                                <h5 class="mb-0" style="float: right">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="e-icon fa-solid fa-angle-right" id="e-icon" style="float: right"></i>
                                     </button>
                                 </h5>
                             </div>
@@ -277,9 +289,29 @@
 @push('script')
     <script>
         $(document).ready(function () {
-            $('.c-icon').on('click', function(){
+            $('#c-icon').on('click', function(){
                 $('.c-icon').toggleClass('fa-angle-down');
                 $('.c-icon').toggleClass('fa-angle-right');
+                $('.s-icon').removeClass('fa-angle-down');
+                $('.s-icon').addClass('fa-angle-right');
+                $('.e-icon').removeClass('fa-angle-down');
+                $('.e-icon').addClass('fa-angle-right');
+            });
+            $('#s-icon').on('click', function(){
+                $('.s-icon').toggleClass('fa-angle-right');
+                $('.s-icon').toggleClass('fa-angle-down');
+                $('.c-icon').removeClass('fa-angle-down');
+                $('.c-icon').addClass('fa-angle-right');
+                $('.e-icon').removeClass('fa-angle-down');
+                $('.e-icon').addClass('fa-angle-right');
+            });
+            $('#e-icon').on('click', function(){
+                $('.e-icon').toggleClass('fa-angle-right');
+                $('.e-icon').toggleClass('fa-angle-down');
+                $('.c-icon').removeClass('fa-angle-down');
+                $('.c-icon').addClass('fa-angle-right');
+                $('.s-icon').removeClass('fa-angle-down');
+                $('.s-icon').addClass('fa-angle-right');
             });
         });
     </script>
