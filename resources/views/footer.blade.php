@@ -82,11 +82,11 @@
                     <div class="footer-right">
                         <nav>
                             <ul class="list-style">
-                                <li><a style="color: #fff;" href="{{url('/niter-form')}}">NITER Home</a></li>
+                                <li><a style="color: #fff;" href="{{url('/')}}">NITER Home</a></li>
                                 <li><a style="color: #fff;" href="{{url('/terms-of-use')}}">Terms of Use</a></li>
                             </ul>
                             <ul class="list-style">
-                                <li><a style="color: #fff;" href="{{url('/privacy')}}">Privacy</a></li>
+                                <li><a style="color: #fff;" href="{{url('/privacy-policy')}}">Privacy</a></li>
                                 <li><a style="color: #fff;" href="{{url('/accessibility')}}"> Accessibility</a></li>
                             </ul>
                         </nav>

@@ -7,7 +7,9 @@
                 <img class="img-fluid" src="{{ $event->getFirstMediaUrl('event') }}" alt="">
             </div>
             <div class="event-p-body">
-                <h3>{{ Str::words($event->title, 7) }}</h3>
+                <h3>{{ Str::limit($event->title, 40) }}</h3>
+            </div>
+            <div class="event-footer p-3">
                 <hr>
                 <a href="{{ route('event.single',$event->slug) }}" class="btn btn-light">View event</a>
             </div>

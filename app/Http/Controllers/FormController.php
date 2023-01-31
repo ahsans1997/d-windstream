@@ -42,7 +42,7 @@ class FormController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required',
-            'file' => 'required|mimes:pdf,doc,docx|max:2048',
+            'file' => 'required|mimes:pdf,doc,docx|max:10240',
         ]);
         $form = new Form();
         $form->title = $request->title;
@@ -92,7 +92,7 @@ class FormController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:forms,title,'.$form->id,
             'slug' => 'required|unique:forms,slug,'.$form->id,
-            'file' => 'required|mimes:pdf,doc,docx|max:2048',
+            'file' => 'required|mimes:pdf,doc,docx|max:10240',
         ]);
         $form->title = $request->title;
         $form->slug = Str::slug($request->slug, '-');

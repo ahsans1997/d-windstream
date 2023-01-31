@@ -135,7 +135,7 @@ class OfficeController extends Controller
     public function offices($slug = null)
     {
         if ($slug == null) {
-            $offices = Office::latest()->get();
+            $offices = Office::orderBy('id', 'desc')->get();
             return view('offices.offices',[
                 'offices' => $offices,
                 'title' => 'Offices',

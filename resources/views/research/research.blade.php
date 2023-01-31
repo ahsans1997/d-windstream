@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card border-secondary mb-3">
+                    <div class="card mb-3">
                         <div class="card-header" style=" padding-top: 35px;">
                             <div class="form-group">
 

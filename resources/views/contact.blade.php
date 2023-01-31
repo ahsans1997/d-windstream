@@ -62,8 +62,8 @@
                                     </button>
                                 </h5>
                                 <h5 class="mb-0" style="float: right">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                        aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo"
+                                        aria-expanded="true" aria-controls="collapseTwo">
                                         <i class="s-icon fa-solid fa-angle-right" id="s-icon" style="float: right"></i>
                                     </button>
                                 </h5>
@@ -94,18 +94,19 @@
                         </div>
                         <div class="card">
                             <div class="card-header" id="headingThree">
-                                <h5 class="mb-0" style="float: left;">
-                                    <button class="btn btn-link collapsed" id="e-icon" data-toggle="collapse"
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link e-icon d-inline-block collapsed" data-toggle="collapse"
                                         data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                         Emergency
+                                        <i class="e-icon fa-solid fa-angle-right" style="float: right"></i>
                                     </button>
                                 </h5>
-                                <h5 class="mb-0" style="float: right">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                        aria-expanded="true" aria-controls="collapseOne">
-                                        <i class="e-icon fa-solid fa-angle-right" id="e-icon" style="float: right"></i>
+                                {{-- <h5 class="mb-0" style="float: right">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree"
+                                        aria-expanded="true" aria-controls="collapseThree">
+
                                     </button>
-                                </h5>
+                                </h5> --}}
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                 data-parent="#accordion">
@@ -305,7 +306,7 @@
                 $('.e-icon').removeClass('fa-angle-down');
                 $('.e-icon').addClass('fa-angle-right');
             });
-            $('#e-icon').on('click', function(){
+            $('.e-icon').on('click', function(){
                 $('.e-icon').toggleClass('fa-angle-right');
                 $('.e-icon').toggleClass('fa-angle-down');
                 $('.c-icon').removeClass('fa-angle-down');

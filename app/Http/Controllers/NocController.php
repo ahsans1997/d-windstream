@@ -42,7 +42,7 @@ class NocController extends Controller
     {
         $valadated = $request->validate([
             'title' => 'required',
-            'file' => 'mimes:pdf,doc,docx|max:2048',
+            'file' => 'mimes:pdf,doc,docx|max:10240',
         ]);
         $noc = new Noc();
         $noc->title = $request->title;
@@ -92,7 +92,7 @@ class NocController extends Controller
         $valadated = $request->validate([
             'title' => 'required|unique:nocs,title,'.$noc->id,
             'slug' => 'required|unique:nocs,slug,'.$noc->id,
-            'file' => 'mimes:pdf,doc,docx|max:2048,',
+            'file' => 'mimes:pdf,doc,docx|max:10240,',
         ]);
         $noc = Noc::find($noc->id);
         $noc->title = $request->title;

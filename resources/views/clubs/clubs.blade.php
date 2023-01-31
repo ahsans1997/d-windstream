@@ -5,10 +5,25 @@
 <div class="main-div">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 card-header">Clubs List</div>
 
-            <div class="col-md-12 pt-3" id="clubList">
+            <div class="col-md-9" id="clubList">
+                <div class="card-header"><h4 style="font-size: 24px; border-left: 7px solid #A3332C; line-height: 23px; padding-left: 10px; margin: 0;">Clubs & Society List</h4></div>
                 @include('clubs.clubslist')
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 style="margin: 0">Links</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-style">
+                            <li><i class="fa-solid fa-circle-arrow-right"></i><a class="mx-2" style="line-height: 35px" href="{{ route('home') }}">Home</a></li>
+                            <li><i class="fa-solid fa-circle-arrow-right"></i><a class="mx-2" style="line-height: 35px" href="{{ route('faq') }}">FAQ</a></li>
+                            <li><i class="fa-solid fa-circle-arrow-right"></i><a class="mx-2" style="line-height: 35px" href="{{ url('/niter-form') }}">NITER Form</a></li>
+                            <li><i class="fa-solid fa-circle-arrow-right"></i><a class="mx-2" style="line-height: 35px" href="{{ route('contact') }}">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

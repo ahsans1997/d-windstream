@@ -384,6 +384,15 @@ li {
 .research-body {
     padding: 15px;
 }
+.research-footer a{
+    width: 100%;
+    color: #fff;
+    background-color: #A3332C;
+}
+.research-footer a:hover{
+    color: #fff;
+    background-color: #820000;
+}
 
 .research-body h4 a:hover~.research img {
     transform: scale(1.1);
@@ -722,8 +731,15 @@ li a.active {
     font-size: 24px;
 }
 
-.department-body a {
+.department-footer a {
     width: 100%;
+    color: #fff;
+    background-color: #A3332C;
+}
+
+.department-footer a:hover {
+    color: #fff;
+    background-color: #820000;
 }
 
 /* Department Single */
@@ -782,8 +798,15 @@ li a.active {
     font-weight: 700;
 }
 
-.news-body a {
+.news-footer a {
     width: 100%;
+    color: #fff;
+    background-color: #A3332C;
+}
+
+.news-footer a:hover {
+    color: #fff;
+    background-color: #7a2620;
 }
 
 /* News Single */
@@ -823,7 +846,7 @@ li a.active {
 }
 
 .event-p-body {
-    padding: 20px;
+    padding: 0 20px;
 }
 
 .event-p-body h3 {
@@ -831,8 +854,14 @@ li a.active {
     font-weight: 700;
 }
 
-.event-p-body a {
+.event-footer a {
     width: 100%;
+    color: #fff;
+    background-color: #A3332C;
+}
+.event-footer a:hover {
+    color: #fff;
+    background-color: #7a2620;
 }
 
 /* Research CSS */

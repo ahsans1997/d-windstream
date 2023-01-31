@@ -7,7 +7,7 @@
             <div class="col-md-8 mb-4">
 
                 <div class="news-single-body">
-                    <div class="card border-info">
+                    <div class="card">
                         <div class="card-header"><h2>{{ $news_info->title }}</h2></div>
                         <div class="card-body">
                             <div class="news-single-image">
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card border-info">
+                <div class="card">
                     <div class="card-header">Letest News</div>
                     <div class="card-body">
                         <nav>

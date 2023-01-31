@@ -7,7 +7,10 @@
                 <img class="img-fluid" src="{{ $n->getFirstMediaUrl('news') }}" alt="">
             </div>
             <div class="news-body">
-                <h3>{{ Str::words($n->title, 7) }}</h3>
+                <h3>{{ Str::limit($n->title, 40) }}</h3>
+
+            </div>
+            <div class="news-footer p-3">
                 <hr>
                 <a href="{{ route('news.single',$n->slug) }}" class="btn btn-light">View News</a>
             </div>

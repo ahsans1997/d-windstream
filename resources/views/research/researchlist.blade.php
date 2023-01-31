@@ -7,7 +7,9 @@
                 <img class="img-fluid" src="{{ $research->getFirstMediaUrl('research') }}">
             </div>
             <div class="research-p-body">
-                <h3>{{ Str::words($research->title, 6) }}</h3>
+                <h3>{{ Str::limit($research->title, 40) }}</h3>
+            </div>
+            <div class="research-footer p-3">
                 <hr>
                 <a href="{{ route('research',$research->slug) }}" class="btn btn-light">View Research</a>
             </div>

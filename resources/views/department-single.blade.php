@@ -19,7 +19,7 @@
                     <div class="container departmnet-news">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="card border-secondary mb-3">
+                                <div class="card mb-3">
                                     <div class="card-header" style="background-color: #A3332C; color:white"><b>Latest News</b></div>
                                     <div class="card-body text-secondary">
                                         <div class="container">
@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <div class="card border-secondary mb-3">
+                                <div class="card mb-3">
                                     <div class="card-header" style="background-color: #A3332C; color:white"><b>Latest News</b></div>
                                     <div class="card-body text-secondary">
                                         <div class="container">
@@ -104,7 +104,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <div class="card border-secondary mb-3">
+                                <div class="card mb-3">
                                     <div class="card-header" style="background-color: #A3332C; color:white"><b>Latest Events</b></div>
                                     <div class="card-body text-secondary">
                                         <div class="container">
@@ -112,7 +112,7 @@
                                                 @forelse($department_events as $event)
                                                     <ul class="d-block">
                                                         <li class="flex justify-around">
-                                                            <a class="text-dark" href="{{ url('/event', $news->slug) }}"><i
+                                                            <a class="text-dark" href="{{ url('/event', $event->slug) }}"><i
                                                                     class="fa fa-link"></i>
                                                                 {{ Str::limit($event->title, 20) }}</a>
                                                             <span>{{ $event->created_at->format('d-M-Y') }}</span>
@@ -184,7 +184,7 @@
                     <div class="container department-facultymember">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="card border-secondary mb-3">
+                                <div class="card mb-3">
                                     <div class="card-header" style="background-color: #A3332C; color:white"><b>Faculty Member</b></div>
                                     <div class="card-body text-secondary">
                                         <div class="container">
@@ -234,7 +234,7 @@
                         <div class="container department-facultymember">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="card border-secondary mb-3">
+                                    <div class="card mb-3">
                                         <div class="card-header" style="background-color: #A3332C; color:white"><b>Lab Facility</b>
                                         </div>
                                         <div class="card-body text-secondary">
@@ -258,7 +258,7 @@
                                                                     </div>
 
                                                                     <div id="collapse{{ $department_lab_facility->id }}"
-                                                                        class="collapse show"
+                                                                        class="collapse"
                                                                         aria-labelledby="heading{{ $department_lab_facility->id }}"
                                                                         data-parent="#accordion">
                                                                         <div class="card-body">

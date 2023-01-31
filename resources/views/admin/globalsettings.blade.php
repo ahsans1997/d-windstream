@@ -23,15 +23,15 @@
                             <button class="nav-link active" id="logo-tab" data-bs-toggle="tab" data-bs-target="#logo"
                                 type="button" role="tab" aria-controls="logo" aria-selected="true">Logo</button>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        {{-- <li class="nav-item" role="presentation">
                             <button class="nav-link" id="logo-tab" data-bs-toggle="tab" data-bs-target="#organization"
                                 type="button" role="tab" aria-controls="organization" aria-selected="true">Organization</button>
-                        </li>
+                        </li> --}}
 
-                        <li class="nav-item" role="presentation">
+                        {{-- <li class="nav-item" role="presentation">
                             <button class="nav-link" id="color-tab" data-bs-toggle="tab" data-bs-target="#color"
                                 type="button" role="tab" aria-controls="color" aria-selected="false">Color</button>
-                        </li>
+                        </li> --}}
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="metatag-tab" data-bs-toggle="tab" data-bs-target="#metatag"
                                 type="button" role="tab" aria-controls="metatag" aria-selected="false">Meta Tag</button>
@@ -71,8 +71,8 @@
                                                                     <div class="web_logo">
 
                                                                         {{-- {{ dd($setting) }} --}}
-                                                                        
-                                                                        <img class="img-fluid" 
+
+                                                                        <img class="img-fluid"
                                                                             src="{{ $setting->getFirstMediaUrl('web_logo') }}"
                                                                             alt="">
 
@@ -110,7 +110,7 @@
                             </div>
                         </div>
 
-                        <div id="organization" class="tab-pane fade mt-4" role="tabpanel" aria-labelledby="organization-tab">
+                        {{-- <div id="organization" class="tab-pane fade mt-4" role="tabpanel" aria-labelledby="organization-tab">
                             <div class="info title">
                                 <div class="col-md-8 m-auto">
                                     <div class="card border-primary">
@@ -128,13 +128,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div id="color" class="tab-pane fade mt-4" role="tabpanel" aria-labelledby="color-tab">
+                        {{-- <div id="color" class="tab-pane fade mt-4" role="tabpanel" aria-labelledby="color-tab">
                             <div class="info title">
                                 <div class="col-md-10 m-auto">
                                     <div class="card border-primary">
-                                        <div class="card-header">Logo</div>
+                                        <div class="card-header">Color</div>
                                         <div class="card-body">
                                             <form action="{{ route('setting.update',1) }}" method="POST"
                                                 enctype="multipart/form-data">
@@ -172,7 +172,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <!-- End Single Tab -->
 
@@ -180,7 +180,7 @@
                             <div class="info title">
                                 <div class="col-md-10 m-auto">
                                     <div class="card border-primary">
-                                        <div class="card-header">Logo</div>
+                                        <div class="card-header">Meta Tag</div>
                                         <div class="card-body">
                                             <form action="{{ route('setting.update',1) }}" method="POST"
                                                 enctype="multipart/form-data">
@@ -450,7 +450,7 @@
                             <div class="info title">
                                 <div class="col-md-10 m-auto">
                                     <div class="card border-primary">
-                                        <div class="card-header">Poratl</div>
+                                        <div class="card-header">Social</div>
                                         <div class="card-body">
                                             <form action="{{ route('setting.update',1) }}" method="POST">
                                                 @csrf

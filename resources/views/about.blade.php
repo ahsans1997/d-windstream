@@ -23,7 +23,7 @@
                     <!-- Tab navs -->
                 </div>
 
-                <div class="col-md-9 mt-4" style="border: 1px solid rgb(231, 226, 226); border-radius: 7px;">
+                <div class="col-md-9 mt-4" style="border: 1px solid rgb(231, 226, 226); border-radius: 7px; box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 15px 5px;">
                     <!-- Tab content -->
                     <div class="tab-content" id="v-tabs-tabContent" style="padding: 5px">
                         <div class="tab-pane fade " id="v-tabs-historical" role="tabpanel"

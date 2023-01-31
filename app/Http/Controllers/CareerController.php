@@ -42,10 +42,10 @@ class CareerController extends Controller
     {
         $valadated = $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            // 'description' => 'required',
             'date_start' => 'required',
             'date_end' => 'required',
-            'file' => 'mimes:pdf,doc,docx|max:2048',
+            'file' => 'mimes:pdf,doc,docx|max:10240',
         ]);
         $career = new Career();
         $career->title = $request->title;
@@ -99,10 +99,10 @@ class CareerController extends Controller
     {
         $valadated = $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            // 'description' => 'required',
             'date_start' => 'required',
             'date_end' => 'required',
-            'file' => 'mimes:pdf,doc,docx|max:2048',
+            'file' => 'mimes:pdf,doc,docx|max:10240',
         ]);
         $career = Career::find($career->id);
         $career->title = $request->title;

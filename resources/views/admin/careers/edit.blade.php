@@ -21,10 +21,10 @@
                                 <label for="placeholderInput" class="form-label">Career Title</label>
                                 <input type="text" class="form-control" id="placeholderInput" value="{{ $career->title }}" name="title">
                             </div>
-                            <div class="mt-2">
+                            {{-- <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Description</label>
                                 <textarea name="description" class="summernote form-control" rows="6">{{ $career->description }}</textarea>
-                            </div>
+                            </div> --}}
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Start Date</label>
                                 <input type="text" name="date_start" value="{{ $career->date_start }}" class="form-control datepicker">

@@ -42,7 +42,7 @@
                                                 <div class="department-footer p-3">
                                                     <hr>
                                                     <a href="{{ url('/department', $department->slug) }}"
-                                                        class="btn btn-warning btn-block">View Departmnet <i class="fa fa-check-circle"></i></a>
+                                                        class="btn btn-light btn-block">View Departmnet <i class="fa fa-check-circle"></i></a>
                                                 </div>
                                             </div>
                                         </div>

@@ -24,6 +24,8 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Contact</th>
                                     <th scope="col">Department</th>
+                                    <th>Order Number</th>
+                                    <th scope="col">Action</th>
 
                                 </tr>
                             </thead>
@@ -34,16 +36,19 @@
                                     <td>{{ $member->name }}</td>
                                     <td>{{ $member->contact }}</td>
                                     <td>{{ $member->department->name }}</td>
+                                    <td>{{ $member->order }}</td>
 
                                     <td>
-                                         <a href="{{ route('faculty-member.edit', $member->id) }}" class="btn btn-info btn-sm">Edit</a>
-                                        
-                                         <a href="{{ route('faculty-member-research-add', $member->id) }}" class="btn btn-primary waves-effect waves-light">Add Research</a>
-                                         <form action="{{ route('faculty-member.destroy', $member->id) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
-                                        </form>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <a href="{{ route('faculty-member.edit', $member->id) }}" class="btn btn-info btn-sm waves-effect waves-light">Edit</a>
+
+                                            <a href="{{ route('faculty-member-research-add', $member->id) }}" class="btn btn-primary btn-sm waves-effect waves-light">Add Research</a>
+                                            <form action="{{ route('faculty-member.destroy', $member->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                                 @endforeach

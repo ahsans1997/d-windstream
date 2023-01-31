@@ -432,11 +432,12 @@ $part3 = json_decode($homesection->part3);
                                 </div>
                             </div>
                         </div>
+
                         <div id="home_about" class="tab-pane fade mt-4">
                             <div class="info title">
                                 <div class="col-md-10 m-auto">
                                     <div class="card border-primary">
-                                        <div class="card-header">Research Update</div>
+                                        <div class="card-header">About Update</div>
                                         <div class="card-body">
                                             <form action="{{ route('setting.update',1) }}" method="POST"
                                                 enctype="multipart/form-data">
