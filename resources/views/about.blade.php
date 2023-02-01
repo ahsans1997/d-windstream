@@ -92,6 +92,15 @@
     <style>
         .border{
             border: 1px solid gray;
+            text-align: left;
+            color: black;
+        }
+        .border:hover{
+            color: #b62121;
+        }
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+            background-color: #b62121;
+            color: rgb(255, 255, 255);
         }
     </style>
     {{-- <!-- Font Awesome -->

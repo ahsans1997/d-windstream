@@ -10,7 +10,7 @@
                             <!-- Tab navs -->
                             <div class="nav flex-column nav-tabs text-center" id="v-tabs-tab" role="tablist"
                                 aria-orientation="vertical">
-                                <a class="nav-link text-left student-togol border" id="v-tabs-boys-tab" data-mdb-toggle="tab"
+                                <a class="nav-link text-left active student-togol border" id="v-tabs-boys-tab" data-mdb-toggle="tab"
                                     href="#v-tabs-boys" role="tab" aria-controls="v-tabs-boys"
                                     aria-selected="true">Student Accommodation <i class="fa-solid fa-circle-plus mt-1" id="test" style="float: right"></i></a>
                                 <a class="nav-link text-left s-togol hide border" id="v-tabs-boys-tab" data-mdb-toggle="tab"
@@ -29,12 +29,15 @@
                                     href="#v-tabs-cafe" role="tab" aria-controls="v-tabs-cafe"
                                     aria-selected="false">Cafe / Canteen</a>
 
-                                <a class="nav-link text-left g-togol border" id="v-tabs-gallery-tab" data-mdb-toggle="tab"
+                                <a class="nav-link text-left gallery-togol border" id="v-tabs-gallery-tab" data-mdb-toggle="tab"
                                     href="#v-tabs-gallery" role="tab"
-                                    aria-controls="v-tabs-gallery" aria-selected="false">Photo Gallery</a>
-                                <a class="nav-link text-left g-togol border" id="v-tabs-videogallery-tab" data-mdb-toggle="tab"
+                                    aria-controls="v-tabs-gallery" aria-selected="false">Gallery <i class="fa-solid fa-circle-plus mt-1" id="test" style="float: right"></i></a>
+                                <a class="nav-link text-left g-togol hide border" style="padding-left: 50px" id="v-tabs-gallery-tab" data-mdb-toggle="tab"
+                                    href="#v-tabs-gallery" role="tab"
+                                    aria-controls="v-tabs-gallery" aria-selected="false">-Photo Gallery</a>
+                                <a class="nav-link text-left g-togol hide border" style="padding-left: 50px" id="v-tabs-videogallery-tab" data-mdb-toggle="tab"
                                     href="#v-tabs-videogallery" role="tab"
-                                    aria-controls="v-tabs-videogallery" aria-selected="false">Video Gallery</a>
+                                    aria-controls="v-tabs-videogallery" aria-selected="false">-Video Gallery</a>
                             </div>
                             <!-- Tab navs -->
                         </div>
@@ -44,8 +47,8 @@
                             <div class="tab-content" id="v-tabs-tabContent">
                                 <div class="tab-pane fade show active" id="v-tabs-boys" role="tabpanel"
                                     aria-labelledby="v-tabs-boys-tab">
-                                    <div class="card border-primary">
-                                        <div class="card-header">Boys Hostel</div>
+                                    <div class="card">
+                                        <div class="card-header"><h4 class="blockquote" style="margin: 0">Boys Hostel</h4></div>
                                         <div class="card-body">
                                             <img class="img-fluid mb-5" src="{{ $resources->getFirstMediaUrl('boys') }}"
                                                 alt="">
@@ -56,8 +59,8 @@
                                 </div>
                                 <div class="tab-pane fade" id="v-tabs-girls" role="tabpanel"
                                     aria-labelledby="v-tabs-girls-tab">
-                                    <div class="card border-primary">
-                                        <div class="card-header">Girls Hostel</div>
+                                    <div class="card">
+                                        <div class="card-header"><h4 class="blockquote" style="margin: 0">Girls Hostel</h4></div>
                                         <div class="card-body">
                                             <img class="img-fluid mb-5" src="{{ $resources->getFirstMediaUrl('girls') }}"
                                                 alt="">
@@ -68,8 +71,8 @@
                                 </div>
                                 <div class="tab-pane fade" id="v-tabs-medical" role="tabpanel"
                                     aria-labelledby="v-tabs-medical-tab">
-                                    <div class="card border-primary">
-                                        <div class="card-header">Medical Center</div>
+                                    <div class="card">
+                                        <div class="card-header"><h4 class="blockquote" style="margin: 0">Medical Center</h4></div>
                                         <div class="card-body">
                                             <div class="card-body">
                                                 <img class="img-fluid mb-5"
@@ -82,8 +85,8 @@
                                 </div>
                                 <div class="tab-pane fade" id="v-tabs-library" role="tabpanel"
                                     aria-labelledby="v-tabs-library-tab">
-                                    <div class="card border-primary">
-                                        <div class="card-header">NITER Library</div>
+                                    <div class="card">
+                                        <div class="card-header"><h4 class="blockquote" style="margin: 0">NITER Library</h4></div>
                                         <div class="card-body">
                                             <img class="img-fluid mb-5"
                                                 src="{{ $resources->getFirstMediaUrl('library') }}" alt="">
@@ -94,8 +97,8 @@
                                 </div>
                                 <div class="tab-pane fade" id="v-tabs-cafe" role="tabpanel"
                                     aria-labelledby="v-tabs-cafe-tab">
-                                    <div class="card border-primary">
-                                        <div class="card-header">Cafe / Canteen</div>
+                                    <div class="card">
+                                        <div class="card-header"><h4 class="blockquote" style="margin: 0">Cafe / Canteen</h4></div>
                                         <div class="card-body">
                                             <img class="img-fluid mb-5" src="{{ $resources->getFirstMediaUrl('cafe') }}"
                                                 alt="">
@@ -106,8 +109,8 @@
                                 </div>
                                 <div class="tab-pane fade" id="v-tabs-gallery" role="tabpanel"
                                     aria-labelledby="v-tabs-gallery-tab">
-                                    <div class="card border-primary">
-                                        <div class="card-header">Photo Gallery</div>
+                                    <div class="card">
+                                        <div class="card-header"><h4 class="blockquote" style="margin: 0">Photo Gallery</h4></div>
                                         <div class="card-body">
                                             <div class="row">
                                                 @foreach ($photos->getMedia('gallery') as $photo)
@@ -126,8 +129,8 @@
                                 </div>
                                 <div class="tab-pane fade" id="v-tabs-videogallery" role="tabpanel"
                                     aria-labelledby="v-tabs-videogallery-tab">
-                                    <div class="card border-primary">
-                                        <div class="card-header">Video Gallery</div>
+                                    <div class="card">
+                                        <div class="card-header"><h4 class="blockquote" style="margin: 0">Video Gallery</h4></div>
                                         <div class="card-body">
                                             <div class="row">
                                                 @foreach ($videos as $video)
@@ -160,6 +163,15 @@
     <style>
         .border {
             border: 1px solid gray;
+            color: #000;
+        }
+        .border:hover{
+            color: #A3332C;
+        }
+
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+            background-color: #A3332C;
+            color: white;
         }
         .hide {
             display: none;
@@ -187,6 +199,11 @@
             $('.student-togol').on('click',function() {
                 $('.s-togol').toggleClass('show');
                 $('.s-togol').toggleClass('hide');
+
+            });
+            $('.gallery-togol').on('click',function() {
+                $('.g-togol').toggleClass('show');
+                $('.g-togol').toggleClass('hide');
 
             });
             $('.gallerys').magnificPopup({
