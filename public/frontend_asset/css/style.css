@@ -9,6 +9,26 @@ li {
     list-style: none;
 } */
 
+.header-color {
+    background-color: #A3332C;
+    color: #fff;
+}
+
+.button-color{
+    background-color: #A3332C;
+    color: #fff;
+}
+
+.button-color:hover{
+    background-color: #820000;
+    color: #fff;
+}
+
+.blockquote {
+    border-left: 7px solid #A3332C;
+    padding-left: 10px;
+}
+
 .list-style {
     list-style: none;
     margin: 0;
@@ -26,7 +46,7 @@ li {
 
 .more {
     padding: 15px 40px;
-    background-color: #b1040e;
+    background-color: #A3332C;
     color: white;
     text-decoration: none;
     box-shadow: rgb(0 0 0 / 25%) 0px 2px 15px;
@@ -314,15 +334,10 @@ li {
 
 .news-footer h5 a {
     padding: 15px 40px;
-    background-color: #b1040e;
-    color: white;
     text-decoration: none;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 15px;
 }
 
-.news-footer h5 a:hover {
-    background-color: #820000;
-}
 
 /* Research Start */
 
@@ -386,13 +401,8 @@ li {
 }
 .research-footer a{
     width: 100%;
-    color: #fff;
-    background-color: #A3332C;
 }
-.research-footer a:hover{
-    color: #fff;
-    background-color: #820000;
-}
+
 
 .research-body h4 a:hover~.research img {
     transform: scale(1.1);
@@ -406,15 +416,11 @@ li {
 
 .research-footer h5 a {
     padding: 15px 65px;
-    background-color: #b1040e;
-    color: white;
     text-decoration: none;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 15px;
 }
 
-.research-footer h5 a:hover {
-    background-color: #820000;
-}
+
 
 /* Upcoming Events */
 
@@ -496,15 +502,10 @@ li {
 
 .more-event a {
     padding: 10px 75px;
-    background-color: #b1040e;
     text-decoration: none;
-    color: #fff;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 15px;
 }
 
-.more-event a:hover {
-    background-color: #820000;
-}
 
 /* About */
 
@@ -547,15 +548,10 @@ li {
 
 .h-about-link h5 a {
     padding: 10px 75px;
-    background-color: #b1040e;
-    color: #fff;
     text-decoration: none;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 15px;
 }
 
-.h-about-link h5 a:hover {
-    background-color: #820000;
-}
 
 .h-about-image img {
     width: 100%;
@@ -733,14 +729,8 @@ li a.active {
 
 .department-footer a {
     width: 100%;
-    color: #fff;
-    background-color: #A3332C;
 }
 
-.department-footer a:hover {
-    color: #fff;
-    background-color: #820000;
-}
 
 /* Department Single */
 
@@ -800,14 +790,9 @@ li a.active {
 
 .news-footer a {
     width: 100%;
-    color: #fff;
-    background-color: #A3332C;
 }
 
-.news-footer a:hover {
-    color: #fff;
-    background-color: #7a2620;
-}
+
 
 /* News Single */
 
@@ -856,13 +841,8 @@ li a.active {
 
 .event-footer a {
     width: 100%;
-    color: #fff;
-    background-color: #A3332C;
 }
-.event-footer a:hover {
-    color: #fff;
-    background-color: #7a2620;
-}
+
 
 /* Research CSS */
 

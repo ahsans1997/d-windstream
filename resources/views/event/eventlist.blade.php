@@ -11,7 +11,7 @@
             </div>
             <div class="event-footer p-3">
                 <hr>
-                <a href="{{ route('event.single',$event->slug) }}" class="btn btn-light">View event</a>
+                <a href="{{ route('event.single',$event->slug) }}" class="btn button-color">View event</a>
             </div>
         </div>
     </div>

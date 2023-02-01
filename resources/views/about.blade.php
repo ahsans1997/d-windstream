@@ -28,11 +28,11 @@
                     <div class="tab-content" id="v-tabs-tabContent" style="padding: 5px">
                         <div class="tab-pane fade " id="v-tabs-historical" role="tabpanel"
                             aria-labelledby="v-tabs-historical-tab">
-                            <h4 style="font-weight: 700; font-size: 24px; border-left: 7px solid #A3332C; line-height: 35px; padding-left: 10px;" class="mt-4">Historical Overview</h4>
+                            <h4 style="font-weight: 700; font-size: 24px; line-height: 35px;" class="blockquote mt-4">Historical Overview</h4>
                             {!! $about->historicaloverview !!}
                         </div>
                         <div class="tab-pane fade" id="v-tabs-vision" role="tabpanel" aria-labelledby="v-tabs-vision-tab">
-                            <h3 style="border-left: 7px solid #A3332C; line-height: 35px; padding-left: 10px; font-weight: 700; font-size: 40px;" class="mt-3">Mission & Vision</h3>
+                            <h3 style=" line-height: 35px; font-weight: 700; font-size: 40px;" class="blockquote mt-3">Mission & Vision</h3>
                             <hr>
                             <div class="mission-vision mx-4">
                                 <h4 style="font-weight: 700; font-size: 24px" class="mt-4">Mission</h4>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="tab-pane fade show active" id="v-tabs-Chairman" role="tabpanel"
                             aria-labelledby="v-tabs-Chairman-tab">
-                            <h4 style="font-weight: 700; font-size: 40px; border-left: 7px solid #A3332C; line-height: 35px; padding-left: 10px;" class="mt-4">Messages From Chairman</h4>
+                            <h4 style="font-weight: 700; font-size: 40px; line-height: 35px;" class="blockquote mt-4">Messages From Chairman</h4>
                             <div class="row mt-4">
                                 <div class="col-md-3">
                                     <img class="img-fluid" src="{{ $about->getFirstMediaUrl('chairman') }}" alt="">
@@ -63,7 +63,7 @@
                         </div>
                         <div class="tab-pane fade" id="v-tabs-Principal" role="tabpanel"
                             aria-labelledby="v-tabs-Principal-tab">
-                            <h4 style="font-weight: 700; font-size: 40px; border-left: 7px solid #A3332C; line-height: 35px; padding-left: 10px;" class="mt-4">Messages Fron Principal</h4>
+                            <h4 style="font-weight: 700; font-size: 40px; line-height: 35px;" class="blockquote mt-4">Messages Fron Principal</h4>
                             <div class="row mt-4">
                                 <div class="col-md-3">
                                     <img class="img-fluid" src="{{ $about->getFirstMediaUrl('principal') }}" alt="">

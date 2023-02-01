@@ -12,7 +12,7 @@
             </div>
             <div class="news-footer p-3">
                 <hr>
-                <a href="{{ route('news.single',$n->slug) }}" class="btn btn-light">View News</a>
+                <a href="{{ route('news.single',$n->slug) }}" class="btn button-color">View News</a>
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <div class="card-header"><h4 style="font-size: 24px; border-left: 7px solid #A3332C; line-height: 23px; padding-left: 10px; margin: 0;">Career List</h4></div>
+                    <div class="card-header"><h4 class="blockquote" style="font-size: 24px; line-height: 23px; margin: 0;">Career List</h4></div>
                     <div class="card-body">
                         @forelse($careers as $career)
                             <div class="info border-bottom-1 p-2">

@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card mb-3">
-                                    <div class="card-header" style="background-color: #A3332C; color:white"><b>Latest
+                                    <div class="card-header header-color"><b>Latest
                                             News</b></div>
                                     <div class="card-body text-secondary">
                                         <div class="container">
@@ -53,7 +53,7 @@
 
                             <div class="col-md-6">
                                 <div class="card mb-3">
-                                    <div class="card-header" style="background-color: #A3332C; color:white"><b>Latest
+                                    <div class="card-header header-color"><b>Latest
                                             News</b></div>
                                     <div class="card-body text-secondary">
                                         <div class="container">
@@ -107,7 +107,7 @@
 
                             <div class="col-md-6">
                                 <div class="card mb-3">
-                                    <div class="card-header" style="background-color: #A3332C; color:white"><b>Latest
+                                    <div class="card-header header-color"><b>Latest
                                             Events</b></div>
                                     <div class="card-body text-secondary">
                                         <div class="container">
@@ -189,7 +189,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card mb-3">
-                                    <div class="card-header" style="background-color: #A3332C; color:white"><b>Faculty
+                                    <div class="card-header header-color"><b>Faculty
                                             Member</b></div>
                                     <div class="card-body text-secondary">
                                         <div class="container">
@@ -216,7 +216,7 @@
                                                                 </h5>
                                                                 <p>{{ $faculty->designation->name }}</p>
                                                                 <a href="{{ url('member-profile', $faculty->slug) }}"
-                                                                    class="btn" style="background-color: #A3332C; color:white">View Profile</a>
+                                                                    class="btn button-color">View Profile</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -240,7 +240,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="card mb-3">
-                                        <div class="card-header" style="background-color: #A3332C; color:white"><b>Lab
+                                        <div class="card-header header-color"><b>Lab
                                                 Facility</b>
                                         </div>
                                         <div class="card-body text-secondary">

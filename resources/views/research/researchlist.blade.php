@@ -11,7 +11,7 @@
             </div>
             <div class="research-footer p-3">
                 <hr>
-                <a href="{{ route('research',$research->slug) }}" class="btn btn-light">View Research</a>
+                <a href="{{ route('research',$research->slug) }}" class="btn button-color">View Research</a>
             </div>
         </div>
     </div>

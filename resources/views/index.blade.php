@@ -341,7 +341,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="h-about-link">
-                        <h5><a href="{{ route('about') }}">More about NITER</a></h5>
+                        <h5><a class="more" href="{{ route('about') }}">More about NITER</a></h5>
                     </div>
                 </div>
             </div>
