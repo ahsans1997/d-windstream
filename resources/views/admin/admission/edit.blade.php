@@ -18,7 +18,7 @@
                                 <input type="text" class="form-control" id="placeholderInput" value="{{ $admission->title }}" name="title">
                             </div>
 
-                            <div class="mt-2">
+                            {{-- <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Department</label>
                                 <select class="form-select mb-3" aria-label=".form-select-lg example" name="department_id">
                                     <option value="">Open this select menu</option>
@@ -26,13 +26,13 @@
                                         <option {{ ($admission->department_id == $department->id ) ? 'selected' : '' }} value="{{ $department->id }}">{{ $department->name }}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="mt-2">
                                 <label for="placeholderInput" class="form-label">Admission Type</label>
                                 <select class="form-select mb-3" aria-label=".form-select-lg example" name="admission_type">
                                     <option value="">Open this select menu</option>
-                                    <option {{ ($admission->admission_type == "undergradute") ? 'selected' : '' }} value="undergradute">Undergradute Admission</option>
-                                    <option {{ ($admission->admission_type == "gradute") ? 'selected' : '' }} value="gradute">Gradute Admission</option>
+                                    <option {{ ($admission->admission_type == "Undergradute") ? 'selected' : '' }} value="undergradute">Undergradute Admission</option>
+                                    <option {{ ($admission->admission_type == "Gradute") ? 'selected' : '' }} value="gradute">Gradute Admission</option>
                                 </select>
                             </div>
 

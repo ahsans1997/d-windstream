@@ -13,7 +13,7 @@
                         <thead>
                             <tr>
                                 <th>Title</th>
-                                <th>department</th>
+                                {{-- <th>department</th> --}}
                                 <th>Admission Type</th>
                                 <th>Action</th>
                             </tr>
@@ -22,7 +22,7 @@
                             @foreach ($admissions as $admission)
                                 <tr>
                                     <td>{{ $admission->title }}</td>
-                                    <td>{{ $admission->department->name }}</td>
+                                    {{-- <td>{{ $admission->department->name }}</td> --}}
                                     <td>{{ $admission->admission_type }}</td>
                                     <td>
                                         <a href="{{ route('admission.edit', $admission->id) }}" class="btn btn-outline-primary waves-effect waves-light">Edit</a>

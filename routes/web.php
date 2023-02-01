@@ -81,6 +81,7 @@ Route::get('admission-search', [AdmissionController::class, 'admissionsearch'])-
 
 
 Route::get('notice/{slug?}', [NoticeController::class, 'notice'])->name('notice');
+Route::get('notice/download/{slug}', [NoticeController::class, 'download'])->name('notice.download');
 
 Route::get('notice-search', [NoticeController::class, 'noticeSearch'])->name('notice-search');
 

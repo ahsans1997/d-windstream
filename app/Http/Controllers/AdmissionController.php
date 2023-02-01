@@ -44,7 +44,7 @@ class AdmissionController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|unique:admissions|max:255',
-            'department_id' => 'required',
+            // 'department_id' => 'required',
             'admission_type' => 'required',
             'overview' => 'required',
             'notice' => 'required',
@@ -52,7 +52,7 @@ class AdmissionController extends Controller
         ]);
         $admission = new Admission();
         $admission->title = $request->title;
-        $admission->department_id = $request->department_id;
+        // $admission->department_id = $request->department_id;
         $admission->admission_type = $request->admission_type;
         $admission->overview = $request->overview;
         $admission->notice = $request->notice;
@@ -99,7 +99,7 @@ class AdmissionController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|unique:admissions|max:255',
-            'department_id' => 'required',
+            // 'department_id' => 'required',
             'admission_type' => 'required',
             'overview' => 'required',
             'notice' => 'required',
@@ -107,7 +107,7 @@ class AdmissionController extends Controller
         ]);
         $admission = Admission::find($admission->id);
         $admission->title = $request->title;
-        $admission->department_id = $request->department_id;
+        // $admission->department_id = $request->department_id;
         $admission->admission_type = $request->admission_type;
         $admission->overview = $request->overview;
         $admission->notice = $request->notice;

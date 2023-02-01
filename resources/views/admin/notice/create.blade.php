@@ -39,6 +39,10 @@
                                 <label for="placeholderInput" class="form-label">Notice Image</label>
                                 <input type="file" class="form-control" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             </div>
+                            <div class="mt-2">
+                                <label for="placeholderInput" class="form-label">Notice File</label>
+                                <input type="file" class="form-control" name="file" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                            </div>
 
 
                             <div class="card mt-4">

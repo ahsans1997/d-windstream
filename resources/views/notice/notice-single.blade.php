@@ -11,7 +11,13 @@
                         <img class="img-fluid" src="{{ $notice->getFirstMediaUrl('notice') }}" alt="{{ $notice->title }}"
                             class="img-fluid">
                     </div>
-                    <div class="notice-content mt-2">
+                    @if (isset($notice->file))
+                        <div class="notice-file mt-3">
+                            <p>Download Notice File : <a href="{{ route('notice.download',$notice->slug) }}" ><i class="fa fa-download"></i></a></p>
+                        </div>
+                        <hr>
+                    @endif
+                    <div class="notice-content mt-2 mb-3">
                         {!! $notice->description !!}
                     </div>
                 </div>

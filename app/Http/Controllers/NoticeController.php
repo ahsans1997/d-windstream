@@ -8,7 +8,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class NoticeController extends Controller
 {
@@ -49,6 +49,7 @@ class NoticeController extends Controller
             'description' => 'required',
             'department_id' => 'required',
             'image' => 'mimes:JPG,jpg,jpeg,png,gif,svg|max:10248',
+            'file' => 'mimes:pdf,doc,docx|max:10240',
         ]);
         $slug = Str::slug($request->title, '-');
         $notice = new Notice();
@@ -59,12 +60,19 @@ class NoticeController extends Controller
         $notice->meta_keywords = $request->meta_keywords;
         $notice->meta_description = $request->meta_description;
         $notice->created_at = Carbon::now();
-        $notice->save();
+
 
 
         if($request->hasFile('image')){
             $notice->addMediaFromRequest('image')->toMediaCollection('notice');
         }
+
+        if($request->hasFile('file')){
+            $path = Storage::putFile('file', $request->file('file'));
+            $notice->file = $path;
+        }
+
+        $notice->save();
         Toastr::success('Notice Successfully Saved :)' ,'Success');
         return back();
     }
@@ -109,6 +117,7 @@ class NoticeController extends Controller
             'department_id' => 'required',
             'slug' => 'required|unique:news,slug,'.$notice->id,
             'image' => 'mimes:JPG,jpg,jpeg,png,gif,svg|max:10248',
+            'file' => 'mimes:pdf,doc,docx|max:10240',
         ]);
 
         $notice = Notice::findOrFail($notice->id);
@@ -119,7 +128,7 @@ class NoticeController extends Controller
         $notice->meta_keywords = $request->meta_keywords;
         $notice->meta_description = $request->meta_description;
         $notice->created_at = Carbon::now();
-        $notice->save();
+
 
 
         if($request->hasFile('image')){
@@ -128,6 +137,13 @@ class NoticeController extends Controller
 
             $notice->addMediaFromRequest('image')->toMediaCollection('notice');
         }
+
+        if($request->hasFile('file')){
+            $path = Storage::putFile('file', $request->file('file'));
+            $notice->file = $path;
+        }
+
+        $notice->save();
         Toastr::success('Notice Successfully Updated :)' ,'Success');
         return redirect()->route('notice.index');
     }
@@ -193,5 +209,11 @@ class NoticeController extends Controller
             'title_search' => 'Search Result'
         ];
         return view('notice.noticelist', $data);
+    }
+
+    public function download($slug)
+    {
+        $notice = Notice::where('slug', $slug)->first();
+        return Storage::download($notice->file);
     }
 }

@@ -10,7 +10,7 @@
                 <div class="col-md-4">
                     <div class="program-sidebar">
                         <div class="card bg-light mb-3">
-                            <div class="card-header">
+                            <div class="card-header" style="background: #A3332C; color: #fff;">
                                 <h2>Admission List</h2>
                             </div>
                             <div class="card-body">
