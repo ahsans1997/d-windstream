@@ -42,7 +42,7 @@
                             <!-- Tab navs -->
                         </div>
 
-                        <div class="col-md-9" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 15px 5px;">
+                        <div class="col-md-9">
                             <!-- Tab content -->
                             <div class="tab-content" id="v-tabs-tabContent">
                                 <div class="tab-pane fade show active" id="v-tabs-boys" role="tabpanel"

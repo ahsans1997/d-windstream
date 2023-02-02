@@ -364,7 +364,7 @@
     <!-- About End -->
 
     <!-- Chairman Start -->
-    <section class="code code--small code--left aos-init aos-animate" data-aos="zoom-out-right" style="background-color: #F9F6EF; padding: 10px 0">
+    <section class="code code--small code--left aos-init" data-aos="zoom-out-right" style="background-color: #F9F6EF; padding: 10px 0">
         <div class="container">
             <div class="row" >
                 <div class="col-2">
@@ -397,6 +397,9 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
+      AOS.init({
+        duration: 2000,
+      });
     </script>
     <script>
         $(window).scroll(function() {
