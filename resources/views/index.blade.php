@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
         rel="stylesheet">
@@ -363,9 +364,9 @@
     <!-- About End -->
 
     <!-- Chairman Start -->
-    <section class="" style="background-color: #F9F6EF; padding: 10px 0">
+    <section class="code code--small code--left aos-init aos-animate" data-aos="zoom-out-right" style="background-color: #F9F6EF; padding: 10px 0">
         <div class="container">
-            <div class="row">
+            <div class="row" >
                 <div class="col-2">
                     <img src="{{ $messagefromchairman->getFirstMediaUrl('chairman') }}" class="img-fluid rounded-circle"
                         alt="" >
@@ -393,6 +394,10 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <script src="{{ asset('/') }}frontend_asset/js/counter.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script>
         $(window).scroll(function() {
 
