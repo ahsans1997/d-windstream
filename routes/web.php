@@ -31,6 +31,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,8 +43,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/clear-cache', function () {
+    Artisan::call('optimize:clear');
+    return "Cache cleared successfully";
+});
 
+Route::get('storage-link', function () {
+    Artisan::call('storage:link');
+    return "Storage link created successfully";
+});
 
+Route::get('migrate', function () {
+    Artisan::call('migrate');
+    return "Migrate successfully";
+});
 
 
 Route::get('news',[NewsController::class, 'news'])->name('news');

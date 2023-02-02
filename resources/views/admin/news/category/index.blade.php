@@ -45,14 +45,14 @@
                                                         <a href="{{ route('category.edit', $category->id) }}"
                                                             class="btn btn-success btn-icon waves-effect waves-light"><i
                                                                 class="ri-edit-2-fill"></i></a>
-                                                        <form action="{{ route('category.destroy',$category->id) }}"
+                                                        {{-- <form action="{{ route('category.destroy',$category->id) }}"
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit"
                                                                 class="btn btn-danger btn-icon waves-effect waves-light"><i
                                                                     class="ri-delete-bin-5-line"></i></button>
-                                                        </form>
+                                                        </form> --}}
                                                     </div>
                                                 </td>
                                             </tr>

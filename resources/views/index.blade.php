@@ -25,6 +25,9 @@
             display: none;
         }
 
+        .niter-text {
+            margin-top: 20px;
+        }
         .niter-text a {
             font-size: 40px;
             font-weight: 900;
@@ -38,6 +41,12 @@
             .display{
                 display: block;
             }
+
+        }
+        @media (max-width:418px){
+            .niter-text{
+                margin-top: 0;
+            }
         }
     </style>
 </head>
@@ -50,7 +59,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="niter-text text-center mt-3 site-title">
+                            <div class="niter-text text-center site-title">
                                 <a href="{{ url('/') }}"><span>National Institute of</span> Textile Engineering &
                                     Research</a>
                             </div>
@@ -104,21 +113,21 @@
                 <div class="col-md-4 accelerating-climate-solutions">
                     <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part1_image') }}" alt="">
                     <h3>{{ $part1->part1_title }}</h3>
-                    <p>{{ $part1->part1_description }}</p>
+                    <p>{{ Str::limit($part1->part1_description, 120) }}</p>
                     {{-- <a href="{{ $part1->part1_link }}">{{ $part1->part1_link_name }} <i
                             class="fa-solid fa-angle-right"></i></a> --}}
                 </div>
                 <div class="col-md-4 accelerating-climate-solutions">
                     <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part2_image') }}" alt="">
                     <h3>{{ $part2->part2_title }}</h3>
-                    <p>{{ $part2->part2_description }}</p>
+                    <p>{{ Str::limit($part2->part2_description, 120) }}</p>
                     {{-- <a href="{{ $part2->part2_link }}">{{ $part2->part2_link_name }} <i
                             class="fa-solid fa-angle-right"></i></a> --}}
                 </div>
                 <div class="col-md-4 accelerating-climate-solutions">
                     <img class="img-fluid" src="{{ $homesection->getFirstMediaUrl('part3_image') }}" alt="">
                     <h3>{{ $part3->part3_title }}</h3>
-                    <p>{{ $part3->part3_description }}</p>
+                    <p>{{ Str::limit($part3->part3_description, 120) }}</p>
                     {{-- <a href="{{ $part3->part3_link }}">{{ $part3->part3_link_name }} <i
                             class="fa-solid fa-angle-right"></i></a> --}}
                 </div>

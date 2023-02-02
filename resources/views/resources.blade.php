@@ -42,12 +42,12 @@
                             <!-- Tab navs -->
                         </div>
 
-                        <div class="col-md-9">
+                        <div class="col-md-9" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 15px 5px;">
                             <!-- Tab content -->
                             <div class="tab-content" id="v-tabs-tabContent">
                                 <div class="tab-pane fade show active" id="v-tabs-boys" role="tabpanel"
                                     aria-labelledby="v-tabs-boys-tab">
-                                    <div class="card">
+                                    <div class="card" style="width: 100%">
                                         <div class="card-header"><h4 class="blockquote" style="margin: 0">Boys Hostel</h4></div>
                                         <div class="card-body">
                                             <img class="img-fluid mb-5" src="{{ $resources->getFirstMediaUrl('boys') }}"
