@@ -34,7 +34,7 @@
                                 <tr>
                                     <td>{{ $member->id}}</td>
                                     <td>{{ $member->name }}</td>
-                                    <td>{{ $member->contact }}</td>
+                                    <td class="text-wrap">{!! $member->contact !!}</td>
                                     <td>{{ $member->department->name }}</td>
                                     <td>{{ $member->order }}</td>
 

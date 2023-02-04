@@ -15,11 +15,11 @@ class CreateResourcesTable extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
-            $table->text('boys');
-            $table->text('girls');
-            $table->text('medical');
-            $table->text('library');
-            $table->text('cafe');
+            $table->longText('boys');
+            $table->longText('girls');
+            $table->longText('medical');
+            $table->longText('library');
+            $table->longText('cafe');
             $table->timestamps();
         });
     }

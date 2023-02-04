@@ -124,14 +124,7 @@
                                             <th>To Date</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><input type="text" name="expirence_title[]" class="form-control" required></td>
-                                                <td><input type="text" name="expirence_organization[]" class="form-control" required></td>
-                                                <td><input type="text" name="expirence_location[]" class="form-control" required></td>
-                                                <td><input type="text" name="expirence_from_date[]" class="datepicker form-control" required></td>
-                                                <td><input type="text" name="expirence_to_date[]" class="datepicker experience_to_date_class form-control" required><br><input type="checkbox" class="cbox_experience_todate" value="0">Continue</td>
 
-                                            </tr>
 
                                         </tbody>
                                     </table>
@@ -152,13 +145,6 @@
                                             <th>Expire Year</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><input type="text" name="membership_naem[]" class="form-control" required></td>
-                                                <td><input type="text" name="membership_type[]" class="form-control" required></td>
-                                                <td><input type="text" name="membership_year[]" class="datepicker form-control" required></td>
-                                                <td><input type="text" name="membership_expire_year[]" class="datepicker expire_year_to_life_time form-control" required><br><input type="checkbox" class="cbox_membership_expire" value="0">Life time</td>
-
-                                            </tr>
 
                                         </tbody>
                                     </table>
@@ -179,34 +165,6 @@
                                             <th>Description</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    <select name="award_type[]" class="form-control" required>
-                                                        <option value="National" selected>National</option>
-                                                        <option value="International">International</option>
-                                                 </select>
-                                                </td>
-
-                                                <td><input type="text" name="award_title[]" class="form-control" required></td>
-                                                <td><select name="award_year[]" class="form-control" required>
-                                                    @foreach ($years as $year)
-                                                        <option value="{{ $year->year }}"
-                                                            @if ($year->year == '2023') selected @endif>
-                                                            {{ $year->year }}</option>
-                                                    @endforeach
-                                                </select>
-                                                </td>
-                                                <td><select name="award_country[]" class="form-control" required>
-                                                    <option value="">Select Country</option>
-                                                    @foreach ($countries as $country)
-                                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                                    @endforeach
-                                                    </select>
-                                                </td>
-                                                <td><input type="text" name="award_desciption[]" class="form-control" required></td>
-
-
-                                            </tr>
 
                                         </tbody>
                                     </table>
@@ -226,17 +184,7 @@
                                             <th>Link</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    <select name="publication_type[]" class="form-control" required>
-                                                        <option value="">Select One</option>
-                                                        <option value="Journal Article" >Journal Article</option>
-                                                        <option value="Conference Proceedings">Conference Proceedings</option>
-                                                 </select>
-                                                </td>
-                                                <td ><textarea type="text" name="publication_desciption[]" class="summernote form-control" required></textarea></td>
-                                                <td><input type="text" class="form-control" name="publication_link[]"></td>
-                                            </tr>
+                                           
 
                                         </tbody>
                                     </table>

@@ -18,9 +18,9 @@ class CreateAdmissionsTable extends Migration
             $table->string('title');
             // $table->integer('department_id');
             $table->string('admission_type');
-            $table->text('overview');
-            $table->text('notice');
-            $table->text('attachment');
+            $table->longText('overview');
+            $table->longText('notice');
+            $table->longText('attachment');
             $table->string('slug');
             $table->timestamps();
         });

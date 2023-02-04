@@ -17,8 +17,8 @@ class CreateProgramsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('session_name');
-            $table->text('description')->nullable();
-            $table->text('description_list');
+            $table->longText('description')->nullable();
+            $table->longText('description_list');
             $table->integer('duration_in_month');
             $table->foreignId('faculty_id');
             $table->foreignId('deaprtment_id');

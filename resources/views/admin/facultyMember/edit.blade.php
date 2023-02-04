@@ -45,7 +45,7 @@
                                 <div class="col-md-3">
                                     <label for="name" class="form-label"> Order By*</label>
                                     <input type="number" class="form-control"
-                                        name="order" required>
+                                        name="order" value="{{ $faculty_member->order }}" required>
                                 </div>
 
                                 <div class="col-md-12">

@@ -16,7 +16,7 @@ class CreateLabfacilitiesTable extends Migration
         Schema::create('labfacilities', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->longtext('description');
             $table->integer('department_id');
             $table->string('slug');
             $table->timestamps();
