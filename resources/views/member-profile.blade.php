@@ -161,22 +161,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Deep Learning</td>
-                                                <td> </td>
-                                                <td> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hyperspectral and Multispectral Imaging</td>
-                                                <td> </td>
-                                                <td> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3D reconstruction for the purpose of 3D mapping/ robot navigation /
-                                                    visual SLAM</td>
-                                                <td> </td>
-                                                <td> </td>
-                                            </tr>
+                                            @forelse ($member->research_interests as $research_interest)
+                                                <tr>
+                                                    <td class="text-wrap">{{ $research_interest->subject }}</td>
+                                                    <td class="text-wrap">{{ $research_interest->description }}</td>
+                                                    <td class="text-wrap">{{ $research_interest->rechach_interest_target_goal }}</td>
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <td colspan="3" class="text-center">No Research Interest Found</td>
+                                                </tr>
+                                            @endforelse
                                         </tbody>
                                     </table>
 
@@ -197,12 +192,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td colspan="7" class="text-center"> No project/research
-                                                    supervision is
-                                                    found
-                                                </td>
-                                            </tr>
+                                            @forelse ($member->research_supervisions as $research_supervision)
+                                                <tr>
+                                                    <td class="text-wrap">{{ $research_supervision->level_of_study }}</td>
+                                                    <td class="text-wrap">{{ $research_supervision->title }}</td>
+                                                    <td class="text-wrap">{{ $research_supervision->supervisor }}</td>
+                                                    <td class="text-wrap">{{ $research_supervision->co_supervisor }}</td>
+                                                    <td class="text-wrap">{{ $research_supervision->student_name }}</td>
+                                                    <td class="text-wrap">{{ $research_supervision->area_of_research }}</td>
+                                                    <td class="text-wrap">{{ $research_supervision->current_completion }}</td>
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <td colspan="7" class="text-center"> No project/research
+                                                        supervision is
+                                                        found
+                                                    </td>
+                                                </tr>
+                                            @endforelse
                                         </tbody>
                                     </table>
 
@@ -223,74 +230,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Computer Vision</td>
-                                                <td>A Fast and Efficient 3D Reconstruction Method for Crime Detection and
-                                                    Disaster Response
-                                                </td>
-                                                <td>University Grants Commission, Bangladesh</td>
-                                                <td>01-07-2019
-                                                </td>
-                                                <td>
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Machine Learning and Hyperspectral Imaging</td>
-                                                <td>3D Imaging for Phenotypic Trait Estimation of Beef and Sheep carcasses
-                                                </td>
-                                                <td>Australian Government Department of Agriculture and Water Resources</td>
-                                                <td>01-09-2016
-                                                </td>
-                                                <td> 30-09-2017
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Computer Vision</td>
-                                                <td>3D Reconstruction of Road Accident and Crime Scenes</td>
-                                                <td>U.S. Department of Justice , Office of Justice Programs, National
-                                                    Institute of Justice
-                                                </td>
-                                                <td>01-04-2014
-                                                </td>
-                                                <td> 31-03-2015
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Computer Vision</td>
-                                                <td>Color Photometric Stereo for Non-Lambertian Multicolored Surfaces</td>
-                                                <td>Japanese Ministry of Education, Science, Sports and Culture Grant-in-Aid
-                                                    for Scientific
-                                                    Research on Innovative Areas</td>
-                                                <td>01-01-2013
-                                                </td>
-                                                <td> 31-12-2014
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Machine Learning and Hyperspectral Imaging</td>
-                                                <td>Estimating Reflection Parameters, Light, and Shape from a Single View
-                                                </td>
-                                                <td>National ICT Australia (NICTA)</td>
-                                                <td>01-07-2010
-                                                </td>
-                                                <td> 16-12-2014
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Computer Graphics</td>
-                                                <td>Physically based Simulation and Rendering of Natural Phenomena</td>
-                                                <td>Kawaguchi Laboratory, University of Tokyo, Japan</td>
-                                                <td>01-04-2008
-                                                </td>
-                                                <td> 31-03-2010
-                                                </td>
-                                                <td></td>
-                                            </tr>
+                                            @forelse ($member->research_works as $research_work)
+                                                <tr>
+                                                    <td class="text-wrap">{{ $research_work->subject }}</td>
+                                                    <td class="text-wrap">{{ $research_work->project_name }}</td>
+                                                    <td class="text-wrap">{{ $research_work->source_of_funding }}</td>
+                                                    <td class="text-wrap">{{ $research_work->from_date }}</td>
+                                                    <td class="text-wrap">{{ $research_work->to_date }}</td>
+                                                    <td class="text-wrap">{{ $research_work->collaboration }}</td>
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <td colspan="6" class="text-center"> No project/research work is
+                                                        found
+                                                    </td>
+                                                </tr>
+                                            @endforelse
                                         </tbody>
                                     </table>
 
@@ -308,10 +263,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td colspan="2" class="text-center"> No invited talk is found
-                                                </td>
-                                            </tr>
+                                            @forelse ($member->invited_talks as $invited_talk)
+                                                <tr>
+                                                    <td class="text-wrap">{{ $loop->iteration }}</td>
+                                                    <td class="text-wrap">{{ $invited_talk->invited_talk }}</td>
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <td colspan="2" class="text-center"> No invited talk is found
+                                                    </td>
+                                                </tr>
+                                            @endforelse
                                         </tbody>
                                     </table>
 
@@ -353,163 +315,34 @@
                                 </div>
                             </div>
                             <div id="publicationInfo" class="tab-pane fade">
-                                <table class="table-bordered width100per" rules="all" id="employee_details_web"
+                                <table class="table-bordered width100per w-100" rules="all" id="employee_details_web"
                                     style="border: 1px solid #d0d0d0">
                                     <tbody>
                                         <tr>
                                             <th colspan="2">Journal Article</th>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        Ragib Amin Nihal, Nawara Mahmood Broti, Shamim Ahmed Deowan and
-                                                        <u>Sejuti Rahman</u>
-                                                        <b>: Design and Development of a Humanoid Robot for Sign Language
-                                                            Interpretation,</b>
-
-                                                        SN Computer Science , vol.2 , no.3 , 2021
-                                                        . <div class="clearfix"></div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        Sifat Ahmed, Tonmoy Hossain, Oishee Bintey Hoque, Sujan Sarker,
-                                                        <u>Sejuti Rahman</u> and
-                                                        Faisal Muhammad Shah <b>: Automated COVID-19 Detection from Chest
-                                                            X-Ray Images: A
-                                                            High-Resolution Network (HRNet) Approach,</b>
-
-                                                        SN Computer Science , vol.2 , no.4 , 2021
-                                                        . <div class="clearfix"></div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        <u>Sejuti Rahman</u>, Syeda Faiza Ahmed, Omar Shahid, Musabbir
-                                                        Arrafi and Md Atiqur
-                                                        Rahman Ahad <b>: Automated Detection Approaches to Autism Spectrum
-                                                            Disorder Based on
-                                                            Human Activity Analysis: A Review,</b>
-
-                                                        Cognitive Computation (Impact Factor: 4.980) , 2021
-                                                        . <div class="clearfix"></div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        <u>Sejuti Rahman</u>, Sujan Sarker, Md Abdullah Al Miraj, Ragib Amin
-                                                        Nihal, A. K. M.
-                                                        Nadimul Haque and Abdullah Al Noman <b>: Deep Learning Driven
-                                                            Automated Detection of
-                                                            COVID-19 from Radiography Images: A Comparative Analysis,</b>
-
-                                                        Cognitive Computation (impact factor:4.980) , vol.(Accepted to be
-                                                        published) , 2020
-                                                        . <div class="clearfix"></div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        <u>S. Rahman</u>, P. Quin, T. Walsh, T. Vidal-Calleja, M. J. McPhee,
-                                                        E. Toohey and A.
-                                                        Alempijevic <b>: Preliminary estimation of fat depth in the lamb
-                                                            short loin using a
-                                                            hyperspectral camera,</b>
-
-                                                        Animal Production Science (impact factor:1.275) , vol.58 , no.8 ,
-                                                        pp.1488 -1496 , 2018
-                                                        . <div class="clearfix"></div>
-                                                        <div class="col-sm-12">
-                                                            <div class="row">
-                                                                <a href="https://www.publish.csiro.au/an/an17795"
-                                                                    title="Click for details view more"
-                                                                    target="_blank">View
-                                                                    More</a>
+                                        @php
+                                            $journal = 0;
+                                        @endphp
+                                        @foreach ($member->publications as $publication)
+                                            @if ($publication->type == 'Journal Article')
+                                                <tr>
+                                                    <td>
+                                                        @php
+                                                            $journal++;
+                                                            echo $journal;
+                                                        @endphp
+                                                    </td>
+                                                    <td>
+                                                        <div class="">
+                                                            <div class="">
+                                                                {!! $publication->description !!}
                                                             </div>
                                                         </div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        <u>S. Rahman</u> and A. Robles-Kelly <b>: Estimating reflectance
-                                                            parameters, light
-                                                            direction, and shape from a single multispectral image,</b>
-
-                                                        IEEE Transactions on Computational Imaging (impact factor:5.640) ,
-                                                        vol.3 , no.4 , pp.837
-                                                        – 852 , 2017
-                                                        . <div class="clearfix"></div>
-                                                        <div class="col-sm-12">
-                                                            <div class="row">
-                                                                <a href="https://ieeexplore.ieee.org/document/7953651"
-                                                                    title="Click for details view more"
-                                                                    target="_blank">View
-                                                                    More</a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        <u>S. Rahman</u> and A. Robles-Kelly <b>: An optimization approach
-                                                            to the recovery of
-                                                            reflection parameters from a single hyperspectral image,</b>
-
-                                                        Computer Vision and Image Understanding (impact factor:3.121) ,
-                                                        vol.117 , no.12 ,
-                                                        pp.1672–1688 , 2014
-                                                        . <div class="clearfix"></div>
-                                                        <div class="col-sm-12">
-                                                            <div class="row">
-                                                                <a href="https://dl.acm.org/citation.cfm?id=2542804"
-                                                                    title="Click for details view more"
-                                                                    target="_blank">View
-                                                                    More</a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
                                         <tr>
                                             <td colspan="2"
                                                 style="height: 20px;background: #fff;border-left:1px solid #fff;border-right:1px solid #fff;">
@@ -518,137 +351,29 @@
                                         <tr>
                                             <th colspan="2">Conference Proceedings</th>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        <u>S. Rahman</u>, A. Lam, I. Sato and A. Robles-Kelly "A Rainbow
-                                                        Light for Color
-                                                        Photometric Stereo for Non-Lambertian Multicolored Surfaces."
-                                                        <i>
-                                                            WICV Workshop of IEEE Conference on Computer Vision and Pattern
-                                                            Recognition</i>
-                                                        Las Vegas, NV, USA: 2016
-                                                        . <div class="clearfix"></div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        <u>S. Rahman</u>, A. Lam, I. Sato and A. Robles-Kelly "Color
-                                                        Photometric Stereo for
-                                                        Non-Lambertian Multicolored Surfaces."
-                                                        <i>
-                                                            Asian Conference on Computer Vision (ACCV)</i>
-                                                        , pp. 335-350. Singapore.: Springer, Cham, 2014
-                                                        . <div class="clearfix"></div>
-                                                        <div class="col-sm-12">
-                                                            <div class="row">
-                                                                <a href="https://link.springer.com/chapter/10.1007/978-3-319-16865-4_22"
-                                                                    title="Click for details view more"
-                                                                    target="_blank">View
-                                                                    More</a>
+                                        @php
+                                            $conference = 0;
+                                        @endphp
+                                        @foreach ($member->publications as $publication)
+                                            @if ($publication->type == 'Conference Proceedings')
+                                                <tr>
+                                                    <td>
+                                                        @php
+                                                            $conference++;
+                                                            echo $conference;
+                                                        @endphp
+                                                    </td>
+                                                    <td>
+                                                        <div class="">
+                                                            <div class="">
+                                                                {!! $publication->description !!}
                                                             </div>
                                                         </div>
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
 
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        <u>S. Rahman</u> and A. Robles-Kelly "A Method for Estimating Light
-                                                        Direction, Shape,
-                                                        and Reflection Parameters from a Single Image."
-                                                        <i>
-                                                            IEEE International Conference on Image Processing (ICIP)</i>
-                                                        Melbourne, Australia: 2013
-                                                        . <div class="clearfix"></div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        <u>S. Rahman</u> and A. Robles-Kelly "On the Recovery of Shape and
-                                                        Reflectance
-                                                        Parameters from a Single Multispectral Image, in Proceedings of.."
-                                                        <i>
-                                                            IEEE Conference on Digital Image Computing and Technology
-                                                            Australia (DICTA)</i>
-                                                        Noosa, Australia: 2011
-                                                        . <div class="clearfix"></div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        <u>S. Rahman</u> and Y. Kawaguchi "Simulating Natural Bubble Ring
-                                                        Phenomenon Using
-                                                        Particle Level Set Method."
-                                                        <i>
-                                                            ASIAGRAPH</i>
-                                                        Tokyo, Japan: 2009
-                                                        . <div class="clearfix"></div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        <u>S. Rahman</u> and Y. Kawaguchi "Simulating Realistic Bubble and
-                                                        Foam Floating on
-                                                        Fluid."
-                                                        <i>
-                                                            ASIAGRAPH</i>
-                                                        Shanghai, China: 2008
-                                                        . <div class="clearfix"></div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>
-                                                <div class="">
-                                                    <div class="">
-                                                        R. Shimada, <u>S. Rahman</u> and Y. Kawaguchi "Simulating the
-                                                        Coalescence and Separation
-                                                        of Bubble and Foam by Particle Level Set Method."
-                                                        <i>
-                                                            Computer Graphics, Imaging and Visualization: Modern Techniques
-                                                            and Applications
-                                                            (CGIV)</i>
-                                                        Penang, Malaysia: 2008
-                                                        . <div class="clearfix"></div>
-
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
                                         <tr>
                                             <td colspan="2"
                                                 style="height: 20px;background: #fff;border-left:1px solid #fff;border-right:1px solid #fff;">
