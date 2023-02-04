@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="overflow-x: hidden;">
 
 <head>
     <meta charset="UTF-8">
@@ -52,7 +52,7 @@
     </style>
 </head>
 
-<body>
+<body style="overflow-x: hidden;">
     <!-- Header Start -->
     <header>
         <div class="header">
@@ -364,7 +364,7 @@
     <!-- About End -->
 
     <!-- Chairman Start -->
-    <section class="code code--small code--left aos-init" data-aos="zoom-out-right" style="background-color: #F9F6EF; padding: 10px 0">
+    <section class="code code--left aos-init" data-aos="zoom-out-right" style="background-color: #F9F6EF; padding: 10px 0; ">
         <div class="container">
             <div class="row" >
                 <div class="col-2">
