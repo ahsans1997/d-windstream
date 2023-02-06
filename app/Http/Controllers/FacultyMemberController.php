@@ -20,6 +20,7 @@ use App\Models\FacultyMemberResearchInterest;
 use App\Models\FacultyMemberResearchInvitedTalk;
 use App\Models\FacultyMemberResearchProjectSupervsion;
 use App\Models\FacultyMemberResearchWork;
+use Illuminate\Support\Facades\Storage;
 
 class FacultyMemberController extends Controller
 {
@@ -515,5 +516,10 @@ class FacultyMemberController extends Controller
             Toastr::error("Some Problem happen");
         }
 
+    }
+
+    public function download($slug){
+        $facultyMember = FacultyMember::where('slug',$slug)->first();
+        return Storage::download('facultyMember/'.$facultyMember->file);
     }
 }

@@ -17,7 +17,9 @@
                 </div>
             </div>
             <div class="col">
-
+                @if($member->file)
+                    <a href="{{ route('member-profile.download',$member->slug) }}" class="btn button-color mt-3" style="float:right; font-size: 20px;"><i class="fa-solid fa-download" style="margin-right: 10px"></i>Print</a>
+                @endif
             </div>
         </div>
         <div class="row">
