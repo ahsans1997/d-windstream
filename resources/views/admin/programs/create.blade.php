@@ -83,7 +83,7 @@
 
                             </div>
 
-                            <h4>All Syllabus</h4> <button id="addsyllabus" style="float: right">Add</button>
+                            <h4>All Syllabus/Routines</h4> <button id="addsyllabus" style="float: right">Add</button>
 
                             <div class="row">
                                 <div class="col-md-12">

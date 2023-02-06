@@ -29,7 +29,13 @@
                                     <tr>
                                         <th>{{ $loop->index + 1 }}</th>
                                         <td>{{ $notice->title }}</td>
-                                        <td>{{ $notice->department->name }}</td>
+                                        <td>
+                                            @if ($notice->department_id == 1000)
+                                                Null
+                                            @else
+                                                {{ $notice->department->name }}
+                                            @endif
+                                        </td>
                                         <td>
                                             <img src="{{ asset('/') }}assets/uploads/notices/{{ $notice->image }}" class="img-fluid" alt="" style="width: 100px">
                                         </td>

@@ -41,7 +41,7 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link rounded-0" id="contact-tab" data-toggle="tab"
                                         data-target="#contact" type="button" role="tab" aria-controls="contact"
-                                        aria-selected="false">All Syllabus</button>
+                                        aria-selected="false">All Syllabus/Routines</button>
                                 </li>
                             </ul>
 

@@ -29,6 +29,7 @@
                                 <label for="placeholderInput" class="form-label">Department</label>
                                 <select class="form-select mb-3" aria-label=".form-select-lg example" name="department_id">
                                     <option selected value="">Open this select menu</option>
+                                    <option value="1000">General Notice</option>
                                     @foreach ($departments as $department)
                                         <option value="{{ $department->id }}">{{ $department->name }}</option>
                                     @endforeach

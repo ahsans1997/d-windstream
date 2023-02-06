@@ -17,7 +17,7 @@ class CreateNoticesTable extends Migration
             $table->id();
             $table->string('title');
             $table->longText('description');
-            $table->longText('department_id');
+            $table->string('department_id');
             $table->string('file')->nullable();
             $table->string('slug')->unique();
             $table->string('meta_keywords')->nullable();

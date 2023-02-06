@@ -22,7 +22,7 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Session</th>
                                     <th scope="col">Department</th>
-                                    <th scope="col">Duration(In month)</th>
+                                    <th scope="col">Duration(In Semester)</th>
 
                                 </tr>
                             </thead>
